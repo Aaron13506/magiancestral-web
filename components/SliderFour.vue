@@ -1,74 +1,335 @@
 <template>
   <section class="banner_four_section">
-
-    <div class="banner-carousel-four owl-theme owl-carousel">
-      <no-ssr>
-        <carousel :items="1" :autoplay="true" :nav="false">
-      <!-- Slide Item -->
-      <div class="slide-item">
-        <div class="image-layer" style="background-image: url(/assets/images/main-slider/slide_v4_1.jpg);">
-        </div>
-        <div class="auto-container">
-          <div class="content-box">
-            <div class="content text-right">
-              <div class="inner">
-                <h1><span>Organic</span> farming<br> is better for the<br> environment</h1>
-                <div class="link-box">
-                  <nuxt-link to="/about" class="thm-btn">Discover More</nuxt-link>
+    <div class="banner-carousel-four">
+      <Swiper
+        :modules="[SwiperAutoplay, SwiperNavigation]"
+        :slides-per-view="1"
+        :autoplay="{ delay: 5000 }"
+        :loop="true"
+        :navigation="false"
+        class="swiper-container"
+      >
+        <!-- Slide Item -->
+        <SwiperSlide>
+          <div class="slide-item">
+            <div class="image-layer" style="background-image: url(/assets/images/main-slider/slide_v4_1.jpg);">
+            </div>
+            <div class="auto-container">
+              <div class="content-box">
+                <div class="content text-left">
+                  <div class="inner">
+                    <h1><span>Magia</span> Ancestral</h1>
+                    <div class="subtitle-box">
+                      <p class="subtitle">Te da la bienvenida a nuestra familia</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </SwiperSlide>
 
-      <!-- Slide Item -->
-      <div class="slide-item">
-        <div class="image-layer" style="background-image: url(/assets/images/main-slider/slide_v4_2.jpg);">
-        </div>
-        <div class="auto-container">
-          <div class="content-box">
-            <div class="content text-right">
-              <div class="inner">
-                <h1><span>Organic</span> farming<br> is better for the<br> environment</h1>
-                <div class="link-box">
-                  <nuxt-link to="/about" class="thm-btn">Discover More</nuxt-link>
+        <!-- Slide Item -->
+        <SwiperSlide>
+          <div class="slide-item">
+            <div class="image-layer" style="background-image: url(/assets/images/main-slider/IMG_20250604_180630_493-4.jpg);">
+            </div>
+            <div class="auto-container">
+              <div class="content-box">
+                <div class="content text-left">
+                  <div class="inner">
+                    <h1><span>Magia</span> Ancestral</h1>
+                    <div class="subtitle-box">
+                      <p class="subtitle">Te da la bienvenida a nuestra familia</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </SwiperSlide>
 
-      <!-- Slide Item -->
-      <div class="slide-item">
-        <div class="image-layer" style="background-image: url(/assets/images/main-slider/slide_v4_1.jpg);">
-        </div>
-        <div class="auto-container">
-          <div class="content-box">
-            <div class="content text-right">
-              <div class="inner">
-                <h1><span>Organic</span> farming<br> is better for the<br> environment</h1>
-                <div class="link-box">
-                  <nuxt-link to="/about" class="thm-btn">Discover More</nuxt-link>
+        <!-- Slide Item -->
+        <SwiperSlide>
+          <div class="slide-item">
+            <div class="image-layer" style="background-image: url(/assets/images/main-slider/photo_5132226322762935852_y.jpg);">
+            </div>
+            <div class="auto-container">
+              <div class="content-box">
+                <div class="content text-left">
+                  <div class="inner">
+                    <h1><span>Magia</span> Ancestral</h1>
+                    <div class="subtitle-box">
+                      <p class="subtitle">Te da la bienvenida a nuestra familia</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-        </carousel>
-      </no-ssr>
+        </SwiperSlide>
+      </Swiper>
     </div>
   </section>
 </template>
 
-<script>
-    export default {
-      name: "SliderFour"
-    }
+<script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, Navigation } from 'swiper/modules'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/autoplay'
+
+// Swiper modules
+const SwiperAutoplay = Autoplay
+const SwiperNavigation = Navigation
 </script>
 
 <style scoped>
+.banner_four_section {
+  position: relative;
+  background-color: #1a1a1a;
+}
 
+.banner-carousel-four {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.slide-item {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.image-layer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.auto-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.content-box {
+  position: relative;
+  z-index: 15;
+}
+
+.content {
+  position: relative;
+  z-index: 20;
+}
+
+.content.text-left {
+  text-align: left;
+}
+
+.inner {
+  position: relative;
+  z-index: 25;
+}
+
+.inner h1 {
+  font-size: 5rem !important;
+  font-weight: 700 !important;
+  color: white !important;
+  line-height: 1.1 !important;
+  margin-bottom: 20px !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.inner h1 span {
+  color: #e1b493 !important;
+  display: inline !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.subtitle-box {
+  margin-top: 30px !important;
+  position: relative !important;
+  z-index: 30 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.subtitle {
+  font-size: 1.25rem !important;
+  color: #e1b493 !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+  padding: 12px 25px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid #e1b493 !important;
+  border-radius: 8px !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6) !important;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 30 !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+}
+
+.subtitle:hover {
+  background: rgba(225, 180, 147, 0.2) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(225, 180, 147, 0.3) !important;
+}
+
+.link-box {
+  margin-top: 30px !important;
+  position: relative !important;
+  z-index: 30 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.thm-btn {
+  display: inline-block !important;
+  padding: 15px 30px !important;
+  background-color: #e1b493 !important;
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  border-radius: 5px !important;
+  transition: all 0.3s ease !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  position: relative !important;
+  z-index: 30 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.thm-btn:hover {
+  background-color: #d19b7a !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(225, 180, 147, 0.3) !important;
+}
+
+@media (max-width: 768px) {
+  .inner h1 {
+    font-size: 3.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem !important;
+    padding: 10px 20px !important;
+  }
+
+  .content.text-left {
+    text-align: center;
+  }
+
+  .slide-item {
+    height: 70vh;
+    min-height: 500px;
+  }
+
+  .banner-carousel-four {
+    height: 70vh;
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner h1 {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem !important;
+    padding: 8px 16px !important;
+  }
+}
+
+/* Emergency styles to ensure text visibility */
+.banner_four_section h1 {
+  color: white !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999 !important;
+  position: relative !important;
+}
+
+.banner_four_section .thm-btn {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999 !important;
+  position: relative !important;
+  background-color: #e1b493 !important;
+  color: white !important;
+  padding: 15px 30px !important;
+  border-radius: 5px !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+}
+
+.banner_four_section .subtitle {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999 !important;
+  position: relative !important;
+  color: #e1b493 !important;
+  font-size: 1.25rem !important;
+  font-weight: 400 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6) !important;
+  border: 2px solid #e1b493 !important;
+  border-radius: 8px !important;
+  padding: 12px 25px !important;
+}
+
+.banner_four_section .subtitle-box {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999 !important;
+  position: relative !important;
+  margin-top: 90px !important;
+}
 </style>

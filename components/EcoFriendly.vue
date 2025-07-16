@@ -8,7 +8,7 @@
               <span class="icon-focus"></span>
             </div>
             <div class="eco_friendly_title">
-              <h2>Eco-Friendly Products Can Be<br>Made From Scratch</h2>
+              <h2>Productos Naturales Hechos<br>Desde Cero con Magia Ancestral</h2>
             </div>
           </div>
         </div>

@@ -3,8 +3,8 @@
     <div class="welcome_two_bg" style="background-image: url(/assets/images/resources/welcome_2_bg.png)"></div>
     <div class="container">
       <div class="block-title text-center">
-        <p>Welcome to agrikol</p>
-        <h3>We’ve 40 Years Agriculture<br>Experiences</h3>
+        <p>Bienvenido a Magia Ancestral</p>
+        <h3>Tenemos 40 Años de Experiencia<br>en Medicina Natural</h3>
         <div class="leaf">
           <img src="/assets/images/resources/leaf.png" alt="">
         </div>
@@ -12,9 +12,7 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12">
           <div class="welcome_two_text text-center">
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-              suffered alteration in<br>some form, by injected humour, or randomised words which don't
-              look even slightly believable.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
         </div>
       </div>
