@@ -1,15 +1,12 @@
 <template>
   <div>
-    <NavFour />
+    <Nav />
     <SliderFour />
-    <DetailsOne />
     <WelcomeTwo />
     <EcoFriendly />
     <ServiceFour />
-    <FaqOne />
-    <TestimonialThree />
     <BrandFour />
-    <AchievedOne />
+    <WelcomeOne />
     <FunfactOne />
     <BlogFour />
     <Footer />

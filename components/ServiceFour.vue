@@ -3,53 +3,51 @@
     <div class="container">
       <div class="service_four_top"></div>
       <div class="block-title text-center">
-        <p>Lo que hacemos</p>
-        <h3>Servicios que Ofrecemos</h3>
+        <h3>Nuestros encuentros</h3>
         <div class="leaf">
           <img src="/assets/images/resources/leaf.png" alt="">
         </div>
       </div>
-      <div class="row">
-        <div class="col-xl-3 col-lg-3 col-md-6">
+      <!-- Servicios principales -->
+      <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-6 col-md-6">
           <div class="service_four_single wow fadeInLeft" data-wow-delay="300ms">
             <div class="service_four_icon">
-              <span class="icon-temperature"></span>
+              <img src="/assets/images/Servicios/YageAyahuasca.png" alt="Yage Ayahuasca" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">hierbas medicinales frescas</nuxt-link></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-              </p>
+              <h3><nuxt-link to="/service-detail" class="service_four_title">Yage / Ayahuasca</nuxt-link></h3>
             </div>
             <div class="service_four_read_more">
               <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-lg-3 col-md-6">
+        <div class="col-xl-6 col-lg-6 col-md-6">
           <div class="service_four_single wow fadeInLeft" data-wow-delay="400ms">
             <div class="service_four_icon">
-              <span class="icon-harvest"></span>
+              <img src="/assets/images/Servicios/Reino_fungi.png" alt="Reino Fungi" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">productos naturales</nuxt-link>
-              </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-              </p>
+              <h3><nuxt-link to="/service-detail" class="service_four_title">Reino Fungi</nuxt-link></h3>
             </div>
             <div class="service_four_read_more">
               <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Otros servicios -->
+      <div class="row secondary-services">
         <div class="col-xl-3 col-lg-3 col-md-6">
           <div class="service_four_single wow fadeInLeft" data-wow-delay="500ms">
             <div class="service_four_icon">
-              <span class="icon-growth"></span>
+              <img src="/assets/images/Servicios/Abra_Cadabra.png" alt="Abra Cadabra" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">remedios orgánicos</nuxt-link></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-              </p>
+              <h3><nuxt-link to="/service-detail" class="service_four_title">Abra Cadabra</nuxt-link></h3>
+              <p>Palabra sagrada creativa</p>
             </div>
             <div class="service_four_read_more">
               <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
@@ -59,59 +57,39 @@
         <div class="col-xl-3 col-lg-3 col-md-6">
           <div class="service_four_single wow fadeInLeft" data-wow-delay="600ms">
             <div class="service_four_icon">
-              <span class="icon-wheat"></span>
+              <img src="/assets/images/Servicios/Teramai_Senchen.png" alt="Teramai Senchen" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">preparación de tinturas</nuxt-link></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-              </p>
+              <h3><nuxt-link to="/service-detail" class="service_four_title">Teramai Senchen</nuxt-link></h3>
+              <p>Reiki <br> chamánico</p>
             </div>
             <div class="service_four_read_more">
               <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-4 col-lg-4 col-md-6">
+        <div class="col-xl-3 col-lg-3 col-md-6">
           <div class="service_four_single wow fadeInLeft" data-wow-delay="700ms">
             <div class="service_four_icon">
-              <span class="icon-dairy"></span>
+              <img src="/assets/images/Servicios/Velada_Musical.png" alt="Velada Musical" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">terapias naturales</nuxt-link></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-              </p>
+              <h3><nuxt-link to="/service-detail" class="service_four_title">Velada Musical</nuxt-link></h3>
+              <p>Festival de musica medicinal</p>
             </div>
             <div class="service_four_read_more">
               <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-4 col-md-6">
+        <div class="col-xl-3 col-lg-3 col-md-6">
           <div class="service_four_single wow fadeInLeft" data-wow-delay="800ms">
             <div class="service_four_icon">
-              <span class="icon-livestock"></span>
+              <img src="/assets/images/Servicios/MagicSaDan.png" alt="MagicSaDan" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">cuidado holístico</nuxt-link></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-              </p>
-            </div>
-            <div class="service_four_read_more">
-              <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6">
-          <div class="service_four_single wow fadeInLeft" data-wow-delay="900ms">
-            <div class="service_four_icon">
-              <span class="icon-farming"></span>
-            </div>
-            <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">consulta de medicina natural</nuxt-link></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-              </p>
+              <h3><nuxt-link to="/service-detail" class="service_four_title">MagicSaDan</nuxt-link></h3>
+              <p>Movimiento Sagrado circular</p>
             </div>
             <div class="service_four_read_more">
               <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
@@ -130,5 +108,15 @@
 </script>
 
 <style scoped>
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 2px;
+  filter: invert(1);
+}
 
+.secondary-services {
+  margin-top: 30px;
+}
 </style>

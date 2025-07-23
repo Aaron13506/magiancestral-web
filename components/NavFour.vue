@@ -98,6 +98,9 @@
             <!-- Cart removed -->
           </div>
         </div>
+        
+        <!-- Radio Player integrado dentro del nav sticky -->
+        <RadioPlayer />
       </nav>
 
       <nav

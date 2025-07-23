@@ -5,10 +5,10 @@
         <div class="col-xl-12">
           <div class="eco_friendly_content">
             <div class="eco_friendly_icon_box">
-              <span class="icon-focus"></span>
+              <img src="/assets/images/icon/luna.png" alt="Luna" class="luna-icon" />
             </div>
             <div class="eco_friendly_title">
-              <h2>Productos Naturales Hechos<br>Desde Cero con Magia Ancestral</h2>
+              <h2>Nuestras prácticas integran terapia y espiritualidad, acogiendo todos los credos y visiones para sanar cuerpo, mente y alma en unión con el Espíritu</h2>
             </div>
           </div>
         </div>
@@ -24,5 +24,10 @@
 </script>
 
 <style scoped>
-
+.luna-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 2px;
+}
 </style>
