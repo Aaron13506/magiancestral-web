@@ -323,7 +323,7 @@
     padding: 17px 50px;
     margin-right: 0.2rem;
     cursor: pointer;
-    background: #5e9054;
+    background: #0c7737;
     font-weight: 500;
     transition: background ease 0.2s;
     font-size: 19px;
@@ -336,13 +336,13 @@
     width: 100%;
     display: none;
     padding: 1rem;
-    background: #F4F5F8;
+    background: #eceeef;
   }
   .default-tabs .mission-tabs .text {
     position: relative;
     font-size: 20px;
     font-weight: 300;
-    color: #5e9054;
+    color: #0c7737;
     line-height: 1.7em;
     letter-spacing: 2px;
   }
@@ -350,7 +350,7 @@
     display: none;
   }
   .mission-tabs input[type="radio"]:checked + label {
-    background: #F4F5F8;
+    background: #eceeef;
     color: #222;
   }
   .mission-tabs input[type="radio"]:checked + label + .tab {

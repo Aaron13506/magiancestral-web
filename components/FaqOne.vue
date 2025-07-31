@@ -93,7 +93,7 @@
   }
 
   .ac.is-active .ac-q {
-    color: #5a8b50 !important;
+    color: #0c7737 !important;
   }
   .ac>.ac-q::after {
     content: '+';
@@ -115,7 +115,7 @@
   }
 
   .ac>.ac-a p {
-    color: #878e9c;
+    color: #7da052;
     margin: 0;
     padding: 10px;
     font-size: 16px;
@@ -132,6 +132,6 @@
 
   .ac.is-active>.ac-q::after {
     content: '\2013';
-    color: #5a8b50;
+    color: #0c7737;
   }
 </style>

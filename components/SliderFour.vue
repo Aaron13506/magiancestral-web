@@ -90,7 +90,7 @@ const SwiperNavigation = Navigation
 <style scoped>
 .banner_four_section {
   position: relative;
-  background-color: #1a1a1a;
+  background-color: #0e3858;
 }
 
 .banner-carousel-four {
@@ -177,7 +177,7 @@ const SwiperNavigation = Navigation
 }
 
 .inner h1 span {
-  color: #e1b493 !important;
+  color: #b3a85a !important;
   display: inline !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -193,13 +193,13 @@ const SwiperNavigation = Navigation
 
 .subtitle {
   font-size: 1.25rem !important;
-  color: #e1b493 !important;
+  color: #b3a85a !important;
   font-weight: 400 !important;
   line-height: 1.4 !important;
   margin: 0 !important;
   padding: 12px 25px !important;
   background: rgba(255, 255, 255, 0.1) !important;
-  border: 2px solid #e1b493 !important;
+  border: 2px solid #b3a85a !important;
   border-radius: 8px !important;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6) !important;
   display: inline-block !important;
@@ -212,9 +212,9 @@ const SwiperNavigation = Navigation
 }
 
 .subtitle:hover {
-  background: rgba(225, 180, 147, 0.2) !important;
+  background: rgba(179, 168, 90, 0.2) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 5px 15px rgba(225, 180, 147, 0.3) !important;
+  box-shadow: 0 5px 15px rgba(179, 168, 90, 0.3) !important;
 }
 
 .link-box {
@@ -228,7 +228,7 @@ const SwiperNavigation = Navigation
 .thm-btn {
   display: inline-block !important;
   padding: 15px 30px !important;
-  background-color: #e1b493 !important;
+  background-color: #b3a85a !important;
   color: white !important;
   text-decoration: none !important;
   font-weight: 600 !important;
@@ -243,9 +243,9 @@ const SwiperNavigation = Navigation
 }
 
 .thm-btn:hover {
-  background-color: #d19b7a !important;
+  background-color: #7da052 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 5px 15px rgba(225, 180, 147, 0.3) !important;
+  box-shadow: 0 5px 15px rgba(179, 168, 90, 0.3) !important;
 }
 
 @media (max-width: 768px) {
@@ -300,7 +300,7 @@ const SwiperNavigation = Navigation
   opacity: 1 !important;
   z-index: 999 !important;
   position: relative !important;
-  background-color: #e1b493 !important;
+  background-color: #b3a85a !important;
   color: white !important;
   padding: 15px 30px !important;
   border-radius: 5px !important;
@@ -315,11 +315,11 @@ const SwiperNavigation = Navigation
   opacity: 1 !important;
   z-index: 999 !important;
   position: relative !important;
-  color: #e1b493 !important;
+  color: #b3a85a !important;
   font-size: 1.25rem !important;
   font-weight: 400 !important;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6) !important;
-  border: 2px solid #e1b493 !important;
+  border: 2px solid #b3a85a !important;
   border-radius: 8px !important;
   padding: 12px 25px !important;
 }

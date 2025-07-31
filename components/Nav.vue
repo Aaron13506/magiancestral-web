@@ -42,6 +42,16 @@
               <i @click="mobileToggle = !mobileToggle" class="fa fa-bars"></i>
             </a>
           </div>
+          <!-- Mobile logo - shown only on mobile -->
+          <div class="main-nav__mobile-logo">
+            <a href="/" class="main-nav__logo">
+              <img
+                src="/assets/images/resources/image.png"
+                class="main-logo"
+                alt="Awesome Image"
+              />
+            </a>
+          </div>
           <div class="main-nav__main-navigation four">
             <ul class="main-nav__navigation-box">
               <li class="current">
@@ -98,7 +108,7 @@
             <!-- Cart removed -->
           </div>
         </div>
-        
+
         <!-- Radio Player integrado dentro del nav sticky -->
         <RadioPlayer />
       </nav>
@@ -202,4 +212,35 @@ onMounted(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+/* Hide topbar on mobile */
+@media (max-width: 1023px) {
+  .topbar-one.topbar_four {
+    display: none;
+  }
+
+  .container.clearfix {
+    position: relative;
+  }
+
+  .main-nav__mobile-logo {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .main-nav__mobile-logo .main-logo {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Hide mobile logo on desktop */
+@media (min-width: 1024px) {
+  .main-nav__mobile-logo {
+    display: none;
+  }
+}
+</style>

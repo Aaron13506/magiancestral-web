@@ -2,18 +2,26 @@
   <div class="radio-player">
     <div class="container-fluid">
       <div class="row align-items-center">
-        <div class="col-md-4">
-          <div class="radio-info d-flex align-items-center">
-            <div class="radio-icon me-2">
-              <img src="/assets/images/icon/radio.png" alt="Radio" />
+        <div class="col-12 col-md-4">
+          <div class="radio-info d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <div class="radio-icon me-2">
+                <img src="/assets/images/icon/radio.png" alt="Radio" />
+              </div>
+              <div class="radio-station">
+                <span class="station-name">Magia Ancestral Radio</span>
+              </div>
             </div>
-            <div class="radio-station">
-              <span class="station-name">Radio Magia Ancestral</span>
-            </div>
+            <button
+              class="btn-play-pause d-md-none"
+              @click="togglePlayPause"
+            >
+              <i :class="isPlaying ? 'fas fa-pause' : 'fas fa-play'"></i>
+            </button>
           </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 d-none d-md-block">
           <div class="radio-controls d-flex align-items-center justify-content-center">
             <button
               class="btn-play-pause me-3"
@@ -37,7 +45,7 @@
           </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 d-none d-md-block">
           <div class="radio-extra d-flex align-items-center justify-content-end">
             <div class="now-playing" v-if="nowPlaying">
               <span class="status-text">{{ nowPlaying }}</span>
@@ -133,8 +141,8 @@ onMounted(() => {
 
 <style scoped>
 .radio-player {
-  background: linear-gradient(135deg, #2c5530 0%, #3d7043 100%);
-  border-bottom: 2px solid #4a8c54;
+  background: linear-gradient(135deg, #114736 0%, #0c7737 100%);
+  border-bottom: 2px solid #7da052;
   padding: 8px 0;
   transition: all 0.3s ease;
 }
@@ -186,7 +194,7 @@ onMounted(() => {
 }
 
 .btn-play-pause {
-  background: #4a8c54;
+  background: #0c7737;
   width: 40px;
   height: 40px;
 }
@@ -197,7 +205,7 @@ onMounted(() => {
 }
 
 .btn-play-pause:hover {
-  background: #5aa864;
+  background: #7da052;
 }
 
 .btn-control:disabled {
@@ -260,18 +268,6 @@ onMounted(() => {
 @media (max-width: 768px) {
   .radio-player {
     padding: 5px 0;
-  }
-
-  .volume-control {
-    display: none;
-  }
-
-  .now-playing {
-    display: none;
-  }
-
-  .radio-controls {
-    justify-content: center;
   }
 
   .btn-control, .btn-play-pause {

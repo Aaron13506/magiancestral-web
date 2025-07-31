@@ -1102,7 +1102,7 @@
         right: 0;
         height: 30px;
         width: 30px;
-        background: #5b8c51;
+        background: #0c7737;
         border-radius: 50%;
         text-align: center;
         display: flex;
@@ -1115,10 +1115,10 @@
     }
     .faq-one-accrodion .accrodion.active .accrodion-title h4::before {
         content: "\f068";
-        color: #404a3d;
+        color: #0e3858;
         height: 30px;
         width: 30px;
-        background: #eddd5e;
+        background: #b3a85a;
         border-radius: 50%;
         text-align: center;
         display: flex;
@@ -1303,7 +1303,7 @@
         padding-left: 0;
     }
     .mobile_menu_icon_three.five a {
-        color: #404a3d;
+        color: #0e3858;
         font-size: 30px;
     }
     .topbar_three_nav_box .stricked-menu {
@@ -1499,7 +1499,7 @@
         display: none;
     }
     .banner-carousel.five .content-box p {
-        color: #404a3d;
+        color: #0e3858;
         margin: 71px 0 30px;
     }
 }
