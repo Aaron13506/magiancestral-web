@@ -28,7 +28,7 @@
         <div class="col-xl-6 col-lg-6 col-md-6">
           <div class="welcome_two_single">
             <div class="welcome_two_image_right wow fadeInRight" data-wow-delay="100ms">
-              <img src="/assets/images/resources/welcome-2_img-2.jpg" alt="Welcome Two Image">
+              <img src="/assets/images/resources/IMG-20240218-WA0059.jpg" alt="Welcome Two Image">
             </div>
           </div>
         </div>

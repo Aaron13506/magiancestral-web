@@ -12,7 +12,7 @@
         <!-- Slide Item -->
         <SwiperSlide>
           <div class="slide-item">
-            <div class="image-layer" style="background-image: url(/assets/images/main-slider/slide_v4_1.jpg);">
+            <div class="image-layer" style="background-image: url(/assets/images/main-slider/slider_3.jpg);">
             </div>
             <div class="auto-container">
               <div class="content-box">
@@ -132,7 +132,6 @@ const SwiperNavigation = Navigation
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
 
