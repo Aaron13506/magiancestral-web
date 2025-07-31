@@ -36,12 +36,12 @@
 # Common
 --------------------------------------------------------------*/
 
-/*font-family: 'Barlow', sans-serif;
-font-family: 'Amatic SC', cursive;*/
+/*font-family: 'Fraunces', serif;
+font-family: 'Poppins', sans-serif;*/
 
 :root {
-  --thm-font: "Barlow", sans-serif;
-  --heading-font: "Amatic SC", cursive;
+  --thm-font: "Fraunces", serif;
+  --heading-font: "Poppins", sans-serif;
   --thm-base: #b3a85a;
   --thm-base-rgb: 179, 168, 90;
   --thm-primary: #0c7737;
