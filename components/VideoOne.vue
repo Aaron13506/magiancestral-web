@@ -9,19 +9,34 @@
   </section>
 </template>
 
-<script>
-    export default {
-      name: "VideoOne",
-      mounted() {
-        new GLightbox({
-          selector: '.videoOne',
-          touchNavigation: true,
-          loop: true,
-          autoplayVideos: true
-        });
-      }
+<script setup>
+import { onMounted } from 'vue'
+import { useRadioStore } from '~/store/index.js'
 
+const radioStore = useRadioStore()
+let wasPlayingBeforeVideo = false
+
+onMounted(() => {
+  const lightbox = new GLightbox({
+    selector: '.videoOne',
+    touchNavigation: true,
+    loop: true,
+    autoplayVideos: true
+  })
+
+  lightbox.on('open', () => {
+    wasPlayingBeforeVideo = radioStore.isPlaying
+    if (wasPlayingBeforeVideo) {
+      radioStore.pause()
     }
+  })
+
+  lightbox.on('close', () => {
+    if (wasPlayingBeforeVideo) {
+      radioStore.play()
+    }
+  })
+})
 </script>
 
 <style scoped>

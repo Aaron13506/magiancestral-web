@@ -55,88 +55,29 @@
       </div>
     </div>
 
-    <audio
-      ref="audioPlayer"
-      preload="none"
-      @loadstart="onLoadStart"
-      @canplay="onCanPlay"
-      @playing="onPlaying"
-      @pause="onPause"
-      @error="onError"
-    ></audio>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { computed } from 'vue'
+import { useRadioStore } from '~/store/index.js'
 
-const audioPlayer = ref(null)
-const isPlaying = ref(false)
-const volume = ref(70)
-const nowPlaying = ref('')
+const radioStore = useRadioStore()
 
-const radioUrl = 'https://radio.cimaspeed.com/8202/stream'
+const isPlaying = computed(() => radioStore.isPlaying)
+const volume = computed({
+  get: () => radioStore.volume,
+  set: (value) => radioStore.setVolume(value)
+})
+const nowPlaying = computed(() => radioStore.nowPlaying)
 
 const togglePlayPause = () => {
-  if (isPlaying.value) {
-    pause()
-  } else {
-    play()
-  }
-}
-
-const play = () => {
-  if (audioPlayer.value) {
-    audioPlayer.value.src = radioUrl
-    audioPlayer.value.play()
-  }
-}
-
-const pause = () => {
-  if (audioPlayer.value) {
-    audioPlayer.value.pause()
-  }
+  radioStore.togglePlayPause()
 }
 
 const changeVolume = () => {
-  if (audioPlayer.value) {
-    audioPlayer.value.volume = volume.value / 100
-  }
+  radioStore.setVolume(volume.value)
 }
-
-
-const onLoadStart = () => {
-  nowPlaying.value = 'Cargando...'
-}
-
-const onCanPlay = () => {
-  nowPlaying.value = 'Listo para reproducir'
-}
-
-const onPlaying = () => {
-  isPlaying.value = true
-  nowPlaying.value = 'Reproduciendo: En vivo'
-}
-
-const onPause = () => {
-  isPlaying.value = false
-  nowPlaying.value = 'Pausado'
-}
-
-const onError = () => {
-  isPlaying.value = false
-  nowPlaying.value = 'Error al cargar'
-}
-
-watch(volume, () => {
-  changeVolume()
-})
-
-onMounted(() => {
-  if (audioPlayer.value) {
-    audioPlayer.value.volume = volume.value / 100
-  }
-})
 </script>
 
 <style scoped>

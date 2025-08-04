@@ -7,7 +7,7 @@
     <ServiceFour />
     <BrandFour />
     <WelcomeOne />
-    <FunfactOne />
+    <EcoFriendlyTwo />
     <BlogFour />
     <Footer />
   </div>
