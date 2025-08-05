@@ -12,7 +12,7 @@
         <!-- Slide Item -->
         <SwiperSlide>
           <div class="slide-item">
-            <div class="image-layer" style="background-image: url(/assets/images/main-slider/slider_3.jpg);">
+            <div class="image-layer" style="background-image: url(/assets/images/main-slider/paisaje4.jpg);">
             </div>
             <div class="auto-container">
               <div class="content-box">

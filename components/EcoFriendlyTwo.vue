@@ -1,5 +1,5 @@
 <template>
-  <section class="eco_friendly" style="background-image: url(https://picsum.photos/1894/697)">
+  <section class="eco_friendly" style="background-image: url(/assets/images/backgrounds/ocaso.jpg)">
     <div class="container">
       <div class="row">
         <div class="col-xl-12">
