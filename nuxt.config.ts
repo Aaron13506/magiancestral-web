@@ -17,7 +17,13 @@ export default defineNuxtConfig({
         { rel: 'icon', sizes: '16x16', type: 'image/png', href: '/assets/images/favicons/favicon-16x16.png' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap' }
       ],
-      script: []
+      script: [
+        {
+          id: 'sonic_js',
+          'data-port': '8202',
+          src: 'https://radio.cimaspeed.com/cp/widgets.js?r=824'
+        }
+      ]
     }
   },
 
@@ -30,7 +36,8 @@ export default defineNuxtConfig({
     '~/public/assets/css/fontawesome-all.min.css',
     '~/public/assets/css/agrikol_iconl.css',
     '~/public/assets/css/style.css',
-    '~/public/assets/css/responsive.css'
+    '~/public/assets/css/responsive.css',
+    '~/assets/css/global-overrides.css'
   ],
 
   modules: [

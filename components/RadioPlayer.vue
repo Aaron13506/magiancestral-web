@@ -4,12 +4,24 @@
       <div class="row align-items-center">
         <div class="col-12 col-md-4">
           <div class="radio-info d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center flex-grow-1">
               <div class="radio-icon me-2">
                 <img src="/assets/images/icon/radio.png" alt="Radio" />
               </div>
               <div class="radio-station">
-                <span class="station-name">Magia Ancestral Radio</span>
+                <div class="infinite-scroll-container d-md-none">
+                  <div class="infinite-scroll-text">
+                    <span class="scroll-item">Magia Ancestral Radio</span>
+                    <span class="scroll-separator"> • </span>
+                    <span class="scroll-item mobile-song-title" id="sonic_title_mobile">Cargando...</span>
+                    <span class="scroll-separator"> • </span>
+                    <span class="scroll-item">Magia Ancestral Radio</span>
+                    <span class="scroll-separator"> • </span>
+                    <span class="scroll-item mobile-song-title" id="sonic_title_mobile">Cargando...</span>
+                    <span class="scroll-separator"> • </span>
+                  </div>
+                </div>
+                <span class="station-name d-none d-md-block">Magia Ancestral Radio</span>
               </div>
             </div>
             <button
@@ -47,9 +59,7 @@
 
         <div class="col-md-4 d-none d-md-block">
           <div class="radio-extra d-flex align-items-center justify-content-end">
-            <div class="now-playing" v-if="nowPlaying">
-              <span class="status-text">{{ nowPlaying }}</span>
-            </div>
+            <div id="sonic_title" class="song-title"></div>
           </div>
         </div>
       </div>
@@ -59,7 +69,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRadioStore } from '~/store/index.js'
 
 const radioStore = useRadioStore()
@@ -78,6 +88,22 @@ const togglePlayPause = () => {
 const changeVolume = () => {
   radioStore.setVolume(volume.value)
 }
+
+onMounted(() => {
+  // Sync mobile sonic_title with desktop version
+  const observer = new MutationObserver(() => {
+    const desktopTitle = document.getElementById('sonic_title')?.textContent
+    const mobileTitle = document.getElementById('sonic_title_mobile')
+    if (mobileTitle && desktopTitle) {
+      mobileTitle.textContent = desktopTitle
+    }
+  })
+
+  const desktopElement = document.getElementById('sonic_title')
+  if (desktopElement) {
+    observer.observe(desktopElement, { childList: true, characterData: true, subtree: true })
+  }
+})
 </script>
 
 <style scoped>
@@ -114,6 +140,17 @@ const changeVolume = () => {
   font-size: 14px;
   margin-bottom: 0;
   margin-left: 10px;
+}
+
+.song-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+  text-align: right;
 }
 
 .radio-controls {
@@ -205,6 +242,42 @@ const changeVolume = () => {
   display: block;
 }
 
+
+.infinite-scroll-container {
+  overflow: hidden;
+  margin-left: 10px;
+  width: 180px;
+  white-space: nowrap;
+}
+
+.infinite-scroll-text {
+  display: inline-block;
+  animation: infinite-scroll 12s linear infinite;
+  white-space: nowrap;
+}
+
+.scroll-item {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.mobile-song-title {
+  font-weight: 400;
+}
+
+.scroll-separator {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
 @media (max-width: 768px) {
   .radio-player {

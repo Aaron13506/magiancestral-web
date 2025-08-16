@@ -47,7 +47,7 @@
             </div>
             <div class="service_four_deatils">
               <h3><nuxt-link to="/service-detail" class="service_four_title">Abra Cadabra</nuxt-link></h3>
-              <p>Palabra sagrada creativa</p>
+              <p>Circulo espiritual de efectos terapeuticos</p>
             </div>
             <div class="service_four_read_more">
               <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
@@ -74,7 +74,7 @@
               <img src="/assets/images/Servicios/Velada_Musical.png" alt="Velada Musical" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">Velada Musical</nuxt-link></h3>
+              <h3><nuxt-link to="/service-detail" class="service_four_title">Sesiones</nuxt-link></h3>
               <p>Festival de musica medicinal</p>
             </div>
             <div class="service_four_read_more">
@@ -89,7 +89,7 @@
             </div>
             <div class="service_four_deatils">
               <h3><nuxt-link to="/service-detail" class="service_four_title">MagicSaDan</nuxt-link></h3>
-              <p>Movimiento Sagrado circular</p>
+              <p>Movimiento mágico ancestral</p>
             </div>
             <div class="service_four_read_more">
               <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>

@@ -1,0 +1,60 @@
+/* Global font weight overrides for lighter text appearance */
+
+/* Main headings */
+h1, h1 * {
+  font-weight: 300 !important;
+}
+
+h2, h2 * {
+  font-weight: 400 !important;
+}
+
+h3, h3 * {
+  font-weight: 400 !important;
+}
+
+h4, h4 * {
+  font-weight: 400 !important;
+}
+
+h5, h5 * {
+  font-weight: 400 !important;
+}
+
+h6, h6 * {
+  font-weight: 400 !important;
+}
+
+/* Block titles and specific classes */
+.block-title h1,
+.block-title h2,
+.block-title h3,
+.block-title h4,
+.block-title h5,
+.block-title h6 {
+  font-weight: 400 !important;
+}
+
+.block-title p {
+  font-weight: 300 !important;
+}
+
+/* Specific title classes */
+.eco_friendly_title h2 {
+  font-weight: 400 !important;
+}
+
+/* Slider content */
+.inner h1 {
+  font-weight: 300 !important;
+}
+
+/* Subtitle elements */
+.subtitle {
+  font-weight: 300 !important;
+}
+
+/* Medicine names in brand carousel */
+.medicine-name {
+  font-weight: 400 !important;
+}

@@ -165,7 +165,6 @@ const SwiperNavigation = Navigation
 
 .inner h1 {
   font-size: 5rem !important;
-  font-weight: 700 !important;
   color: white !important;
   line-height: 1.1 !important;
   margin-bottom: 20px !important;
@@ -248,9 +247,6 @@ const SwiperNavigation = Navigation
 }
 
 @media (max-width: 768px) {
-  .inner h1 {
-    font-size: 3.5rem;
-  }
 
   .subtitle {
     font-size: 1.1rem !important;
@@ -273,9 +269,6 @@ const SwiperNavigation = Navigation
 }
 
 @media (max-width: 480px) {
-  .inner h1 {
-    font-size: 2.5rem;
-  }
 
   .subtitle {
     font-size: 0.9rem !important;
