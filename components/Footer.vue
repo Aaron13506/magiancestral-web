@@ -4,40 +4,25 @@
         <div class="site-footer_farm_image"><img src="/assets/images/resources/site-footer-farm.png"
                                                  alt="Farm Image"></div>
         <div class="container">
-          <div class="row no-gutters">
-            <div class="col-xl-4 col-lg-4 col-md-6">
-              <div class="footer-widget__column footer-widget__about wow fadeInUp" data-wow-delay="100ms">
-                <div class="footer-widget__title">
-                  <h3>Acerca de</h3>
-                </div>
-                <div class="footer-widget_about_text">
-                  <p>Lorem ipsum</p>
-                </div>
-                <form>
-                  <div class="footer_input-box">
-                    <input type="Email" placeholder="Dirección de Email">
-                    <button type="submit" class="button"><i class="fa fa-check"></i></button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="col-xl-2 col-lg-2 col-md-6">
+          <div class="row no-gutters justify-content-center">
+            <div class="col-xl-3 col-lg-3 col-md-6">
               <div class="footer-widget__column footer-widget__link wow fadeInUp" data-wow-delay="200ms">
                 <div class="footer-widget__title">
                   <h3>Explorar</h3>
                 </div>
                 <ul class="footer-widget__links-list list-unstyled">
-                  <li><a href="/about">Acerca de</a></li>
-                  <li><a href="/service-detail">Encuentros</a></li>
-                  <li><a href="/projects">Nuestros Proyectos</a></li>
-                  <li><a href="/farmers">Agricultores</a></li>
-                  <li><a href="/news">Noticias</a></li>
-                  <li><a href="/contact">Contacto</a></li>
+                  <li><nuxt-link to="/">Inicio</nuxt-link></li>
+                  <li><nuxt-link to="/service-detail">Encuentros</nuxt-link></li>
+                  <li><nuxt-link to="/projects">Nuestros Proyectos</nuxt-link></li>
+                  <li><nuxt-link to="/about">Acerca de</nuxt-link></li>
+                  <li><nuxt-link to="/farmers">Agricultores</nuxt-link></li>
+                  <li><nuxt-link to="/gallery">Galería</nuxt-link></li>
+                  <li><nuxt-link to="/news">Noticias</nuxt-link></li>
                 </ul>
               </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-6">
-              <div class="footer-widget__column footer-widget__news wow fadeInUp" data-wow-delay="300ms">
+              <div class="footer-widget__column footer-widget__news wow fadeInUp" data-wow-delay="200ms">
                 <div class="footer-widget__title">
                   <h3>Noticias</h3>
                 </div>
@@ -68,7 +53,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-6">
-              <div class="footer-widget__column footer-widget__contact wow fadeInUp" data-wow-delay="400ms">
+              <div class="footer-widget__column footer-widget__contact wow fadeInUp" data-wow-delay="300ms">
                 <div class="footer-widget__title">
                   <h3>Contacto</h3>
                 </div>
@@ -78,10 +63,10 @@
                   <a href="tel:412-XXX-XXXX">0412 752-9535</a><br>
                   <a href="tel:412-XXX-XXXX">0414 910-5091</a>
                   <div class="site-footer__social">
-                    <a href="#"><i class="fab fa-facebook-square"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.tiktok.com/@magiancestral_ven" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/magiancestral_ven" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@magiancestralven" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://t.me/+5WQULe_zXww4ZDEx" target="_blank"><i class="fab fa-telegram"></i></a>
                   </div>
                 </div>
               </div>

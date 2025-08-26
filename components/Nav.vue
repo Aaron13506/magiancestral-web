@@ -21,10 +21,10 @@
         </div>
         <div class="topbar-one__right">
           <div class="topbar-one__social home-four">
-            <a href="#"><i class="fab fa-facebook-square"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="https://www.tiktok.com/@magiancestral_ven" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/magiancestral_ven" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@magiancestralven" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://t.me/+5WQULe_zXww4ZDEx" target="_blank"><i class="fab fa-telegram"></i></a>
           </div>
         </div>
       </div>
@@ -61,38 +61,22 @@
               <li>
                 <nuxt-link to="/service-detail">Encuentros</nuxt-link>
               </li>
-              <li class="dropdown">
+              <li>
                 <nuxt-link to="/projects">Nuestros Proyectos</nuxt-link>
-                <ul>
-                  <li><nuxt-link to="/projects">Proyectos</nuxt-link></li>
-                  <li>
-                    <nuxt-link to="/projects_detail">Detalles del Proyecto</nuxt-link>
-                  </li>
-                </ul>
-                <!-- /.sub-menu -->
               </li>
               <li class="dropdown">
-                <nuxt-link to="#">Páginas</nuxt-link>
+                <nuxt-link to="#">Nosotros</nuxt-link>
                 <ul>
                   <li><nuxt-link to="/about">Acerca de</nuxt-link></li>
-                  <li>
-                    <nuxt-link to="/why_choose_us">Por qué Elegirnos</nuxt-link>
-                  </li>
                   <li><nuxt-link to="/farmers">Agricultores</nuxt-link></li>
-                  <li><nuxt-link to="/gallery">Galería</nuxt-link></li>
-                </ul>
-                <!-- /.sub-menu -->
-              </li>
-              <li class="dropdown">
-                <nuxt-link to="#">Noticias</nuxt-link>
-                <ul>
-                  <li><nuxt-link to="/news">Noticias</nuxt-link></li>
-                  <li><nuxt-link to="/news_detail">Detalles de Noticia</nuxt-link></li>
                 </ul>
                 <!-- /.sub-menu -->
               </li>
               <li>
-                <nuxt-link to="/contact">Contacto</nuxt-link>
+                <nuxt-link to="/gallery">Galería</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/news">Noticias</nuxt-link>
               </li>
             </ul>
           </div>
@@ -120,60 +104,30 @@
           <li>
             <nuxt-link to="/service-detail">Servicios</nuxt-link>
           </li>
-          <li class="dropdown">
-            <div class="menu-holder">
-              Nuestros Proyectos<button
-                class="dropdown-btn"
-                :class="{ open: dropdownStates.projects }"
-                @click="toggleDropdown('projects')"
-              >
-                <i class="fa fa-angle-right"></i>
-              </button>
-            </div>
-            <ul :style="`display: ${dropdownStates.projects ? 'block' : 'none'}`">
-              <li><nuxt-link to="/projects">Proyectos</nuxt-link></li>
-              <li>
-                <nuxt-link to="/projects_detail">Detalles del Proyecto</nuxt-link>
-              </li>
-            </ul>
-            <!-- /.sub-menu -->
+          <li>
+            <nuxt-link to="/projects">Nuestros Proyectos</nuxt-link>
           </li>
           <li class="dropdown">
             <div class="menu-holder">
-              Páginas<button
+              Nosotros<button
                 class="dropdown-btn"
-                :class="{ open: dropdownStates.pages }"
-                @click="toggleDropdown('pages')"
+                :class="{ open: dropdownStates.nosotros }"
+                @click="toggleDropdown('nosotros')"
               >
                 <i class="fa fa-angle-right"></i>
               </button>
             </div>
-            <ul :style="`display: ${dropdownStates.pages ? 'block' : 'none'}`">
+            <ul :style="`display: ${dropdownStates.nosotros ? 'block' : 'none'}`">
               <li><nuxt-link to="/about">Acerca de</nuxt-link></li>
-              <li><nuxt-link to="/why_choose_us">Por qué Elegirnos</nuxt-link></li>
               <li><nuxt-link to="/farmers">Agricultores</nuxt-link></li>
-              <li><nuxt-link to="/gallery">Galería</nuxt-link></li>
-            </ul>
-            <!-- /.sub-menu -->
-          </li>
-          <li class="dropdown">
-            <div class="menu-holder">
-              Noticias<button
-                class="dropdown-btn"
-                :class="{ open: dropdownStates.news }"
-                @click="toggleDropdown('news')"
-              >
-                <i class="fa fa-angle-right"></i>
-              </button>
-            </div>
-            <ul :style="`display: ${dropdownStates.news ? 'block' : 'none'}`">
-              <li><nuxt-link to="/news">Noticias</nuxt-link></li>
-              <li><nuxt-link to="/news_detail">Detalles de Noticia</nuxt-link></li>
             </ul>
             <!-- /.sub-menu -->
           </li>
           <li>
-            <nuxt-link to="/contact">Contacto</nuxt-link>
+            <nuxt-link to="/gallery">Galería</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/news">Noticias</nuxt-link>
           </li>
         </ul>
         </div>
@@ -192,9 +146,7 @@ const sticky = ref(false)
 const mobileToggle = ref(false)
 const dropdownStates = ref({
   services: false,
-  projects: false,
-  pages: false,
-  news: false
+  nosotros: false
 })
 
 const handleScroll = () => {
