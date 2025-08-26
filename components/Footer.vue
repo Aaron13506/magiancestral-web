@@ -28,7 +28,7 @@
                 </div>
                 <ul class="footer-widget__links-list list-unstyled">
                   <li><a href="/about">Acerca de</a></li>
-                  <li><a href="/service">Servicios</a></li>
+                  <li><a href="/service-detail">Encuentros</a></li>
                   <li><a href="/projects">Nuestros Proyectos</a></li>
                   <li><a href="/farmers">Agricultores</a></li>
                   <li><a href="/news">Noticias</a></li>
@@ -74,7 +74,9 @@
                 </div>
                 <div class="footer-widget_contact">
                   <a href="mailto:magiancestralvzla@gmail.com">magiancestralvzla@gmail.com</a><br>
-                  <a href="tel:412-XXX-XXXX">412 XXX-XXXX</a>
+                  <a href="tel:412-XXX-XXXX">0424 160-0760</a><br>
+                  <a href="tel:412-XXX-XXXX">0412 752-9535</a><br>
+                  <a href="tel:412-XXX-XXXX">0414 910-5091</a>
                   <div class="site-footer__social">
                     <a href="#"><i class="fab fa-facebook-square"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>

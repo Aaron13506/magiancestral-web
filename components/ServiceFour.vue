@@ -16,10 +16,10 @@
               <img src="/assets/images/Servicios/YageAyahuasca.png" alt="Yage Ayahuasca" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">Yage / Ayahuasca</nuxt-link></h3>
+              <h3><nuxt-link to="/service-detail?service=yage" class="service_four_title">Yage / Ayahuasca</nuxt-link></h3>
             </div>
             <div class="service_four_read_more">
-              <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
+              <nuxt-link to="/service-detail?service=yage"><span class="icon-left-arrow"></span></nuxt-link>
             </div>
           </div>
         </div>
@@ -29,10 +29,10 @@
               <img src="/assets/images/Servicios/Reino_fungi.png" alt="Reino Fungi" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">Reino Fungi</nuxt-link></h3>
+              <h3><nuxt-link to="/service-detail?service=fungi" class="service_four_title">Reino Fungi</nuxt-link></h3>
             </div>
             <div class="service_four_read_more">
-              <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
+              <nuxt-link to="/service-detail?service=fungi"><span class="icon-left-arrow"></span></nuxt-link>
             </div>
           </div>
         </div>
@@ -46,11 +46,11 @@
               <img src="/assets/images/Servicios/Abra_Cadabra.png" alt="Abra Cadabra" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">Abra Cadabra</nuxt-link></h3>
+              <h3><nuxt-link to="/service-detail?service=abra" class="service_four_title">Abra Cadabra</nuxt-link></h3>
               <p>Circulo espiritual de efectos terapeuticos</p>
             </div>
             <div class="service_four_read_more">
-              <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
+              <nuxt-link to="/service-detail?service=abra"><span class="icon-left-arrow"></span></nuxt-link>
             </div>
           </div>
         </div>
@@ -60,11 +60,11 @@
               <img src="/assets/images/Servicios/Teramai_Senchen.png" alt="Teramai Senchen" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">Teramai Senchen</nuxt-link></h3>
+              <h3><nuxt-link to="/service-detail?service=teramai" class="service_four_title">Teramai Senchen</nuxt-link></h3>
               <p>Reiki <br> chamánico</p>
             </div>
             <div class="service_four_read_more">
-              <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
+              <nuxt-link to="/service-detail?service=teramai"><span class="icon-left-arrow"></span></nuxt-link>
             </div>
           </div>
         </div>
@@ -74,11 +74,11 @@
               <img src="/assets/images/Servicios/Velada_Musical.png" alt="Velada Musical" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">Sesiones</nuxt-link></h3>
-              <p>Festival de musica medicinal</p>
+              <h3><nuxt-link to="/service-detail?service=sesiones" class="service_four_title">Sesiones</nuxt-link></h3>
+              <p>Musica de medicina</p>
             </div>
             <div class="service_four_read_more">
-              <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
+              <nuxt-link to="/service-detail?service=sesiones"><span class="icon-left-arrow"></span></nuxt-link>
             </div>
           </div>
         </div>
@@ -88,11 +88,11 @@
               <img src="/assets/images/Servicios/MagicSaDan.png" alt="MagicSaDan" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail" class="service_four_title">MagicSaDan</nuxt-link></h3>
+              <h3><nuxt-link to="/service-detail?service=magicsadan" class="service_four_title">MagicSaDan</nuxt-link></h3>
               <p>Movimiento mágico ancestral</p>
             </div>
             <div class="service_four_read_more">
-              <nuxt-link to="/service-detail"><span class="icon-left-arrow"></span></nuxt-link>
+              <nuxt-link to="/service-detail?service=magicsadan"><span class="icon-left-arrow"></span></nuxt-link>
             </div>
           </div>
         </div>

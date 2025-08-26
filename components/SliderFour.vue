@@ -179,6 +179,15 @@ const SwiperNavigation = Navigation
   display: inline !important;
   visibility: visible !important;
   opacity: 1 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+  background: transparent !important;
+  position: relative !important;
+  z-index: 999 !important;
+}
+
+.inner h1 span::before,
+.inner h1 span::after {
+  display: none !important;
 }
 
 .subtitle-box {

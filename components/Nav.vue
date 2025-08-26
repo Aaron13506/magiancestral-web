@@ -7,7 +7,7 @@
             ><span class="icon-message"></span>magiancestralvzla@gmail.com</a
           >
           <a href="tel:666-999-0000"
-            ><span class="icon-phone-call"></span>412 XXX-XXXX</a
+            ><span class="icon-phone-call"></span>0424 160-0760</a
           >
         </div>
         <div class="topbar-one__middle">
@@ -58,15 +58,8 @@
               <li class="current">
                 <nuxt-link to="/">Inicio</nuxt-link>
               </li>
-              <li class="dropdown">
-                <nuxt-link to="/service">Servicios</nuxt-link>
-                <ul>
-                  <li><nuxt-link to="/service">Services</nuxt-link></li>
-                  <li>
-                    <nuxt-link to="/service-detail">Detalles del Servicio</nuxt-link>
-                  </li>
-                </ul>
-                <!-- /.sub-menu -->
+              <li>
+                <nuxt-link to="/service-detail">Encuentros</nuxt-link>
               </li>
               <li class="dropdown">
                 <nuxt-link to="/projects">Nuestros Proyectos</nuxt-link>
@@ -112,39 +105,32 @@
 
         <!-- Radio Player integrado dentro del nav sticky -->
         <RadioPlayer />
-      </nav>
 
-      <nav
-        class="mobile-nav__container"
-        :style="`display: ${mobileToggle ? 'block' : 'none'}`"
-      >
-        <!-- content is loading via js -->
+        <!-- Mobile Navigation Container moved inside sticky nav -->
+        <div
+          class="mobile-nav__container"
+          :style="`display: ${mobileToggle ? 'block' : 'none'}`"
+        >
+          <!-- content is loading via js -->
 
-        <ul class="main-nav__navigation-box">
+          <ul class="main-nav__navigation-box">
           <li class="current">
             <nuxt-link to="/">Inicio</nuxt-link>
           </li>
-          <li class="dropdown">
-            <div class="menu-holder">
-              Servicios<button class="dropdown-btn">
-                <i class="fa fa-angle-right"></i>
-              </button>
-            </div>
-            <ul>
-              <li><nuxt-link to="/service">Services</nuxt-link></li>
-              <li>
-                <nuxt-link to="/service-detail">Detalles del Servicio</nuxt-link>
-              </li>
-            </ul>
-            <!-- /.sub-menu -->
+          <li>
+            <nuxt-link to="/service-detail">Servicios</nuxt-link>
           </li>
           <li class="dropdown">
             <div class="menu-holder">
-              Nuestros Proyectos<button class="dropdown-btn">
+              Nuestros Proyectos<button
+                class="dropdown-btn"
+                :class="{ open: dropdownStates.projects }"
+                @click="toggleDropdown('projects')"
+              >
                 <i class="fa fa-angle-right"></i>
               </button>
             </div>
-            <ul>
+            <ul :style="`display: ${dropdownStates.projects ? 'block' : 'none'}`">
               <li><nuxt-link to="/projects">Proyectos</nuxt-link></li>
               <li>
                 <nuxt-link to="/projects_detail">Detalles del Proyecto</nuxt-link>
@@ -154,11 +140,15 @@
           </li>
           <li class="dropdown">
             <div class="menu-holder">
-              Páginas<button class="dropdown-btn">
+              Páginas<button
+                class="dropdown-btn"
+                :class="{ open: dropdownStates.pages }"
+                @click="toggleDropdown('pages')"
+              >
                 <i class="fa fa-angle-right"></i>
               </button>
             </div>
-            <ul>
+            <ul :style="`display: ${dropdownStates.pages ? 'block' : 'none'}`">
               <li><nuxt-link to="/about">Acerca de</nuxt-link></li>
               <li><nuxt-link to="/why_choose_us">Por qué Elegirnos</nuxt-link></li>
               <li><nuxt-link to="/farmers">Agricultores</nuxt-link></li>
@@ -168,11 +158,15 @@
           </li>
           <li class="dropdown">
             <div class="menu-holder">
-              Noticias<button class="dropdown-btn">
+              Noticias<button
+                class="dropdown-btn"
+                :class="{ open: dropdownStates.news }"
+                @click="toggleDropdown('news')"
+              >
                 <i class="fa fa-angle-right"></i>
               </button>
             </div>
-            <ul>
+            <ul :style="`display: ${dropdownStates.news ? 'block' : 'none'}`">
               <li><nuxt-link to="/news">Noticias</nuxt-link></li>
               <li><nuxt-link to="/news_detail">Detalles de Noticia</nuxt-link></li>
             </ul>
@@ -182,6 +176,7 @@
             <nuxt-link to="/contact">Contacto</nuxt-link>
           </li>
         </ul>
+        </div>
       </nav>
     </header>
   </div>
@@ -195,17 +190,36 @@ const store = useMainStore()
 
 const sticky = ref(false)
 const mobileToggle = ref(false)
+const dropdownStates = ref({
+  services: false,
+  projects: false,
+  pages: false,
+  news: false
+})
 
 const handleScroll = () => {
-  if (window.scrollY > 70) {
+  let trigger = 70
+  if (window.innerWidth < 768) {
+    trigger = 30
+  } else if (window.innerWidth < 1024) {
+    trigger = 40
+  } else if (window.innerWidth < 1200) {
+    trigger = 50
+  }
+
+  if (window.scrollY > trigger) {
     sticky.value = true
-  } else if (window.scrollY < 70) {
+  } else if (window.scrollY < trigger) {
     sticky.value = false
   }
 }
 
 const searchPopupStatusChange = () => {
   store.changeSearchPopupStatus()
+}
+
+const toggleDropdown = (dropdownName) => {
+  dropdownStates.value[dropdownName] = !dropdownStates.value[dropdownName]
 }
 
 onMounted(() => {

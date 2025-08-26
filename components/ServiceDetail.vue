@@ -5,75 +5,47 @@
         <div class="col-xl-4 col-lg-4">
           <div class="service_details_left">
             <ul class="list-unstyled service_all_list">
-              <li><a href="#">All Services</a></li>
-              <li class="active"><a href="#">Fresh Vegetables</a></li>
-              <li><a href="#">Agriculture Products</a></li>
-              <li><a href="#">Organic Products</a></li>
-              <li><a href="#">Dairy Products</a></li>
+              <li :class="{active: activeService === 'general'}"><a href="#" @click.prevent="setActiveService('general')">Información General</a></li>
+              <li :class="{active: activeService === 'yage'}"><a href="#" @click.prevent="setActiveService('yage')">Yage / Ayahuasca</a></li>
+              <li :class="{active: activeService === 'fungi'}"><a href="#" @click.prevent="setActiveService('fungi')">Reino Fungi</a></li>
+              <li :class="{active: activeService === 'abra'}"><a href="#" @click.prevent="setActiveService('abra')">Abra Cadabra</a></li>
+              <li :class="{active: activeService === 'teramai'}"><a href="#" @click.prevent="setActiveService('teramai')">Teramai Senchen</a></li>
+              <li :class="{active: activeService === 'sesiones'}"><a href="#" @click.prevent="setActiveService('sesiones')">Sesiones</a></li>
+              <li :class="{active: activeService === 'magicsadan'}"><a href="#" @click.prevent="setActiveService('magicsadan')">MagicSaDan</a></li>
             </ul>
-            <div class="need_help_box">
-              <h2>Need Help?</h2>
-              <p>Speak with a human to filling out a form? call corporate office and we will connect
-                you with a team member who can help.</p>
-              <h3><span class="icon-phone-call"></span>666 888 0000</h3>
-            </div>
             <div class="download_file_box">
               <a href="#"><i class="icon-pdf"></i>Download PDF File</a>
             </div>
           </div>
         </div>
         <div class="col-xl-8 col-lg-8">
-          <div class="service_details_right">
-            <div class="service_details_One_img">
-              <img src="/assets/images/service/service-detail_img_1.jpg" alt="">
-            </div>
+          <div class="service_details_right" v-if="services[activeService]">
             <div class="harvest_innovations">
-              <h2>Harvest Innovations</h2>
-              <p>There are many variations of passages of psum available, but the majority have
-                suffered alteration in some form, by injected humour, or randomised words which
-                don't look even slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of
-                text. Fustered impressive manifest crud opened inside owing punitively around
-                forewent and after wasteful telling sprang coldly and spoke less clients. Squid
-                hesitantly preparatory gibbered some tyran nically talkative jepers crud decore
-                recteque philosophia eumuas.</p>
-
-              <p class="harvest_innovations_bottom_text">Beyond more stoic this along goodness hey
-                this this wow manatee mongoose one as since a far flustered impressive manifest far
-                crud opened inside owing punitively around forewent and after wasteful telling
-                sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some
-                tyran nically talkative jeepers crud.</p>
-
-            </div>
-            <div class="row">
-              <div class="col-xl-6 col-lg-6">
-                <div class="service_details_single_img_box">
-                  <img src="/assets/images/service/service-detail_img_2.jpg" alt="">
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-6">
-                <div class="service_details_single_img_box">
-                  <img src="/assets/images/service/service-detail_img_3.jpg" alt="">
-                </div>
-              </div>
+              <h2>{{ services[activeService].title }}</h2>
+              <p>{{ services[activeService].description }}</p>
             </div>
             <div class="agriculture_solutions">
-              <h3>Agriculture Solutions</h3>
-              <p>Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est qui
-                dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae dicta
-                sunt explicabo. Aelltes port lacus quis enim var sed efficitur turpis gilla sed sit
-                amet finibus eros. Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.</p>
+              <h3>Beneficios y Efectos</h3>
+              <p v-if="activeService !== 'fungi' && activeService !== 'general'">Esta práctica ancestral ofrece múltiples beneficios para el crecimiento espiritual y la sanación integral del ser.</p>
+              <p v-else-if="activeService === 'general'">Nuestros encuentros espirituales ofrecen una experiencia transformadora integral:</p>
             </div>
             <ul class="list-unstyled">
-              <li><i class="fa fa-check"></i>Research beyond the business plan</li>
-              <li><i class="fa fa-check"></i>Marketing options and rates</li>
-              <li><i class="fa fa-check"></i>The ability to turnaround consulting</li>
-              <li><i class="fa fa-check"></i>Help companies into more profitable</li>
+              <li v-for="benefit in services[activeService].benefits" :key="benefit">
+                <i class="fa fa-check"></i>{{ benefit }}
+              </li>
             </ul>
-            <p class="service_details_last_text">Lorem Ipsum has been the ndustry standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-              make a type specimen book. It has survived not only five centuries.</p>
+            <div v-if="activeService === 'fungi' && services[activeService].contraindications" class="contraindications-section">
+              <div class="agriculture_solutions">
+                <h3>Información Adicional</h3>
+                <div class="contraindications-content">{{ services[activeService].contraindications }}</div>
+              </div>
+            </div>
+            <p class="service_details_last_text" v-if="(activeService === 'yage' || activeService === 'general') && services[activeService].additionalInfo">
+              {{ services[activeService].additionalInfo }}
+            </p>
+            <p class="service_details_last_text" v-else-if="activeService !== 'fungi' && activeService !== 'yage' && activeService !== 'general'">
+              Nuestros encuentros están guiados por facilitadores experimentados que acompañan tu proceso de sanación y transformación personal con respeto, sabiduría y amor incondicional.
+            </p>
           </div>
         </div>
       </div>
@@ -85,10 +57,138 @@
     import FaqOne from "./FaqOne";
     export default {
         name: "ServiceDetail",
-      components: {FaqOne}
+        components: {FaqOne},
+        data() {
+            return {
+                activeService: 'general',
+                services: {
+                    general: {
+                        title: 'Nuestros Encuentros Espirituales',
+                        description: 'Bienvenido a nuestro espacio sagrado de sanación y transformación. Ofrecemos diversos encuentros espirituales y terapéuticos, cada uno diseñado para acompañarte en tu proceso de autoconocimiento y crecimiento personal. Nuestras prácticas combinan la sabiduría ancestral con enfoques modernos de sanación integral, respetando las tradiciones milenarias y adaptándolas a las necesidades contemporáneas.',
+                        benefits: [
+                            'Sanación integral de cuerpo, mente y espíritu',
+                            'Acompañamiento profesional y respetuoso',
+                            'Espacios seguros para la exploración interior',
+                            'Conexión con la sabiduría ancestral',
+                            'Transformación personal profunda',
+                            'Comunidad de apoyo y crecimiento mutuo'
+                        ],
+                        additionalInfo: 'Cada encuentro es facilitado por personas experimentadas que han dedicado su vida al estudio y práctica de estas medicinas sagradas. Nuestro enfoque es holístico, laico y respetuoso, honrando tanto las tradiciones ancestrales como las necesidades individuales de cada participante.'
+                    },
+                    yage: {
+                        title: 'Yage / Ayahuasca',
+                        image: '/assets/images/Servicios/YageAyahuasca.png',
+                        description: 'La ayahuasca es una medicina que ofrece una sanación integral. Proporciona claridad en los pensamientos, equilibrio emocional, y una limpieza en el cuerpo físico, permitiéndote conectar con tu ser interno. Aunque puede tomarse de día, la práctica ceremonial de la ayahuasca generalmente se realiza de noche, en un ambiente de meditación individual y en silencio, acompañada de la naturaleza, la música y otros elementos. Se participa en esta ceremonia con respeto a las culturas ancestrales, y la práctica es laica, con un enfoque en la mínima intervención pero siempre manteniendo el cuidado de los participantes.',
+                        benefits: [
+                            'Sanación integral: claridad mental, equilibrio emocional y limpieza física',
+                            'Conexión profunda con tu ser interno',
+                            'Autoconocimiento y crecimiento espiritual',
+                            'Experiencia transformadora en ambiente natural'
+                        ],
+                        additionalInfo: 'Quienes asisten a estas ceremonias se eligen a sí mismos para sanar, tanto individual como grupalmente. Aquellos que repiten la experiencia reconocen en la ayahuasca un camino hacia el autoconocimiento, la conexión y la magia en sus vidas. Si tienes dudas sobre la medicina ayahuasca, puedes dejar tus comentarios.'
+                    },
+                    fungi: {
+                        title: 'LA MEDICINA DEL REINO FUNGI',
+                        image: '/assets/images/Servicios/Reino_fungi.png',
+                        description: 'Esta medicina te lleva a develar tu psique, revela tu esencia, te permite identificar las creencias que tienes acerca de la vida, las cuales se manifiestan en formas, colores, figuras, seres y múltiples arquetipos. Accedes a estos símbolos visionarios para llenarte de la energía que requieres en el momento de afrontar todas tus circunstancias y llenarlas de luz. Es allí en donde hallarás las respuestas que despliegan la Magia en tu Ser. Magia Ancestral.',
+                        benefits: [
+                            'Equilibrar el Estado de Ánimo, evitando el uso de medicamentos farmacéuticos',
+                            'Potenciar la concentración y estimular la inteligencia, así como el nivel de aprendizaje',
+                            'Desintoxicar el organismo de residuos químicos y tóxicos dejados por los fármacos',
+                            'Neurogénesis cerebral a través de microdosis'
+                        ],
+                        contraindications: `
+CONTRAINDICACIONES Y SUGERENCIAS DEL USO DE LA MEDICINA DEL REINO FUNGI.
+
+La Medicina del Reino Fungi, puede ser consumida en Macrodosis (en un solo momento) o en Microdosis (cápsulas con un gramaje mínimo, consumidas periódicamente durante un tiempo determinado); y en general, podría ser administrada a casi cualquier persona, de cualquier edad, con el seguimiento responsable adecuado. Ahora bien sugerimos tomar en cuenta:
+
+• Esta medicina está contraindicada para personas con desequilibrios en la química cerebral y baja consciencia de su Yo Personal.
+• Así mismo, está contraindicada en personas que desconocen o no tengan capacidad de discernimiento sobre la medicina que están consumiendo.
+• En cualquier caso se debe evitar el uso abusivo de las microdosis y mucho más de las macrodosis.
+• En las Microdosis se deben seguir las pautas y protocolos sugeridos.
+• Las Macrodosis es recomendable consumirlas en contexto ceremonial, de armonía o en contexto terapéutico, con el debido acompañamiento.
+
+LAS MICRODOSIS Y SUS USOS
+
+La Microdosis, te cambiará la percepción paulatinamente, ya que a través de ella ocurre la neurogénesis cerebral. Aparentemente es imperceptible, ya que no despliega las facultades psico activas; asún así, la medicina está cumpliendo su propósito en ti y lo podrás sentir al percibir que lo que antes era conflictivo se transforma en material de estudio, encontrando respuestas que te llevarán a tener pensamientos claros y comportamientos armoniosos.
+                        `
+                    },
+                    abra: {
+                        title: 'Abra Cadabra',
+                        image: '/assets/images/Servicios/Abra_Cadabra.png',
+                        description: 'Círculo espiritual de efectos terapéuticos donde combinamos técnicas ancestrales con enfoques modernos de sanación. Este espacio sagrado permite la liberación de energías estancadas y la activación de nuestro poder personal. A través de rituales, meditación y trabajo energético, encontramos el equilibrio entre cuerpo, mente y espíritu.',
+                        benefits: [
+                            'Limpieza energética profunda',
+                            'Activación del poder personal',
+                            'Balance emocional y mental',
+                            'Desarrollo de habilidades espirituales'
+                        ]
+                    },
+                    teramai: {
+                        title: 'Teramai Senchen',
+                        image: '/assets/images/Servicios/Teramai_Senchen.png',
+                        description: 'El Reiki Chamánico Teramai Senchen es una poderosa modalidad de sanación que combina la sabiduría del Reiki tradicional con las prácticas chamánicas ancestrales. Esta técnica permite canalizar energía de alta vibración para sanar no solo el cuerpo físico, sino también los cuerpos emocional, mental y espiritual.',
+                        benefits: [
+                            'Sanación integral de todos los cuerpos',
+                            'Liberación de bloqueos energéticos',
+                            'Activación de chakras y centros energéticos',
+                            'Conexión con guías espirituales'
+                        ]
+                    },
+                    sesiones: {
+                        title: 'Sesiones - Música de Medicina',
+                        image: '/assets/images/Servicios/Velada_Musical.png',
+                        description: 'Las sesiones de música de medicina utilizan frecuencias sagradas, cantos ancestrales y instrumentos tradicionales para inducir estados de sanación y transformación. La música actúa como un vehículo que transporta nuestra consciencia hacia dimensiones superiores, facilitando procesos de liberación y renovación espiritual.',
+                        benefits: [
+                            'Sanación a través del sonido',
+                            'Relajación profunda y regeneración',
+                            'Liberación de tensiones y estrés',
+                            'Conexión con estados meditativos profundos'
+                        ]
+                    },
+                    magicsadan: {
+                        title: 'MagicSaDan',
+                        image: '/assets/images/Servicios/MagicSaDan.png',
+                        description: 'MagicSaDan es un movimiento mágico ancestral que combina danza sagrada, respiración consciente y rituales de poder. Esta práctica nos permite reconectar con nuestra fuerza vital primordial y activar nuestro poder creador. A través del movimiento consciente, liberamos energías estancadas y despertamos nuestra naturaleza divina.',
+                        benefits: [
+                            'Activación de la energía vital',
+                            'Liberación a través del movimiento',
+                            'Conexión con el poder femenino/masculino',
+                            'Despertar de la creatividad y pasión'
+                        ]
+                    }
+                }
+            }
+        },
+        mounted() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceParam = urlParams.get('service');
+            if (serviceParam && this.services[serviceParam]) {
+                this.activeService = serviceParam;
+            }
+        },
+        methods: {
+            setActiveService(serviceKey) {
+                this.activeService = serviceKey;
+                const url = new URL(window.location);
+                url.searchParams.set('service', serviceKey);
+                window.history.replaceState(null, null, url);
+            }
+        }
     }
 </script>
 
 <style scoped>
+.contraindications-content {
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666;
+  margin-top: 15px;
+}
 
+.contraindications-section {
+  margin-top: 30px;
+}
 </style>

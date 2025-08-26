@@ -969,7 +969,7 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 99;
+  z-index: 9999;
   background-color: #ffffff;
   box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.06);
   opacity: 0;
@@ -992,6 +992,23 @@ h6 {
 
 .stricked-menu.stricky-fixed .main-nav__left {
   padding: 29px 0 23px;
+}
+
+@media (max-width: 1199px) {
+  .stricked-menu.stricky-fixed .main-nav__left {
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .stricked-menu.stricky-fixed .main-nav__left {
+    padding: 12px 0;
+    min-height: 60px;
+  }
+  
+  .stricked-menu.stricky-fixed {
+    min-height: 60px;
+  }
 }
 
 .stricked-menu.stricky-fixed .main-nav__right .icon_cart_box {
@@ -1530,6 +1547,13 @@ h6 {
   .main-nav__left .side-menu__toggler {
     display: none;
   }
+}
+
+@media (max-width: 1199px) {
+  .stricked-menu .main-nav__left .side-menu__toggler {
+    display: inline-block;
+  }
+}
 
   .main-nav__main-navigation {
     display: -moz-flex;
@@ -1548,7 +1572,6 @@ h6 {
   .mobile_menu_icon_three .side-menu__toggler {
     display: none;
   }
-}
 
 @media (max-width: 1199px) {
   .main-nav__logo-box {
@@ -10926,7 +10949,7 @@ html {
   font-size: 20px;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1199px) {
   .mobile-nav__container {
     display: block;
     background: #eceeef;
