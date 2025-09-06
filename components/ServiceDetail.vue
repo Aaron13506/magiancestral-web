@@ -5,11 +5,11 @@
         <div class="col-xl-4 col-lg-4">
           <div class="service_details_left">
             <ul class="list-unstyled service_all_list">
-              <li :class="{active: activeService === 'general'}"><a href="#" @click.prevent="setActiveService('general')">Información General</a></li>
+              <li :class="{active: activeService === 'general'}"><a href="#" @click.prevent="setActiveService('general')">Encuestros espirituales</a></li>
               <li :class="{active: activeService === 'yage'}"><a href="#" @click.prevent="setActiveService('yage')">Yage / Ayahuasca</a></li>
               <li :class="{active: activeService === 'fungi'}"><a href="#" @click.prevent="setActiveService('fungi')">Reino Fungi</a></li>
               <li :class="{active: activeService === 'abra'}"><a href="#" @click.prevent="setActiveService('abra')">Abra Cadabra</a></li>
-              <li :class="{active: activeService === 'teramai'}"><a href="#" @click.prevent="setActiveService('teramai')">Teramai Senchen</a></li>
+              <li :class="{active: activeService === 'teramai'}"><a href="#" @click.prevent="setActiveService('teramai')">Teramai Seichem</a></li>
               <li :class="{active: activeService === 'sesiones'}"><a href="#" @click.prevent="setActiveService('sesiones')">Sesiones</a></li>
               <li :class="{active: activeService === 'magicsadan'}"><a href="#" @click.prevent="setActiveService('magicsadan')">MagicSaDan</a></li>
             </ul>
@@ -63,7 +63,7 @@
                 activeService: 'general',
                 services: {
                     general: {
-                        title: 'Nuestros Encuentros Espirituales',
+                        title: 'Encuentros Espirituales',
                         description: 'Bienvenido a nuestro espacio sagrado de sanación y transformación. Ofrecemos diversos encuentros espirituales y terapéuticos, cada uno diseñado para acompañarte en tu proceso de autoconocimiento y crecimiento personal. Nuestras prácticas combinan la sabiduría ancestral con enfoques modernos de sanación integral, respetando las tradiciones milenarias y adaptándolas a las necesidades contemporáneas.',
                         benefits: [
                             'Sanación integral de cuerpo, mente y espíritu',
@@ -92,10 +92,10 @@
                         image: '/assets/images/Servicios/Reino_fungi.png',
                         description: 'Esta medicina te lleva a develar tu psique, revela tu esencia, te permite identificar las creencias que tienes acerca de la vida, las cuales se manifiestan en formas, colores, figuras, seres y múltiples arquetipos. Accedes a estos símbolos visionarios para llenarte de la energía que requieres en el momento de afrontar todas tus circunstancias y llenarlas de luz. Es allí en donde hallarás las respuestas que despliegan la Magia en tu Ser. Magia Ancestral.',
                         benefits: [
-                            'Equilibrar el Estado de Ánimo, evitando el uso de medicamentos farmacéuticos',
+                            'Equilibrar el Estado de Ánimo. Por lo que generalmente se suprime el uso de medicamentos farmacéuticos',
                             'Potenciar la concentración y estimular la inteligencia, así como el nivel de aprendizaje',
-                            'Desintoxicar el organismo de residuos químicos y tóxicos dejados por los fármacos',
-                            'Neurogénesis cerebral a través de microdosis'
+                            'Desintoxica el organismo de residuos químicos y tóxicos dejados por los fármacos',
+                            'Estimula la Neurogénesis cerebral al ser usada en microdosis'
                         ],
                         contraindications: `
 CONTRAINDICACIONES Y SUGERENCIAS DEL USO DE LA MEDICINA DEL REINO FUNGI.
@@ -116,7 +116,7 @@ La Microdosis, te cambiará la percepción paulatinamente, ya que a través de e
                     abra: {
                         title: 'Abra Cadabra',
                         image: '/assets/images/Servicios/Abra_Cadabra.png',
-                        description: 'Círculo espiritual de efectos terapéuticos donde combinamos técnicas ancestrales con enfoques modernos de sanación. Este espacio sagrado permite la liberación de energías estancadas y la activación de nuestro poder personal. A través de rituales, meditación y trabajo energético, encontramos el equilibrio entre cuerpo, mente y espíritu.',
+                        description: 'Este círculo espiritual ofrece múltiples beneficios para el crecimiento y la sanación integral del ser, donde combinamos técnicas ancestrales con enfoques modernos de sanación. Este espacio sagrado permite la liberación de energías estancadas y la activación de nuestro poder personal. A través de rituales, meditación y trabajo energético, encontramos el equilibrio entre cuerpo, mente y espíritu.',
                         benefits: [
                             'Limpieza energética profunda',
                             'Activación del poder personal',
@@ -125,14 +125,17 @@ La Microdosis, te cambiará la percepción paulatinamente, ya que a través de e
                         ]
                     },
                     teramai: {
-                        title: 'Teramai Senchen',
+                        title: 'Teramai Seichem',
                         image: '/assets/images/Servicios/Teramai_Senchen.png',
                         description: 'El Reiki Chamánico Teramai Senchen es una poderosa modalidad de sanación que combina la sabiduría del Reiki tradicional con las prácticas chamánicas ancestrales. Esta técnica permite canalizar energía de alta vibración para sanar no solo el cuerpo físico, sino también los cuerpos emocional, mental y espiritual.',
                         benefits: [
-                            'Sanación integral de todos los cuerpos',
-                            'Liberación de bloqueos energéticos',
-                            'Activación de chakras y centros energéticos',
-                            'Conexión con guías espirituales'
+                          'Conexión con los animales de poder personales',
+                          'Conexión con la naturaleza, la magia de los colores, el canto curativo, la danza Ancestral y los reinos angelicales.',
+                          'Sanación integral de todos los cuerpos',
+                          'Liberación de bloqueos energéticos',
+                          'Activación de chakras y centros energéticos',
+                          'Conexión con guías espirituales',
+                          'E instrumentos tradicionales'
                         ]
                     },
                     sesiones: {
@@ -149,12 +152,14 @@ La Microdosis, te cambiará la percepción paulatinamente, ya que a través de e
                     magicsadan: {
                         title: 'MagicSaDan',
                         image: '/assets/images/Servicios/MagicSaDan.png',
-                        description: 'MagicSaDan es un movimiento mágico ancestral que combina danza sagrada, respiración consciente y rituales de poder. Esta práctica nos permite reconectar con nuestra fuerza vital primordial y activar nuestro poder creador. A través del movimiento consciente, liberamos energías estancadas y despertamos nuestra naturaleza divina.',
+                        description: 'MagicSaDan es un movimiento auténtico del organismo que combina danza sagrada, respiración consciente y rituales de poder. Esta práctica nos permite reconectar con nuestra fuerza vital primordial y activar nuestro poder creador. A través del movimiento consciente, liberamos energías estancadas y despertamos nuestra naturaleza divina, conectando profundamente con la Magia que portamos nosotros mismos, con sacralidad del otro y con la totalidad del cosmos.',
                         benefits: [
                             'Activación de la energía vital',
                             'Liberación a través del movimiento',
                             'Conexión con el poder femenino/masculino',
-                            'Despertar de la creatividad y pasión'
+                            'Despertar de la creatividad y pasión',
+                            'Estimulación de la afectividad',
+                            'Conexión con la trascendencia personal'
                         ]
                     }
                 }

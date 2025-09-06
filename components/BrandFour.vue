@@ -49,7 +49,7 @@
               <SwiperSlide>
                 <div class="single_brand_item">
                   <a href="#"><img src="/assets/images/Servicios/Sec/Xanga.png" alt="Xanga"></a>
-                  <h4 class="medicine-name">Xanga</h4>
+                  <h4 class="medicine-name">Jurema</h4>
                 </div>
               </SwiperSlide>
               <SwiperSlide>

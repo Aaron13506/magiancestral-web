@@ -75,7 +75,7 @@
                   <li>
                     <nuxt-link to="/why_choose_us">Por qué Elegirnos</nuxt-link>
                   </li>
-                  <li><nuxt-link to="/farmers">Agricultores</nuxt-link></li>
+                  <li><nuxt-link to="/farmers">Sobre nosotros</nuxt-link></li>
                   <li><nuxt-link to="/gallery">Galería</nuxt-link></li>
                 </ul>
                 <!-- /.sub-menu -->
@@ -151,7 +151,7 @@
             <ul>
               <li><nuxt-link to="/about">Acerca de</nuxt-link></li>
               <li><nuxt-link to="/why_choose_us">Por qué Elegirnos</nuxt-link></li>
-              <li><nuxt-link to="/farmers">Agricultores</nuxt-link></li>
+              <li><nuxt-link to="/farmers">Sobre nosotros</nuxt-link></li>
               <li><nuxt-link to="/gallery">Galería</nuxt-link></li>
             </ul>
             <!-- /.sub-menu -->
