@@ -20,7 +20,7 @@
                   <div class="inner">
                     <h1><span>Magia</span> Ancestral</h1>
                     <div class="subtitle-box">
-                      <p class="subtitle">Te da la bienvenida a nuestra familia</p>
+                      <p class="subtitle">Te da la bienvenida a <span class="familia-break">nuestra familia</span></p>
                     </div>
                   </div>
                 </div>
@@ -40,7 +40,7 @@
                   <div class="inner">
                     <h1><span>Magia</span> Ancestral</h1>
                     <div class="subtitle-box">
-                      <p class="subtitle">Te da la bienvenida a nuestra familia</p>
+                      <p class="subtitle">Te da la bienvenida a <span class="familia-break">nuestra familia</span></p>
                     </div>
                   </div>
                 </div>
@@ -60,7 +60,7 @@
                   <div class="inner">
                     <h1><span>Magia</span> Ancestral</h1>
                     <div class="subtitle-box">
-                      <p class="subtitle">Te da la bienvenida a nuestra familia</p>
+                      <p class="subtitle">Te da la bienvenida<span class="familia-break"> a nuestra familia</span></p>
                     </div>
                   </div>
                 </div>
@@ -256,10 +256,17 @@ const SwiperNavigation = Navigation
 }
 
 @media (max-width: 768px) {
+  .inner h1 {
+    font-size: 4rem !important;
+  }
 
   .subtitle {
     font-size: 1.1rem !important;
     padding: 10px 20px !important;
+  }
+
+  .familia-break {
+    display: block;
   }
 
   .content.text-left {
@@ -278,6 +285,9 @@ const SwiperNavigation = Navigation
 }
 
 @media (max-width: 480px) {
+  .inner h1 {
+    font-size: 4rem !important;
+  }
 
   .subtitle {
     font-size: 0.9rem !important;

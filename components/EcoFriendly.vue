@@ -32,6 +32,12 @@
 }
 
 .eco_friendly_title h2 {
+  line-height: 1.2;
   font-size: 3rem;
+}
+@media (max-width: 480px) {
+  .eco_friendly_title h2 {
+    font-size: 2rem;
+  }
 }
 </style>
