@@ -5,11 +5,11 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Agrikol - Vue Nuxt Template for Agriculture Farm & Farmers',
+      title: 'Magiancestral',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Agrikol - Vue Nuxt Template for Agriculture Farm & Farmers' }
+        { name: 'description', content: 'Magiancestral' }
       ],
       link: [
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/assets/images/favicons/apple-touch-icon.png' },

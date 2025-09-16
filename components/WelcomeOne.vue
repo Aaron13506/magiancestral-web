@@ -21,6 +21,7 @@
                 <p>Bienvenido a Magia Ancestral</p>
                 <h3>Radio Magia Ancestral</h3>
               </div>
+              <img src="/assets/images/icon/radio.png" alt="Radio" class="radio-image">
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="welcome_text">
@@ -144,6 +145,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+.radio-image {
+  width: 50%;
+
+  filter: invert(1);
+}
 .welcome_one {
   position: relative;
 }
