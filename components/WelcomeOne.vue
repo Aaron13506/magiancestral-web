@@ -18,7 +18,6 @@
           <div class="row">
             <div class="col-xl-6 col-lg-6">
               <div class="block-title text-left">
-                <p>Bienvenido a Magia Ancestral</p>
                 <h3>Radio Magia Ancestral</h3>
               </div>
               <img src="/assets/images/icon/radio.png" alt="Radio" class="radio-image">
@@ -44,8 +43,8 @@
           <div class="row">
             <div class="col-xl-6 col-lg-6">
               <div class="block-title text-left">
-                <p>Tradición y Calidad</p>
                 <h3>Sesiones</h3>
+                <img src="/assets/images/icon/sesiones.png" alt="Sesiones" class="sesiones-image">
               </div>
             </div>
             <div class="col-xl-6 col-lg-6">
@@ -69,8 +68,8 @@
           <div class="row">
             <div class="col-xl-6 col-lg-6">
               <div class="block-title text-left">
-                <p>Salud Natural</p>
                 <h3>Rezo de los ancestros</h3>
+                <img src="/assets/images/icon/ancestros.png" alt="Radio" class="ancestral-image">
               </div>
             </div>
             <div class="col-xl-6 col-lg-6">
@@ -147,8 +146,17 @@ onMounted(() => {
 <style scoped>
 
 .radio-image {
-  width: 50%;
-
+  width: 500px;
+  align-items: center;
+  filter: invert(1);
+}
+.ancestral-image {
+  align-items: center;
+  width: 500px;
+}
+.sesiones-image {
+  width: 500px;
+  align-items: center;
   filter: invert(1);
 }
 .welcome_one {
