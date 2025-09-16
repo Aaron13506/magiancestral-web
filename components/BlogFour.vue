@@ -5,7 +5,7 @@
         <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
           <div class="block-title text-left">
             <p>del blog</p>
-            <h3>Artículos sobre<br>medicina natural y<br>magia ancestral</h3>
+            <h3>Artículos sobre<br>medicina natural</h3>
             <div class="leaf">
               <img src="/assets/images/resources/leaf.png" alt="">
             </div>

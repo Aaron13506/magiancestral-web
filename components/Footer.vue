@@ -1,8 +1,7 @@
 <template>
     <div>
       <footer class="site-footer">
-        <div class="site-footer_farm_image"><img src="/assets/images/resources/site-footer-farm.png"
-                                                 alt="Farm Image"></div>
+        <div class="site-footer_farm_image"></div>
         <div class="container">
           <div class="row no-gutters justify-content-center">
             <div class="col-xl-3 col-lg-3 col-md-6">
@@ -131,5 +130,36 @@
 </script>
 
 <style scoped>
+.site-footer_farm_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/icon/fractal.svg');
+  background-repeat: repeat;
+  background-size: 170px 170px;
+  opacity: 0.1;
+  z-index: 1;
+}
 
+.site-footer_farm_image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #0e3858 100%);
+  z-index: 2;
+}
+
+.site-footer {
+  position: relative;
+}
+
+.container {
+  position: relative;
+  z-index: 3;
+}
 </style>

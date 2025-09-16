@@ -18,7 +18,7 @@
               <div class="content-box">
                 <div class="content text-left">
                   <div class="inner">
-                    <h1><span>Magia</span> Ancestral</h1>
+                    <h1><span>Magia</span><br>Ancestral</h1>
                     <div class="subtitle-box">
                       <p class="subtitle">Te da la bienvenida a <span class="familia-break">nuestra familia</span></p>
                     </div>
@@ -38,7 +38,7 @@
               <div class="content-box">
                 <div class="content text-left">
                   <div class="inner">
-                    <h1><span>Magia</span> Ancestral</h1>
+                    <h1><span>Magia</span><br> Ancestral</h1>
                     <div class="subtitle-box">
                       <p class="subtitle">Te da la bienvenida a <span class="familia-break">nuestra familia</span></p>
                     </div>
@@ -52,13 +52,13 @@
         <!-- Slide Item -->
         <SwiperSlide>
           <div class="slide-item">
-            <div class="image-layer" style="background-image: url(/assets/images/main-slider/photo_5132226322762935852_y.jpg);">
+            <div class="image-layer" style="background-image: url(/assets/images/main-slider/slider_3.jpg);">
             </div>
             <div class="auto-container">
               <div class="content-box">
                 <div class="content text-left">
                   <div class="inner">
-                    <h1><span>Magia</span> Ancestral</h1>
+                    <h1><span>Magia</span><br> Ancestral</h1>
                     <div class="subtitle-box">
                       <p class="subtitle">Te da la bienvenida<span class="familia-break"> a nuestra familia</span></p>
                     </div>
@@ -164,9 +164,9 @@ const SwiperNavigation = Navigation
 }
 
 .inner h1 {
-  font-size: 5rem !important;
+  font-size: 6.5rem !important;
   color: white !important;
-  line-height: 1.1 !important;
+  line-height: 0.9 !important;
   margin-bottom: 20px !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
   display: block !important;

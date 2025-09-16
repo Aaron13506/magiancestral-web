@@ -19,14 +19,15 @@
             <div class="col-xl-6 col-lg-6">
               <div class="block-title text-left">
                 <p>Bienvenido a Magia Ancestral</p>
-                <h3>Somos la empresa líder en productos orgánicos y naturales</h3>
+                <h3>Radio Magia Ancestral</h3>
               </div>
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="welcome_text">
-                <p>Descubre el poder de la naturaleza con nuestros productos ancestrales. 
-                   Cada elemento ha sido cuidadosamente seleccionado siguiendo tradiciones 
-                   milenarias para brindarte lo mejor de la medicina natural.</p>
+                <p>Es una emisora producida por Magia Ancestral que contiene programas de conversaciones
+                  y entrevistas sobre diversos temas de medicinas naturales, espiritualidad y elementos de la naturaleza.
+                  Además de variedades musicales, estrenos, música del recuerdo, programas de un solo ritmo,
+                  programas de un solo intérprete, recitales, festivales.</p>
               </div>
               <div class="welcome_video_box"
                    style="background-image:url(/assets/images/resources/welcome_video_bg.jpg)">
@@ -43,14 +44,15 @@
             <div class="col-xl-6 col-lg-6">
               <div class="block-title text-left">
                 <p>Tradición y Calidad</p>
-                <h3>Conectamos contigo a través de la sabiduría ancestral</h3>
+                <h3>Sesiones</h3>
               </div>
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="welcome_text">
-                <p>Nuestros productos están elaborados con ingredientes 100% naturales, 
-                   respetando las recetas tradicionales que han sido transmitidas de 
-                   generación en generación para tu bienestar integral.</p>
+                <p>Las sesiones de música de medicina utilizan frecuencias sagradas, cantos ancestrales
+                  y instrumentos tradicionales para inducir estados de sanación y transformación.
+                  La música actúa como un vehículo que transporta nuestra consciencia hacia dimensiones superiores,
+                  facilitando procesos de liberación y renovación espiritual.</p>
               </div>
               <div class="welcome_video_box"
                    style="background-image:url(/assets/images/resources/welcome_video_bg.jpg)">
@@ -67,14 +69,13 @@
             <div class="col-xl-6 col-lg-6">
               <div class="block-title text-left">
                 <p>Salud Natural</p>
-                <h3>Tu bienestar es nuestra prioridad y compromiso</h3>
+                <h3>Rezo de los ancestros</h3>
               </div>
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="welcome_text">
-                <p>Experimenta la diferencia de los productos naturales auténticos. 
-                   Cada elemento de nuestra línea ha sido probado y avalado por 
-                   especialistas en medicina alternativa y herbolaria tradicional.</p>
+                <p>El rezo de los ancestros se levanta para impartir mensajes de valor espiritual
+                  que embalsamen el alma del escucha a través de la música que eleva la conciencia.</p>
               </div>
               <div class="welcome_video_box"
                    style="background-image:url(/assets/images/resources/welcome_video_bg.jpg)">
@@ -85,7 +86,7 @@
           </div>
         </SwiperSlide>
       </Swiper>
-      
+
       <!-- External Navigation Buttons -->
       <div class="welcome-navigation-external">
         <div class="welcome-button-prev">
@@ -227,7 +228,7 @@ onMounted(() => {
   .welcome-button-prev {
     left: 30px;
   }
-  
+
   .welcome-button-next {
     right: 30px;
   }
@@ -240,11 +241,11 @@ onMounted(() => {
     height: 50px;
     font-size: 20px;
   }
-  
+
   .welcome-button-prev {
     left: 20px;
   }
-  
+
   .welcome-button-next {
     right: 20px;
   }
