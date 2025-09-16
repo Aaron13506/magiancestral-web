@@ -86,12 +86,12 @@ import 'swiper/css/autoplay'
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding:0 20px 0 0;
   filter: invert(1);
 }
 
 .medicine-name {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 600;
   text-align: center;
 }

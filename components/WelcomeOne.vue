@@ -74,8 +74,10 @@
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="welcome_text">
-                <p>El rezo de los ancestros se levanta para impartir mensajes de valor espiritual
-                  que embalsamen el alma del escucha a través de la música que eleva la conciencia.</p>
+                <p>Es un programa cultural, musical y de entretenimiento
+                  donde se establecen diálogos sobre espiritualidad y medicinas naturales.
+                  Todos los jueves estaremos contigo y nuestros invitados para levantar el rezo e impartir mensajes
+                  e información que embalsamen el alma del escucha a través de la música que eleva la conciencia.</p>
               </div>
               <div class="welcome_video_box"
                    style="background-image:url(/assets/images/resources/welcome_video_bg.jpg)">

@@ -119,4 +119,8 @@
 .secondary-services {
   margin-top: 30px;
 }
+
+.service_four_title{
+  text-align: center;
+}
 </style>
