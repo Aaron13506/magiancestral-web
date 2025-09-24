@@ -299,9 +299,9 @@ onMounted(() => {
 
   .welcome-navigation-external-mobile {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
     margin: 40px 0;
+    padding: 0 20px;
   }
 
   .welcome-button-prev-mobile,
