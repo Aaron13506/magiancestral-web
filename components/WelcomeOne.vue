@@ -7,8 +7,8 @@
         :autoplay="{ delay: 6000 }"
         :loop="true"
         :navigation="{
-          nextEl: '.welcome-button-next',
-          prevEl: '.welcome-button-prev',
+          nextEl: '.welcome-button-next, .welcome-button-next-mobile',
+          prevEl: '.welcome-button-prev, .welcome-button-prev-mobile',
         }"
         :pagination="{ clickable: true }"
         class="welcome-slider"
@@ -21,6 +21,15 @@
                 <h3>Radio Magia Ancestral</h3>
               </div>
               <img src="/assets/images/icon/radio.png" alt="Radio" class="radio-image">
+              <!-- External Navigation Buttons (Mobile) -->
+              <div class="welcome-navigation-external-mobile">
+                <div class="welcome-button-prev-mobile">
+                  <i class="fa fa-angle-left"></i>
+                </div>
+                <div class="welcome-button-next-mobile">
+                  <i class="fa fa-angle-right"></i>
+                </div>
+              </div>
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="welcome_text">
@@ -46,6 +55,15 @@
                 <h3>Sesiones</h3>
               </div>
               <img src="/assets/images/icon/sesiones.png" alt="Sesiones" class="sesiones-image">
+              <!-- External Navigation Buttons (Mobile) -->
+              <div class="welcome-navigation-external-mobile">
+                <div class="welcome-button-prev-mobile">
+                  <i class="fa fa-angle-left"></i>
+                </div>
+                <div class="welcome-button-next-mobile">
+                  <i class="fa fa-angle-right"></i>
+                </div>
+              </div>
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="welcome_text">
@@ -71,6 +89,15 @@
                 <h3>Rezo de los ancestros</h3>
               </div>
               <img src="/assets/images/icon/ancestros.png" alt="Radio" class="ancestral-image">
+              <!-- External Navigation Buttons (Mobile) -->
+              <div class="welcome-navigation-external-mobile">
+                <div class="welcome-button-prev-mobile">
+                  <i class="fa fa-angle-left"></i>
+                </div>
+                <div class="welcome-button-next-mobile">
+                  <i class="fa fa-angle-right"></i>
+                </div>
+              </div>
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="welcome_text">
@@ -189,6 +216,10 @@ onMounted(() => {
   height: 0;
 }
 
+.welcome-navigation-external-mobile {
+  display: none;
+}
+
 .welcome-button-prev,
 .welcome-button-next {
   position: absolute;
@@ -262,25 +293,49 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .welcome-button-prev,
-  .welcome-button-next {
+  .welcome-navigation-external {
+    display: none;
+  }
+
+  .welcome-navigation-external-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+  }
+
+  .welcome-button-prev-mobile,
+  .welcome-button-next-mobile {
+    position: relative;
     width: 50px;
     height: 50px;
+    background: var(--thm-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     font-size: 20px;
   }
 
-  .welcome-button-prev {
-    left: 20px;
-  }
-
-  .welcome-button-next {
-    right: 20px;
+  .welcome-button-prev-mobile:hover,
+  .welcome-button-next-mobile:hover {
+    background: var(--thm-secondary);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   }
 }
 
 @media (max-width: 480px) {
-  .welcome-button-prev,
-  .welcome-button-next {
+  .welcome-navigation-external-mobile {
+    margin: 30px 0;
+  }
+
+  .welcome-button-prev-mobile,
+  .welcome-button-next-mobile {
     width: 45px;
     height: 45px;
     font-size: 18px;
