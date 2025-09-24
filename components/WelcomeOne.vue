@@ -17,7 +17,7 @@
         <SwiperSlide>
           <div class="row">
             <div class="col-xl-6 col-lg-6">
-              <div class="block-title text-left">
+              <div class="block-title text-center">
                 <h3>Radio Magia Ancestral</h3>
               </div>
               <img src="/assets/images/icon/radio.png" alt="Radio" class="radio-image">
@@ -42,10 +42,10 @@
         <SwiperSlide>
           <div class="row">
             <div class="col-xl-6 col-lg-6">
-              <div class="block-title text-left">
+              <div class="block-title text-center">
                 <h3>Sesiones</h3>
-                <img src="/assets/images/icon/sesiones.png" alt="Sesiones" class="sesiones-image">
               </div>
+              <img src="/assets/images/icon/sesiones.png" alt="Sesiones" class="sesiones-image">
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="welcome_text">
@@ -67,10 +67,10 @@
         <SwiperSlide>
           <div class="row">
             <div class="col-xl-6 col-lg-6">
-              <div class="block-title text-left">
+              <div class="block-title text-center">
                 <h3>Rezo de los ancestros</h3>
-                <img src="/assets/images/icon/ancestros.png" alt="Radio" class="ancestral-image">
               </div>
+              <img src="/assets/images/icon/ancestros.png" alt="Radio" class="ancestral-image">
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="welcome_text">
@@ -146,21 +146,31 @@ onMounted(() => {
 <style scoped>
 
 .radio-image {
-  width: 500px;
-  align-items: center;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
   filter: invert(1);
 }
 .ancestral-image {
-  align-items: center;
-  width: 500px;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 .sesiones-image {
-  width: 500px;
-  align-items: center;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
   filter: invert(1);
 }
 .welcome_one {
   position: relative;
+  padding: 60px 0 120px !important;
 }
 
 .welcome-slider {

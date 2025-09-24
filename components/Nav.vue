@@ -208,6 +208,13 @@ onMounted(() => {
   }
 }
 
+/* Remove container max-width on mobile to prevent shrinking */
+@media (max-width: 767px) {
+  .container.clearfix {
+    max-width: 85%;
+  }
+}
+
 /* Hide mobile logo on desktop */
 @media (min-width: 1024px) {
   .main-nav__mobile-logo {
