@@ -205,6 +205,19 @@ onMounted(() => {
   .main-nav__mobile-logo .main-logo {
     width: 50px;
     height: 50px;
+    filter: invert(1);
+  }
+
+  .stricky-fixed .main-nav__mobile-logo .main-logo {
+    filter: invert(1);
+  }
+
+  .side-menu__toggler i {
+    color: white;
+  }
+
+  .stricky-fixed .side-menu__toggler i {
+    color: black;
   }
 }
 
