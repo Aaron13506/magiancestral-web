@@ -66,12 +66,13 @@
                 <nuxt-link to="/service-detail">Encuentros</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/projects">Nuestros Proyectos</nuxt-link>
+                <nuxt-link to="/projects">Eventos Mágicos</nuxt-link>
               </li>
               <li class="dropdown">
-                <nuxt-link to="#">Nosotros</nuxt-link>
+                <nuxt-link to="#">Acerca de</nuxt-link>
                 <ul>
-                  <li><nuxt-link to="/about">Acerca de</nuxt-link></li>
+                  <!-- TODO: Re-enable medicines section when ready for production -->
+                  <!-- <li><nuxt-link to="/about">Otras medicinas</nuxt-link></li> -->
                   <li><nuxt-link to="/farmers">Sobre nosotros</nuxt-link></li>
                 </ul>
                 <!-- /.sub-menu -->
@@ -79,9 +80,10 @@
               <li>
                 <nuxt-link to="/gallery">Galería</nuxt-link>
               </li>
-              <li>
+              <!-- TODO: Re-enable news section when ready for production -->
+              <!-- <li>
                 <nuxt-link to="/news">Noticias</nuxt-link>
-              </li>
+              </li> -->
             </ul>
           </div>
           <!-- /.navbar-collapse -->
@@ -109,11 +111,11 @@
             <nuxt-link to="/service-detail">Servicios</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/projects">Nuestros Proyectos</nuxt-link>
+            <nuxt-link to="/projects">Eventos Mágicos</nuxt-link>
           </li>
           <li class="dropdown">
             <div class="menu-holder">
-              Nosotros<button
+              Acerca de<button
                 class="dropdown-btn"
                 :class="{ open: dropdownStates.nosotros }"
                 @click="toggleDropdown('nosotros')"
@@ -122,7 +124,8 @@
               </button>
             </div>
             <ul :style="`display: ${dropdownStates.nosotros ? 'block' : 'none'}`">
-              <li><nuxt-link to="/about">Acerca de</nuxt-link></li>
+              <!-- TODO: Re-enable medicines section when ready for production -->
+              <!-- <li><nuxt-link to="/about">Otras medicinas</nuxt-link></li> -->
               <li><nuxt-link to="/farmers">Sobre nosotros</nuxt-link></li>
             </ul>
             <!-- /.sub-menu -->
@@ -130,9 +133,10 @@
           <li>
             <nuxt-link to="/gallery">Galería</nuxt-link>
           </li>
-          <li>
+          <!-- TODO: Re-enable news section when ready for production -->
+          <!-- <li>
             <nuxt-link to="/news">Noticias</nuxt-link>
-          </li>
+          </li> -->
         </ul>
         </div>
       </nav>
@@ -219,6 +223,30 @@ onMounted(() => {
   .stricky-fixed .side-menu__toggler i {
     color: black;
   }
+}
+
+/* Center navigation automatically - specific approach */
+.main-nav__header-four .container.clearfix {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-nav__left.main_nav__left_four {
+  flex: 0 0 auto;
+  width: 60px; /* Fixed width for left section */
+}
+
+.main-nav__main-navigation.four {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.main-nav__right.four {
+  flex: 0 0 auto;
+  width: 60px; /* Fixed width for right section to balance */
 }
 
 /* Remove container max-width on mobile to prevent shrinking */

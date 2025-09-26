@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <PageHeader title="Service Detail" />
+    <PageHeader />
     <ServiceDetail />
     <Footer />
   </div>

@@ -4,50 +4,23 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6">
           <div class="product_img">
-            <img src="/assets/images/resources/product-1-img-1.jpg" alt="Product One Img">
-            <div class="experience_box">
-              <h2>40 Year</h2>
-              <p>Of Experience</p>
-            </div>
+            <img src="/assets/images/team/ylsenuevo.jpg" alt="Ylse Beatriz Lemus Rodríguez">
           </div>
         </div>
         <div class="col-xl-6 col-lg-6">
           <div class="growing_product">
             <div class="block-title text-left">
-              <p>fresh products</p>
-              <h3>Growing products</h3>
+              <h3>YLSE BEATRIZ LEMUS RODRÍGUEZ</h3>
               <div class="leaf">
                 <img src="/assets/images/resources/leaf.png" alt="">
               </div>
             </div>
             <div class="growing_product_text">
-              <p>Lorem ipsum dolor sit amet nsectetur cing elit. Suspe ndisse suscipit sagittis leo
-                sit met entum estibu dignissim posuere cubilia durae. Leo sit met entum cubilia crae
-                onec.</p>
-            </div>
-            <div class="progress-levels">
-              <!--Skill Box-->
-              <div class="progress-box">
-                <div class="inner count-box">
-                  <div class="text">Agriculture</div>
-                  <div class="bar">
-                    <div class="bar-innner">
-                      <div class="bar-fill bar-fill-one" data-percent="68"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--Skill Box-->
-              <div class="progress-box">
-                <div class="inner count-box">
-                  <div class="text">Organic</div>
-                  <div class="bar">
-                    <div class="bar-innner">
-                      <div class="bar-fill bar-fill-two" data-percent="98"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <p>Caminante en las Medicinas Ancestrales y Plantas de Poder. Terapeuta Holística Espiritual. Maestra Reiki en los siguientes estilos: Japonés Rei-Do, Usui Tibetano, Teramai, Teramai Seichem (estilo Shamánico), Seichim-Sekhen (Sistema Egipcio - All Love) Karuna Reiki (Alta Compasión.</p>
+              <p>Es Maestra en la Técnica de Alineación del Campo ElectroMagnérico Humano (HMF), especialista en Regresiones y Lecturas del Alma con Péndulo Universal.</p>
+              <p>Numerólogo Pitagórico y en Numerologia Comparada. Meditadora del Tarot Egipcio y Rider White. Bailarina de danzas rituales y músico instrumentista. Profesora de Biodanza certificada por la IBF y Locutora.</p>
+              <p>Es directora de la Escuela de Reiki y otras artes sanadoras Manos de Luz y directora de la Fundación Universal de Reiki (FUNREIKI).</p>
+              <p>Miembro directivo del equipo de organización de Medicinas indígenas y ancestrales Magia Ancestral. Estudiante eterna del instante y de la magia de vivir.</p>
             </div>
           </div>
         </div>
@@ -63,5 +36,7 @@
 </script>
 
 <style scoped>
-
+.block-title h3 {
+  font-size: 64px !important;
+}
 </style>

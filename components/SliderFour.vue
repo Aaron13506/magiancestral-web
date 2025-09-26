@@ -12,7 +12,7 @@
         <!-- Slide Item -->
         <SwiperSlide>
           <div class="slide-item">
-            <div class="image-layer" style="background-image: url(/assets/images/main-slider/paisaje4.jpg);">
+            <div class="image-layer" style="background-image: url(/assets/images/main-slider/sliderMain1.jpg);">
             </div>
             <div class="auto-container">
               <div class="content-box">
@@ -32,7 +32,7 @@
         <!-- Slide Item -->
         <SwiperSlide>
           <div class="slide-item">
-            <div class="image-layer" style="background-image: url(/assets/images/main-slider/IMG_20250604_180630_493-4.jpg);">
+            <div class="image-layer slider-main2" style="background-image: url(/assets/images/main-slider/sliderMain2.jpg);">
             </div>
             <div class="auto-container">
               <div class="content-box">
@@ -52,7 +52,7 @@
         <!-- Slide Item -->
         <SwiperSlide>
           <div class="slide-item">
-            <div class="image-layer" style="background-image: url(/assets/images/main-slider/slider_3.jpg);">
+            <div class="image-layer" style="background-image: url(/assets/images/main-slider/sliderMain3.jpg);">
             </div>
             <div class="auto-container">
               <div class="content-box">
@@ -342,5 +342,18 @@ const SwiperNavigation = Navigation
   z-index: 999 !important;
   position: relative !important;
   margin-top: 90px !important;
+}
+
+/* Específico para sliderMain2 en móvil */
+@media (max-width: 768px) {
+  .slider-main2 {
+    background-position: 80% center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-main2 {
+    background-position: 85% center !important;
+  }
 }
 </style>
