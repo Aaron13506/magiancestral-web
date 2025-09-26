@@ -194,6 +194,11 @@ onMounted(() => {
     display: none;
   }
 
+  /* Hide desktop navigation on mobile */
+  .main-nav__main-navigation.four {
+    display: none !important;
+  }
+
   .container.clearfix {
     position: relative;
   }
