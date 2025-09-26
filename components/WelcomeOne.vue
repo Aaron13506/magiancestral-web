@@ -39,7 +39,7 @@
                   programas de un solo intérprete, recitales, festivales.</p>
               </div>
               <div class="welcome_video_box"
-                   style="background-image:url(/assets/images/resources/welcome_video_bg.jpg)">
+                   style="background-image:url(/assets/images/team/maxresdefault.jpg)">
                 <a href="https://www.youtube.com/watch?v=VGM-FuP0T9k"
                    class="welcome_video_btn videoTwo"><i class="fa fa-play"></i></a>
               </div>
@@ -73,7 +73,7 @@
                   facilitando procesos de liberación y renovación espiritual.</p>
               </div>
               <div class="welcome_video_box"
-                   style="background-image:url(/assets/images/resources/welcome_video_bg.jpg)">
+                   style="background-image:url(/assets/images/team/maxresdefault.jpg)">
                 <a href="https://www.youtube.com/watch?v=VGM-FuP0T9k"
                    class="welcome_video_btn videoTwo"><i class="fa fa-play"></i></a>
               </div>
@@ -107,7 +107,7 @@
                   e información que embalsamen el alma del escucha a través de la música que eleva la conciencia.</p>
               </div>
               <div class="welcome_video_box"
-                   style="background-image:url(/assets/images/resources/welcome_video_bg.jpg)">
+                   style="background-image:url(/assets/images/team/maxresdefault.jpg)">
                 <a href="https://www.youtube.com/watch?v=VGM-FuP0T9k"
                    class="welcome_video_btn videoTwo"><i class="fa fa-play"></i></a>
               </div>

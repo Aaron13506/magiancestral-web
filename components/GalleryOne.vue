@@ -14,31 +14,31 @@
         <!--Gallery One Single-->
         <div class="gallery_one_single wow fadeInLeft" data-wow-delay="300ms">
           <div class="gallery_one_image">
-            <img src="/assets/images/gallery/gallery-1-img-1.jpg" alt="">
+            <img src="/assets/images/gallery/IMG_1439.jpg" alt="">
           </div>
         </div>
         <!--Gallery One Single-->
         <div class="gallery_one_single wow fadeInLeft" data-wow-delay="600ms">
           <div class="gallery_one_image">
-            <img src="/assets/images/gallery/gallery-1-img-2.jpg" alt="">
+            <img src="/assets/images/gallery/IMG_1481.jpg" alt="">
           </div>
         </div>
         <!--Gallery One Single-->
         <div class="gallery_one_single wow fadeInLeft" data-wow-delay="900ms">
           <div class="gallery_one_image">
-            <img src="/assets/images/gallery/gallery-1-img-3.jpg" alt="">
+            <img src="/assets/images/gallery/IMG_1485.jpg" alt="">
           </div>
         </div>
         <!--Gallery One Single-->
         <div class="gallery_one_single wow fadeInLeft" data-wow-delay="1200ms">
           <div class="gallery_one_image">
-            <img src="/assets/images/gallery/gallery-1-img-4.jpg" alt="">
+            <img src="/assets/images/gallery/IMG_1510.jpg" alt="">
           </div>
         </div>
         <!--Gallery One Single-->
         <div class="gallery_one_single wow fadeInLeft" data-wow-delay="1400ms">
           <div class="gallery_one_image">
-            <img src="/assets/images/gallery/gallery-1-img-5.jpg" alt="">
+            <img src="/assets/images/gallery/IMG_1540.jpg" alt="">
           </div>
         </div>
           </carousel>

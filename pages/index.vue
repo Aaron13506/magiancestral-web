@@ -8,7 +8,9 @@
     <BrandFour />
     <WelcomeOne />
     <EcoFriendlyTwo />
+    <!-- TODO: Blog section not implemented yet
     <BlogFour />
+    -->
     <Footer />
   </div>
 </template>

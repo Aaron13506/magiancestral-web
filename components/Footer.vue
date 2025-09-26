@@ -20,6 +20,7 @@
                 </ul>
               </div>
             </div>
+            <!-- TODO: News section not implemented yet
             <div class="col-xl-3 col-lg-3 col-md-6">
               <div class="footer-widget__column footer-widget__news wow fadeInUp" data-wow-delay="200ms">
                 <div class="footer-widget__title">
@@ -51,6 +52,7 @@
                 </ul>
               </div>
             </div>
+            -->
             <div class="col-xl-3 col-lg-3 col-md-6">
               <div class="footer-widget__column footer-widget__contact wow fadeInUp" data-wow-delay="300ms">
                 <div class="footer-widget__title">
