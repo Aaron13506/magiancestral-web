@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xl-12">
           <div class="block-title text-center" style="margin-bottom: 40px;">
-            <h3>Descubre más sobre otras medicinas</h3>
+            <h3>Descubre más sobre la medicina</h3>
           </div>
           <div class="brand-one-carousel">
             <Swiper

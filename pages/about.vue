@@ -22,7 +22,7 @@
     },
     head(){
       return {
-        title: "Magiancestral | Otras Medicinas"
+        title: "Magiancestral | Mas Medicinas"
       }
     }
   }
