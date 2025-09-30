@@ -14,7 +14,7 @@
           <div class="product_two_thum">
             <img src="/assets/images/resources/management-1.jpg" alt="">
             <div class="product_two_thum_hover">
-              <h2>Agrikol farming company</h2>
+              <h2>magiancestral farming company</h2>
             </div>
           </div>
         </div>
@@ -22,7 +22,7 @@
           <div class="product_two_thum">
             <img src="/assets/images/resources/management-2.jpg" alt="">
             <div class="product_two_thum_hover">
-              <h2>Agrikol farming company</h2>
+              <h2>magiancestral farming company</h2>
             </div>
           </div>
         </div>

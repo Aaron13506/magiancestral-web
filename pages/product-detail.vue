@@ -22,7 +22,7 @@
     },
     head(){
       return {
-        title: "Agrikol  | Product Detail"
+        title: "Magiancestral | Product Detail"
       }
     }
   }

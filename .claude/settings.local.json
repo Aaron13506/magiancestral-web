@@ -11,7 +11,8 @@
       "Bash(pkill:*)",
       "Bash(true)",
       "WebFetch(domain:ricardob115.sg-host.com)",
-      "Bash(pnpm run:*)"
+      "Bash(pnpm run:*)",
+      "Bash(find:*)"
     ],
     "deny": []
   }

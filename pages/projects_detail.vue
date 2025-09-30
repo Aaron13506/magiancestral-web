@@ -22,7 +22,7 @@
     },
     head(){
       return {
-        title: "Agrikol  | Project Detail"
+        title: "Magiancestral | Project Detail"
       }
     }
   }

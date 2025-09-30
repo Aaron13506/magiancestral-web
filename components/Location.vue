@@ -6,7 +6,7 @@
           <div class="location_single">
             <h2>Austin</h2>
             <p>22 Texas West Hills</p>
-            <a href="mailto:needhelp@agrikol.com">needhelp@agrikol.com</a><br>
+            <a href="mailto:needhelp@magiancestral.com">needhelp@magiancestral.com</a><br>
             <a href="tel:666-888-0000">666 888 0000</a>
           </div>
         </div>
@@ -14,7 +14,7 @@
           <div class="location_single">
             <h2>broklyn</h2>
             <p>22 Texas West Hills</p>
-            <a href="mailto:needhelp@agrikol.com">needhelp@agrikol.com</a><br>
+            <a href="mailto:needhelp@magiancestral.com">needhelp@magiancestral.com</a><br>
             <a href="tel:666-888-0000">666 888 0000</a>
           </div>
         </div>
@@ -22,7 +22,7 @@
           <div class="location_single">
             <h2>New York</h2>
             <p>22 Texas West Hills</p>
-            <a href="mailto:needhelp@agrikol.com">needhelp@agrikol.com</a><br>
+            <a href="mailto:needhelp@magiancestral.com">needhelp@magiancestral.com</a><br>
             <a href="tel:666-888-0000">666 888 0000</a>
           </div>
         </div>
@@ -30,7 +30,7 @@
           <div class="location_single">
             <h2>Dubai</h2>
             <p>22 Texas West Hills</p>
-            <a href="mailto:needhelp@agrikol.com">needhelp@agrikol.com</a><br>
+            <a href="mailto:needhelp@magiancestral.com">needhelp@magiancestral.com</a><br>
             <a href="tel:666-888-0000">666 888 0000</a>
           </div>
         </div>

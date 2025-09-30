@@ -9,7 +9,7 @@
 import SearchPopup from "~/components/SearchPopup.vue";
 
 useHead({
-  title: "Agrikol - Vue Nuxt Template for Agriculture Farm & Farmers"
+  title: "Magiancestral"
 });
 
 onMounted(() => {

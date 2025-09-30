@@ -24,7 +24,7 @@
     },
     head(){
       return {
-        title: "Agrikol  | About"
+        title: "Magiancestral | About"
       }
     }
   }

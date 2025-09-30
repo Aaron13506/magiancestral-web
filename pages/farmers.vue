@@ -40,7 +40,7 @@
     },
     head(){
       return {
-        title: "Agrikol  | Farmers"
+        title: "Magiancestral | Farmers"
       }
     }
   }

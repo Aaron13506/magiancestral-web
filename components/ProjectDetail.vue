@@ -74,7 +74,7 @@
             <ul class="project_information_list list-unstyled">
               <li><span>Date:</span>06 Nov, 2019</li>
               <li><span>Client:</span>Themeforest, Envato</li>
-              <li><span>Website:</span>agrikol.com</li>
+              <li><span>Website:</span>magiancestral.com</li>
               <li><span>Location:</span>New York, USA</li>
               <li><span>Value:</span>$25,60000</li>
             </ul>

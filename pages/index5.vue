@@ -45,7 +45,7 @@
     },
     head(){
       return {
-        title: "Agrikol  | Home 5"
+        title: "Magiancestral | Home 5"
       }
     }
   }

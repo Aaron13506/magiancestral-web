@@ -8,7 +8,7 @@
       <div class="container">
         <div class="topbar-one__left">
           <a href="mailto:needhelp@tripo.com"
-            ><span class="icon-message"></span>needhelp@agrikol.com</a
+            ><span class="icon-message"></span>needhelp@magiancestral.com</a
           >
           <a href="tel:666-999-0000"
             ><span class="icon-phone-call"></span>666 888 0000</a

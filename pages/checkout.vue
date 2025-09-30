@@ -22,7 +22,7 @@
     },
     head(){
       return {
-        title: "Agrikol  | Checkout"
+        title: "Magiancestral | Checkout"
       }
     }
   }

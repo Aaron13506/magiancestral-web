@@ -30,7 +30,7 @@
     },
     head(){
       return {
-        title: "Agrikol  | Gallery"
+        title: "Magiancestral | Gallery"
       }
     }
   }

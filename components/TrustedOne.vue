@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6">
           <div class="trusted_one_text">
-            <h2>Our agrikol trusted by<br>more than<span class="counter">{{ animatedClients }}</span> <br>clients</h2>
+            <h2>Our magiancestral trusted by<br>more than<span class="counter">{{ animatedClients }}</span> <br>clients</h2>
           </div>
         </div>
         <div class="col-xl-6 col-lg-6">

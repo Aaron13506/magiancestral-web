@@ -30,7 +30,7 @@
     },
     head(){
       return {
-        title: "Agrikol  | News"
+        title: "Magiancestral | News"
       }
     }
   }

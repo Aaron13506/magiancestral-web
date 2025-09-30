@@ -14,7 +14,7 @@
               <div class="inner">
                 <div class="sub-title">Welcome to agriculture form</div>
                 <div class="big_text">
-                  <h2>agrikol products</h2>
+                  <h2>magiancestral products</h2>
                 </div>
                 <div class="link-box">
                   <nuxt-link to="/about" class="thm-btn">Discover More</nuxt-link>
@@ -34,7 +34,7 @@
               <div class="inner">
                 <div class="sub-title">Welcome to agriculture form</div>
                 <div class="big_text">
-                  <h2>agrikol products</h2>
+                  <h2>magiancestral products</h2>
                 </div>
                 <div class="link-box">
                   <nuxt-link to="/product" class="thm-btn">Discover More</nuxt-link>
@@ -54,7 +54,7 @@
               <div class="inner">
                 <div class="sub-title">Welcome to agriculture form</div>
                 <div class="big_text">
-                  <h2>agrikol products</h2>
+                  <h2>magiancestral products</h2>
                 </div>
                 <div class="link-box">
                   <nuxt-link to="/product" class="thm-btn">Discover More</nuxt-link>

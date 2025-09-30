@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6">
           <div class="block-title text-left">
-            <p>About agrikol</p>
+            <p>About magiancestral</p>
             <h3>We’re Providing The Best Solution</h3>
             <div class="leaf">
               <img src="/assets/images/resources/leaf.png" alt="">

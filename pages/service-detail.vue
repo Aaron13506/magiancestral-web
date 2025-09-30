@@ -22,7 +22,7 @@
     },
     head(){
       return {
-        title: "Agrikol  | Service Detail"
+        title: "Magiancestral | Service Detail"
       }
     }
   }

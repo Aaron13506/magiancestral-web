@@ -75,7 +75,7 @@
               </div>
               <div class="footer-widget_contact">
                 <p>66 Broklyn Street, New Town<br>DC 5752, New Yrok</p>
-                <a href="mailto:needhelp@agrikol.com">needhelp@agrikol.com</a><br>
+                <a href="mailto:needhelp@magiancestral.com">needhelp@magiancestral.com</a><br>
                 <a href="tel:666-888-0000">666 888 0000</a>
                 <div class="site-footer__social">
                   <a href="#"><i class="fab fa-facebook-square"></i></a>
