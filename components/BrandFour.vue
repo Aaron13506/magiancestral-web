@@ -30,31 +30,31 @@
             >
               <SwiperSlide>
                 <div class="single_brand_item">
-                  <a href="#"><img src="/assets/images/Servicios/Sec/Cacao.png" alt="Cacao"></a>
+                  <nuxt-link to="/about?medicine=cacao"><img src="/assets/images/Servicios/Sec/Cacao.png" alt="Cacao"></nuxt-link>
                   <h4 class="medicine-name">Cacao</h4>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div class="single_brand_item">
-                  <a href="#"><img src="/assets/images/Servicios/Sec/Temazcal.png" alt="Temazcal"></a>
+                  <nuxt-link to="/about?medicine=temazcal"><img src="/assets/images/Servicios/Sec/Temazcal.png" alt="Temazcal"></nuxt-link>
                   <h4 class="medicine-name">Temazcal</h4>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div class="single_brand_item">
-                  <a href="#"><img src="/assets/images/Servicios/Sec/Wachuma-1.png" alt="Wachuma"></a>
+                  <nuxt-link to="/about?medicine=wachuma"><img src="/assets/images/Servicios/Sec/Wachuma-1.png" alt="Wachuma"></nuxt-link>
                   <h4 class="medicine-name">Wachuma</h4>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div class="single_brand_item">
-                  <a href="#"><img src="/assets/images/Servicios/Sec/Xanga.png" alt="Xanga"></a>
+                  <nuxt-link to="/about?medicine=jurema"><img src="/assets/images/Servicios/Sec/Xanga.png" alt="Xanga"></nuxt-link>
                   <h4 class="medicine-name">Jurema</h4>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div class="single_brand_item">
-                  <a href="#"><img src="/assets/images/Servicios/Sec/Yopo.png" alt="Yopo"></a>
+                  <nuxt-link to="/about?medicine=yopo"><img src="/assets/images/Servicios/Sec/Yopo.png" alt="Yopo"></nuxt-link>
                   <h4 class="medicine-name">Yopo</h4>
                 </div>
               </SwiperSlide>
