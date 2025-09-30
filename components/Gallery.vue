@@ -4,14 +4,14 @@
       <div class="row gallery-grid">
         <div v-for="(image, index) in galleryImages" :key="index" class="col-lg-4 col-md-6 col-sm-6 mb-4 gallery-item">
           <div class="gallery_two_single">
-            <div class="gallery_two_image">
+            <a class="img-popup gallery_two_image" :href="image.src">
               <img :src="image.src" :alt="image.alt" loading="lazy">
               <div class="gallery_two_hover_box">
                 <div class="gallery_two_icon">
-                  <a class="img-popup" :href="image.src"><span class="icon-plus-symbol"></span></a>
+                  <span class="icon-plus-symbol"></span>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -25,7 +25,6 @@
       data() {
         return {
           galleryImages: [
-            { src: '/assets/images/gallery/IMG_1439.jpg', alt: 'Agricultura 1' },
             { src: '/assets/images/gallery/IMG_1481.jpg', alt: 'Agricultura 2' },
             { src: '/assets/images/gallery/IMG_1485.jpg', alt: 'Agricultura 3' },
             { src: '/assets/images/gallery/IMG_1510.jpg', alt: 'Agricultura 4' },
@@ -84,6 +83,8 @@
   overflow: hidden;
   padding-bottom: 75%;
   background: #f5f5f5;
+  display: block;
+  text-decoration: none;
 }
 
 .gallery_two_image img {
@@ -118,22 +119,27 @@
   opacity: 1;
 }
 
-.gallery_two_icon a {
-  display: inline-block;
+.gallery_two_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery_two_icon span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50px;
   height: 50px;
   background: white;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: #4caf50;
   font-size: 20px;
   transition: all 0.3s ease;
-  text-decoration: none;
+  flex-shrink: 0;
 }
 
-.gallery_two_icon a:hover {
+.gallery_two_single:hover .gallery_two_icon span {
   background: #4caf50;
   color: white;
   transform: scale(1.1);
