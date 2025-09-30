@@ -1,10 +1,8 @@
 <template>
   <div>
     <Nav />
-    <PageHeader title="About" />
-    <ProductOne />
-    <ProductOne />
-    <ProductOne />
+    <PageHeader />
+    <ServiceDetailMedicines />
     <Footer />
   </div>
 </template>
@@ -13,18 +11,18 @@
 
   import Nav from "../components/Nav";
   import PageHeader from "../components/PageHeader";
+  import ServiceDetailMedicines from "../components/ServiceDetailMedicines";
   import Footer from "../components/Footer";
-  import ProductOne from "../components/ProductOne";
   export default {
     components: {
-      ProductOne,
       Footer,
+      ServiceDetailMedicines,
       PageHeader,
       Nav
     },
     head(){
       return {
-        title: "Magiancestral | About"
+        title: "Magiancestral | Otras Medicinas"
       }
     }
   }

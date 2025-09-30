@@ -71,8 +71,7 @@
               <li class="dropdown">
                 <nuxt-link to="#">Acerca de</nuxt-link>
                 <ul>
-                  <!-- TODO: Re-enable medicines section when ready for production -->
-                  <!-- <li><nuxt-link to="/about">Otras medicinas</nuxt-link></li> -->
+                  <li><nuxt-link to="/about">Otras medicinas</nuxt-link></li>
                   <li><nuxt-link to="/farmers">Sobre nosotros</nuxt-link></li>
                 </ul>
                 <!-- /.sub-menu -->
@@ -124,8 +123,7 @@
               </button>
             </div>
             <ul :style="`display: ${dropdownStates.nosotros ? 'block' : 'none'}`">
-              <!-- TODO: Re-enable medicines section when ready for production -->
-              <!-- <li><nuxt-link to="/about">Otras medicinas</nuxt-link></li> -->
+              <li><nuxt-link to="/about">Otras medicinas</nuxt-link></li>
               <li><nuxt-link to="/farmers">Sobre nosotros</nuxt-link></li>
             </ul>
             <!-- /.sub-menu -->

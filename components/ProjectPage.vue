@@ -16,7 +16,6 @@
           <div class="col-xl-12">
             <div class="section-title text-center mb-5">
               <h2>PRESAGIO</h2>
-              <p class="subtitle">Se coloca un calendario y se marcan las fechas con uno de los emblemas</p>
             </div>
           </div>
         </div>
