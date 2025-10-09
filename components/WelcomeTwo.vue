@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12">
           <div class="welcome_two_text text-center">
-            <p>Magia Ancestral es una comunidad que se dedica a organizar experiencias ceremoniales y rituales para compartir medicinas ancestrales y plantas de poder, como la Ayahuasca, Medicina del Reino Fungi, Rape, Wachuma, Yopo, entre otras
+            <p>Magia Ancestral es una comunidad que se dedica a organizar experiencias ceremoniales y rituales para compartir medicinas ancestrales y plantas de poder, como la Medicina Ancestral de la Selva, Medicina del Reino Fungi, Rape, Wachuma, Yopo, entre otras
               </p>
           </div>
         </div>

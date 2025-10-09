@@ -13,10 +13,10 @@
         <div class="col-xl-6 col-lg-6 col-md-6">
           <div class="service_four_single wow fadeInLeft" data-wow-delay="300ms">
             <div class="service_four_icon">
-              <img src="/assets/images/Servicios/YageAyahuasca.png" alt="Yage Ayahuasca" class="service-image">
+              <img src="/assets/images/Servicios/YageAyahuasca.png" alt="Medicina Ancestral de la Selva" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail?service=yage" class="service_four_title">Yage / Ayahuasca</nuxt-link></h3>
+              <h3><nuxt-link to="/service-detail?service=yage" class="service_four_title">Medicina Ancestral de la Selva</nuxt-link></h3>
             </div>
             <div class="service_four_read_more">
               <nuxt-link to="/service-detail?service=yage"><span class="icon-left-arrow"></span></nuxt-link>

@@ -90,9 +90,9 @@
           <div class="col-xl-6 col-lg-6 col-md-12 mb-4">
             <div class="evento-card evento-card-large">
               <div class="evento-icon">
-                <img src="/assets/images/Servicios/YageAyahuasca.png" alt="Ayahuasca" class="emblema">
+                <img src="/assets/images/Servicios/YageAyahuasca.png" alt="Medicina Ancestral de la Selva" class="emblema">
               </div>
-              <h3>MEDICINA ANCESTRAL YAGE (AYAHUASCA)</h3>
+              <h3>MEDICINA ANCESTRAL DE LA SELVA</h3>
               <p>Encuentro chamánico grupal, con la ingesta de esta Planta de Poder, que emplea la energía ancestral y la conexión con las fuerzas elementales, acompañado de rezos, rueda medicinal, armonización energética, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico.</p>
             </div>
           </div>
@@ -155,6 +155,70 @@ const initCalendar = () => {
     'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
   ]
 
+  // Eventos del calendario Presagio
+  const events = [
+    {
+      date: new Date(2025, 9, 18), // 18 Oct 2025 (mes 9 = octubre)
+      title: 'MEDICINA FUNGI',
+      subtitle: 'ENCUENTRO CEREMONIAL NOCTURNO',
+      location: 'Los Teques',
+      type: 'fungi',
+      logo: '/assets/images/Servicios/Reino_fungi.png'
+    },
+    {
+      date: new Date(2025, 9, 22), // 22 Oct 2025
+      title: 'MAGICSADAN',
+      subtitle: 'MOVIMIENTO MÁGICO ANCESTRAL',
+      location: 'Los Ruíces, Caracas',
+      type: 'magicsadan',
+      logo: '/assets/images/Servicios/MagicSaDan.png',
+      recurring: true,
+      nextDate: new Date(2025, 10, 5) // 05 Nov 2025
+    },
+    {
+      date: new Date(2025, 10, 1), // 01 Nov 2025 (mes 10 = noviembre)
+      title: 'VELADA MÁGICA MUSICAL',
+      subtitle: 'CELEBRANDO EL LANZAMIENTO DE MAGIANCESTRAL.COM',
+      location: 'Bello Monte, Caracas',
+      type: 'velada',
+      logo: '/assets/images/Servicios/Velada_Musical.png'
+    },
+    {
+      date: new Date(2025, 10, 5), // 05 Nov 2025
+      title: 'MAGICSADAN',
+      subtitle: 'MOVIMIENTO MÁGICO ANCESTRAL',
+      location: 'Los Ruíces, Caracas',
+      type: 'magicsadan',
+      logo: '/assets/images/Servicios/MagicSaDan.png'
+    },
+    {
+      date: new Date(2025, 10, 15), // 15 Nov 2025
+      title: 'MEDICINA ANCESTRAL DE LA SELVA',
+      subtitle: 'ENCUENTRO CEREMONIAL NOCTURNO',
+      location: 'Los Teques',
+      type: 'ayahuasca',
+      logo: '/assets/images/Servicios/YageAyahuasca.png'
+    },
+    {
+      date: new Date(2025, 10, 29), // 29 Nov 2025
+      title: 'TERAMAI - SEICHEM',
+      subtitle: 'FORMACIÓN EN REIKI Y MAGIA SHAMÁNICA',
+      location: 'Bello Monte, Caracas',
+      type: 'teramai',
+      logo: '/assets/images/Servicios/Teramai_Senchen.png',
+      multiDay: true,
+      endDate: new Date(2025, 10, 30) // 30 Nov 2025
+    },
+    {
+      date: new Date(2025, 10, 30), // 30 Nov 2025
+      title: 'TERAMAI - SEICHEM',
+      subtitle: 'FORMACIÓN EN REIKI Y MAGIA SHAMÁNICA',
+      location: 'Bello Monte, Caracas',
+      type: 'teramai',
+      logo: '/assets/images/Servicios/Teramai_Senchen.png'
+    }
+  ]
+
   let currentMonth = new Date().getMonth()
   let currentYear = new Date().getFullYear()
 
@@ -193,14 +257,68 @@ const initCalendar = () => {
     for (let day = 1; day <= daysInMonth; day++) {
       const dayElement = document.createElement('div')
       dayElement.classList.add('calendar-day')
-      dayElement.textContent = day
 
-      // Add random emblema to some days (this is just for demonstration)
-      if (Math.random() > 0.8) {
-        const emblema = document.createElement('div')
-        emblema.classList.add('day-emblema')
-        emblema.innerHTML = '🌙' // This could be different emblemas
-        dayElement.appendChild(emblema)
+      // Número del día
+      const dayNumber = document.createElement('div')
+      dayNumber.classList.add('day-number')
+      dayNumber.textContent = day
+      dayElement.appendChild(dayNumber)
+
+      // Check if there's an event on this day
+      const currentDate = new Date(currentYear, currentMonth, day)
+      const event = events.find(e =>
+        e.date.getDate() === day &&
+        e.date.getMonth() === currentMonth &&
+        e.date.getFullYear() === currentYear
+      )
+
+      if (event) {
+        dayElement.classList.add('has-event', `event-${event.type}`)
+        dayElement.setAttribute('data-event', JSON.stringify(event))
+
+        // Crear contenedor interno para el contenido
+        const innerContent = document.createElement('div')
+        innerContent.classList.add('day-content')
+
+        // Mover el dayNumber al contenedor interno
+        innerContent.appendChild(dayNumber)
+
+        // Agregar indicador de evento
+        const eventIndicator = document.createElement('div')
+        eventIndicator.classList.add('event-indicator')
+        eventIndicator.textContent = '●'
+        innerContent.appendChild(eventIndicator)
+
+        dayElement.appendChild(innerContent)
+
+        // Información del evento (inicialmente oculta)
+        const eventInfo = document.createElement('div')
+        eventInfo.classList.add('event-info')
+        eventInfo.style.display = 'none'
+        eventInfo.innerHTML = `
+          <div class="event-title">${event.title}</div>
+          <div class="event-subtitle">${event.subtitle}</div>
+          <div class="event-location">${event.location}</div>
+        `
+        dayElement.appendChild(eventInfo)
+
+        // Click handler para mostrar/ocultar información
+        dayElement.addEventListener('click', () => {
+          // Cerrar todas las demás event-info
+          document.querySelectorAll('.event-info').forEach(info => {
+            if (info !== eventInfo) {
+              info.style.display = 'none'
+            }
+          })
+          // Toggle this event info
+          eventInfo.style.display = eventInfo.style.display === 'none' ? 'block' : 'none'
+        })
+      } else {
+        // Para días sin eventos, solo agregar el número
+        const innerContent = document.createElement('div')
+        innerContent.classList.add('day-content')
+        innerContent.appendChild(dayNumber)
+        dayElement.appendChild(innerContent)
       }
 
       calendarElement.appendChild(dayElement)
@@ -274,12 +392,13 @@ const initCalendar = () => {
 
 /* Calendar Styles */
 .calendar-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   background: white;
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .calendar-header {
@@ -316,7 +435,8 @@ const initCalendar = () => {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .calendar-day-header {
@@ -328,30 +448,154 @@ const initCalendar = () => {
 }
 
 .calendar-day {
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
   position: relative;
   border-radius: 8px;
   transition: all 0.3s ease;
   cursor: pointer;
+  border: 1px solid #e9ecef;
+  background: white;
 }
 
 .calendar-day:not(.empty):hover {
   background: #f8f9fa;
-  transform: scale(1.05);
 }
 
 .calendar-day.empty {
   cursor: default;
+  background: #f8f9fa;
+  border: 1px solid transparent;
 }
 
-.day-emblema {
+.day-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.day-number {
   position: absolute;
   top: 5px;
-  right: 5px;
-  font-size: 12px;
+  left: 5px;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.event-indicator {
+  font-size: 2rem;
+  color: #b3a85a;
+  line-height: 1;
+}
+
+.has-event {
+  background: #fffef5;
+  border: 2px solid #b3a85a;
+  cursor: pointer;
+}
+
+.has-event:hover {
+  background: #fff9e6;
+  border-color: #7da052;
+  z-index: 50;
+}
+
+.has-event .day-number {
+  color: #b3a85a;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.has-event:hover .event-indicator {
+  color: #7da052;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+.event-info {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px;
+  background: white;
+  border-radius: 10px;
+  border: 2px solid #b3a85a;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+  z-index: 1000;
+  min-width: 220px;
+  max-width: 280px;
+  white-space: normal;
+}
+
+.event-info::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom-color: #b3a85a;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-title {
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #b3a85a;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.event-subtitle {
+  font-size: 0.65rem;
+  color: #6c757d;
+  line-height: 1.3;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.event-location {
+  font-size: 0.7rem;
+  color: #7da052;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Prevent calendar from shifting */
+.presagio-section {
+  position: relative;
+  overflow: visible;
+}
+
+.calendar-container {
+  overflow: visible;
+}
+
+.calendar-grid {
+  overflow: visible;
 }
 
 /* Eventos Cards */
@@ -663,18 +907,73 @@ const initCalendar = () => {
   }
 }
 
+@media (max-width: 768px) {
+  .day-number {
+    font-size: 0.75rem;
+    top: 4px;
+    left: 4px;
+  }
+
+  .event-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .event-title {
+    font-size: 0.7rem;
+  }
+
+  .event-subtitle,
+  .event-location {
+    font-size: 0.6rem;
+  }
+
+  .event-info {
+    padding: 10px;
+    min-width: 200px;
+  }
+}
+
 @media (max-width: 480px) {
   .calendar-grid {
-    gap: 2px;
+    gap: 5px;
   }
 
   .calendar-day-header {
-    padding: 10px 5px;
-    font-size: 0.9rem;
+    padding: 8px 5px;
+    font-size: 0.7rem;
   }
 
-  .calendar-day {
-    font-size: 0.9rem;
+  .day-number {
+    font-size: 0.7rem;
+    top: 3px;
+    left: 3px;
+  }
+
+  .event-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .event-title {
+    font-size: 0.65rem;
+    margin-bottom: 3px;
+  }
+
+  .event-subtitle,
+  .event-location {
+    font-size: 0.55rem;
+    line-height: 1.2;
+  }
+
+  .has-event .day-number {
+    font-size: 0.75rem;
+  }
+
+  .event-info {
+    padding: 8px;
+    min-width: 180px;
+    max-width: 220px;
   }
 }
 </style>

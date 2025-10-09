@@ -59,16 +59,16 @@
           </div>
           <div class="main-nav__main-navigation four">
             <ul class="main-nav__navigation-box">
-              <li class="current">
+              <li :class="{ current: $route.path === '/' }">
                 <nuxt-link to="/">Inicio</nuxt-link>
               </li>
-              <li>
+              <li :class="{ current: $route.path === '/service-detail' }">
                 <nuxt-link to="/service-detail">Encuentros</nuxt-link>
               </li>
-              <li>
+              <li :class="{ current: $route.path === '/projects' || $route.path.startsWith('/projects_detail') }">
                 <nuxt-link to="/projects">Eventos Mágicos</nuxt-link>
               </li>
-              <li class="dropdown">
+              <li class="dropdown" :class="{ current: $route.path === '/about' || $route.path === '/farmers' }">
                 <nuxt-link to="#">Acerca de</nuxt-link>
                 <ul>
                   <li><nuxt-link to="/about">Mas medicinas</nuxt-link></li>
@@ -76,7 +76,7 @@
                 </ul>
                 <!-- /.sub-menu -->
               </li>
-              <li>
+              <li :class="{ current: $route.path === '/gallery' }">
                 <nuxt-link to="/gallery">Galería</nuxt-link>
               </li>
               <!-- TODO: Re-enable news section when ready for production -->
@@ -103,16 +103,16 @@
           <!-- content is loading via js -->
 
           <ul class="main-nav__navigation-box">
-          <li class="current">
+          <li :class="{ current: $route.path === '/' }">
             <nuxt-link to="/">Inicio</nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/service-detail">Servicios</nuxt-link>
+          <li :class="{ current: $route.path === '/service-detail' }">
+            <nuxt-link to="/service-detail">Encuentros</nuxt-link>
           </li>
-          <li>
+          <li :class="{ current: $route.path === '/projects' || $route.path.startsWith('/projects_detail') }">
             <nuxt-link to="/projects">Eventos Mágicos</nuxt-link>
           </li>
-          <li class="dropdown">
+          <li class="dropdown" :class="{ current: $route.path === '/about' || $route.path === '/farmers' }">
             <div class="menu-holder">
               Acerca de<button
                 class="dropdown-btn"
@@ -128,7 +128,7 @@
             </ul>
             <!-- /.sub-menu -->
           </li>
-          <li>
+          <li :class="{ current: $route.path === '/gallery' }">
             <nuxt-link to="/gallery">Galería</nuxt-link>
           </li>
           <!-- TODO: Re-enable news section when ready for production -->

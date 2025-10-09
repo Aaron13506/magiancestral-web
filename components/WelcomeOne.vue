@@ -148,25 +148,35 @@ const radioStore = useRadioStore()
 let wasPlayingBeforeVideo = false
 
 onMounted(() => {
-  const lightbox = new GLightbox({
-    selector: '.videoTwo',
-    touchNavigation: true,
-    loop: true,
-    autoplayVideos: true
-  })
+  // Wait for GLightbox to be available
+  const initLightbox = () => {
+    if (typeof window !== 'undefined' && window.GLightbox) {
+      const lightbox = new window.GLightbox({
+        selector: '.videoTwo',
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true
+      })
 
-  lightbox.on('open', () => {
-    wasPlayingBeforeVideo = radioStore.isPlaying
-    if (wasPlayingBeforeVideo) {
-      radioStore.pause()
-    }
-  })
+      lightbox.on('open', () => {
+        wasPlayingBeforeVideo = radioStore.isPlaying
+        if (wasPlayingBeforeVideo) {
+          radioStore.pause()
+        }
+      })
 
-  lightbox.on('close', () => {
-    if (wasPlayingBeforeVideo) {
-      radioStore.play()
+      lightbox.on('close', () => {
+        if (wasPlayingBeforeVideo) {
+          radioStore.play()
+        }
+      })
+    } else {
+      // Retry after a short delay if GLightbox is not yet loaded
+      setTimeout(initLightbox, 100)
     }
-  })
+  }
+
+  initLightbox()
 })
 </script>
 
