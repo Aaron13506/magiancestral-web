@@ -39,4 +39,98 @@
 .block-title h3 {
   font-size: 64px !important;
 }
+
+/* Ajustes responsive para móvil */
+@media (max-width: 991px) {
+  .block-title h3 {
+    font-size: 2.2rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 20px !important;
+    word-break: break-word;
+  }
+
+  .growing_product_text p {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 15px !important;
+    text-align: justify !important;
+  }
+
+  /* Mantener layout lado a lado con superposición */
+  .row {
+    position: relative;
+    margin-bottom: 60px;
+  }
+
+  .col-xl-6:first-child {
+    position: relative;
+    z-index: 1;
+  }
+
+  .col-xl-6:last-child {
+    position: relative;
+    z-index: 2;
+    margin-top: -80px;
+  }
+
+  .product_img img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  .growing_product {
+    background: white;
+    padding: 20px 15px !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .block-title h3 {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .growing_product_text p {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 12px !important;
+    text-align: justify !important;
+    color: #666 !important;
+  }
+
+  .col-xl-6:last-child {
+    margin-top: -60px;
+  }
+
+  .growing_product {
+    padding: 18px 12px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .block-title h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 15px !important;
+  }
+
+  .growing_product_text p {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 10px !important;
+    text-align: justify !important;
+  }
+
+  .col-xl-6:last-child {
+    margin-top: -50px;
+  }
+
+  .growing_product {
+    padding: 15px 10px !important;
+  }
+}
 </style>

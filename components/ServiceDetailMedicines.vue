@@ -286,33 +286,86 @@
 
   .service_details_right {
     padding-top: 0;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   /* Reducir padding del container principal */
   .service_detail .container {
     padding-top: 0;
   }
+
+  /* Ajustar títulos y textos para tablet */
+  .harvest_innovations h2 {
+    font-size: 2.2rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 20px !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+
+  .harvest_innovations p {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 15px !important;
+    text-align: justify !important;
+  }
+
+  .harvest_innovations {
+    margin-bottom: 30px !important;
+  }
 }
 
 @media (max-width: 768px) {
+  /* Títulos más pequeños para móvil */
   .harvest_innovations h2 {
-    font-size: 1.8rem;
-    line-height: 1.3;
-    padding: 0 10px;
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 18px !important;
+    padding: 0 !important;
+    word-break: break-word;
   }
 
+  /* Párrafos optimizados para móvil */
+  .harvest_innovations p {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 12px !important;
+    text-align: justify !important;
+    color: #666 !important;
+  }
+
+  /* Tabs más compactos */
   .mobile-tab {
     padding: 10px 16px;
     font-size: 0.9rem;
   }
+
+  /* Reducir espaciado general */
+  .service_details_right {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 
 @media (max-width: 576px) {
+  /* Títulos aún más pequeños para móviles pequeños */
   .harvest_innovations h2 {
-    font-size: 1.5rem;
-    line-height: 1.2;
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 15px !important;
+    padding: 0 !important;
   }
 
+  /* Párrafos para pantallas pequeñas */
+  .harvest_innovations p {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 10px !important;
+    text-align: justify !important;
+  }
+
+  /* Tabs más pequeños */
   .mobile-tab {
     padding: 8px 14px;
     font-size: 0.85rem;
@@ -321,6 +374,16 @@
   .mobile-tabs-scroll {
     padding: 8px 5px;
     gap: 6px;
+  }
+
+  /* Reducir padding adicional */
+  .service_details_right {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .harvest_innovations {
+    margin-bottom: 25px !important;
   }
 }
 

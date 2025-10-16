@@ -62,13 +62,38 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .page-title-section {
     padding: 60px 0;
   }
 
   .page-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title-section {
+    padding: 50px 0;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-title-section {
+    padding: 40px 0;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    padding: 0 10px;
   }
 }
 </style>
