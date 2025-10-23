@@ -105,4 +105,22 @@ useHead({
     font-size: 2.5rem;
   }
 }
+
+/* Mantener imágenes del blog en proporción 1:1 */
+.blog_image {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Proporción 1:1 */
+  overflow: hidden;
+}
+
+.blog_image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 </style>

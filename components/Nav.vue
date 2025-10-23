@@ -6,7 +6,7 @@
           <a href="mailto:magiancestralvzla@gmail.com"
             ><span class="icon-message"></span>magiancestralvzla@gmail.com</a
           >
-          <a href="tel:666-999-0000"
+          <a href="https://wa.me/584241600760"
             ><span class="icon-phone-call"></span>0424 160-0760</a
           >
         </div>

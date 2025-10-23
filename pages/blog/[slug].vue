@@ -227,4 +227,61 @@ useHead({
   border-top: 1px solid #e0e0e0;
   margin: 2rem 0;
 }
+
+/* Mantener imagen del artículo en proporción 1:1 */
+.news_detail_image_box {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Proporción 1:1 */
+  overflow: hidden;
+}
+
+.news_detail_image_box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Mantener posición de la fecha sobre la imagen */
+.news_detail_date_box {
+  position: absolute;
+  z-index: 10;
+}
+
+/* Mantener imágenes de artículos recientes en proporción 1:1 */
+.sidebar__post-image {
+  position: relative !important;
+  width: 90px !important;
+  min-width: 90px !important;
+  height: 90px !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+
+.sidebar__post-image img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Asegurar que el contenedor del artículo reciente tenga el layout correcto */
+.sidebar__post-list li {
+  display: flex !important;
+  gap: 15px !important;
+  align-items: flex-start !important;
+  margin-bottom: 20px !important;
+}
+
+.sidebar__post-content {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
 </style>

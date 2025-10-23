@@ -2,7 +2,7 @@
 title: Terapia con Psilocibina en Ansiedad y Depresión de Pacientes Oncológicos
 description: Revisión sistemática sobre el uso terapéutico de la psilocibina para el tratamiento de ansiedad, depresión y angustia existencial en pacientes con cáncer
 date: 2025-01-22
-image: /assets/images/blog/blog-4-img-2.jpg
+image: /assets/images/blog/IMG-20240218-WA0034.jpg
 ---
 
 # Revisión Sistemática de la Terapia con Psilocibina en Ansiedad y Depresión de Pacientes Oncológicos
