@@ -81,10 +81,10 @@
                 <!-- /.sub-menu -->
               </li>
               <li class="dropdown">
-                <nuxt-link to="#">Noticias</nuxt-link>
+                <nuxt-link to="#">Blog</nuxt-link>
                 <ul>
-                  <li><nuxt-link to="/news">Noticias</nuxt-link></li>
-                  <li><nuxt-link to="/news_detail">Detalles de Noticia</nuxt-link></li>
+                  <li><nuxt-link to="/blog">Blog</nuxt-link></li>
+                  <li><nuxt-link to="/blog_detail">Detalles del Blog</nuxt-link></li>
                 </ul>
                 <!-- /.sub-menu -->
               </li>
@@ -158,13 +158,13 @@
           </li>
           <li class="dropdown">
             <div class="menu-holder">
-              Noticias<button class="dropdown-btn">
+              Blog<button class="dropdown-btn">
                 <i class="fa fa-angle-right"></i>
               </button>
             </div>
             <ul>
-              <li><nuxt-link to="/news">Noticias</nuxt-link></li>
-              <li><nuxt-link to="/news_detail">Detalles de Noticia</nuxt-link></li>
+              <li><nuxt-link to="/blog">Blog</nuxt-link></li>
+              <li><nuxt-link to="/blog_detail">Detalles del Blog</nuxt-link></li>
             </ul>
             <!-- /.sub-menu -->
           </li>

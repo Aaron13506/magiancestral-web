@@ -11,8 +11,8 @@
               </div>
             </div>
             <ul class="list-unstyled news_detail__meta">
-              <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-              <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
+              <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+              <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
             </ul>
             <div class="news_detail_content">
               <h2>Amount of Freak Bread or Other Fruits</h2>
@@ -133,7 +133,7 @@
                   <div class="sidebar__post-content">
                     <h3>
                       <a href="#" class="sidebar__post-content_meta"><i class="far fa-user-circle"></i> Admin</a>
-                      <nuxt-link to="/news_detail">Agriculture Miracle you Don't Know About</nuxt-link>
+                      <nuxt-link to="/blog_detail">Agriculture Miracle you Don't Know About</nuxt-link>
                     </h3>
                   </div>
                 </li>
@@ -144,7 +144,7 @@
                   <div class="sidebar__post-content">
                     <h3>
                       <a href="#" class="sidebar__post-content_meta"><i class="far fa-user-circle"></i> Admin</a>
-                      <nuxt-link to="/news_detail">Agriculture Miracle you Don't Know About</nuxt-link>
+                      <nuxt-link to="/blog_detail">Agriculture Miracle you Don't Know About</nuxt-link>
                     </h3>
                   </div>
                 </li>
@@ -155,7 +155,7 @@
                   <div class="sidebar__post-content">
                     <h3>
                       <a href="#" class="sidebar__post-content_meta"><i class="far fa-user-circle"></i> Admin</a>
-                      <nuxt-link to="/news_detail">Agriculture Miracle you Don't Know About</nuxt-link>
+                      <nuxt-link to="/blog_detail">Agriculture Miracle you Don't Know About</nuxt-link>
                     </h3>
                   </div>
                 </li>

@@ -79,10 +79,9 @@
               <li :class="{ current: $route.path === '/gallery' }">
                 <nuxt-link to="/gallery">Galería</nuxt-link>
               </li>
-              <!-- TODO: Re-enable news section when ready for production -->
-              <!-- <li>
-                <nuxt-link to="/news">Noticias</nuxt-link>
-              </li> -->
+              <li :class="{ current: $route.path === '/blog' || $route.path.startsWith('/blog_detail') }">
+                <nuxt-link to="/blog">Blog</nuxt-link>
+              </li>
             </ul>
           </div>
           <!-- /.navbar-collapse -->
@@ -131,10 +130,9 @@
           <li :class="{ current: $route.path === '/gallery' }">
             <nuxt-link to="/gallery">Galería</nuxt-link>
           </li>
-          <!-- TODO: Re-enable news section when ready for production -->
-          <!-- <li>
-            <nuxt-link to="/news">Noticias</nuxt-link>
-          </li> -->
+          <li :class="{ current: $route.path === '/blog' || $route.path.startsWith('/blog_detail') }">
+            <nuxt-link to="/blog">Blog</nuxt-link>
+          </li>
         </ul>
         </div>
       </nav>

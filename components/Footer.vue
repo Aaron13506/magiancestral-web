@@ -16,7 +16,7 @@
                   <li><nuxt-link to="/about">Acerca de</nuxt-link></li>
                   <li><nuxt-link to="/farmers">Sobre nosotros</nuxt-link></li>
                   <li><nuxt-link to="/gallery">Galería</nuxt-link></li>
-                  <li><nuxt-link to="/news">Noticias</nuxt-link></li>
+                  <li><nuxt-link to="/blog">Blog</nuxt-link></li>
                 </ul>
               </div>
             </div>
@@ -32,7 +32,7 @@
                       <img src="/assets/images/resources/footer-1-img-1.jpg" alt="">
                     </div>
                     <div class="footer-widget__news_text">
-                      <p><a href="/news_detail">Aprende 10 Mejores Consejos de medicina natural</a></p>
+                      <p><a href="/blog_detail">Aprende 10 Mejores Consejos de medicina natural</a></p>
                     </div>
                     <div class="footer-widget__news_date_box">
                       <p>30 Oct, 2020</p>
@@ -43,7 +43,7 @@
                       <img src="/assets/images/resources/footer-1-img-2.jpg" alt="">
                     </div>
                     <div class="footer-widget__news_text">
-                      <p><a href="/news_detail">Perspectivas de la vida</a></p>
+                      <p><a href="/blog_detail">Perspectivas de la vida</a></p>
                     </div>
                     <div class="footer-widget__news_date_box">
                       <p>30 Oct, 2020</p>

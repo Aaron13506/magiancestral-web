@@ -48,7 +48,7 @@
                     <img src="/assets/images/resources/footer-1-img-1.jpg" alt="">
                   </div>
                   <div class="footer-widget__news_text">
-                    <p><a href="/news_detail"> Learn 10 Best Tips for New Formers</a></p>
+                    <p><a href="/blog_detail"> Learn 10 Best Tips for New Formers</a></p>
                   </div>
                   <div class="footer-widget__news_date_box">
                     <p>30 Oct, 2020</p>
@@ -59,7 +59,7 @@
                     <img src="/assets/images/resources/footer-1-img-2.jpg" alt="">
                   </div>
                   <div class="footer-widget__news_text">
-                    <p><a href="/news_detail">Farmer Sentiment Darkens Hopes Fade</a></p>
+                    <p><a href="/blog_detail">Farmer Sentiment Darkens Hopes Fade</a></p>
                   </div>
                   <div class="footer-widget__news_date_box">
                     <p>30 Oct, 2020</p>

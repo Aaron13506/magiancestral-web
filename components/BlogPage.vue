@@ -13,17 +13,17 @@
               </div>
               <div class="blog-one__content">
                 <ul class="list-unstyled blog-one__meta">
-                  <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                  <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
                   </li>
                 </ul>
-                <h3><nuxt-link to="/news_detail">Agriculture Miracle you<br>Don't Know About</nuxt-link></h3>
+                <h3><nuxt-link to="/blog_detail">Agriculture Miracle you<br>Don't Know About</nuxt-link></h3>
                 <div class="blog_one_text">
                   <p>There are lorem ipsum is simply free many variations of ipsum the majority
                     suffered.</p>
                 </div>
                 <div class="read_more_btn">
-                  <nuxt-link to="/news_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
+                  <nuxt-link to="/blog_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
                 </div>
               </div>
             </div>
@@ -40,17 +40,17 @@
               </div>
               <div class="blog-one__content">
                 <ul class="list-unstyled blog-one__meta">
-                  <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                  <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
                   </li>
                 </ul>
-                <h3><nuxt-link to="/news_detail">Amount of Freak Bread<br>or Other Fruits</nuxt-link></h3>
+                <h3><nuxt-link to="/blog_detail">Amount of Freak Bread<br>or Other Fruits</nuxt-link></h3>
                 <div class="blog_one_text">
                   <p>There are lorem ipsum is simply free many variations of ipsum the majority
                     suffered.</p>
                 </div>
                 <div class="read_more_btn">
-                  <nuxt-link to="/news_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
+                  <nuxt-link to="/blog_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
                 </div>
               </div>
             </div>
@@ -67,17 +67,17 @@
               </div>
               <div class="blog-one__content">
                 <ul class="list-unstyled blog-one__meta">
-                  <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                  <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
                   </li>
                 </ul>
-                <h3><nuxt-link to="/news_detail">Winter Wheat Harvest<br>Gathering Momentum</nuxt-link></h3>
+                <h3><nuxt-link to="/blog_detail">Winter Wheat Harvest<br>Gathering Momentum</nuxt-link></h3>
                 <div class="blog_one_text">
                   <p>There are lorem ipsum is simply free many variations of ipsum the majority
                     suffered.</p>
                 </div>
                 <div class="read_more_btn">
-                  <nuxt-link to="/news_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
+                  <nuxt-link to="/blog_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
                 </div>
               </div>
             </div>
@@ -94,17 +94,17 @@
               </div>
               <div class="blog-one__content">
                 <ul class="list-unstyled blog-one__meta">
-                  <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                  <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
                   </li>
                 </ul>
-                <h3><nuxt-link to="/news_detail">Agriculture Miracle you<br>Don't Know About</nuxt-link></h3>
+                <h3><nuxt-link to="/blog_detail">Agriculture Miracle you<br>Don't Know About</nuxt-link></h3>
                 <div class="blog_one_text">
                   <p>There are lorem ipsum is simply free many variations of ipsum the majority
                     suffered.</p>
                 </div>
                 <div class="read_more_btn">
-                  <nuxt-link to="/news_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
+                  <nuxt-link to="/blog_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
                 </div>
               </div>
             </div>
@@ -121,17 +121,17 @@
               </div>
               <div class="blog-one__content">
                 <ul class="list-unstyled blog-one__meta">
-                  <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                  <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
                   </li>
                 </ul>
-                <h3><nuxt-link to="/news_detail">Agriculture Miracle you<br>Don't Know About</nuxt-link></h3>
+                <h3><nuxt-link to="/blog_detail">Agriculture Miracle you<br>Don't Know About</nuxt-link></h3>
                 <div class="blog_one_text">
                   <p>There are lorem ipsum is simply free many variations of ipsum the majority
                     suffered.</p>
                 </div>
                 <div class="read_more_btn">
-                  <nuxt-link to="/news_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
+                  <nuxt-link to="/blog_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
                 </div>
               </div>
             </div>
@@ -148,17 +148,17 @@
               </div>
               <div class="blog-one__content">
                 <ul class="list-unstyled blog-one__meta">
-                  <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                  <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                  <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link>
                   </li>
                 </ul>
-                <h3><nuxt-link to="/news_detail">Winter Wheat Harvest<br>Gathering Momentum</nuxt-link></h3>
+                <h3><nuxt-link to="/blog_detail">Winter Wheat Harvest<br>Gathering Momentum</nuxt-link></h3>
                 <div class="blog_one_text">
                   <p>There are lorem ipsum is simply free many variations of ipsum the majority
                     suffered.</p>
                 </div>
                 <div class="read_more_btn">
-                  <nuxt-link to="/news_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
+                  <nuxt-link to="/blog_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
                 </div>
               </div>
             </div>

@@ -125,8 +125,8 @@
               <li class="dropdown">
                 <nuxt-link to="#">News</nuxt-link>
                 <ul>
-                  <li><nuxt-link to="/news">News</nuxt-link></li>
-                  <li><nuxt-link to="/news_detail">News Details</nuxt-link></li>
+                  <li><nuxt-link to="/blog">News</nuxt-link></li>
+                  <li><nuxt-link to="/blog_detail">News Details</nuxt-link></li>
                 </ul>
                 <!-- /.sub-menu -->
               </li>
@@ -249,8 +249,8 @@
               </button>
             </div>
             <ul>
-              <li><nuxt-link to="/news">News</nuxt-link></li>
-              <li><nuxt-link to="/news_detail">News Details</nuxt-link></li>
+              <li><nuxt-link to="/blog">News</nuxt-link></li>
+              <li><nuxt-link to="/blog_detail">News Details</nuxt-link></li>
             </ul>
             <!-- /.sub-menu -->
           </li>

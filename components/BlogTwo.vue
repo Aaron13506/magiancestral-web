@@ -11,7 +11,7 @@
             </div>
           </div>
           <div class="all_posts_btn">
-            <a href="/news" class="thm-btn">View All Posts</a>
+            <a href="/blog" class="thm-btn">View All Posts</a>
           </div>
         </div>
       </div>
@@ -26,17 +26,17 @@
             </div>
             <div class="blog-two_content">
               <ul class="list-unstyled blog-two_meta">
-                <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
+                <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
               </ul>
-              <h3><nuxt-link to="/news_detail" class="blog_two_title">Agriculture Miracle you<br>Don't
+              <h3><nuxt-link to="/blog_detail" class="blog_two_title">Agriculture Miracle you<br>Don't
                 Know About</nuxt-link></h3>
               <div class="blog_two_text">
                 <p>There are lorem ipsum is simply free text available in the market to use it many
                   variations of ipsum the majority suffered.</p>
               </div>
               <div class="blog_two_read_more_btn">
-                <nuxt-link to="/news_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
+                <nuxt-link to="/blog_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
               </div>
             </div>
           </div>
@@ -51,17 +51,17 @@
             </div>
             <div class="blog-two_content">
               <ul class="list-unstyled blog-two_meta">
-                <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
+                <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
               </ul>
-              <h3><nuxt-link to="/news_detail" class="blog_two_title">Winter Wheat Harvest
+              <h3><nuxt-link to="/blog_detail" class="blog_two_title">Winter Wheat Harvest
                 Gathering<br>Momentum</nuxt-link></h3>
               <div class="blog_two_text">
                 <p>There are lorem ipsum is simply free text available in the market to use it many
                   variations of ipsum the majority suffered.</p>
               </div>
               <div class="blog_two_read_more_btn">
-                <nuxt-link to="/news_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
+                <nuxt-link to="/blog_detail"><i class="fa fa-angle-right"></i>Read More</nuxt-link>
               </div>
             </div>
           </div>
@@ -70,26 +70,26 @@
           <div class="blog_two_right wow fadeInRight" data-wow-delay="300ms">
             <div class="blog_three_single">
               <ul class="list-unstyled blog-three_meta">
-                <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
+                <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
               </ul>
-              <h3><nuxt-link to="/news_detail" class="blog_three_title">Amount of Freak Bread or Other
+              <h3><nuxt-link to="/blog_detail" class="blog_three_title">Amount of Freak Bread or Other
                 Fruits</nuxt-link></h3>
             </div>
             <div class="blog_three_single">
               <ul class="list-unstyled blog-three_meta">
-                <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
+                <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
               </ul>
-              <h3><nuxt-link to="/news_detail" class="blog_three_title">Learn 10 Best Tips for New
+              <h3><nuxt-link to="/blog_detail" class="blog_three_title">Learn 10 Best Tips for New
                 Formers</nuxt-link></h3>
             </div>
             <div class="blog_three_single blgo_three_last">
               <ul class="list-unstyled blog-three_meta">
-                <li><nuxt-link to="/news_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
-                <li><nuxt-link to="/news_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
+                <li><nuxt-link to="/blog_detail"><i class="far fa-user-circle"></i> Admin</nuxt-link></li>
+                <li><nuxt-link to="/blog_detail"><i class="far fa-comments"></i> 2 Comments</nuxt-link></li>
               </ul>
-              <h3><nuxt-link to="/news_detail" class="blog_three_title">Winter Wheat Harvest Gathering
+              <h3><nuxt-link to="/blog_detail" class="blog_three_title">Winter Wheat Harvest Gathering
                 Momentum</nuxt-link></h3>
             </div>
           </div>

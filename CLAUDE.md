@@ -8,24 +8,26 @@ This is "Agrikol" - a Vue.js Nuxt.js template for agriculture farm & farmers web
 
 ## Development Commands
 
+**Package Manager:** This project uses **pnpm** instead of npm.
+
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Run development server (localhost:3000)
-npm run dev
+pnpm dev
 
 # Build for production
-npm run build
+pnpm build
 
 # Preview production build
-npm run preview
+pnpm preview
 
 # Generate static files
-npm run generate
+pnpm generate
 
 # Prepare Nuxt
-npm run postinstall
+pnpm postinstall
 ```
 
 ## Project Architecture
@@ -59,7 +61,7 @@ npm run postinstall
 - `pages/` - Nuxt.js auto-routing (index.vue, about.vue, contact.vue, etc.)
 - Multiple homepage variants (index.vue, index2.vue, index3.vue, index4.vue, index5.vue)
 - E-commerce pages (product.vue, cart.vue, checkout.vue)
-- Content pages (news.vue, gallery.vue, farmers.vue, etc.)
+- Content pages (blog.vue, blog_detail.vue, gallery.vue, farmers.vue, etc.)
 
 **Component System:**
 - `components/` - 60+ reusable Vue components
@@ -105,10 +107,39 @@ npm run postinstall
 - Checkout process
 
 **Content Management:**
-- Blog/news system
+- Blog system (blog.vue, blog_detail.vue)
 - Gallery functionality
 - Team/farmer profiles
 - Service pages with detail views
+
+**Blog System:**
+- Blog uses **Nuxt Content** with Markdown files
+- Articles are stored in `content/blog/` directory as `.md` files
+- Blog listing page: `pages/blog/index.vue` (route: `/blog`)
+- Blog detail page: `pages/blog/[slug].vue` (route: `/blog/article-slug`)
+- To add a new article, create a `.md` file in `content/blog/` with frontmatter metadata
+
+**Adding New Blog Articles:**
+1. Create a new `.md` file in `content/blog/` with the article slug as filename
+2. Add frontmatter at the top with: title, description, date, image, author, tags
+3. Write content in Markdown below the frontmatter
+4. The article will automatically appear on `/blog`
+
+Example article structure:
+```markdown
+---
+title: Article Title
+description: Article description
+date: 2025-01-15
+image: /assets/images/blog/image.jpg
+author: Admin
+tags:
+  - tag1
+  - tag2
+---
+
+# Article content in Markdown...
+```
 
 ### Plugin System
 - `plugins/owl.client.js` - Placeholder for carousel functionality (needs Vue 3 compatible replacement)
