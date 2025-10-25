@@ -53,7 +53,12 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/']
-    }
+    },
+    // Include content directory in server bundle for Vercel
+    serverAssets: [{
+      baseName: 'content',
+      dir: './content'
+    }]
   },
 
   compatibilityDate: '2024-07-16',

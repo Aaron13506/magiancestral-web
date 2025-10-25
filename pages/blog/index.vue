@@ -6,11 +6,11 @@
     <!-- Page Title Section -->
     <section class="page-title-section">
       <div class="container">
-        <h1 class="page-title">Blog</h1>
+        <h1 class="page-title">Bitácora</h1>
       </div>
     </section>
 
-    <!-- Blog Listing Section -->
+    <!-- Bitácora Listing Section -->
     <section class="blog-one news">
       <div class="container">
         <div class="row">
@@ -73,7 +73,7 @@ const formatDate = (date) => {
 
 // Meta tags
 useHead({
-  title: 'Magiancestral | Blog',
+  title: 'Magiancestral | Bitácora',
   meta: [
     { name: 'description', content: 'Descubre artículos sobre medicina natural y plantas medicinales ancestrales' }
   ]

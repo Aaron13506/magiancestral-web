@@ -9,7 +9,7 @@ const md = new MarkdownIt({
   typographer: true
 })
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
   const slug = getRouterParam(event, 'slug')
 
   if (!slug) {
@@ -19,18 +19,37 @@ export default defineEventHandler((event) => {
     })
   }
 
-  const filePath = path.join(process.cwd(), 'content', 'blog', `${slug}.md`)
+  const isDev = process.env.NODE_ENV === 'development'
+  let fileContent: string
 
-  // Verificar si el archivo existe
-  if (!fs.existsSync(filePath)) {
-    throw createError({
-      statusCode: 404,
-      message: 'Article not found'
-    })
+  if (isDev) {
+    // En desarrollo, usar el filesystem normal
+    const filePath = path.join(process.cwd(), 'content', 'blog', `${slug}.md`)
+
+    if (!fs.existsSync(filePath)) {
+      throw createError({
+        statusCode: 404,
+        message: 'Article not found'
+      })
+    }
+
+    fileContent = fs.readFileSync(filePath, 'utf-8')
+  } else {
+    // En producción (Vercel), usar el server asset
+    const storage = useStorage('assets:content')
+    const content = await storage.getItem(`blog/${slug}.md`) as string
+
+    if (!content) {
+      throw createError({
+        statusCode: 404,
+        message: 'Article not found'
+      })
+    }
+
+    fileContent = content
   }
 
-  // Leer y parsear el archivo
-  const fileContent = fs.readFileSync(filePath, 'utf-8')
+  // Parsear el archivo
   const { data, content } = matter(fileContent)
 
   return {

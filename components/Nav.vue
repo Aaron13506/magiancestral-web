@@ -80,7 +80,7 @@
                 <nuxt-link to="/gallery">Galería</nuxt-link>
               </li>
               <li :class="{ current: $route.path === '/blog' || $route.path.startsWith('/blog_detail') }">
-                <nuxt-link to="/blog">Blog</nuxt-link>
+                <nuxt-link to="/blog">Bitácora</nuxt-link>
               </li>
             </ul>
           </div>
@@ -131,7 +131,7 @@
             <nuxt-link to="/gallery">Galería</nuxt-link>
           </li>
           <li :class="{ current: $route.path === '/blog' || $route.path.startsWith('/blog_detail') }">
-            <nuxt-link to="/blog">Blog</nuxt-link>
+            <nuxt-link to="/blog">Bitácora</nuxt-link>
           </li>
         </ul>
         </div>

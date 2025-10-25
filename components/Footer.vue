@@ -16,7 +16,7 @@
                   <li><nuxt-link to="/about">Acerca de</nuxt-link></li>
                   <li><nuxt-link to="/farmers">Sobre nosotros</nuxt-link></li>
                   <li><nuxt-link to="/gallery">Galería</nuxt-link></li>
-                  <li><nuxt-link to="/blog">Blog</nuxt-link></li>
+                  <li><nuxt-link to="/blog">Bitácora</nuxt-link></li>
                 </ul>
               </div>
             </div>

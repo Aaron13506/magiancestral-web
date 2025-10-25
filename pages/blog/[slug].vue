@@ -1,7 +1,7 @@
   <template>
   <div>
     <Nav />
-    <PageHeader title="Blog" />
+    <PageHeader title="Bitácora" />
 
     <section class="news_detail" v-if="article">
       <div class="container">
@@ -70,7 +70,7 @@
       <div class="container text-center">
         <h2>Artículo no encontrado</h2>
         <p>Lo sentimos, el artículo que buscas no existe.</p>
-        <nuxt-link to="/blog" class="thm-btn">Volver al Blog</nuxt-link>
+        <nuxt-link to="/blog" class="thm-btn">Volver a la Bitácora</nuxt-link>
       </div>
     </section>
 

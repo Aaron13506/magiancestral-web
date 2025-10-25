@@ -132,11 +132,11 @@
                   <!-- /.sub-menu -->
                 </li>
                 <li class="dropdown">
-                  <nuxt-link to="#">Blog</nuxt-link>
+                  <nuxt-link to="#">Bitácora</nuxt-link>
                   <ul>
-                    <li><nuxt-link to="/blog">Blog</nuxt-link></li>
+                    <li><nuxt-link to="/blog">Bitácora</nuxt-link></li>
                     <li>
-                      <nuxt-link to="/blog_detail">Blog Details</nuxt-link>
+                      <nuxt-link to="/blog_detail">Detalles de la Bitácora</nuxt-link>
                     </li>
                   </ul>
                   <!-- /.sub-menu -->
@@ -263,13 +263,13 @@
           </li>
           <li class="dropdown">
             <div class="menu-holder">
-              Blog<button class="dropdown-btn">
+              Bitácora<button class="dropdown-btn">
                 <i class="fa fa-angle-right"></i>
               </button>
             </div>
             <ul>
-              <li><nuxt-link to="/blog">Blog</nuxt-link></li>
-              <li><nuxt-link to="/blog_detail">Blog Details</nuxt-link></li>
+              <li><nuxt-link to="/blog">Bitácora</nuxt-link></li>
+              <li><nuxt-link to="/blog_detail">Detalles de la Bitácora</nuxt-link></li>
             </ul>
             <!-- /.sub-menu -->
           </li>
