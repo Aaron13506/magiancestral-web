@@ -43,7 +43,7 @@
           </div>
 
           <!-- Mensaje si no hay artículos -->
-          <div v-if="!articles || articles.length === 0" class="col-12 text-center py-5">
+          <div v-if="!articles || articles?.length === 0" class="col-12 text-center py-5">
             <p class="text-muted">No hay artículos publicados aún.</p>
           </div>
         </div>
@@ -55,13 +55,23 @@
 </template>
 
 <script setup>
-// Los componentes se auto-importan en Nuxt 3
-// import Nav from "../components/Nav";
-// import PageHeader from "../components/PageHeader";
-// import Footer from "../components/Footer";
+// Cargar artículos desde archivo JSON estático
+const articles = ref([])
 
-// Obtener todos los artículos del blog desde la API
-const { data: articles } = await useFetch('/api/blog')
+// Cargar datos en el cliente y servidor
+const loadArticles = async () => {
+  try {
+    const response = await fetch('/data/blog/index.json')
+    const data = await response.json()
+    articles.value = data
+  } catch (error) {
+    console.error('Error loading blog articles:', error)
+    articles.value = []
+  }
+}
+
+// Ejecutar carga de artículos
+await loadArticles()
 
 // Función para formatear la fecha
 const formatDate = (date) => {

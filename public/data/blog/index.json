@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "estudio-ayahuasca-salud-publica",
+    "title": "Ayahuasca y Salud Pública - Estudio Científico en Contexto Ritual",
+    "description": "Estudio científico sobre el estado de salud, bienestar psicosocial, estilo de vida y estrategias de afrontamiento en usuarios de ayahuasca en contexto ritual",
+    "date": "2025-01-24",
+    "image": "/assets/images/blog/img_1.png",
+    "author": "Admin"
+  },
+  {
+    "slug": "australia-nueva-zelanda-psilocibina",
+    "title": "Australia y Nueva Zelanda Aprueban el Uso Terapéutico de Psilocibina",
+    "description": "Histórica decisión de Australia y Nueva Zelanda al convertirse en los primeros países en aprobar el uso médico de sustancias psicodélicas para tratar la depresión y el estrés postraumático",
+    "date": "2025-01-23",
+    "image": "/assets/images/blog/img.png",
+    "author": "Admin"
+  },
+  {
+    "slug": "psilocibina-terapia-oncologica",
+    "title": "Terapia con Psilocibina en Ansiedad y Depresión de Pacientes Oncológicos",
+    "description": "Revisión sistemática sobre el uso terapéutico de la psilocibina para el tratamiento de ansiedad, depresión y angustia existencial en pacientes con cáncer",
+    "date": "2025-01-22",
+    "image": "/assets/images/blog/IMG-20240218-WA0034.jpg",
+    "author": "Admin"
+  }
+]

@@ -1,4 +1,4 @@
-  <template>
+<template>
   <div>
     <Nav />
     <PageHeader title="Bitácora" />
@@ -9,16 +9,16 @@
           <div class="col-xl-8 col-lg-7">
             <div class="news_detail_left">
               <div class="news_detail_image_box">
-                <img :src="article.image || '/assets/images/blog/news-detail-img-1.jpg'" :alt="article.title">
+                <img :src="article?.image || '/assets/images/blog/news-detail-img-1.jpg'" :alt="article?.title">
                 <div class="news_detail_date_box">
-                  <p>{{ formatDate(article.date) }}</p>
+                  <p>{{ formatDate(article?.date) }}</p>
                 </div>
               </div>
               <div class="news_detail_content">
-                <h2>{{ article.title }}</h2>
+                <h2>{{ article?.title }}</h2>
 
-                <!-- Renderizar el contenido Markdown -->
-                <div class="prose prose-lg" v-html="article?.html"></div>
+                <!-- Renderizar el contenido HTML -->
+                <div class="prose prose-lg" v-html="article?.content"></div>
               </div>
 
               <div class="news_detail__bottom">
@@ -79,31 +79,46 @@
 </template>
 
 <script setup>
-// Los componentes se auto-importan en Nuxt 3
-// import Nav from "../../components/Nav";
-// import PageHeader from "../../components/PageHeader";
-// import Footer from "../../components/Footer";
-
 const route = useRoute()
 const slug = route.params.slug
 
-// Obtener el artículo específico desde la API
-const { data: article, error } = await useFetch(`/api/blog/${slug}`)
+// Referencias reactivas
+const article = ref(null)
+const allArticles = ref([])
 
-// Si hay error, mostrar 404
-if (error.value) {
-  throw createError({
-    statusCode: 404,
-    message: 'Artículo no encontrado'
-  })
+// Cargar el artículo específico
+const loadArticle = async () => {
+  try {
+    const response = await fetch(`/data/blog/${slug}.json`)
+    if (!response.ok) {
+      throw new Error('Article not found')
+    }
+    const data = await response.json()
+    article.value = data
+  } catch (error) {
+    console.error('Error loading article:', error)
+    article.value = null
+  }
 }
 
-// Obtener todos los artículos para mostrar recientes
-const { data: allArticles } = await useFetch('/api/blog')
+// Cargar todos los artículos para el sidebar
+const loadAllArticles = async () => {
+  try {
+    const response = await fetch('/data/blog/index.json')
+    const data = await response.json()
+    allArticles.value = data
+  } catch (error) {
+    console.error('Error loading articles:', error)
+    allArticles.value = []
+  }
+}
+
+// Ejecutar carga de datos
+await Promise.all([loadArticle(), loadAllArticles()])
 
 // Filtrar artículos recientes (últimos 3, excluyendo el actual)
 const recentArticles = computed(() => {
-  if (!allArticles.value) return []
+  if (!allArticles.value || !allArticles.value.length) return []
   return allArticles.value
     .filter(a => a.slug !== slug)
     .slice(0, 3)

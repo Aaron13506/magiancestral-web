@@ -52,13 +52,14 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/']
-    },
-    // Include content directory in server bundle for Vercel
-    serverAssets: [{
-      baseName: 'content',
-      dir: './content'
-    }]
+      routes: [
+        '/',
+        '/blog',
+        '/blog/psilocibina-terapia-oncologica',
+        '/blog/australia-nueva-zelanda-psilocibina',
+        '/blog/estudio-ayahuasca-salud-publica'
+      ]
+    }
   },
 
   compatibilityDate: '2024-07-16',
@@ -69,6 +70,7 @@ export default defineNuxtConfig({
     '/assets/css/**': { headers: { 'Cache-Control': 'max-age=31536000' } },
     '/assets/js/**': { headers: { 'Cache-Control': 'max-age=31536000' } },
     '/assets/fonts/**': { headers: { 'Cache-Control': 'max-age=31536000' } },
-    '/assets/plugins/**': { headers: { 'Cache-Control': 'max-age=31536000' } }
+    '/assets/plugins/**': { headers: { 'Cache-Control': 'max-age=31536000' } },
+    '/data/**': { headers: { 'Cache-Control': 'public, max-age=3600, s-maxage=3600' } }
   }
 })
