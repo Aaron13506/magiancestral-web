@@ -115,8 +115,20 @@ const searchQuery = ref('')
 const selectedCategory = ref(null)
 const sortOrder = ref('default')
 
-// Fetch products data from API endpoint
-const { data: productsData } = await useFetch('/api/products')
+// Cargar productos desde archivo JSON estático (mismo patrón que bitácora)
+const productsData = ref(null)
+
+const loadProducts = async () => {
+  try {
+    const response = await fetch('/data/products.json')
+    productsData.value = await response.json()
+  } catch (error) {
+    console.error('Error loading products:', error)
+    productsData.value = { products: [], categories: [], metadata: {} }
+  }
+}
+
+await loadProducts()
 
 // Computed properties
 const allProducts = computed(() => {
