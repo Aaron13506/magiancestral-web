@@ -246,11 +246,21 @@ onMounted(() => {
 
   /* Mobile cart - right side */
   .main-nav__mobile-cart {
-    display: block;
+    display: block !important;
     position: absolute;
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .main-nav__mobile-cart .cart-icon-mobile {
+    color: white;
+    font-size: 22px;
+  }
+
+  .stricky-fixed .main-nav__mobile-cart .cart-icon-mobile {
+    color: #333;
   }
 
   .side-menu__toggler i {
@@ -330,7 +340,7 @@ onMounted(() => {
   padding: 2px;
 }
 
-/* Mobile cart icon */
+/* Mobile cart icon - hidden on desktop by default */
 .main-nav__mobile-cart {
   display: none;
 }
@@ -353,13 +363,6 @@ onMounted(() => {
 .topbar-one__right {
   display: flex;
   align-items: center;
-}
-
-/* Hide mobile cart on desktop */
-@media (min-width: 1024px) {
-  .main-nav__mobile-cart {
-    display: none !important;
-  }
 }
 
 /* Hide mobile logo on desktop */
