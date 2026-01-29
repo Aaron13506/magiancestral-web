@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Working Rules
+
+**IMPORTANT:** Do NOT test or run the project. Only create and modify code. The user will test the changes themselves.
+
+- Do NOT execute `pnpm dev`, `pnpm build`, `pnpm preview`, or any other project execution commands unless explicitly requested by the user
+- Focus on writing, editing, and reviewing code
+- The user is responsible for testing and running the application
+
 ## Project Overview
 
 This is "Agrikol" - a Vue.js Nuxt.js template for agriculture farm & farmers websites. It's a Nuxt 3 application with multiple page layouts and Vue components for an agriculture business website.

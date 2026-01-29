@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <PageHeader title="Cart" />
+    <PageHeader title="Carrito" />
     <Cart />
     <Footer />
   </div>
@@ -22,7 +22,7 @@
     },
     head(){
       return {
-        title: "Magiancestral | Cart"
+        title: "Magiancestral | Carrito"
       }
     }
   }

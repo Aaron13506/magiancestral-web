@@ -1,0 +1,214 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Extracto Natural de Chilcuague (Raíz de Oro) Concentrado",
+      "slug": "extracto-chilcuague-raiz-oro",
+      "shortName": "Chilcuague Concentrado",
+      "price": 35.00,
+      "currency": "USD",
+      "image": "/assets/images/shop/botica/chilcuague-concentrado.jpg",
+      "category": "consumibles",
+      "description": "Antimicrobiano/ Antifúngico. Anestésico tópico. Cicatrizante. Sin conservantes ni saborizantes artificiales. Usado desde épocas prehispánicas para la higiene y salud bucal.",
+      "content": "30 cc de Extracto Natural de Chilcuague Concentrado.",
+      "usage": "Aplicar 1 o 2 atomizaciones en la boca. Para reducir sensibilidad, diluir en agua. En piel, aplicar directamente en la zona afectada.",
+      "ingredients": "Extracto de raíz de Chilcuague (Heliopsis longipes), alcohol de caña de azúcar (Saccharum officinarum).",
+      "precautions": "Evite el contacto con los ojos y zonas sensibles. Manténgase fuera del alcance de los niños. Mantenga en ambiente fresco y fuera de los rayos del sol. Este producto no es un medicamento y su consumo es responsabilidad de quien lo usa.",
+      "benefits": [
+        "Antimicrobiano",
+        "Antifúngico",
+        "Anestésico tópico",
+        "Higiene bucal",
+        "Tradición prehispánica",
+        "Cicatrizante"
+      ],
+      "inStock": true,
+      "featured": true,
+      "topProduct": true,
+      "artisanal": false
+    },
+    {
+      "id": 2,
+      "name": "Sortilegio - Microdosis (Setas Psilocybes)",
+      "slug": "sortilegio-microdosis-setas",
+      "shortName": "Sortilegio Microdosis",
+      "price": 40.00,
+      "currency": "USD",
+      "image": "/assets/images/shop/botica/sortilegio-microdosis.jpg",
+      "category": "consumibles",
+      "description": "Suplemento alimenticio que coadyuva a la neurogenesis cerebral, mejorando el estado de ánimo, aumentando la sensación de vitalidad y concentración. Mejora la calidad del sueño.   Antioxidante celular.",
+      "content": "15 capsulas de gelatina con 0,3 g. de setas deshidratadas C/U.",
+      "usage": "Se sugiere la ingesta de 1 cápsula cada 3 dias, es decir, un dia si, y dos dias no, hasta agotar las 15 capsulas. Descansar un periodo de 3 semanas para tomar un siguiente tratamiento.",
+      "ingredients": "Setas (Psilocybe cubensis) cultivadas y extraídas de la Naturaleza, deshidratadas y pulverizadas.",
+      "precautions": "Puede causar sensibilidad estomacal los primeros días de su ingesta. Manténgase fuera del alcance de los niños. Conservar en ambiente fresco y fuera de los rayos del sol. Este producto no es un medicamento y su consumo es responsabilidad de quien lo usa. Producto de elaboración artesanal.",
+      "benefits": [
+        "Neurogenesis cerebral",
+        "Mejora el estado de ánimo",
+        "Aumenta la vitalidad",
+        "Antioxidante celular",
+        "Mejora la concentración",
+        "Mejora la calidad del sueño"
+      ],
+      "inStock": true,
+      "featured": true,
+      "topProduct": true,
+      "artisanal": true
+    },
+    {
+      "id": 3,
+      "name": "Melena de León",
+      "slug": "melena-de-leon",
+      "shortName": "Melena de León",
+      "price": 40.00,
+      "currency": "USD",
+      "image": "/assets/images/shop/botica/melena-de-leon.jpg",
+      "category": "consumibles",
+      "description": "Suplemento alimenticio antioxidante que colabora en la neurogenesis cerebral, mejora la memoria, la velocidad cognitiva y la atención.",
+      "content": "30 capsulas de gelatina con 0,5 g. de Melena de Leon deshidratada C/U.",
+      "usage": "Se sugiere la ingesta de 1 capsula diaria hasta agotar el tratamiento completo.",
+      "ingredients": "Hongo Melena de Leon cultivado y extraído de la Naturaleza, deshidratado y pulverizado.",
+      "precautions": "Conservar en ambiente fresco y fuera de los rayos del sol. Este producto no es un medicamento y su consumo es responsabilidad de quien lo usa. Producto de elaboración artesanal.",
+      "benefits": [
+        "Neurogenesis cerebral",
+        "Mejora la memoria",
+        "Velocidad cognitiva",
+        "Mayor atención",
+        "Antioxidante"
+      ],
+      "inStock": true,
+      "featured": true,
+      "topProduct": false,
+      "artisanal": true
+    },
+    {
+      "id": 4,
+      "name": "Choco Sinapsis Ancestral (Neuro Enfoque Natural)",
+      "slug": "choco-sinapsis-ancestral",
+      "shortName": "Choco Sinapsis Ancestral",
+      "price": 5.00,
+      "currency": "USD",
+      "image": "/assets/images/shop/botica/sinapsis-ancestral-2.jpg",
+      "gallery": [
+        "/assets/images/shop/botica/sinapsis-ancestral-2.jpg",
+        "/assets/images/shop/botica/sinapsis-ancestral-1.jpg",
+        "/assets/images/shop/botica/sinapsis-ancestral-3.jpg"
+      ],
+      "category": "consumibles",
+      "description": "Una receta de Magia Ancestral con sabiduría milenaria para el enfoque moderno. Despierta la mente con la pureza del Cacao F2, la fuerza y vitalidad de la Melena de león y el dulzor de la Naturaleza. Es un ritual delicioso y saludable para estimular el enfoque y la concentración.",
+      "content": "Tableta de 10 g. de Choco Sinapsis Ancestral.",
+      "usage": "Consume 1 o 2 cuadritos durante tus horas de mayor demanda intelectual o estudio para notar la diferencia en tu concentracion",
+      "ingredients": "Cacao Puro F2: 10 g. Melena de León natural deshidratada: 2,5 g. Un toque de sal marina, endulzada con Monk Fruit.",
+      "precautions": "Conservar en ambiente fresco y fuera de los rayos del sol. Este producto no es un medicamento. Producto de elaboración artesanal.",
+      "benefits": [
+        "Estimula el enfoque",
+        "Mejora la concentración",
+        "Cacao puro F2",
+        "Melena de León natural",
+        "Apto para diabéticos y dietas Keto. 0% indices glucémicos",
+        "Ritual saludable"
+      ],
+      "inStock": true,
+      "featured": true,
+      "topProduct": false,
+      "artisanal": true
+    },
+    {
+      "id": 5,
+      "name": "Llaveros - Emblemas de Poder",
+      "slug": "llaveros-emblemas-poder",
+      "shortName": "Emblemas de poder",
+      "price": 5.00,
+      "currency": "USD",
+      "image": "/assets/images/shop/botica/llavero-luna.jpg",
+      "category": "objetos-poder",
+      "description": "Para abrir todas las puertas mágicas.",
+      "content": "1 llavero artesanal",
+      "usage": "Lleva tu llavero contigo como un amuleto de protección y poder. Activa su energía con tu intención.",
+      "ingredients": "Materiales naturales y símbolos ancestrales.",
+      "precautions": "Conservar en lugar seco. Producto artesanal hecho a mano.",
+      "benefits": [
+        "Protección energética",
+        "Conexión ancestral",
+        "Símbolo de poder",
+        "Amuleto personal",
+        "Elaboración artesanal"
+      ],
+      "inStock": true,
+      "featured": false,
+      "topProduct": false,
+      "artisanal": true
+    },
+    {
+      "id": 6,
+      "name": "Porta Inciensos",
+      "slug": "porta-inciensos-ceremonial",
+      "shortName": "Porta Inciensos",
+      "price": 10.00,
+      "currency": "USD",
+      "image": "/assets/images/shop/botica/porta-inciensos.jpg",
+      "category": "objetos-poder",
+      "description": "Con símbolos que potencian la Magia del Sahumerio.",
+      "content": "1 porta inciensos artesanal",
+      "usage": "Coloca tu incienso o sahumerio en el porta inciensos durante tus rituales y ceremonias para potenciar su efecto.",
+      "ingredients": "Materiales naturales con símbolos sagrados.",
+      "precautions": "Usar sobre superficies resistentes al calor. Nunca dejar incienso encendido sin supervisión.",
+      "benefits": [
+        "Potencia energía ceremonial",
+        "Crea espacios sagrados",
+        "Símbolo sagrado",
+        "Uso ritual",
+        "Elaboración artesanal"
+      ],
+      "inStock": true,
+      "featured": false,
+      "topProduct": false,
+      "artisanal": true
+    },
+    {
+      "id": 7,
+      "name": "Diarios de Gratitud",
+      "slug": "diarios-gratitud",
+      "shortName": "Diario de Gratitud",
+      "price": 15.00,
+      "currency": "USD",
+      "image": "/assets/images/shop/botica/diario-gratitud.jpg",
+      "category": "objetos-poder",
+      "description": "Conecta con tu escritura y plasma tus procesos en intimidad.",
+      "content": "1 diario artesanal con páginas en blanco",
+      "usage": "Escribe diariamente 5 cosas por las que estás agradecido. La práctica constante transforma tu energía y atrae más abundancia.",
+      "ingredients": "Papel de calidad, encuadernación artesanal, diseño con símbolos ancestrales.",
+      "precautions": "Conservar en lugar seco. Producto artesanal hecho a mano.",
+      "benefits": [
+        "Cultiva la gratitud",
+        "Manifiesta abundancia",
+        "Transforma tu energía",
+        "Práctica diaria",
+        "Elaboración artesanal"
+      ],
+      "inStock": true,
+      "featured": false,
+      "topProduct": false,
+      "artisanal": true
+    }
+  ],
+  "categories": [
+    {
+      "id": "consumibles",
+      "name": "Consumibles",
+      "slug": "consumibles",
+      "description": "Productos naturales para consumo: extractos, microdosis, hongos medicinales y alimentos ancestrales"
+    },
+    {
+      "id": "objetos-poder",
+      "name": "Objetos de Poder",
+      "slug": "objetos-de-poder",
+      "description": "Objetos ceremoniales y amuletos para rituales y protección energética"
+    }
+  ],
+  "metadata": {
+    "totalProducts": 7,
+    "lastUpdated": "2026-01-12",
+    "currency": "USD",
+    "disclaimer": "Estos productos no son medicamentos. Su consumo es responsabilidad de quien los usa. Productos de elaboración artesanal con ingredientes naturales."
+  }
+}

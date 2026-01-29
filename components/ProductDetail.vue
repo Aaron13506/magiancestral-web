@@ -5,58 +5,60 @@
           <div class="row">
             <div class="col-xl-6 col-lg-6">
               <div class="product_detail_image">
-                <img src="/assets/images/shop/product-detai_img-1l.jpg" alt="">
+                <img :src="currentImage" :alt="product?.name" class="main-image">
+              </div>
+              <!-- Mini galería -->
+              <div v-if="galleryImages.length > 1" class="product-gallery">
+                <div
+                  v-for="(img, index) in galleryImages"
+                  :key="index"
+                  class="gallery-thumb"
+                  :class="{ active: currentImage === img }"
+                  @click="currentImage = img"
+                >
+                  <img :src="img" :alt="`${product?.name} - ${index + 1}`">
+                </div>
               </div>
             </div>
             <div class="col-xl-6 col-lg-6">
               <div class="product_detail_content">
-                <h2>Basket full of vegetables</h2>
+                <h2>{{ product?.name || 'Producto' }}</h2>
                 <div class="product_detail_review_box">
                   <div class="product_detail_price_box">
-                    <p>$9.98</p>
-                  </div>
-                  <div class="product_detail_review">
-                    <a href="#"><i class="fa fa-star"></i></a>
-                    <a href="#"><i class="fa fa-star"></i></a>
-                    <a href="#"><i class="fa fa-star"></i></a>
-                    <a href="#"><i class="fa fa-star"></i></a>
-                    <a href="#" class="deactive"><i class="fa fa-star"></i></a>
-                    <span>2 Customer Reviews</span>
+                    <p>${{ product?.price?.toFixed(2) || '0.00' }} {{ product?.currency || 'MXN' }}</p>
                   </div>
                 </div>
                 <div class="product_detail_text">
-                  <p>Aliquam hendrerit a augue insuscipit. Etiam aliquam massa quis des mauris commodo
-                    venenatis ligula commodo leez sed blandit convallis dignissim onec vel pellentesque
-                    neque.</p>
+                  <p>{{ product?.description }}</p>
                 </div>
                 <ul class="list-unstyled product_detail_address">
-                  <li>REF. 4231/406</li>
-                  <li>Available in store</li>
+                  <li v-if="product?.content"><strong>Contenido:</strong> {{ product.content }}</li>
+                  <li v-if="product?.inStock" class="in-stock">Disponible</li>
+                  <li v-else class="out-stock">Agotado</li>
                 </ul>
                 <div class="product-quantity-box">
                   <div class="input-box">
-                    <input class="quantity-spinner" type="number" value="1" name="quantity">
+                    <input v-model.number="quantity" class="quantity-spinner" type="number" min="1" max="10">
                   </div>
                   <div class="addto-cart-box">
-                    <button class="thm-btn" type="submit">Add to Cart</button>
-                  </div>
-                  <div class="wishlist_btn">
-                    <a href="#" class="thm-btn">Add to Wishlist</a>
+                    <button class="thm-btn" type="button" @click="addToCart">
+                      <span v-if="!showAdded">Agregar al Carrito</span>
+                      <span v-else><i class="fa fa-check"></i> Agregado!</span>
+                    </button>
                   </div>
                 </div>
                 <ul class="list-unstyled category_tag_list">
-                  <li>Category: Food</li>
-                  <li>Tags: Vegetables, Fruits</li>
+                  <li v-if="product?.category">Categoría: {{ getCategoryName(product.category) }}</li>
+                  <li v-if="product?.artisanal">Producto Artesanal</li>
                 </ul>
                 <div class="product_detail_share_box">
                   <div class="share_box_title">
-                    <h2>Share with friends</h2>
+                    <h2>Compartir</h2>
                   </div>
                   <div class="share_box_social">
                     <a href="#"><i class="fab fa-facebook-square"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-dribbble"></i></a>
                   </div>
                 </div>
               </div>
@@ -68,235 +70,71 @@
 
                 <div class="mission-tabs">
 
-                  <!--Tab-->
+                  <!--Tab Uso-->
                   <input type="radio" name="tabs" id="tab-one" checked="checked">
-                  <label for="tab-one" class="tab-btn">Description</label>
+                  <label for="tab-one" class="tab-btn">Uso</label>
                   <div class="tab">
                     <div class="active-tab">
                       <div class="content">
-
                         <div class="product-details-content">
                           <div class="desc-content-box">
-                            <p>Lorem ipsum dolor sit amet sectetur adipiscin elit cras feuiat antesed
-                              ces condimentum viverra duis autue nim convallis id diam vitae duis
-                              egety dictum erosin dictum sem. Vivamus sed molestie sapien aliquam et
-                              facilisis arcu dut molestie augue suspendisse sodales tortor nunced quis
-                              cto ligula posuere cursus keuis aute irure dolor in reprehenderit in
-                              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                              sint occaecated cupidatat non proident sunt in culpa qui officia
-                              deserunt mollit anim id est laborum ivamus sed molestie sapien.</p>
-                            <p class="desc-content-box_bottom">Aliquam et facilisis arcuut olestie
-                              augue. Suspendisse sodales tortor nunc quis auctor ligula posuere cursus
-                              duis aute irure dolor in reprehenderit in voluptate velit esse cill
-                              doloreeu fugiat nulla pariatur excepteur sint occaecat cupidatat non
-                              proident sunt in culpa qui officia deserunt mollit anim id est laborum.
-                              Vivaus sed delly molestie sapien. Aliquam et facilisis arcuut molestie
-                              augue. </p>
+                            <p v-if="product?.usage">{{ product.usage }}</p>
+                            <p v-else>Consultar indicaciones de uso.</p>
                           </div>
                         </div>
-
                       </div>
                     </div>
                   </div>
 
-                  <!--Tab-->
-                  <input type="radio" name="tabs" id="tab-two" checked="checked">
-                  <label for="tab-two" class="tab-btn">Additional Info</label>
+                  <!--Tab Ingredientes-->
+                  <input type="radio" name="tabs" id="tab-two">
+                  <label for="tab-two" class="tab-btn">Ingredientes</label>
                   <div class="tab">
                     <div class="active-tab">
                       <div class="content">
+                        <div class="product-details-content">
+                          <div class="desc-content-box">
+                            <p v-if="product?.ingredients">{{ product.ingredients }}</p>
+                            <p v-else>Ingredientes naturales.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                        <ul class="additionali_nfo list-unstyled">
-                          <li><span>Weight:</span>3kg</li>
-                          <li><span>Category:</span>Food</li>
-                          <li><span>Tags:</span>Vegetables, Fruits</li>
+                  <!--Tab Precauciones-->
+                  <input type="radio" name="tabs" id="tab-three">
+                  <label for="tab-three" class="tab-btn">Precauciones</label>
+                  <div class="tab">
+                    <div class="active-tab">
+                      <div class="content">
+                        <div class="product-details-content">
+                          <div class="desc-content-box">
+                            <p v-if="product?.precautions">{{ product.precautions }}</p>
+                            <p v-else>Mantener fuera del alcance de los niños.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--Tab Beneficios-->
+                  <input type="radio" name="tabs" id="tab-four" v-if="product?.benefits?.length">
+                  <label for="tab-four" class="tab-btn" v-if="product?.benefits?.length">Beneficios</label>
+                  <div class="tab" v-if="product?.benefits?.length">
+                    <div class="active-tab">
+                      <div class="content">
+                        <ul class="benefits-list">
+                          <li v-for="(benefit, index) in product.benefits" :key="index">
+                            <i class="fa fa-check"></i> {{ benefit }}
+                          </li>
                         </ul>
-
-
                       </div>
                     </div>
                   </div>
 
-                  <!--Tab-->
-                  <input type="radio" name="tabs" id="tab-three" checked="checked">
-                  <label for="tab-three" class="tab-btn">Reviews</label>
-                  <div class="tab">
-                    <div class="active-tab">
-                      <div class="content">
-
-                        <div class="reviews-box">
-                          <div class="row">
-                            <div class="col-xl-12">
-                              <div class="product_reviews_box">
-                                <h3 class="product_reviews_title">2 Product reviews</h3>
-                                <div class="product_reviews_single">
-                                  <div class="product_reviews_image">
-                                    <img src="/assets/images/shop/review-1.png" alt="">
-                                  </div>
-                                  <div class="product_reviews_content">
-                                    <h3>Kevin Martins<span>15 Nov, 2019</span></h3>
-                                    <p>It has survived not only five centuries, but also the
-                                      leap into electronic typesetting unchanged. It was
-                                      popularised in the sheets If you are going to use a
-                                      passage of Lorem Ipsum, you need to be is simply free
-                                      text. Nam nec tellus a odio tincidunt auctor a ornare
-                                      odio. Sed non mauris vitae erat consequat auctor eu in
-                                      elit.</p>
-                                    <div class="product_reviews_rating product_detail_review">
-                                      <a href="#"><i class="fa fa-star"></i></a>
-                                      <a href="#"><i class="fa fa-star"></i></a>
-                                      <a href="#"><i class="fa fa-star"></i></a>
-                                      <a href="#"><i class="fa fa-star"></i></a>
-                                      <a href="#" class="deactive"><i class="fa fa-star"></i></a>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="product_reviews_single">
-                                  <div class="product_reviews_image">
-                                    <img src="/assets/images/shop/review-2.png" alt="">
-                                  </div>
-                                  <div class="product_reviews_content">
-                                    <h3>Kevin Martins<span>15 Nov, 2019</span></h3>
-                                    <p>It has survived not only five centuries, but also the
-                                      leap into electronic typesetting unchanged. It was
-                                      popularised in the sheets If you are going to use a
-                                      passage of Lorem Ipsum, you need to be is simply free
-                                      text. Nam nec tellus a odio tincidunt auctor a ornare
-                                      odio. Sed non mauris vitae erat consequat auctor eu in
-                                      elit.</p>
-                                    <div class="product_reviews_rating product_detail_review">
-                                      <a href="#"><i class="fa fa-star"></i></a>
-                                      <a href="#"><i class="fa fa-star"></i></a>
-                                      <a href="#"><i class="fa fa-star"></i></a>
-                                      <a href="#"><i class="fa fa-star"></i></a>
-                                      <a href="#" class="deactive"><i class="fa fa-star"></i></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-xl-12">
-                              <div class="add_review_box">
-                                <h3 class="add_review_title">Add a review</h3>
-                                <div class="add_review_rating">
-                                  <span>Rate this Product?</span>
-                                  <a href="#"><i class="fa fa-star"></i></a>
-                                  <a href="#"><i class="fa fa-star"></i></a>
-                                  <a href="#"><i class="fa fa-star"></i></a>
-                                  <a href="#"><i class="fa fa-star"></i></a>
-                                  <a href="#" class="deactive"><i class="fa fa-star"></i></a>
-                                </div>
-                                <form class="add_review_form" action="#">
-                                  <div class="row">
-                                    <div class="col-md-12">
-                                      <div class="input-box">
-                                        <textarea name="review" placeholder="Write review" required=""></textarea>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="col-md-6">
-                                      <div class="input-box">
-                                        <input type="text" name="name" placeholder="Full name" required="">
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <div class="input-box">
-                                        <input type="email" name="email" placeholder="Email address" required="">
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="col-xl-12">
-                                      <div class="review_submit_btn">
-                                        <a href="#" class="thm-btn">Submit Review</a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="all_products_two">
-        <div class="container">
-          <div class="block-title text-center">
-            <p>Shop items</p>
-            <h3>similar products</h3>
-            <div class="leaf">
-              <img src="/assets/images/resources/leaf.png" alt="">
-            </div>
-          </div>
-          <div class="all_products">
-            <div class="row">
-              <div class="col-xl-3 col-lg-3 col-md-6">
-                <div class="all_products_single text-center">
-                  <div class="all_product_item_image">
-                    <img src="/assets/images/shop/similar_pro_1.jpg" alt="">
-                    <div class="all_product_hover">
-                      <div class="all_product_icon">
-                        <a href="#"><span class="icon-shopping-cart"></span></a>
-                      </div>
-                    </div>
-                  </div>
-                  <h4>Split kiwi</h4>
-                  <p>$5.98</p>
-                </div>
-              </div>
-              <div class="col-xl-3 col-lg-3 col-md-6">
-                <div class="all_products_single text-center">
-                  <div class="all_product_item_image">
-                    <img src="/assets/images/shop/similar_pro_2.jpg" alt="">
-                    <div class="all_product_hover">
-                      <div class="all_product_icon">
-                        <a href="#"><span class="icon-shopping-cart"></span></a>
-                      </div>
-                    </div>
-                  </div>
-                  <h4>Chinese cabbage</h4>
-                  <p>$4.99</p>
-                </div>
-              </div>
-              <div class="col-xl-3 col-lg-3 col-md-6">
-                <div class="all_products_single text-center">
-                  <div class="all_product_item_image">
-                    <img src="/assets/images/shop/similar_pro_3.jpg" alt="">
-                    <div class="all_product_hover">
-                      <div class="all_product_icon">
-                        <a href="#"><span class="icon-shopping-cart"></span></a>
-                      </div>
-                    </div>
-                  </div>
-                  <h4>Chili pepper</h4>
-                  <p>$4.98</p>
-                </div>
-              </div>
-              <div class="col-xl-3 col-lg-3 col-md-6">
-                <div class="all_products_single text-center">
-                  <div class="all_product_item_image">
-                    <img src="/assets/images/shop/similar_pro_4.jpg" alt="">
-                    <div class="all_product_hover">
-                      <div class="all_product_icon">
-                        <a href="#"><span class="icon-shopping-cart"></span></a>
-                      </div>
-                    </div>
-                  </div>
-                  <h4>lemons</h4>
-                  <p>$6.00</p>
-                </div>
               </div>
             </div>
           </div>
@@ -305,10 +143,57 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: "ProductDetail"
-    }
+<script setup>
+import { ref, computed, watch } from 'vue'
+import { useCartStore } from '~/store'
+
+const props = defineProps({
+  product: {
+    type: Object,
+    default: null
+  }
+})
+
+const cartStore = useCartStore()
+const quantity = ref(1)
+const showAdded = ref(false)
+
+// Galería de imágenes
+const currentImage = ref(props.product?.image || '/assets/images/shop/product-detai_img-1l.jpg')
+
+const galleryImages = computed(() => {
+  if (!props.product) return []
+  // Si hay galería, usarla; sino, solo la imagen principal
+  if (props.product.gallery && props.product.gallery.length > 0) {
+    return props.product.gallery
+  }
+  return [props.product.image]
+})
+
+// Actualizar imagen cuando cambie el producto
+watch(() => props.product, (newProduct) => {
+  if (newProduct) {
+    currentImage.value = newProduct.image
+  }
+}, { immediate: true })
+
+const addToCart = () => {
+  if (props.product) {
+    cartStore.addItem(props.product, quantity.value)
+    showAdded.value = true
+    setTimeout(() => {
+      showAdded.value = false
+    }, 2000)
+  }
+}
+
+const getCategoryName = (categoryId) => {
+  const categories = {
+    'consumibles': 'Consumibles',
+    'objetos-poder': 'Objetos de Poder'
+  }
+  return categories[categoryId] || categoryId
+}
 </script>
 
 <style scoped>
@@ -357,6 +242,74 @@
     display: block;
   }
 
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .benefits-list li {
+    padding: 8px 0;
+    font-size: 16px;
+  }
+  .benefits-list li i {
+    color: #0c7737;
+    margin-right: 10px;
+  }
+
+  .in-stock {
+    color: #0c7737;
+    font-weight: bold;
+  }
+  .out-stock {
+    color: #c00;
+    font-weight: bold;
+  }
+
+  /* Galería de imágenes */
+  .product_detail_image {
+    margin-bottom: 15px;
+  }
+
+  .main-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+
+  .product-gallery {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .gallery-thumb {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .gallery-thumb:hover {
+    border-color: #0c7737;
+  }
+
+  .gallery-thumb.active {
+    border-color: #0c7737;
+    box-shadow: 0 0 0 2px rgba(12, 119, 55, 0.3);
+  }
+
+  .gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   @media (max-width: 45em) {
     .mission-tabs .tab,
     .mission-tabs label {
@@ -370,4 +323,3 @@
   }
 
 </style>
-

@@ -100,7 +100,13 @@
                         title: 'Medicina Ancestral de la Selva',
                         tabName: 'Medicina de la Selva',
                         image: '/assets/images/Servicios/YageAyahuasca.png',
-                        description: 'La medicina ancestral de la selva ofrece una sanación integral. Proporciona claridad en los pensamientos, equilibrio emocional, y una limpieza en el cuerpo físico, permitiéndote conectar con tu ser interno. Aunque puede tomarse de día, la práctica ceremonial generalmente se realiza de noche, en un ambiente de meditación individual y en silencio, acompañada de la naturaleza, la música y otros elementos. Se participa en esta ceremonia con respeto a las culturas ancestrales, y la práctica es laica, con un enfoque en la mínima intervención pero siempre manteniendo el cuidado de los participantes.',
+                        description: 'La medicina ancestral de la selva ofrece una sanación integral. ' +
+                          'Proporciona claridad en los pensamientos, equilibrio emocional y limpieza en el cuerpo físico,' +
+                          ' permitiendo la conexión con el ser interno. Puede tomarse de día, más la práctica ceremonial ' +
+                          'generalmente se realiza de noche, en un ambiente meditativo, en silencio, ' +
+                          'acompañada de la naturaleza, música de armonización y otros elementos. Se participa en este encuentro ceremonial ' +
+                          'con respeto a las culturas ancestrales;su práctica es laica, enfocada en la mínima ' +
+                          'intervención, manteniendo siempre el cuidado de los participantes.',
                         benefits: [
                             'Sanación integral: claridad mental, equilibrio emocional y limpieza física',
                             'Conexión profunda con tu ser interno',

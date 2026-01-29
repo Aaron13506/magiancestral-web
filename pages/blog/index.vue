@@ -116,11 +116,10 @@ useHead({
   }
 }
 
-/* Mantener imágenes del blog en proporción 1:1 */
 .blog_image {
   position: relative;
   width: 100%;
-  padding-bottom: 100%; /* Proporción 1:1 */
+  padding-bottom: 100%;
   overflow: hidden;
 }
 

@@ -20,6 +20,10 @@
           </a>
         </div>
         <div class="topbar-one__right">
+          <nuxt-link to="/cart" class="cart-icon-topbar">
+            <i class="icon-shopping-cart"></i>
+            <span v-if="cartStore.totalItems > 0" class="cart-badge">{{ cartStore.totalItems }}</span>
+          </nuxt-link>
           <div class="topbar-one__social home-four">
             <a href="https://www.tiktok.com/@magiancestral_ven" target="_blank">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -47,7 +51,7 @@
               <i @click="mobileToggle = !mobileToggle" class="fa fa-bars"></i>
             </a>
           </div>
-          <!-- Mobile logo - shown only on mobile -->
+          <!-- Mobile logo - centered on mobile -->
           <div class="main-nav__mobile-logo">
             <a href="/" class="main-nav__logo">
               <img
@@ -56,6 +60,13 @@
                 alt="Awesome Image"
               />
             </a>
+          </div>
+          <!-- Mobile cart - shown only on mobile -->
+          <div class="main-nav__mobile-cart">
+            <nuxt-link to="/cart" class="cart-icon-mobile">
+              <i class="icon-shopping-cart"></i>
+              <span v-if="cartStore.totalItems > 0" class="cart-badge">{{ cartStore.totalItems }}</span>
+            </nuxt-link>
           </div>
           <div class="main-nav__main-navigation four">
             <ul class="main-nav__navigation-box">
@@ -82,12 +93,15 @@
               <li :class="{ current: $route.path === '/blog' || $route.path.startsWith('/blog_detail') }">
                 <nuxt-link to="/blog">Bitácora</nuxt-link>
               </li>
+              <li :class="{ current: $route.path === '/product' || $route.path === '/product-detail' || $route.path === '/cart' || $route.path === '/checkout' }">
+                <nuxt-link to="/product">Botica mágica</nuxt-link>
+              </li>
             </ul>
           </div>
           <!-- /.navbar-collapse -->
 
           <div class="main-nav__right four">
-            <!-- Cart removed -->
+            <!-- Cart moved to topbar for desktop and mobile-cart for mobile -->
           </div>
         </div>
 
@@ -133,6 +147,9 @@
           <li :class="{ current: $route.path === '/blog' || $route.path.startsWith('/blog_detail') }">
             <nuxt-link to="/blog">Bitácora</nuxt-link>
           </li>
+          <li :class="{ current: $route.path === '/product' || $route.path === '/product-detail' || $route.path === '/cart' || $route.path === '/checkout' }">
+            <nuxt-link to="/product">Botica mágica</nuxt-link>
+          </li>
         </ul>
         </div>
       </nav>
@@ -142,9 +159,15 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useMainStore } from '~/store/index.js'
+import { useMainStore, useCartStore } from '~/store/index.js'
 
 const store = useMainStore()
+const cartStore = useCartStore()
+
+// Cargar carrito desde localStorage al montar
+onMounted(() => {
+  cartStore.loadCart()
+})
 
 const sticky = ref(false)
 const mobileToggle = ref(false)
@@ -197,14 +220,18 @@ onMounted(() => {
 
   .container.clearfix {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
+  /* Mobile logo - centered */
   .main-nav__mobile-logo {
     display: block;
     position: absolute;
-    right: 15px;
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
   }
 
   .main-nav__mobile-logo .main-logo {
@@ -217,6 +244,15 @@ onMounted(() => {
     filter: invert(1);
   }
 
+  /* Mobile cart - right side */
+  .main-nav__mobile-cart {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   .side-menu__toggler i {
     color: white;
   }
@@ -226,28 +262,32 @@ onMounted(() => {
   }
 }
 
-/* Center navigation automatically - specific approach */
+/* Center navigation automatically - perfect centering with absolute positioning */
 .main-nav__header-four .container.clearfix {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 100px; /* Maintain container height */
 }
 
 .main-nav__left.main_nav__left_four {
   flex: 0 0 auto;
-  width: 60px; /* Fixed width for left section */
+  z-index: 2;
 }
 
 .main-nav__main-navigation.four {
-  flex: 1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  z-index: 1;
 }
 
 .main-nav__right.four {
   flex: 0 0 auto;
-  width: 60px; /* Fixed width for right section to balance */
+  z-index: 2;
 }
 
 /* Remove container max-width on mobile to prevent shrinking */
@@ -257,10 +297,85 @@ onMounted(() => {
   }
 }
 
+/* Cart icon styles - Topbar (desktop) */
+.cart-icon-topbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.cart-icon-topbar:hover {
+  color: #0c7737;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #0c7737;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+/* Mobile cart icon */
+.main-nav__mobile-cart {
+  display: none;
+}
+
+.cart-icon-mobile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.stricky-fixed .cart-icon-mobile {
+  color: #333;
+}
+
+/* Topbar right flex layout */
+.topbar-one__right {
+  display: flex;
+  align-items: center;
+}
+
+/* Hide mobile cart on desktop */
+@media (min-width: 1024px) {
+  .main-nav__mobile-cart {
+    display: none !important;
+  }
+}
+
 /* Hide mobile logo on desktop */
 @media (min-width: 1024px) {
   .main-nav__mobile-logo {
     display: none;
+  }
+
+  /* Expand desktop menu spacing */
+  .main-nav__main-navigation.four .main-nav__navigation-box > li + li {
+    margin-left: 100px; /* Increased spacing between menu items */
+  }
+
+  .main-nav__main-navigation.four .main-nav__navigation-box > li > a {
+    padding: 0px 15px; /* Increased padding for wider menu items */
+    white-space: nowrap; /* Keep menu items in a single line */
   }
 }
 </style>

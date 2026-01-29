@@ -1,4 +1,5 @@
-
+{
+  "permissions": {
     "allow": [
       "Bash(rm:*)",
       "Bash(mkdir:*)",
@@ -11,7 +12,9 @@
       "Bash(true)",
       "WebFetch(domain:ricardob115.sg-host.com)",
       "Bash(pnpm run:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(dir:*)"
     ],
     "deny": []
   }
