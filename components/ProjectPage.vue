@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="variant-item">
-                  <h4>FUNGI "HECHIZO"</h4>
+                  <h4>"HECHIZO"</h4>
                   <p>Encuentro Ritual de conexión con las energías elementales y las fuerzas naturales, con la ingesta de una dosis ritual profunda de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial, que constituye el altar principal. Finaliza con círculo de palabra y de acompañamiento terapéutico.</p>
                 </div>
 
@@ -73,12 +73,12 @@
 
                 <div class="variant-item">
                   <h4>RESONANCIA MÁGICA MEDITATIVA</h4>
-                  <p>Círculo de meditación, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, acompañado de sonidos vibratorios orgánicos y música meditativa en vivo, para el despertar sensorial del propio ser, induciendo a la calma y al encuentro consigo mismo, bien como un primer acercamiento a la Medicina del Reino Fungi, o para entrar en una meditación profunda, mientras se reciben los beneficios biológicos de esta medicina (4 horas).</p>
+                  <p>Círculo de meditación, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, acompañado de sonidos vibratorios orgánicos y música meditativa en vivo, para el despertar sensorial del propio ser, induciendo a la calma y al encuentro consigo mismo, bien como un primer acercamiento a la Medicina del Reino Fungi, o para entrar en una meditación profunda, mientras se reciben los beneficios biológicos de esta medicina (Duración: 4 horas).</p>
                 </div>
 
                 <div class="variant-item variant-item-centered">
                   <h4>RESONANCIA MÁGICA MUSICAL</h4>
-                  <p>Círculo medicinal contemplativo, acompañado de música de medicina, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, para desplegar estados favorables en el despertar de la creatividad, la armonía interna, la alegría y la expresión del ser a través de la danza, la pintura, la escritura y la participación musical, mientras se reciben los beneficios biológicos de esta medicina. (5 horas).</p>
+                  <p>Círculo medicinal contemplativo, acompañado de música de medicina, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, para desplegar estados favorables en el despertar de la creatividad, la armonía interna, la alegría y la expresión del ser a través de la danza, la pintura, la escritura y la participación musical, mientras se reciben los beneficios biológicos de esta medicina. (Duración: 5 horas).</p>
                 </div>
               </div>
             </div>
@@ -102,8 +102,8 @@
               <div class="evento-icon">
                 <img src="/assets/images/Servicios/Teramai_Senchen.png" alt="Reiki Teramai" class="emblema">
               </div>
-              <h3>REIKI TERAMAI – SEICHEM (REIKI ESTILO CHAMÁNICO)</h3>
-              <p>Formación grupal y proceso iniciático de canalización energética de los rayos de sanación de la Tierra, el Agua, el Aire y el Fuego. Manejo de la energía angelical, la sanación con colores, la armonía vibracional, la danza chamánica y el canto curativo. Formación en 6 Niveles: 2 Niveles de Formación Reiki Teramai-Seiche; 3 Niveles de Magia Teramai y Maestría.</p>
+              <h3>TERAMAI – SEICHEM (SISTEMA DE CURACIÓN NATURAL Y CANALIZACIÓN DE ENERGÍAS SANADORAS)</h3>
+              <p>Formación grupal y proceso iniciático de canalización energética de los rayos de sanación de la Tierra, el Agua, el Aire y el Fuego. Manejo de la energía angelical, la sanación con colores, la armonía vibracional, la danza chamánica y el canto curativo. Formación en 6 Niveles: 2 Niveles de Formación Reiki Teramai-Seichem; 3 Niveles de Magia Teramai - Seichem y Maestría.</p>
             </div>
           </div>
 
@@ -113,7 +113,7 @@
                 <img src="/assets/images/Servicios/Abra_Cadabra.png" alt="Abra Cadabra" class="emblema emblema-medium">
               </div>
               <h3>ABRA CADABRA</h3>
-              <p>Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (2 horas).</p>
+              <p>Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas).</p>
             </div>
           </div>
 
@@ -123,7 +123,7 @@
                 <img src="/assets/images/icon/sesiones.png" alt="Sesiones" class="emblema emblema-medium">
               </div>
               <h3>SESIONES</h3>
-              <p>Recital de Música de Medicina, con la participación de varios músicos invitados, a través del cual se genera un espacio de esparcimiento que emplea la música como medio de conciencia. (4 horas).</p>
+              <p>Recital de Música de Medicina, con la participación de varios músicos invitados, a través del cual se genera un espacio de esparcimiento que emplea la música como medio de conciencia. (Duración: 4 horas).</p>
             </div>
           </div>
 
@@ -133,7 +133,7 @@
                 <img src="/assets/images/Servicios/MagicSaDan.png" alt="MagicsaDan" class="emblema emblema-medium">
               </div>
               <h3>MAGICSADAN</h3>
-              <p>Sesiones grupales de sagrado movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, combinando danza sagrada y rituales de poder, que permiten reconectar con nuestra fuerza vital primordial, nuestra naturaleza divina. Herramienta de auto conocimiento, que regula el bienestar, disminuye el cortisol en el cuerpo producto del estrés y permite la conexión del individuo con su biología, su esencia, la consciencia de estar vivo, la Magia que portamos y la sacralidad en todo, en la existencia misma.</p>
+              <p>Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. Herramienta de autoconocimiento, para regular el bienestar, disminuir los efectos del cortisol en el cuerpo, producto del estrés y conectar al participante con su biología, su esencia, la consciencia de estar vivo, la Magia que porta y la sacralidad en todo lo existente. (Duración: 3 horas).</p>
             </div>
           </div>
         </div>
@@ -157,65 +157,103 @@ const initCalendar = () => {
 
   // Eventos del calendario Presagio
   const events = [
+    // FEBRERO 2026
     {
-      date: new Date(2025, 9, 18), // 18 Oct 2025 (mes 9 = octubre)
-      title: 'MEDICINA FUNGI',
-      subtitle: 'ENCUENTRO CEREMONIAL NOCTURNO',
-      location: 'Los Teques',
-      type: 'fungi',
-      logo: '/assets/images/Servicios/Reino_fungi.png'
-    },
-    {
-      date: new Date(2025, 9, 22), // 22 Oct 2025
+      date: new Date(2026, 1, 4), // 04 Feb 2026
       title: 'MAGICSADAN',
-      subtitle: 'MOVIMIENTO MÁGICO ANCESTRAL',
-      location: 'Los Ruíces, Caracas',
-      type: 'magicsadan',
-      logo: '/assets/images/Servicios/MagicSaDan.png',
-      recurring: true,
-      nextDate: new Date(2025, 10, 5) // 05 Nov 2025
-    },
-    {
-      date: new Date(2025, 10, 1), // 01 Nov 2025 (mes 10 = noviembre)
-      title: 'VELADA MÁGICA MUSICAL',
-      subtitle: 'CELEBRANDO EL LANZAMIENTO DE MAGIANCESTRAL.COM',
-      location: 'Bello Monte, Caracas',
-      type: 'velada',
-      logo: '/assets/images/Servicios/Velada_Musical.png'
-    },
-    {
-      date: new Date(2025, 10, 5), // 05 Nov 2025
-      title: 'MAGICSADAN',
-      subtitle: 'MOVIMIENTO MÁGICO ANCESTRAL',
-      location: 'Los Ruíces, Caracas',
+      subtitle: 'SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL',
+      location: 'Caracas',
       type: 'magicsadan',
       logo: '/assets/images/Servicios/MagicSaDan.png'
     },
     {
-      date: new Date(2025, 10, 15), // 15 Nov 2025
-      title: 'MEDICINA ANCESTRAL DE LA SELVA',
+      date: new Date(2026, 1, 11), // 11 Feb 2026
+      title: 'ABRA CADABRA',
+      subtitle: 'CÍRCULO DE PALABRA INTEGRADORA',
+      location: 'Caracas',
+      type: 'abracadabra',
+      logo: '/assets/images/Servicios/Abra_Cadabra.png'
+    },
+    {
+      date: new Date(2026, 1, 18), // 18 Feb 2026
+      title: 'MAGICSADAN',
+      subtitle: 'SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL',
+      location: 'Caracas',
+      type: 'magicsadan',
+      logo: '/assets/images/Servicios/MagicSaDan.png'
+    },
+    {
+      date: new Date(2026, 1, 21), // 21 Feb 2026
+      title: 'MEDICINA FUNGI',
       subtitle: 'ENCUENTRO CEREMONIAL NOCTURNO',
-      location: 'Los Teques',
+      location: 'Altos Mirandinos',
+      type: 'fungi',
+      logo: '/assets/images/Servicios/Reino_fungi.png'
+    },
+    {
+      date: new Date(2026, 1, 25), // 25 Feb 2026
+      title: 'ABRA CADABRA',
+      subtitle: 'CÍRCULO DE PALABRA INTEGRADORA',
+      location: 'Caracas',
+      type: 'abracadabra',
+      logo: '/assets/images/Servicios/Abra_Cadabra.png'
+    },
+    {
+      date: new Date(2026, 1, 28), // 28 Feb 2026
+      title: 'VELADA MUSICAL',
+      subtitle: 'MÚSICA MEDICINA EN VIVO',
+      location: 'Caracas',
+      type: 'velada',
+      logo: '/assets/images/Servicios/Velada_Musical.png'
+    },
+    // MARZO 2026
+    {
+      date: new Date(2026, 2, 4), // 04 Mar 2026
+      title: 'MAGICSADAN',
+      subtitle: 'SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL',
+      location: 'Caracas',
+      type: 'magicsadan',
+      logo: '/assets/images/Servicios/MagicSaDan.png'
+    },
+    {
+      date: new Date(2026, 2, 11), // 11 Mar 2026
+      title: 'ABRA CADABRA',
+      subtitle: 'CÍRCULO DE PALABRA INTEGRADORA',
+      location: 'Caracas',
+      type: 'abracadabra',
+      logo: '/assets/images/Servicios/Abra_Cadabra.png'
+    },
+    {
+      date: new Date(2026, 2, 14), // 14 Mar 2026
+      title: 'AYAHUASCA',
+      subtitle: 'ENCUENTRO CEREMONIAL NOCTURNO',
+      location: 'Altos Mirandinos',
       type: 'ayahuasca',
       logo: '/assets/images/Servicios/YageAyahuasca.png'
     },
     {
-      date: new Date(2025, 10, 29), // 29 Nov 2025
-      title: 'TERAMAI - SEICHEM',
-      subtitle: 'FORMACIÓN EN REIKI Y MAGIA SHAMÁNICA',
-      location: 'Bello Monte, Caracas',
-      type: 'teramai',
-      logo: '/assets/images/Servicios/Teramai_Senchen.png',
-      multiDay: true,
-      endDate: new Date(2025, 10, 30) // 30 Nov 2025
+      date: new Date(2026, 2, 18), // 18 Mar 2026
+      title: 'MAGICSADAN',
+      subtitle: 'SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL',
+      location: 'Caracas',
+      type: 'magicsadan',
+      logo: '/assets/images/Servicios/MagicSaDan.png'
     },
     {
-      date: new Date(2025, 10, 30), // 30 Nov 2025
-      title: 'TERAMAI - SEICHEM',
-      subtitle: 'FORMACIÓN EN REIKI Y MAGIA SHAMÁNICA',
-      location: 'Bello Monte, Caracas',
-      type: 'teramai',
-      logo: '/assets/images/Servicios/Teramai_Senchen.png'
+      date: new Date(2026, 2, 25), // 25 Mar 2026
+      title: 'ABRA CADABRA',
+      subtitle: 'CÍRCULO DE PALABRA INTEGRADORA',
+      location: 'Caracas',
+      type: 'abracadabra',
+      logo: '/assets/images/Servicios/Abra_Cadabra.png'
+    },
+    {
+      date: new Date(2026, 2, 28), // 28 Mar 2026
+      title: 'RESONANCIA',
+      subtitle: 'ACERCAMIENTO A LA MEDICINA FUNGI CON MÚSICA',
+      location: 'Caracas',
+      type: 'fungi',
+      logo: '/assets/images/Servicios/Reino_fungi.png'
     }
   ]
 
