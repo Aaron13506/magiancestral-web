@@ -5,7 +5,8 @@
     "description": "Estudio científico sobre el estado de salud, bienestar psicosocial, estilo de vida y estrategias de afrontamiento en usuarios de ayahuasca en contexto ritual",
     "date": "2025-01-24",
     "image": "/assets/images/blog/img_1.png",
-    "author": "Admin"
+    "author": "Admin",
+    "category": "estudios-cientificos"
   },
   {
     "slug": "australia-nueva-zelanda-psilocibina",
@@ -13,7 +14,8 @@
     "description": "Histórica decisión de Australia y Nueva Zelanda al convertirse en los primeros países en aprobar el uso médico de sustancias psicodélicas para tratar la depresión y el estrés postraumático",
     "date": "2025-01-23",
     "image": "/assets/images/blog/img.png",
-    "author": "Admin"
+    "author": "Admin",
+    "category": "estudios-cientificos"
   },
   {
     "slug": "psilocibina-terapia-oncologica",
@@ -21,6 +23,47 @@
     "description": "Revisión sistemática sobre el uso terapéutico de la psilocibina para el tratamiento de ansiedad, depresión y angustia existencial en pacientes con cáncer",
     "date": "2025-01-22",
     "image": "/assets/images/blog/IMG-20240218-WA0034.jpg",
-    "author": "Admin"
+    "author": "Admin",
+    "category": "estudios-cientificos"
+  },
+  {
+    "slug": "templo-dorado",
+    "title": "Templo Dorado",
+    "description": "Una reflexión espiritual sobre el Templo Dorado, símbolo de luz interior y conexión con lo sagrado.",
+    "date": "2026-02-24",
+    "image": "/assets/images/blog/templo-dorado.jpg",
+    "author": "Admin",
+    "category": "reflexiones-del-espiritu",
+    "pdfUrl": "/assets/pdfs/templo-dorado.pdf"
+  },
+  {
+    "slug": "la-vela-que-ilumino-el-inicio",
+    "title": "La Vela que Iluminó el Inicio",
+    "description": "Reflexión sobre el despertar de la conciencia y la chispa que enciende el camino espiritual.",
+    "date": "2026-02-24",
+    "image": "/assets/images/blog/la-vela-que-ilumino-el-inicio.jpg",
+    "author": "Admin",
+    "category": "reflexiones-del-espiritu",
+    "pdfUrl": "/assets/pdfs/la-vela-que-ilumino-el-inicio.pdf"
+  },
+  {
+    "slug": "el-susurro-del-destino",
+    "title": "El Susurro del Destino",
+    "description": "Una canalización sobre los mensajes sutiles del destino y cómo la sabiduría ancestral nos guía a través de susurros del universo.",
+    "date": "2026-02-24",
+    "image": "/assets/images/blog/el-susurro-del-destino.jpg",
+    "author": "Admin",
+    "category": "reflexiones-del-espiritu",
+    "pdfUrl": "/assets/pdfs/el-susurro-del-destino.pdf"
+  },
+  {
+    "slug": "canalizaciones-de-la-medicina-ancestral",
+    "title": "Canalizaciones de la Medicina Ancestral",
+    "description": "Mensajes canalizados desde la sabiduría de la medicina ancestral, transmitidos para iluminar el camino de sanación y despertar espiritual.",
+    "date": "2026-02-24",
+    "image": "/assets/images/blog/canalizaciones-de-la-medicina-ancestral.jpg",
+    "author": "Admin",
+    "category": "reflexiones-del-espiritu",
+    "pdfUrl": "/assets/pdfs/canalizaciones-de-la-medicina-ancestral.pdf"
   }
 ]

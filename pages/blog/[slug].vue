@@ -70,7 +70,7 @@
       <div class="container text-center">
         <h2>Artículo no encontrado</h2>
         <p>Lo sentimos, el artículo que buscas no existe.</p>
-        <nuxt-link to="/blog" class="thm-btn">Volver a la Bitácora</nuxt-link>
+        <nuxt-link :to="article?.category ? `/blog/${article.category}` : '/blog'" class="thm-btn">Volver a la Bitácora</nuxt-link>
       </div>
     </section>
 
@@ -82,43 +82,29 @@
 const route = useRoute()
 const slug = route.params.slug
 
-// Referencias reactivas
-const article = ref(null)
-const allArticles = ref([])
-
 // Cargar el artículo específico
-const loadArticle = async () => {
+const { data: article } = await useAsyncData(`blog-${slug}`, async () => {
   try {
-    const response = await fetch(`/data/blog/${slug}.json`)
-    if (!response.ok) {
-      throw new Error('Article not found')
-    }
-    const data = await response.json()
-    article.value = data
+    return await $fetch(`/api/blog/${slug}`)
   } catch (error) {
     console.error('Error loading article:', error)
-    article.value = null
+    return null
   }
-}
+})
 
 // Cargar todos los artículos para el sidebar
-const loadAllArticles = async () => {
+const { data: allArticles } = await useAsyncData('blog-all-articles', async () => {
   try {
-    const response = await fetch('/data/blog/index.json')
-    const data = await response.json()
-    allArticles.value = data
+    return await $fetch('/api/blog')
   } catch (error) {
     console.error('Error loading articles:', error)
-    allArticles.value = []
+    return []
   }
-}
-
-// Ejecutar carga de datos
-await Promise.all([loadArticle(), loadAllArticles()])
+})
 
 // Filtrar artículos recientes (últimos 3, excluyendo el actual)
 const recentArticles = computed(() => {
-  if (!allArticles.value || !allArticles.value.length) return []
+  if (!allArticles.value?.length) return []
   return allArticles.value
     .filter(a => a.slug !== slug)
     .slice(0, 3)

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <PageHeader title="Carrito" />
+    <PageHeader />
     <Cart />
     <Footer />
   </div>

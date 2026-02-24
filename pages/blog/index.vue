@@ -7,44 +7,46 @@
     <section class="page-title-section">
       <div class="container">
         <h1 class="page-title">Bitácora</h1>
+        <p class="page-subtitle">Explora nuestras secciones de conocimiento</p>
       </div>
     </section>
 
-    <!-- Bitácora Listing Section -->
-    <section class="blog-one news">
+    <!-- Categorías -->
+    <section class="categories-section">
       <div class="container">
-        <div class="row">
-          <div v-for="article in articles" :key="article.slug" class="col-xl-4 col-lg-4">
-            <div class="blog_one_single mb-30">
-              <div class="blog_one_image">
-                <div class="blog_image">
-                  <img :src="article.image || '/assets/images/blog/blog-1-img-1.jpg'" :alt="article.title">
-                  <div class="blog_one_date_box">
-                    <p>{{ formatDate(article.date) }}</p>
-                  </div>
-                </div>
-                <div class="blog-one__content">
-                  <h3>
-                    <nuxt-link :to="`/blog/${article.slug}`">
-                      {{ article.title }}
-                    </nuxt-link>
-                  </h3>
-                  <div class="blog_one_text">
-                    <p>{{ article.description }}</p>
-                  </div>
-                  <div class="read_more_btn">
-                    <nuxt-link :to="`/blog/${article.slug}`">
-                      <i class="fa fa-angle-right"></i>Leer Más
-                    </nuxt-link>
-                  </div>
-                </div>
+        <div class="row justify-content-center">
+          <div class="col-xl-5 col-lg-5 col-md-6 mb-4">
+            <nuxt-link to="/blog/estudios-cientificos" class="category-card">
+              <div class="category-card__icon">
+                <i class="fa fa-flask"></i>
               </div>
-            </div>
+              <div class="category-card__content">
+                <h2 class="category-card__title">Estudios Científicos</h2>
+                <p class="category-card__desc">
+                  Investigaciones y estudios científicos sobre medicina ancestral, plantas sagradas y sus efectos en la salud y el bienestar humano.
+                </p>
+                <span class="category-card__btn">
+                  Explorar <i class="fa fa-arrow-right"></i>
+                </span>
+              </div>
+            </nuxt-link>
           </div>
 
-          <!-- Mensaje si no hay artículos -->
-          <div v-if="!articles || articles?.length === 0" class="col-12 text-center py-5">
-            <p class="text-muted">No hay artículos publicados aún.</p>
+          <div class="col-xl-5 col-lg-5 col-md-6 mb-4">
+            <nuxt-link to="/blog/reflexiones-del-espiritu" class="category-card">
+              <div class="category-card__icon">
+                <i class="fa fa-feather-alt"></i>
+              </div>
+              <div class="category-card__content">
+                <h2 class="category-card__title">Reflexiones del Espíritu</h2>
+                <p class="category-card__desc">
+                  Meditaciones, enseñanzas y reflexiones sobre el camino espiritual, la sabiduría ancestral y el despertar de la conciencia.
+                </p>
+                <span class="category-card__btn">
+                  Explorar <i class="fa fa-arrow-right"></i>
+                </span>
+              </div>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -55,44 +57,17 @@
 </template>
 
 <script setup>
-// Cargar artículos desde archivo JSON estático
-const articles = ref([])
-
-// Cargar datos en el cliente y servidor
-const loadArticles = async () => {
-  try {
-    const response = await fetch('/data/blog/index.json')
-    const data = await response.json()
-    articles.value = data
-  } catch (error) {
-    console.error('Error loading blog articles:', error)
-    articles.value = []
-  }
-}
-
-// Ejecutar carga de artículos
-await loadArticles()
-
-// Función para formatear la fecha
-const formatDate = (date) => {
-  if (!date) return ''
-  const d = new Date(date)
-  const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-  return `${d.getDate()} ${months[d.getMonth()]}, ${d.getFullYear()}`
-}
-
-// Meta tags
 useHead({
   title: 'Magiancestral | Bitácora',
   meta: [
-    { name: 'description', content: 'Descubre artículos sobre medicina natural y plantas medicinales ancestrales' }
+    { name: 'description', content: 'Explora nuestros artículos sobre medicina ancestral, estudios científicos y reflexiones espirituales' }
   ]
 })
 </script>
 
 <style scoped>
 .page-title-section {
-  padding: 80px 0;
+  padding: 80px 0 50px;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   text-align: center;
 }
@@ -101,35 +76,108 @@ useHead({
   font-size: 4rem;
   color: #b3a85a;
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 10px;
   text-transform: uppercase;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.page-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   .page-title-section {
-    padding: 60px 0;
+    padding: 60px 0 40px;
   }
-
   .page-title {
     font-size: 2.5rem;
   }
 }
 
-.blog_image {
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%;
-  overflow: hidden;
+.categories-section {
+  padding: 80px 0;
+  background: #fff;
 }
 
-.blog_image img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 35px;
+  border: 2px solid #e8e5d8;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.category-card:hover {
+  border-color: #b3a85a;
+  box-shadow: 0 15px 40px rgba(179, 168, 90, 0.15);
+  transform: translateY(-5px);
+  color: inherit;
+  text-decoration: none;
+}
+
+.category-card__icon {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #b3a85a, #d4c76b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  flex-shrink: 0;
+}
+
+.category-card__icon i {
+  font-size: 2.2rem;
+  color: #fff;
+}
+
+.category-card__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0e3858;
+  margin-bottom: 15px;
+}
+
+.category-card__desc {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.category-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #b3a85a;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: gap 0.3s ease;
+}
+
+.category-card:hover .category-card__btn {
+  gap: 14px;
+}
+
+@media (max-width: 576px) {
+  .categories-section {
+    padding: 50px 0;
+  }
+  .category-card {
+    padding: 40px 25px;
+  }
+  .category-card__title {
+    font-size: 1.4rem;
+  }
 }
 </style>

@@ -55,6 +55,8 @@ export default defineNuxtConfig({
       routes: [
         '/',
         '/blog',
+        '/blog/estudios-cientificos',
+        '/blog/reflexiones-del-espiritu',
         '/blog/psilocibina-terapia-oncologica',
         '/blog/australia-nueva-zelanda-psilocibina',
         '/blog/estudio-ayahuasca-salud-publica'

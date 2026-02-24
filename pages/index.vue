@@ -9,6 +9,7 @@
     <WelcomeOne />
     <EcoFriendlyTwo />
     <BlogFour />
+    <DonationCTA />
     <Footer />
   </div>
 </template>
