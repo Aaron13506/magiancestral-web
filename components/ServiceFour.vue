@@ -60,7 +60,7 @@
               <img src="/assets/images/Servicios/Teramai_Senchen.png" alt="Teramai Senchen" class="service-image">
             </div>
             <div class="service_four_deatils">
-              <h3><nuxt-link to="/service-detail?service=teramai" class="service_four_title">Teramai Senchen</nuxt-link></h3>
+              <h3><nuxt-link to="/service-detail?service=teramai" class="service_four_title">Teramai Seichen</nuxt-link></h3>
               <p>Reiki <br> chamánico</p>
             </div>
             <div class="service_four_read_more">
