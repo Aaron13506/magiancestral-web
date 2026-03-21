@@ -107,50 +107,6 @@
         </div>
       </div>
 
-      <!-- Sección Programación de Radio -->
-      <div class="radio-section mt-5">
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="presagio-title text-center mb-4">
-              <h2>Programación Radio Magia Ancestral</h2>
-              <div class="title-ornament">🍃</div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="radio-card">
-              <div class="radio-card-icon">
-                <img src="/assets/images/icon/ancestros.png" alt="Rezo de los Ancestros">
-              </div>
-              <h4>Rezo de los Ancestros</h4>
-              <span class="radio-schedule">Todos los jueves</span>
-              <p>Programa cultural, musical y de entretenimiento donde se establecen diálogos sobre espiritualidad y medicinas naturales. Levantamos el rezo e impartimos mensajes e información que embalsamen el alma del escucha a través de la música que eleva la conciencia.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="radio-card">
-              <div class="radio-card-icon">
-                <img src="/assets/images/icon/radio.png" alt="Conversaciones y Entrevistas">
-              </div>
-              <h4>Conversaciones y Entrevistas</h4>
-              <span class="radio-schedule">Programa principal</span>
-              <p>Conversaciones y entrevistas sobre diversos temas de medicinas naturales, espiritualidad y elementos de la naturaleza. Un espacio de encuentro y reflexión con invitados especiales del mundo de la sanación y la conciencia.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="radio-card">
-              <div class="radio-card-icon">
-                <img src="/assets/images/icon/sesiones.png" alt="Variedades Musicales">
-              </div>
-              <h4>Variedades Musicales</h4>
-              <span class="radio-schedule">Programación variada</span>
-              <p>Estrenos, música del recuerdo, programas de un solo ritmo, programas de un solo intérprete, recitales y festivales. Una selección musical que acompaña y eleva el espíritu a través de sonidos y ritmos diversos.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- Sección Encuentros ceremoniales y rituales -->
       <div class="encuentros-section mt-5">
         <div class="row">
@@ -394,6 +350,128 @@ const events = [
     type: 'fungi',
     logo: '/assets/images/Servicios/Reino_fungi.png',
     description: 'Círculo de meditación, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, acompañado de sonidos vibratorios orgánicos y música meditativa en vivo, para el despertar sensorial del propio ser, induciendo a la calma y al encuentro consigo mismo. (Duración: 4 horas).'
+  },
+  // ABRIL 2026
+  {
+    id: 'abr08-magicsadan',
+    date: new Date(2026, 3, 8),
+    title: 'MAGICSADAN',
+    subtitle: 'SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL',
+    location: 'Caracas',
+    type: 'magicsadan',
+    logo: '/assets/images/Servicios/MagicSaDan.png',
+    description: 'Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas).'
+  },
+  {
+    id: 'abr11-fungi',
+    date: new Date(2026, 3, 11),
+    title: 'RITUAL MACRODOSIS FUNGI',
+    subtitle: 'ENCUENTRO CEREMONIAL NOCTURNO',
+    location: 'Altos Mirandinos',
+    type: 'fungi',
+    logo: '/assets/images/Servicios/Reino_fungi.png',
+    description: 'Encuentro Ritual de conexión con las energías elementales y las fuerzas naturales, con la ingesta de una dosis ritual de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial, que constituye el altar principal. Finaliza con círculo de palabra y de acompañamiento terapéutico.'
+  },
+  {
+    id: 'abr15-abracadabra',
+    date: new Date(2026, 3, 15),
+    title: 'ABRA CADABRA',
+    subtitle: 'CÍRCULO DE PALABRA INTEGRADORA',
+    location: 'Caracas',
+    type: 'abracadabra',
+    logo: '/assets/images/Servicios/Abra_Cadabra.png',
+    description: 'Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas).'
+  },
+  {
+    id: 'abr22-magicsadan',
+    date: new Date(2026, 3, 22),
+    title: 'MAGICSADAN',
+    subtitle: 'SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL',
+    location: 'Caracas',
+    type: 'magicsadan',
+    logo: '/assets/images/Servicios/MagicSaDan.png',
+    description: 'Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas).'
+  },
+  {
+    id: 'abr24-velada',
+    date: new Date(2026, 3, 24),
+    title: 'VELADA MUSICAL ÍNTIMA',
+    subtitle: 'MÚSICA MEDICINA EN VIVO',
+    location: 'Caracas',
+    type: 'velada',
+    logo: '/assets/images/Servicios/Velada_Musical.png',
+    description: 'Recital de Música de Medicina, con la participación de varios músicos invitados, a través del cual se genera un espacio de esparcimiento que emplea la música como medio de conciencia. Una velada nocturna para conectar con la sanación a través del sonido y la vibración. (Duración: 4 horas).'
+  },
+  {
+    id: 'abr29-abracadabra',
+    date: new Date(2026, 3, 29),
+    title: 'ABRA CADABRA',
+    subtitle: 'CÍRCULO DE PALABRA INTEGRADORA',
+    location: 'Caracas',
+    type: 'abracadabra',
+    logo: '/assets/images/Servicios/Abra_Cadabra.png',
+    description: 'Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas).'
+  },
+  // MAYO 2026
+  {
+    id: 'may06-magicsadan',
+    date: new Date(2026, 4, 6),
+    title: 'MAGICSADAN',
+    subtitle: 'SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL',
+    location: 'Caracas',
+    type: 'magicsadan',
+    logo: '/assets/images/Servicios/MagicSaDan.png',
+    description: 'Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas).'
+  },
+  {
+    id: 'may09-yage',
+    date: new Date(2026, 4, 9),
+    title: 'RITUAL CEREMONIAL CON MEDICINA YAGÉ',
+    subtitle: 'ENCUENTRO CEREMONIAL NOCTURNO',
+    location: 'Altos Mirandinos',
+    type: 'ayahuasca',
+    logo: '/assets/images/Servicios/YageAyahuasca.png',
+    description: 'Encuentro chamánico grupal, con la ingesta de esta Planta de Poder, que emplea la energía ancestral y la conexión con las fuerzas elementales, acompañado de rezos, rueda medicinal, armonización energética, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico.'
+  },
+  {
+    id: 'may13-abracadabra',
+    date: new Date(2026, 4, 13),
+    title: 'ABRA CADABRA',
+    subtitle: 'CÍRCULO DE PALABRA INTEGRADORA',
+    location: 'Caracas',
+    type: 'abracadabra',
+    logo: '/assets/images/Servicios/Abra_Cadabra.png',
+    description: 'Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas).'
+  },
+  {
+    id: 'may20-magicsadan',
+    date: new Date(2026, 4, 20),
+    title: 'MAGICSADAN',
+    subtitle: 'SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL',
+    location: 'Caracas',
+    type: 'magicsadan',
+    logo: '/assets/images/Servicios/MagicSaDan.png',
+    description: 'Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas).'
+  },
+  {
+    id: 'may23-resonancia',
+    date: new Date(2026, 4, 23),
+    title: 'RESONANCIA',
+    subtitle: 'ACERCAMIENTO A LA MEDICINA FUNGI CON MÚSICA',
+    location: 'Caracas',
+    type: 'fungi',
+    logo: '/assets/images/Servicios/Reino_fungi.png',
+    description: 'Círculo de meditación, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, acompañado de sonidos vibratorios orgánicos y música meditativa en vivo, para el despertar sensorial del propio ser, induciendo a la calma y al encuentro consigo mismo. (Duración: 4 horas).'
+  },
+  {
+    id: 'may27-abracadabra',
+    date: new Date(2026, 4, 27),
+    title: 'ABRA CADABRA',
+    subtitle: 'CÍRCULO DE PALABRA INTEGRADORA',
+    location: 'Caracas',
+    type: 'abracadabra',
+    logo: '/assets/images/Servicios/Abra_Cadabra.png',
+    description: 'Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas).'
   }
 ]
 
@@ -847,71 +925,6 @@ function formatEventDateShort(date) {
   font-size: 0.95rem;
 }
 
-/* Radio Section */
-.radio-section {
-  background: rgba(10, 46, 31, 0.6);
-  padding: 50px 40px;
-  border-radius: 20px;
-  border: 1px solid rgba(179, 168, 90, 0.2);
-  margin-bottom: 60px;
-  backdrop-filter: blur(10px);
-}
-
-.radio-card {
-  background: rgba(17, 71, 54, 0.5);
-  border: 1px solid rgba(179, 168, 90, 0.2);
-  border-radius: 16px;
-  padding: 30px 25px;
-  text-align: center;
-  height: 100%;
-  transition: all 0.3s ease;
-}
-
-.radio-card:hover {
-  border-color: var(--thm-base, #b3a85a);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.radio-card-icon {
-  margin-bottom: 20px;
-}
-
-.radio-card-icon img {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  filter: brightness(1.2) invert(1);
-}
-
-.radio-card h4 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.3rem;
-  color: var(--thm-base, #b3a85a);
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.radio-schedule {
-  display: inline-block;
-  font-size: 0.8rem;
-  color: var(--thm-accent, #7da052);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 4px 12px;
-  background: rgba(125, 160, 82, 0.15);
-  border-radius: 20px;
-  margin-bottom: 15px;
-}
-
-.radio-card p {
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.7;
-  font-size: 0.9rem;
-  margin: 0;
-}
-
 /* Encuentros Section */
 .encuentros-section {
   background: rgba(10, 46, 31, 0.6);
@@ -1092,7 +1105,6 @@ function formatEventDateShort(date) {
   }
 
   .presagio-section,
-  .radio-section,
   .encuentros-section {
     padding: 30px 20px;
   }
@@ -1222,12 +1234,5 @@ function formatEventDateShort(date) {
     font-size: 1.1rem;
   }
 
-  .radio-card {
-    padding: 25px 18px;
-  }
-
-  .radio-card h4 {
-    font-size: 1.15rem;
-  }
 }
 </style>

@@ -60,9 +60,7 @@
                 </div>
                 <div class="footer-widget_contact">
                   <a href="mailto:magiancestralvzla@gmail.com">magiancestralvzla@gmail.com</a><br>
-                  <a href="tel:412-XXX-XXXX">0424 160-0760</a><br>
-                  <a href="tel:412-XXX-XXXX">0412 752-9535</a><br>
-                  <a href="tel:412-XXX-XXXX">0414 910-5091</a>
+                  <a href="tel:412-XXX-XXXX">+ 58 424 160-0760</a><br>
                   <div class="site-footer__social">
                     <a href="https://www.tiktok.com/@magiancestral_ven" target="_blank">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

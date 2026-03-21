@@ -21,7 +21,7 @@
                     <span class="scroll-separator"> • </span>
                   </div>
                 </div>
-                <span class="station-name d-none d-md-block">Magia Ancestral Radio</span>
+                <span class="station-name d-none d-md-block">Radio Magia Ancestral</span>
               </div>
             </div>
             <button

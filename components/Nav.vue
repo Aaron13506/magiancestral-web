@@ -7,7 +7,7 @@
             ><span class="icon-message"></span>magiancestralvzla@gmail.com</a
           >
           <a href="https://wa.me/584241600760"
-            ><span class="icon-phone-call"></span>0424 160-0760</a
+            ><span class="icon-phone-call"></span>+58 424 160-0760</a
           >
         </div>
         <div class="topbar-one__middle">
@@ -76,8 +76,12 @@
               <li :class="{ current: $route.path === '/service-detail' }">
                 <nuxt-link to="/service-detail">Encuentros</nuxt-link>
               </li>
-              <li :class="{ current: $route.path === '/projects' || $route.path.startsWith('/projects_detail') }">
-                <nuxt-link to="/projects">Eventos Mágicos</nuxt-link>
+              <li class="dropdown" :class="{ current: $route.path === '/projects' || $route.path.startsWith('/projects_detail') || $route.path === '/radio' }">
+                <nuxt-link to="#">Eventos Mágicos</nuxt-link>
+                <ul>
+                  <li><nuxt-link to="/projects">Presagio</nuxt-link></li>
+                  <li><nuxt-link to="/radio">Radio</nuxt-link></li>
+                </ul>
               </li>
               <li class="dropdown" :class="{ current: $route.path === '/about' || $route.path === '/farmers' }">
                 <nuxt-link to="#">Acerca de</nuxt-link>
@@ -122,8 +126,20 @@
           <li :class="{ current: $route.path === '/service-detail' }">
             <nuxt-link to="/service-detail">Encuentros</nuxt-link>
           </li>
-          <li :class="{ current: $route.path === '/projects' || $route.path.startsWith('/projects_detail') }">
-            <nuxt-link to="/projects">Eventos Mágicos</nuxt-link>
+          <li class="dropdown" :class="{ current: $route.path === '/projects' || $route.path.startsWith('/projects_detail') || $route.path === '/radio' }">
+            <div class="menu-holder">
+              Eventos Mágicos<button
+                class="dropdown-btn"
+                :class="{ open: dropdownStates.eventos }"
+                @click="toggleDropdown('eventos')"
+              >
+                <i class="fa fa-angle-right"></i>
+              </button>
+            </div>
+            <ul :style="`display: ${dropdownStates.eventos ? 'block' : 'none'}`">
+              <li><nuxt-link to="/projects">Presagio</nuxt-link></li>
+              <li><nuxt-link to="/radio">Radio</nuxt-link></li>
+            </ul>
           </li>
           <li class="dropdown" :class="{ current: $route.path === '/about' || $route.path === '/farmers' }">
             <div class="menu-holder">
@@ -173,6 +189,7 @@ const sticky = ref(false)
 const mobileToggle = ref(false)
 const dropdownStates = ref({
   services: false,
+  eventos: false,
   nosotros: false
 })
 

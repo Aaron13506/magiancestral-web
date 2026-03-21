@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <PageHeader title="Bitácora" />
+    <PageHeader />
 
     <section class="news_detail" v-if="article">
       <div class="container">
@@ -141,6 +141,12 @@ useHead({
 </script>
 
 <style scoped>
+.news_detail_content > h2 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 /* Estilos para el contenido Markdown */
 .news_detail_content :deep(.prose) {
   max-width: 100%;
