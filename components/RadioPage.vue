@@ -53,6 +53,16 @@
                       <td></td>
                     </tr>
                     <tr>
+                      <td class="hora-cell">11:00</td>
+                      <td></td>
+                      <td></td>
+                      <td class="programa-ikaros">CDC</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
                       <td class="hora-cell">15:00</td>
                       <td colspan="7" class="programa-cuentos text-center">CUENTOS QUE NO SON CUENTOS</td>
                     </tr>

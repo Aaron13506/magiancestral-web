@@ -472,6 +472,26 @@ const events = [
     type: 'abracadabra',
     logo: '/assets/images/Servicios/Abra_Cadabra.png',
     description: 'Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas).'
+  },
+  {
+    id: 'may30-teramai',
+    date: new Date(2026, 4, 30),
+    title: 'FORMACIÓN EN TERAMAI',
+    subtitle: 'FORMACIÓN EN TERAMAI SENCHEN',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Formación en Teramai Senchen, un sistema ancestral de sanación energética.'
+  },
+  {
+    id: 'may31-teramai',
+    date: new Date(2026, 4, 31),
+    title: 'FORMACIÓN EN TERAMAI',
+    subtitle: 'FORMACIÓN EN TERAMAI SENCHEN',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Formación en Teramai Senchen, un sistema ancestral de sanación energética.'
   }
 ]
 

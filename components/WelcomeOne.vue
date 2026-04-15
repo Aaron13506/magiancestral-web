@@ -38,10 +38,19 @@
                   Además de variedades musicales, estrenos, música del recuerdo, programas de un solo ritmo,
                   programas de un solo intérprete, recitales, festivales.</p>
               </div>
-              <div class="welcome_video_box"
-                   style="background-image:url(https://img.youtube.com/vi/QjhKvZ_yevA/maxresdefault.jpg)">
-                <a href="https://www.youtube.com/watch?v=QjhKvZ_yevA"
-                   class="welcome_video_btn videoTwo"><i class="fa fa-play"></i></a>
+              <div class="welcome_video_box">
+                <iframe
+                  v-if="videoPlaying[0]"
+                  src="https://www.youtube.com/embed/QjhKvZ_yevA?autoplay=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  class="video-iframe"
+                ></iframe>
+                <template v-else>
+                  <img src="https://img.youtube.com/vi/QjhKvZ_yevA/maxresdefault.jpg" alt="Video" class="video-thumbnail" />
+                  <button @click="playVideo(0)" class="welcome_video_btn"><i class="fa fa-play"></i></button>
+                </template>
               </div>
             </div>
           </div>
@@ -72,10 +81,19 @@
                   La música actúa como un vehículo que transporta nuestra consciencia hacia dimensiones superiores,
                   facilitando procesos de liberación y renovación espiritual.</p>
               </div>
-              <div class="welcome_video_box"
-                   style="background-image:url(https://img.youtube.com/vi/QjhKvZ_yevA/maxresdefault.jpg)">
-                <a href="https://www.youtube.com/watch?v=QjhKvZ_yevA"
-                   class="welcome_video_btn videoTwo"><i class="fa fa-play"></i></a>
+              <div class="welcome_video_box">
+                <iframe
+                  v-if="videoPlaying[1]"
+                  src="https://www.youtube.com/embed/QjhKvZ_yevA?autoplay=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  class="video-iframe"
+                ></iframe>
+                <template v-else>
+                  <img src="https://img.youtube.com/vi/QjhKvZ_yevA/maxresdefault.jpg" alt="Video" class="video-thumbnail" />
+                  <button @click="playVideo(1)" class="welcome_video_btn"><i class="fa fa-play"></i></button>
+                </template>
               </div>
             </div>
           </div>
@@ -106,10 +124,19 @@
                   Todos los jueves estaremos contigo y nuestros invitados para levantar el rezo e impartir mensajes
                   e información que embalsamen el alma del escucha a través de la música que eleva la conciencia.</p>
               </div>
-              <div class="welcome_video_box"
-                   style="background-image:url(https://img.youtube.com/vi/QjhKvZ_yevA/maxresdefault.jpg)">
-                <a href="https://www.youtube.com/watch?v=QjhKvZ_yevA"
-                   class="welcome_video_btn videoTwo"><i class="fa fa-play"></i></a>
+              <div class="welcome_video_box">
+                <iframe
+                  v-if="videoPlaying[2]"
+                  src="https://www.youtube.com/embed/QjhKvZ_yevA?autoplay=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  class="video-iframe"
+                ></iframe>
+                <template v-else>
+                  <img src="https://img.youtube.com/vi/QjhKvZ_yevA/maxresdefault.jpg" alt="Video" class="video-thumbnail" />
+                  <button @click="playVideo(2)" class="welcome_video_btn"><i class="fa fa-play"></i></button>
+                </template>
               </div>
             </div>
           </div>
@@ -130,12 +157,10 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-import { useRadioStore } from '~/store/index.js'
+import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 
-// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -144,43 +169,53 @@ const SwiperAutoplay = Autoplay
 const SwiperNavigation = Navigation
 const SwiperPagination = Pagination
 
-const radioStore = useRadioStore()
-let wasPlayingBeforeVideo = false
+const videoPlaying = ref([false, false, false])
 
-onMounted(() => {
-  // Wait for GLightbox to be available
-  const initLightbox = () => {
-    if (typeof window !== 'undefined' && window.GLightbox) {
-      const lightbox = new window.GLightbox({
-        selector: '.videoTwo',
-        touchNavigation: true,
-        loop: true,
-        autoplayVideos: true
-      })
-
-      lightbox.on('open', () => {
-        wasPlayingBeforeVideo = radioStore.isPlaying
-        if (wasPlayingBeforeVideo) {
-          radioStore.pause()
-        }
-      })
-
-      lightbox.on('close', () => {
-        if (wasPlayingBeforeVideo) {
-          radioStore.play()
-        }
-      })
-    } else {
-      // Retry after a short delay if GLightbox is not yet loaded
-      setTimeout(initLightbox, 100)
-    }
-  }
-
-  initLightbox()
-})
+function playVideo(index) {
+  videoPlaying.value = videoPlaying.value.map((_, i) => i === index)
+}
 </script>
 
 <style scoped>
+
+.welcome_video_box {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.welcome_video_btn {
+  position: relative;
+  z-index: 2;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
 
 .radio-image {
   width: 100%;
