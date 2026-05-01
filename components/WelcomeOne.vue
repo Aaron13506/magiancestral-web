@@ -5,6 +5,7 @@
         :modules="[SwiperAutoplay, SwiperNavigation, SwiperPagination]"
         :slides-per-view="1"
         :autoplay="{ delay: 10000 }"
+        :speed="1500"
         :loop="true"
         :navigation="{
           nextEl: '.welcome-button-next, .welcome-button-next-mobile',

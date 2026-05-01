@@ -12,7 +12,7 @@
         <!-- Slide Item -->
         <SwiperSlide>
           <div class="slide-item">
-            <div class="image-layer" style="background-image: url(/assets/images/main-slider/sliderMain1.jpg);">
+            <div class="image-layer slider-main1" style="background-image: url(/assets/images/main-slider/sliderMain1.jpg);">
             </div>
             <div class="auto-container">
               <div class="content-box">
@@ -52,7 +52,7 @@
         <!-- Slide Item -->
         <SwiperSlide>
           <div class="slide-item">
-            <div class="image-layer" style="background-image: url(/assets/images/main-slider/sliderMain3.jpg);">
+            <div class="image-layer slider-main3" style="background-image: url(/assets/images/main-slider/sliderMain3.jpg);">
             </div>
             <div class="auto-container">
               <div class="content-box">
@@ -133,6 +133,7 @@ const SwiperNavigation = Navigation
   width: 100%;
   height: 100%;
   z-index: 2;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.55) 100%);
 }
 
 .auto-container {
@@ -161,17 +162,27 @@ const SwiperNavigation = Navigation
 .inner {
   position: relative;
   z-index: 25;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 30px !important;
 }
 
 .inner h1 {
   font-size: 6.5rem !important;
   color: white !important;
-  line-height: 0.9 !important;
-  margin-bottom: 20px !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+  position: relative !important;
+  z-index: 35 !important;
+  width: 100%;
+  transform: none !important;
+  -webkit-transform: none !important;
 }
 
 .inner h1 span {
@@ -191,7 +202,7 @@ const SwiperNavigation = Navigation
 }
 
 .subtitle-box {
-  margin-top: 30px !important;
+  margin: 0 !important;
   position: relative !important;
   z-index: 30 !important;
   visibility: visible !important;
@@ -257,40 +268,40 @@ const SwiperNavigation = Navigation
 
 @media (max-width: 768px) {
   .inner h1 {
-    font-size: 4rem !important;
+    font-size: 3.2rem !important;
+    line-height: 1 !important;
+    margin: 0 !important;
   }
 
   .subtitle {
-    font-size: 1.1rem !important;
-    padding: 10px 20px !important;
+    font-size: 1rem !important;
+    padding: 10px 18px !important;
   }
 
   .familia-break {
     display: block;
   }
 
-  .content.text-left {
-    text-align: center;
-  }
-
   .slide-item {
-    height: 70vh;
-    min-height: 500px;
+    height: 85vh;
+    min-height: 520px;
   }
 
   .banner-carousel-four {
-    height: 70vh;
-    min-height: 500px;
+    height: 85vh;
+    min-height: 520px;
   }
 }
 
 @media (max-width: 480px) {
   .inner h1 {
-    font-size: 4rem !important;
+    font-size: 2.6rem !important;
+    line-height: 1 !important;
+    margin: 0 !important;
   }
 
   .subtitle {
-    font-size: 0.9rem !important;
+    font-size: 0.95rem !important;
     padding: 8px 16px !important;
   }
 }
@@ -341,19 +352,38 @@ const SwiperNavigation = Navigation
   opacity: 1 !important;
   z-index: 999 !important;
   position: relative !important;
-  margin-top: 90px !important;
+  margin: 0 !important;
 }
 
-/* Específico para sliderMain2 en móvil */
 @media (max-width: 768px) {
+  .inner {
+    gap: 24px !important;
+  }
+
+  .slider-main1 {
+    background-position: center 65% !important;
+  }
+
   .slider-main2 {
-    background-position: 80% center !important;
+    background-position: center 38% !important;
+  }
+
+  .slider-main3 {
+    background-position: 70% center !important;
   }
 }
 
 @media (max-width: 480px) {
+  .inner {
+    gap: 20px !important;
+  }
+
   .slider-main2 {
-    background-position: 85% center !important;
+    background-position: 50% 40% !important;
+  }
+
+  .slider-main3 {
+    background-position: 75% 60% !important;
   }
 }
 </style>

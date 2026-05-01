@@ -12,151 +12,78 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is "Agrikol" - a Vue.js Nuxt.js template for agriculture farm & farmers websites. It's a Nuxt 3 application with multiple page layouts and Vue components for an agriculture business website.
+This is **Magiancestral** — a spiritual/ancestral medicine website built with Nuxt 3. It was scaffolded from the "Agrikol" agriculture template, so many component and CSS class names still reference that origin but the content is entirely different.
 
 ## Development Commands
 
-**Package Manager:** This project uses **pnpm** instead of npm.
+**Package Manager:** This project uses **pnpm**.
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Run development server (localhost:3000)
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Preview production build
-pnpm preview
-
-# Generate static files
-pnpm generate
-
-# Prepare Nuxt
-pnpm postinstall
+pnpm install       # Install dependencies
+pnpm dev           # Run dev server (localhost:3000)
+pnpm build         # Build for production
+pnpm generate      # Static generation
+pnpm preview       # Preview production build
+pnpm postinstall   # Nuxt prepare (run after install)
 ```
 
-## Project Architecture
+## Architecture
 
-### Framework & Version
-- **Nuxt.js 3.x** - Universal mode with static generation support
-- **Vue.js 3.x** - Component-based architecture with Composition API
-- **TypeScript** - Configuration in TypeScript, components can use either JS or TS
-- **Pinia** - State management (replaced Vuex)
+### Framework
+- **Nuxt 3** with SSR enabled, static generation via Nitro
+- **Vue 3** with `<script setup>` (Composition API) — preferred pattern for all components
+- **Pinia** for state management (three stores in `store/index.js`)
+- Site content is in **Spanish**
 
-### Key Dependencies
-- `swiper` (^11.1.4) - Touch slider components (updated for Vue 3)
-- `@pinia/nuxt` (^0.5.1) - Pinia integration for Nuxt 3
-- `pinia` (^2.1.7) - State management store
-- `vue` (^3.4.0) - Vue 3 framework
+### Data Layer
 
-### Migration Notes
-- **Carousel Components**: Old Vue 2 carousel libraries (`v-owl-carousel`, `vue-awesome-swiper`, etc.) have been removed as they're not compatible with Vue 3. Consider using Swiper Vue components directly.
-- **State Management**: Migrated from Vuex to Pinia with `useMainStore` composable
-- **Composition API**: Components migrated to use `<script setup>` syntax
-- **Auto-imports**: Nuxt 3 auto-imports components, so explicit imports are not needed in pages
-- **Assets**: Moved from `static/` to `public/` directory for Nuxt 3 compatibility
-- **CSS Loading**: CSS files now loaded via `css` array in nuxt.config.ts instead of head links
-- **JavaScript Loading**: Global scripts loaded via client-side plugin
-- **Asset Redirects**: Added server middleware to redirect legacy `/static/` paths to `/assets/`
-- **Route Rules**: Configured cache headers for all asset types
+**Products** — `public/data/products.json`
+- Single JSON file; shape: `{ products: [...] }` with fields `id`, `slug`, `name`, `shortName`, `price`, `currency`, `category`, `image`, `benefits`, `inStock`, `topProduct`, etc.
+- Loaded in components via `$fetch('/data/products.json')` or `useAsyncData`.
+- Product detail routes: `/producto/[slug]` (`pages/producto/[slug].vue`).
 
-### Project Structure
+**Blog** — `public/data/blog/`
+- NOT Nuxt Content. Articles are plain JSON files (`<slug>.json`).
+- `index.json` — array of article metadata (slug, title, description, date, image, author, category, optional `pdfUrl`).
+- Individual article files hold the full article content (HTML string in `content` field).
+- **Server API**: `server/api/blog/index.get.ts` and `server/api/blog/[slug].get.ts` read these files with `readFileSync` and expose them at `/api/blog` and `/api/blog/<slug>`.
+- Two blog categories: `estudios-cientificos` and `reflexiones-del-espiritu`.
+- Articles with a `pdfUrl` field link directly to a PDF instead of an article page.
+- When adding a new blog article: (1) create `public/data/blog/<slug>.json` with `slug`, `title`, `description`, `date`, `image`, `author`, `category`, `content` (HTML), and optionally `pdfUrl`; (2) add a metadata entry to `public/data/blog/index.json`; (3) add the route to `nitro.prerender.routes` in `nuxt.config.ts`.
 
-**Pages Architecture:**
-- `pages/` - Nuxt.js auto-routing (index.vue, about.vue, contact.vue, etc.)
-- Multiple homepage variants (index.vue, index2.vue, index3.vue, index4.vue, index5.vue)
-- E-commerce pages (product.vue, cart.vue, checkout.vue)
-- Content pages (blog.vue, blog_detail.vue, gallery.vue, farmers.vue, etc.)
+### Pinia Stores (`store/index.js`)
+- **`useCartStore`** — shopping cart persisted to `localStorage` under key `magiancestral-cart`. Has `addItem`, `removeItem`, `updateQuantity`, `clearCart`, `loadCart`, `openWhatsApp`. WhatsApp number: `584241600760`.
+- **`useMainStore`** — search popup visibility toggle (`searchPopupStatus`).
+- **`useRadioStore`** — online radio state (`isPlaying`, `volume`, `nowPlaying`, `radioUrl`). The audio element is created in `plugins/radio.client.js` and registered via `setAudioElement`.
 
-**Component System:**
-- `components/` - 60+ reusable Vue components
-- Component naming follows descriptive patterns (AboutOne, ServiceOne, TestimonialOne, etc.)
-- Navigation components: Nav.vue, NavTwo.vue, NavThree.vue, NavFour.vue, NavFive.vue
-- Footer variants: Footer.vue, FooterTwo.vue
-- Slider components: Slider.vue, SliderTwo.vue, SliderThree.vue, etc.
+### Plugins (all client-only)
+- `plugins/global-scripts.client.js` — loads GLightbox and accordion JS from `/assets/plugins/`, then initializes GLightbox.
+- `plugins/radio.client.js` — creates a hidden `<audio>` element, wires event listeners to `useRadioStore`, appends it to `<body>`.
+- `plugins/owl.client.js` — legacy placeholder; no active functionality.
 
-**State Management:**
-- `store/index.js` - Pinia store managing search popup state
-- Uses Pinia actions for state changes with `useMainStore` composable
+### Nuxt Config Highlights
+- CSS is loaded globally via the `css` array in `nuxt.config.ts` (Bootstrap, FontAwesome, custom theme, `assets/css/global-overrides.css`).
+- External scripts (radio widget) loaded via `app.head.script`.
+- Google Fonts (Poppins + Fraunces) via `app.head.link`.
+- `routeRules` sets long-lived cache headers on `/assets/**` and short cache on `/data/**`.
+- `nitro.prerender.routes` lists the static routes that must be pre-rendered (update when adding new blog articles).
+- `devtools.componentInspector.openInEditor: 'webstorm'`.
 
-**Layouts:**
-- `layouts/default.vue` - Main layout wrapper with SearchPopup component using Composition API
-- `app.vue` - Root application component
+### Static Assets
+- Served from `public/assets/` (URL path `/assets/`).
+- Custom CSS overrides live in `assets/css/global-overrides.css` (global font-weight resets using `!important`).
+- Images: `public/assets/images/`; blog images in `blog/` sub-folder; shop/product images in `shop/botica/`.
 
-### Configuration Details
+### Navigation & Layout
+- **`components/Nav.vue`** — the only active navigation. Contains sticky scroll logic, mobile hamburger with per-dropdown toggle, cart badge from `useCartStore`, and embeds `<RadioPlayer />` inside the sticky nav bar. Loads cart from localStorage on `onMounted`.
+- **`layouts/default.vue`** — wraps every page in `.page-wrapper` and renders `<SearchPopup />`.
+- **`app.vue`** — root; uses `<NuxtLayout>` + `<NuxtPage>`.
 
-**Nuxt Config (`nuxt.config.ts`):**
-- Universal mode with SSR enabled
-- External CSS/JS assets loaded via CDN and static files
-- Bootstrap, FontAwesome, custom CSS included
-- Plugins: owl.client.js for carousel functionality (client-side only)
-- Pinia module integration
-- TypeScript configuration
+### E-Commerce Checkout
+- Cart is client-side only (Pinia + localStorage).
+- Checkout submits the order as a pre-formatted WhatsApp message via `useCartStore.openWhatsApp()` — no payment gateway.
 
-**Static Assets:**
-- `static/assets/` - All static resources (CSS, images, fonts, plugins)
-- Pre-built CSS framework (Bootstrap) with custom agriculture theme
-- FontAwesome icons and custom icon fonts
-- Organized by type: css/, images/, fonts/, plugins/
+### Page Routes
+Active pages: `/` (index), `/about`, `/farmers`, `/gallery`, `/service-detail`, `/projects`, `/projects_detail`, `/radio`, `/product`, `/producto/[slug]`, `/cart`, `/checkout`, `/blog`, `/blog/[slug]`, `/blog/estudios-cientificos`, `/blog/reflexiones-del-espiritu`.
 
-### Key Features Architecture
-
-**Multi-layout Support:**
-- 5 different homepage layouts
-- Different navigation styles per layout
-- Flexible component composition per page
-
-**E-commerce Integration:**
-- Product listing and detail pages
-- Shopping cart functionality
-- Checkout process
-
-**Content Management:**
-- Blog system (blog.vue, blog_detail.vue)
-- Gallery functionality
-- Team/farmer profiles
-- Service pages with detail views
-
-**Blog System:**
-- Blog uses **Nuxt Content** with Markdown files
-- Articles are stored in `content/blog/` directory as `.md` files
-- Blog listing page: `pages/blog/index.vue` (route: `/blog`)
-- Blog detail page: `pages/blog/[slug].vue` (route: `/blog/article-slug`)
-- To add a new article, create a `.md` file in `content/blog/` with frontmatter metadata
-
-**Adding New Blog Articles:**
-1. Create a new `.md` file in `content/blog/` with the article slug as filename
-2. Add frontmatter at the top with: title, description, date, image, author, tags
-3. Write content in Markdown below the frontmatter
-4. The article will automatically appear on `/blog`
-
-Example article structure:
-```markdown
----
-title: Article Title
-description: Article description
-date: 2025-01-15
-image: /assets/images/blog/image.jpg
-author: Admin
-tags:
-  - tag1
-  - tag2
----
-
-# Article content in Markdown...
-```
-
-### Plugin System
-- `plugins/owl.client.js` - Placeholder for carousel functionality (needs Vue 3 compatible replacement)
-- Client-side only plugins (`.client.js` suffix)
-
-### Development Notes
-- Uses Vue 3 Composition API with `<script setup>` syntax
-- Components are auto-imported by Nuxt 3
-- Static generation friendly with Nitro engine
-- Bootstrap 4 styling with custom agriculture theme
-- Pinia for state management instead of Vuex
-- TypeScript configuration available
+Unused/legacy pages still in `pages/`: `index2.vue`, `index3.vue`, `index5.vue`, `index-old.vue` (original template variants).

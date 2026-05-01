@@ -79,28 +79,39 @@
                 <div class="event-detail-description">
                   <p>{{ selectedEvent.description }}</p>
                 </div>
+                <button class="see-more-btn" @click="goToServiceDetail(selectedEvent.type)">
+                  Ver más sobre este evento →
+                </button>
               </div>
 
-              <!-- Vista lista de próximos eventos -->
-              <div v-else class="event-list">
-                <h3 class="panel-title">Eventos de {{ monthNames[currentMonth] }}</h3>
+              <!-- Vista vacía - invitar a seleccionar -->
+              <div v-else class="event-empty">
                 <div v-if="monthEvents.length === 0" class="no-events">
+                  <div class="empty-ornament">✦</div>
                   <p>No hay eventos programados para {{ monthNames[currentMonth] }}.</p>
                 </div>
-                <div
-                  v-for="event in monthEvents"
-                  :key="event.id"
-                  class="event-list-item"
-                  @click="selectEvent(event)"
-                >
-                  <img :src="event.logo" :alt="event.title" class="event-list-logo">
-                  <div class="event-list-info">
-                    <span class="event-list-date">{{ formatEventDateShort(event.date) }}</span>
-                    <span class="event-list-title">{{ event.title }}</span>
-                    <span class="event-list-location">{{ event.location }}</span>
+                <template v-else>
+                  <div class="empty-invite">
+                    <div class="empty-ornament">✦</div>
+                    <p class="empty-hint">Selecciona un día marcado en el calendario para ver los detalles del evento.</p>
+                    <span class="month-count-badge">{{ monthEvents.length }} evento{{ monthEvents.length > 1 ? 's' : '' }} en {{ monthNames[currentMonth] }}</span>
                   </div>
-                  <span class="event-list-arrow">›</span>
-                </div>
+                  <div class="event-badge-list">
+                    <div
+                      v-for="event in monthEvents"
+                      :key="event.id"
+                      class="event-badge"
+                      @click="selectEvent(event)"
+                    >
+                      <img :src="event.logo" :alt="event.title" class="badge-logo">
+                      <div class="badge-content">
+                        <span class="badge-date">{{ formatEventDateShort(event.date) }}</span>
+                        <span class="badge-title">{{ event.title }}</span>
+                      </div>
+                      <span class="badge-arrow">›</span>
+                    </div>
+                  </div>
+                </template>
               </div>
             </div>
           </div>
@@ -113,101 +124,45 @@
           <div class="col-xl-12">
             <div class="section-title text-center mb-5">
               <h2>Encuentros ceremoniales y rituales</h2>
-              <p class="subtitle">En este enlace describimos los eventos que organizamos, los cuales te especificamos a continuación ☺</p>
+              <p class="subtitle">Selecciona un encuentro para conocer sus detalles ☺</p>
             </div>
           </div>
         </div>
 
-        <!-- Evento Principal - Reino Fungi -->
-        <div class="row mb-5">
-          <div class="col-xl-12">
-            <div class="evento-card evento-card-principal">
-              <div class="evento-icon">
-                <img src="/assets/images/Servicios/Reino_fungi.png" alt="Reino Fungi" class="emblema emblema-principal">
-              </div>
-              <h3>MEDICINA DEL REINO FUNGI</h3>
-
-              <div class="fungi-variants-grid">
-                <div class="variant-item">
-                  <h4>"ENCANTAMIENTO"</h4>
-                  <p>Encuentro Ritual de conexión con las energías elementales y las fuerzas naturales, con la ingesta de una dosis ritual de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial, que constituye el altar principal. Finaliza con círculo de palabra y de acompañamiento terapéutico.</p>
-                </div>
-
-                <div class="variant-item">
-                  <h4>"HECHIZO"</h4>
-                  <p>Encuentro Ritual de conexión con las energías elementales y las fuerzas naturales, con la ingesta de una dosis ritual profunda de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial, que constituye el altar principal. Finaliza con círculo de palabra y de acompañamiento terapéutico.</p>
-                </div>
-
-                <div class="variant-item">
-                  <h4>"CONJURO"</h4>
-                  <p>Encuentro Ritual exclusivo para estudiosos y caminantes de esta medicina, de conexión con las energías elementales y las fuerzas naturales, con la ingesta de una dosis ritual super profunda de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial, que constituye el altar principal. Finaliza con círculo de palabra y de acompañamiento terapéutico.</p>
-                </div>
-
-                <div class="variant-item">
-                  <h4>RESONANCIA MÁGICA MEDITATIVA</h4>
-                  <p>Círculo de meditación, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, acompañado de sonidos vibratorios orgánicos y música meditativa en vivo, para el despertar sensorial del propio ser, induciendo a la calma y al encuentro consigo mismo, bien como un primer acercamiento a la Medicina del Reino Fungi, o para entrar en una meditación profunda, mientras se reciben los beneficios biológicos de esta medicina (Duración: 4 horas).</p>
-                </div>
-
-                <div class="variant-item variant-item-centered">
-                  <h4>RESONANCIA MÁGICA MUSICAL</h4>
-                  <p>Círculo medicinal contemplativo, acompañado de música de medicina, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, para desplegar estados favorables en el despertar de la creatividad, la armonía interna, la alegría y la expresión del ser a través de la danza, la pintura, la escritura y la participación musical, mientras se reciben los beneficios biológicos de esta medicina. (Duración: 5 horas).</p>
-                </div>
-              </div>
-            </div>
+        <!-- Selector grid -->
+        <div class="service-selector-grid">
+          <div
+            v-for="service in services"
+            :key="service.id"
+            class="service-tile"
+            :class="{ 'is-active': selectedService && selectedService.id === service.id }"
+            @click="toggleService(service)"
+          >
+            <img :src="service.logo" :alt="service.title" class="tile-logo">
+            <span class="tile-title">{{ service.title }}</span>
+            <span class="tile-chevron">{{ selectedService && selectedService.id === service.id ? '▲' : '▼' }}</span>
           </div>
         </div>
 
-        <!-- Eventos Secundarios -->
-        <div class="row">
-          <div class="col-xl-6 col-lg-6 col-md-12 mb-4">
-            <div class="evento-card evento-card-large">
-              <div class="evento-icon">
-                <img src="/assets/images/Servicios/YageAyahuasca.png" alt="Medicina Ancestral de la Selva" class="emblema">
+        <!-- Detail panel -->
+        <div class="service-detail-panel" :class="{ 'is-open': selectedService }">
+          <template v-if="selectedService">
+            <div class="service-detail-inner">
+              <div class="service-detail-header">
+                <img :src="selectedService.logo" :alt="selectedService.title" class="detail-logo">
+                <h3>{{ selectedService.title }}</h3>
               </div>
-              <h3>MEDICINA ANCESTRAL DE LA SELVA</h3>
-              <p>Encuentro chamánico grupal, con la ingesta de esta Planta de Poder, que emplea la energía ancestral y la conexión con las fuerzas elementales, acompañado de rezos, rueda medicinal, armonización energética, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico.</p>
-            </div>
-          </div>
 
-          <div class="col-xl-6 col-lg-6 col-md-12 mb-4">
-            <div class="evento-card evento-card-large">
-              <div class="evento-icon">
-                <img src="/assets/images/Servicios/Teramai_Senchen.png" alt="Reiki Teramai" class="emblema">
+              <!-- Fungi has sub-variants -->
+              <div v-if="selectedService.variants" class="fungi-variants-grid">
+                <div v-for="v in selectedService.variants" :key="v.name" class="variant-item" :class="{ 'variant-item-centered': v.centered }">
+                  <h4>{{ v.name }}</h4>
+                  <p>{{ v.description }}</p>
+                </div>
               </div>
-              <h3>TERAMAI – SEICHEM (SISTEMA DE CURACIÓN NATURAL Y CANALIZACIÓN DE ENERGÍAS SANADORAS)</h3>
-              <p>Formación grupal y proceso iniciático de canalización energética de los rayos de sanación de la Tierra, el Agua, el Aire y el Fuego. Manejo de la energía angelical, la sanación con colores, la armonía vibracional, la danza chamánica y el canto curativo. Formación en 6 Niveles: 2 Niveles de Formación Reiki Teramai-Seichem; 3 Niveles de Magia Teramai - Seichem y Maestría.</p>
+              <p v-else class="detail-description">{{ selectedService.description }}</p>
             </div>
-          </div>
-
-          <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
-            <div class="evento-card evento-card-medium">
-              <div class="evento-icon">
-                <img src="/assets/images/Servicios/Abra_Cadabra.png" alt="Abra Cadabra" class="emblema emblema-medium">
-              </div>
-              <h3>ABRA CADABRA</h3>
-              <p>Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas).</p>
-            </div>
-          </div>
-
-          <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
-            <div class="evento-card evento-card-medium">
-              <div class="evento-icon">
-                <img src="/assets/images/icon/sesiones.png" alt="Sesiones" class="emblema emblema-medium">
-              </div>
-              <h3>SESIONES</h3>
-              <p>Recital de Música de Medicina, con la participación de varios músicos invitados, a través del cual se genera un espacio de esparcimiento que emplea la música como medio de conciencia. (Duración: 4 horas).</p>
-            </div>
-          </div>
-
-          <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
-            <div class="evento-card evento-card-medium">
-              <div class="evento-icon">
-                <img src="/assets/images/Servicios/MagicSaDan.png" alt="MagicsaDan" class="emblema emblema-medium">
-              </div>
-              <h3>MAGICSADAN</h3>
-              <p>Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. Herramienta de autoconocimiento, para regular el bienestar, disminuir los efectos del cortisol en el cuerpo, producto del estrés y conectar al participante con su biología, su esencia, la consciencia de estar vivo, la Magia que porta y la sacralidad en todo lo existente. (Duración: 3 horas).</p>
-            </div>
-          </div>
+          </template>
         </div>
       </div>
     </div>
@@ -424,8 +379,8 @@ const events = [
     description: 'Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas).'
   },
   {
-    id: 'may09-yage',
-    date: new Date(2026, 4, 9),
+    id: 'may16-yage',
+    date: new Date(2026, 4, 16),
     title: 'RITUAL CEREMONIAL CON MEDICINA YAGÉ',
     subtitle: 'ENCUENTRO CEREMONIAL NOCTURNO',
     location: 'Altos Mirandinos',
@@ -486,12 +441,105 @@ const events = [
   {
     id: 'may31-teramai',
     date: new Date(2026, 4, 31),
-    title: 'FORMACIÓN EN TERAMAI',
-    subtitle: 'FORMACIÓN EN TERAMAI SENCHEN',
+    title: 'FORMACI“N EN TERAMAI',
+    subtitle: 'FORMACI“N EN TERAMAI SENCHEN',
     location: 'Caracas',
     type: 'teramai',
     logo: '/assets/images/Servicios/Teramai_Senchen.png',
-    description: 'Formación en Teramai Senchen, un sistema ancestral de sanación energética.'
+    description: 'Formacin en Teramai Senchen, un sistema ancestral de sanacin energtica.'
+  },
+  // JUNIO 2026
+  {
+    id: 'jun27-reiki',
+    date: new Date(2026, 5, 27),
+    title: 'TALLER DE REIKI',
+    subtitle: 'TALLER DE REIKI',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Taller de Reiki para el aprendizaje y sanacin a travs de la energa universal.'
+  },
+  {
+    id: 'jun28-reiki',
+    date: new Date(2026, 5, 28),
+    title: 'TALLER DE REIKI',
+    subtitle: 'TALLER DE REIKI',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Taller de Reiki para el aprendizaje y sanacin a travs de la energa universal.'
+  },
+  {
+    id: 'jun29-reiki-practica',
+    date: new Date(2026, 5, 29),
+    title: 'SESIONES DE PRACTICA DE REIKI',
+    subtitle: 'SESIONES DE PRACTICA DE REIKI',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Sesiones prcticas de Reiki para profundizar y aplicar conocimientos.'
+  },
+  // JULIO 2026
+  {
+    id: 'jul25-reiki',
+    date: new Date(2026, 6, 25),
+    title: 'TALLER DE REIKI',
+    subtitle: 'TALLER DE REIKI',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Taller de Reiki para el aprendizaje y sanacin a travs de la energa universal.'
+  },
+  {
+    id: 'jul26-reiki',
+    date: new Date(2026, 6, 26),
+    title: 'TALLER DE REIKI',
+    subtitle: 'TALLER DE REIKI',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Taller de Reiki para el aprendizaje y sanacin a travs de la energa universal.'
+  },
+  {
+    id: 'jul27-reiki-practica',
+    date: new Date(2026, 6, 27),
+    title: 'SESIONES DE PRACTICA DE REIKI',
+    subtitle: 'SESIONES DE PRACTICA DE REIKI',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Sesiones prcticas de Reiki para profundizar y aplicar conocimientos.'
+  },
+  // AGOSTO 2026
+  {
+    id: 'ago17-reiki-practica',
+    date: new Date(2026, 7, 17),
+    title: 'SESION DE PRACTICA DE REIKI',
+    subtitle: 'SESION DE PRACTICA DE REIKI',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Sesin prctica de Reiki para profundizar y aplicar conocimientos.'
+  },
+  {
+    id: 'ago22-reiki',
+    date: new Date(2026, 7, 22),
+    title: 'TALLER DE REIKI',
+    subtitle: 'TALLER DE REIKI',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Taller de Reiki para el aprendizaje y sanacin a travs de la energa universal.'
+  },
+  {
+    id: 'ago23-reiki',
+    date: new Date(2026, 7, 23),
+    title: 'TALLER DE REIKI',
+    subtitle: 'TALLER DE REIKI',
+    location: 'Caracas',
+    type: 'teramai',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Taller de Reiki para el aprendizaje y sanacin a travs de la energa universal.'
   }
 ]
 
@@ -569,6 +617,88 @@ function formatEventDateShort(date) {
   const day = String(date.getDate()).padStart(2, '0')
   const month = monthNames[date.getMonth()].substring(0, 3)
   return `${day} ${month}`
+}
+
+const selectedService = ref(null)
+
+const services = [
+  {
+    id: 'fungi',
+    title: 'MEDICINA DEL REINO FUNGI',
+    logo: '/assets/images/Servicios/Reino_fungi.png',
+    variants: [
+      {
+        name: '"ENCANTAMIENTO"',
+        description: 'Encuentro Ritual de conexión con las energías elementales y las fuerzas naturales, con la ingesta de una dosis ritual de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico.'
+      },
+      {
+        name: '"HECHIZO"',
+        description: 'Encuentro Ritual con la ingesta de una dosis ritual profunda de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico.'
+      },
+      {
+        name: '"CONJURO"',
+        description: 'Encuentro Ritual exclusivo para estudiosos de esta medicina, con la ingesta de una dosis ritual super profunda de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico.'
+      },
+      {
+        name: 'RESONANCIA MÁGICA MEDITATIVA',
+        description: 'Círculo de meditación con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, acompañado de sonidos vibratorios orgánicos y música meditativa en vivo, para el despertar sensorial del propio ser. (Duración: 4 horas).'
+      },
+      {
+        name: 'RESONANCIA MÁGICA MUSICAL',
+        centered: true,
+        description: 'Círculo medicinal contemplativo con música de medicina y la ingesta de una dosis meditativa/sensorial de setas psilocibicas, para despertar la creatividad, la armonía interna, la alegría y la expresión del ser a través de la danza, la pintura, la escritura y la participación musical. (Duración: 5 horas).'
+      }
+    ]
+  },
+  {
+    id: 'ayahuasca',
+    title: 'MEDICINA ANCESTRAL DE LA SELVA',
+    logo: '/assets/images/Servicios/YageAyahuasca.png',
+    description: 'Encuentro chamánico grupal con la ingesta de esta Planta de Poder, que emplea la energía ancestral y la conexión con las fuerzas elementales, acompañado de rezos, rueda medicinal, armonización energética, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico.'
+  },
+  {
+    id: 'teramai',
+    title: 'TERAMAI – SEICHEM',
+    logo: '/assets/images/Servicios/Teramai_Senchen.png',
+    description: 'Formación grupal y proceso iniciático de canalización energética de los rayos de sanación de la Tierra, el Agua, el Aire y el Fuego. Manejo de la energía angelical, la sanación con colores, la armonía vibracional, la danza chamánica y el canto curativo. Formación en 6 Niveles: 2 de Reiki Teramai-Seichem, 3 de Magia Teramai-Seichem y Maestría.'
+  },
+  {
+    id: 'abracadabra',
+    title: 'ABRA CADABRA',
+    logo: '/assets/images/Servicios/Abra_Cadabra.png',
+    description: 'Compartir grupal y de aprendizaje a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas).'
+  },
+  {
+    id: 'velada',
+    title: 'VELADA MUSICAL',
+    logo: '/assets/images/Servicios/Velada_Musical.png',
+    description: 'Recital de Música de Medicina con la participación de varios músicos invitados, a través del cual se genera un espacio de esparcimiento que emplea la música como medio de conciencia. Una velada nocturna para conectar con la sanación a través del sonido y la vibración. (Duración: 4 horas).'
+  },
+  {
+    id: 'magicsadan',
+    title: 'MAGICSADAN',
+    logo: '/assets/images/Servicios/MagicSaDan.png',
+    description: 'Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos que combina danza sagrada y rituales de poder. Herramienta de autoconocimiento para regular el bienestar, disminuir el cortisol y conectar con la biología, la esencia y la sacralidad del ser. (Duración: 3 horas).'
+  }
+]
+
+function toggleService(service) {
+  selectedService.value = selectedService.value?.id === service.id ? null : service
+}
+
+const eventTypeServiceMap = {
+  fungi: 'fungi',
+  ayahuasca: 'yage',
+  teramai: 'teramai',
+  abracadabra: 'abra',
+  velada: 'sesiones',
+  magicsadan: 'magicsadan'
+}
+
+function goToServiceDetail(type) {
+  const serviceKey = eventTypeServiceMap[type]
+  if (!serviceKey) return
+  navigateTo(`/service-detail?service=${serviceKey}`)
 }
 </script>
 
@@ -778,90 +908,148 @@ function formatEventDateShort(date) {
   padding: 30px;
   height: 100%;
   min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.panel-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
+.event-empty {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.event-badge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  padding-right: 4px;
+}
+
+.event-badge-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.event-badge-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+}
+
+.event-badge-list::-webkit-scrollbar-thumb {
+  background: rgba(179, 168, 90, 0.3);
+  border-radius: 4px;
+}
+
+/* Empty / invite state */
+
+.empty-invite {
+  text-align: center;
+  padding: 30px 20px 10px;
+}
+
+.empty-ornament {
   color: var(--thm-base, #b3a85a);
-  font-weight: 600;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(179, 168, 90, 0.2);
+  font-size: 2rem;
+  opacity: 0.4;
+  margin-bottom: 14px;
 }
 
-/* Event List */
-.event-list-item {
+.empty-hint {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.month-count-badge {
+  display: inline-block;
+  background: rgba(179, 168, 90, 0.12);
+  border: 1px solid rgba(179, 168, 90, 0.3);
+  color: var(--thm-base, #b3a85a);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+.event-badge {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 14px;
+  gap: 12px;
+  padding: 12px 14px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(179, 168, 90, 0.1);
-  margin-bottom: 10px;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
-.event-list-item:hover {
+.event-badge:hover {
   background: rgba(179, 168, 90, 0.1);
-  border-color: rgba(179, 168, 90, 0.3);
+  border-color: rgba(179, 168, 90, 0.35);
   transform: translateX(4px);
 }
 
-.event-list-logo {
-  width: 40px;
-  height: 40px;
+.badge-logo {
+  width: 36px;
+  height: 36px;
   object-fit: contain;
   flex-shrink: 0;
   filter: brightness(1.1);
 }
 
-.event-list-info {
+.badge-content {
   display: flex;
   flex-direction: column;
   flex: 1;
   min-width: 0;
 }
 
-.event-list-date {
-  font-size: 0.75rem;
-  color: var(--thm-accent, #7da052);
+.badge-date {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.event-list-title {
+.badge-title {
   font-family: 'Fraunces', serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--thm-base, #b3a85a);
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.event-list-location {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.event-list-arrow {
+.badge-arrow {
   color: var(--thm-base, #b3a85a);
-  font-size: 1.5rem;
-  opacity: 0.4;
+  font-size: 1.4rem;
+  opacity: 0.35;
   flex-shrink: 0;
   transition: opacity 0.2s;
 }
 
-.event-list-item:hover .event-list-arrow {
+.event-badge:hover .badge-arrow {
   opacity: 1;
+}
+
+.no-events {
+  text-align: center;
+  padding: 40px 20px;
 }
 
 .no-events p {
   color: rgba(255, 255, 255, 0.4);
   font-style: italic;
-  text-align: center;
-  padding: 40px 0;
 }
 
 /* Event Detail */
@@ -945,6 +1133,28 @@ function formatEventDateShort(date) {
   font-size: 0.95rem;
 }
 
+.see-more-btn {
+  margin-top: 20px;
+  background: rgba(179, 168, 90, 0.1);
+  border: 1px solid rgba(179, 168, 90, 0.4);
+  color: var(--thm-base, #b3a85a);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 25px;
+  letter-spacing: 0.5px;
+  width: 100%;
+  transition: all 0.25s ease;
+}
+
+.see-more-btn:hover {
+  background: rgba(179, 168, 90, 0.2);
+  border-color: var(--thm-base, #b3a85a);
+  transform: translateY(-2px);
+}
+
+
 /* Encuentros Section */
 .encuentros-section {
   background: rgba(10, 46, 31, 0.6);
@@ -968,144 +1178,161 @@ function formatEventDateShort(date) {
   margin-bottom: 0;
 }
 
-/* Evento Cards */
-.evento-card {
+/* Service selector grid */
+.service-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 0;
+}
+
+.service-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 16px 16px;
   background: rgba(17, 71, 54, 0.5);
-  padding: 40px 30px;
-  border-radius: 15px;
   border: 1px solid rgba(179, 168, 90, 0.15);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
   text-align: center;
-  transition: all 0.3s ease;
-  height: 100%;
+  position: relative;
 }
 
-.evento-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-  border-color: rgba(179, 168, 90, 0.4);
+.service-tile:hover {
+  border-color: rgba(179, 168, 90, 0.45);
+  background: rgba(179, 168, 90, 0.08);
+  transform: translateY(-3px);
 }
 
-.evento-icon {
-  margin-bottom: 25px;
+.service-tile.is-active {
+  border-color: var(--thm-base, #b3a85a);
+  background: rgba(179, 168, 90, 0.12);
+  transform: translateY(0);
 }
 
-.emblema {
-  width: 80px;
-  height: 80px;
+.tile-logo {
+  width: 54px;
+  height: 54px;
   object-fit: contain;
   filter: brightness(1.1);
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
-.evento-card:hover .emblema {
+.service-tile:hover .tile-logo,
+.service-tile.is-active .tile-logo {
   transform: scale(1.1);
 }
 
-.evento-card h3 {
+.tile-title {
+  font-family: 'Fraunces', serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--thm-base, #b3a85a);
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+
+.tile-chevron {
+  font-size: 0.65rem;
+  color: rgba(179, 168, 90, 0.5);
+  margin-top: -4px;
+}
+
+.service-tile.is-active .tile-chevron {
+  color: var(--thm-base, #b3a85a);
+}
+
+/* Service detail panel */
+.service-detail-panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.service-detail-panel.is-open {
+  max-height: 800px;
+  opacity: 1;
+  margin-top: 20px;
+}
+
+.service-detail-inner {
+  background: rgba(17, 71, 54, 0.55);
+  border: 1px solid rgba(179, 168, 90, 0.25);
+  border-radius: 16px;
+  padding: 35px 40px;
+}
+
+.service-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.detail-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  filter: brightness(1.1);
+  flex-shrink: 0;
+}
+
+.service-detail-header h3 {
   font-family: 'Fraunces', serif;
   font-size: 1.6rem;
   color: var(--thm-base, #b3a85a);
-  font-weight: 600;
-  margin-bottom: 20px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
 }
 
-.evento-card p {
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.7;
+.detail-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
   font-size: 0.95rem;
+  margin: 0;
 }
 
-/* Card Principal - Reino Fungi */
-.evento-card-principal {
-  background: rgba(17, 71, 54, 0.6);
-  padding: 60px 50px;
-  border: 2px solid rgba(179, 168, 90, 0.3);
-  border-radius: 25px;
-}
-
-.evento-card-principal h3 {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-}
-
-.emblema-principal {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 30px;
-  display: block;
-}
-
+/* Fungi variants inside detail panel */
 .fungi-variants-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 30px;
+  gap: 16px;
 }
 
 .variant-item {
-  padding: 20px;
+  padding: 18px;
   background: rgba(255, 255, 255, 0.04);
   border-radius: 12px;
-  border-left: 4px solid var(--thm-base, #b3a85a);
-  text-align: left;
-  transition: all 0.3s ease;
   border: 1px solid rgba(179, 168, 90, 0.1);
   border-left: 4px solid var(--thm-base, #b3a85a);
-}
-
-.variant-item:hover {
-  border-color: rgba(179, 168, 90, 0.3);
-  border-left-color: var(--thm-base, #b3a85a);
-  background: rgba(179, 168, 90, 0.05);
-  transform: translateY(-3px);
+  text-align: left;
 }
 
 .variant-item h4 {
   color: var(--thm-base, #b3a85a);
   font-family: 'Fraunces', serif;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .variant-item p {
   margin-bottom: 0;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
 }
 
 .variant-item-centered {
   grid-column: 1 / -1;
   max-width: 600px;
   margin: 0 auto;
-}
-
-/* Cards grandes */
-.evento-card-large {
-  padding: 50px 40px;
-}
-
-.evento-card-large h3 {
-  font-size: 1.8rem;
-  margin-bottom: 25px;
-}
-
-.evento-card-large p {
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-/* Cards medianas */
-.evento-card-medium {
-  padding: 35px 25px;
-}
-
-.evento-card-medium h3 {
-  font-size: 1.4rem;
-}
-
-.emblema-medium {
-  width: 70px;
-  height: 70px;
 }
 
 /* Responsive */
@@ -1153,55 +1380,22 @@ function formatEventDateShort(date) {
     padding: 20px;
   }
 
-  .panel-title {
-    font-size: 1.3rem;
-  }
-
-  .evento-card {
-    padding: 30px 20px;
-  }
-
-  .evento-card h3 {
-    font-size: 1.4rem;
-  }
-
-  .evento-card-principal {
-    padding: 40px 25px;
-  }
-
-  .evento-card-principal h3 {
-    font-size: 1.8rem;
-  }
-
   .fungi-variants-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 12px;
   }
 
-  .emblema-principal {
-    width: 80px;
-    height: 80px;
+  .service-selector-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .evento-card-large {
-    padding: 30px 25px;
-  }
-
-  .evento-card-large h3 {
-    font-size: 1.5rem;
-  }
-
-  .evento-card-medium {
+  .service-detail-inner {
     padding: 25px 20px;
   }
 
-  .evento-card-medium h3 {
-    font-size: 1.3rem;
-  }
-
-  .emblema-medium {
-    width: 60px;
-    height: 60px;
+  .service-detail-header {
+    flex-direction: column;
+    text-align: center;
   }
 
   .event-detail-header {

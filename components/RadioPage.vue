@@ -10,121 +10,117 @@
       </div>
 
       <div class="radio-section">
-        <!-- Frecuencia Semanal + Leyenda -->
+        <!-- Frecuencia Semanal -->
         <div class="row">
           <div class="col-xl-12">
             <div class="presagio-title text-center mb-4">
               <h2>Frecuencia Semanal</h2>
+              <p class="timezone-note">Hora Venezuela (UTC−4)</p>
             </div>
-            <div class="cronograma-wrapper">
-              <div class="table-responsive">
-                <table class="cronograma-table">
-                  <thead>
-                    <tr>
-                      <th>Hora</th>
-                      <th>Lunes</th>
-                      <th>Martes</th>
-                      <th>Miércoles</th>
-                      <th>Jueves</th>
-                      <th>Viernes</th>
-                      <th>Sábado</th>
-                      <th>Domingo</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="hora-cell">5:00</td>
-                      <td class="programa-ikaros">CDC</td>
-                      <td></td>
-                      <td class="programa-ikaros">CDC</td>
-                      <td></td>
-                      <td class="programa-ikaros">CDC</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="hora-cell">7:00</td>
-                      <td class="programa-rezo">EL REZO</td>
-                      <td></td>
-                      <td></td>
-                      <td class="programa-rezo">EL REZO</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="hora-cell">11:00</td>
-                      <td></td>
-                      <td></td>
-                      <td class="programa-ikaros">CDC</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="hora-cell">15:00</td>
-                      <td colspan="7" class="programa-cuentos text-center">CUENTOS QUE NO SON CUENTOS</td>
-                    </tr>
-                    <tr>
-                      <td class="hora-cell">18:00</td>
-                      <td></td>
-                      <td class="programa-mantras">MANTRAS</td>
-                      <td></td>
-                      <td class="programa-mantras">MANTRAS</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="hora-cell">20:00</td>
-                      <td class="programa-rezo">EL REZO</td>
-                      <td></td>
-                      <td></td>
-                      <td class="programa-rezo">EL REZO</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="hora-cell">23:00</td>
-                      <td class="programa-vsp">VSP</td>
-                      <td class="programa-vsp">VSP</td>
-                      <td class="programa-vsp">VSP</td>
-                      <td class="programa-vsp">VSP</td>
-                      <td class="programa-vsp">VSP</td>
-                      <td class="programa-mpv">MPV</td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="cronograma-leyenda mt-4">
-                <div class="leyenda-item">
-                  <span class="leyenda-color programa-ikaros-bg"></span>
-                  <span><strong>CDC:</strong> Cantos de Curación</span>
-                </div>
-                <div class="leyenda-item">
-                  <span class="leyenda-color programa-mantras-bg"></span>
-                  <span><strong>MANTRAS</strong></span>
-                </div>
-                <div class="leyenda-item">
-                  <span class="leyenda-color programa-mpv-bg"></span>
-                  <span><strong>MPV:</strong> Música para el Viaje</span>
-                </div>
-                <div class="leyenda-item">
-                  <span class="leyenda-color programa-vsp-bg"></span>
-                  <span><strong>VSP:</strong> Vibraciones Sin Palabras</span>
-                </div>
-                <div class="leyenda-item">
-                  <span class="leyenda-color programa-rezo-bg"></span>
-                  <span><strong>EL REZO:</strong> Rezo de los Ancestros</span>
-                </div>
-                <div class="leyenda-item">
-                  <span class="leyenda-color programa-cuentos-bg"></span>
-                  <span><strong>CUENTOS QUE NO SON CUENTOS</strong></span>
+            <div class="schedule-grid">
+
+              <div class="day-card">
+                <div class="day-header">Lunes</div>
+                <div class="day-slots">
+                  <div class="slot programa-rezo">
+                    <span class="slot-time">7:00</span>
+                    <span class="slot-name">El Rezo de los Ancestros</span>
+                  </div>
+                  <div class="slot programa-rezo">
+                    <span class="slot-time">20:00</span>
+                    <span class="slot-name">El Rezo de los Ancestros</span>
+                  </div>
+                  <div class="slot programa-vsp">
+                    <span class="slot-time">23:00</span>
+                    <span class="slot-name">Vibraciones Sin Palabras</span>
+                  </div>
                 </div>
               </div>
+
+              <div class="day-card">
+                <div class="day-header">Martes</div>
+                <div class="day-slots">
+                  <div class="slot programa-mantras">
+                    <span class="slot-time">6:00</span>
+                    <span class="slot-name">Mantras</span>
+                  </div>
+                  <div class="slot programa-mantras">
+                    <span class="slot-time">23:00</span>
+                    <span class="slot-name">Mantras</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="day-card">
+                <div class="day-header">Miércoles</div>
+                <div class="day-slots">
+                  <div class="slot programa-ikaros">
+                    <span class="slot-time">6:00</span>
+                    <span class="slot-name">Cantos de Curación</span>
+                  </div>
+                  <div class="slot programa-ikaros">
+                    <span class="slot-time">23:00</span>
+                    <span class="slot-name">Cantos de Curación</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="day-card">
+                <div class="day-header">Jueves</div>
+                <div class="day-slots">
+                  <div class="slot programa-rezo">
+                    <span class="slot-time">7:00</span>
+                    <span class="slot-name">El Rezo de los Ancestros</span>
+                  </div>
+                  <div class="slot programa-mantras">
+                    <span class="slot-time">18:00</span>
+                    <span class="slot-name">Mantras</span>
+                  </div>
+                  <div class="slot programa-rezo">
+                    <span class="slot-time">20:00</span>
+                    <span class="slot-name">El Rezo de los Ancestros</span>
+                  </div>
+                  <div class="slot programa-vsp">
+                    <span class="slot-time">23:00</span>
+                    <span class="slot-name">Vibraciones Sin Palabras</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="day-card">
+                <div class="day-header">Viernes</div>
+                <div class="day-slots">
+                  <div class="slot programa-cuentos">
+                    <span class="slot-time">15:00</span>
+                    <span class="slot-name">Cuentos que no son Cuentos</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="day-card">
+                <div class="day-header">Sábados</div>
+                <div class="day-slots">
+                  <div class="slot programa-ikaros">
+                    <span class="slot-time">15:00</span>
+                    <span class="slot-name">Cantos de Curación</span>
+                  </div>
+                  <div class="slot programa-mpv">
+                    <span class="slot-time">00:05</span>
+                    <span class="slot-name">Música para el Viaje</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="day-card">
+                <div class="day-header">Domingos</div>
+                <div class="day-slots">
+                  <div class="slot programa-velada">
+                    <span class="slot-time">18:00</span>
+                    <span class="slot-name">Velada Íntima</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -222,6 +218,13 @@
   font-weight: 600;
 }
 
+.timezone-note {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.82rem;
+  font-style: italic;
+  margin-top: 4px;
+}
+
 .presagio-title h3 {
   font-family: 'Fraunces', serif;
   font-size: 1.6rem;
@@ -284,129 +287,108 @@
   margin: 0 auto;
 }
 
-/* Cronograma Table */
-.cronograma-wrapper {
-  background: rgba(5, 30, 20, 0.5);
-  border: 1px solid rgba(179, 168, 90, 0.15);
-  border-radius: 16px;
-  padding: 25px;
+/* Schedule Grid */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.day-card {
+  background: rgba(5, 30, 20, 0.55);
+  border: 1px solid rgba(179, 168, 90, 0.18);
+  border-radius: 14px;
   overflow: hidden;
 }
 
-.cronograma-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.85rem;
-}
-
-.cronograma-table thead th {
-  background: rgba(179, 168, 90, 0.2);
+.day-header {
+  background: rgba(179, 168, 90, 0.18);
   color: var(--thm-base, #b3a85a);
   font-family: 'Fraunces', serif;
-  font-weight: 600;
-  padding: 12px 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
   text-align: center;
-  border: 1px solid rgba(179, 168, 90, 0.15);
-  font-size: 0.8rem;
+  padding: 10px 8px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(179, 168, 90, 0.15);
 }
 
-.cronograma-table tbody td {
-  padding: 10px 6px;
-  text-align: center;
-  border: 1px solid rgba(179, 168, 90, 0.1);
-  color: rgba(255, 255, 255, 0.5);
-  vertical-align: middle;
-  font-size: 0.8rem;
-}
-
-.hora-cell {
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7) !important;
-  white-space: nowrap;
-  background: rgba(179, 168, 90, 0.08);
-  font-size: 0.75rem !important;
-}
-
-.programa-ikaros {
-  background: rgba(125, 160, 82, 0.25) !important;
-  color: #a8d46a !important;
-  font-weight: 600;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.5px;
-}
-
-.programa-rezo {
-  background: rgba(179, 168, 90, 0.25) !important;
-  color: var(--thm-base, #b3a85a) !important;
-  font-weight: 600;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.5px;
-}
-
-.programa-mantras {
-  background: rgba(160, 120, 200, 0.25) !important;
-  color: #c8a0e8 !important;
-  font-weight: 600;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.5px;
-}
-
-.programa-vsp {
-  background: rgba(82, 140, 160, 0.25) !important;
-  color: #6ac0d4 !important;
-  font-weight: 600;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.5px;
-}
-
-.programa-mpv {
-  background: rgba(200, 100, 80, 0.25) !important;
-  color: #e8a090 !important;
-  font-weight: 600;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.5px;
-}
-
-.programa-cuentos {
-  background: rgba(200, 170, 60, 0.2) !important;
-  color: #e8d06a !important;
-  font-weight: 600;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.5px;
-}
-
-.cronograma-leyenda {
+.day-slots {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px 25px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 8px;
 }
 
-.leyenda-item {
+.slot {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.65);
+  border-radius: 8px;
+  padding: 7px 10px;
 }
 
-.leyenda-color {
-  width: 14px;
-  height: 14px;
-  border-radius: 4px;
-  flex-shrink: 0;
+.slot-time {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  min-width: 36px;
 }
 
-.programa-ikaros-bg { background: rgba(125, 160, 82, 0.5); }
-.programa-mantras-bg { background: rgba(160, 120, 200, 0.5); }
-.programa-mpv-bg { background: rgba(200, 100, 80, 0.5); }
-.programa-vsp-bg { background: rgba(82, 140, 160, 0.5); }
-.programa-rezo-bg { background: rgba(179, 168, 90, 0.5); }
-.programa-cuentos-bg { background: rgba(200, 170, 60, 0.4); }
+.slot-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.programa-ikaros {
+  background: rgba(125, 160, 82, 0.2);
+}
+.programa-ikaros .slot-name { color: #a8d46a; }
+
+.programa-rezo {
+  background: rgba(179, 168, 90, 0.2);
+}
+.programa-rezo .slot-name { color: var(--thm-base, #b3a85a); }
+
+.programa-mantras {
+  background: rgba(160, 120, 200, 0.2);
+}
+.programa-mantras .slot-name { color: #c8a0e8; }
+
+.programa-vsp {
+  background: rgba(82, 140, 160, 0.2);
+}
+.programa-vsp .slot-name { color: #6ac0d4; }
+
+.programa-mpv {
+  background: rgba(200, 100, 80, 0.2);
+}
+.programa-mpv .slot-name { color: #e8a090; }
+
+.programa-cuentos {
+  background: rgba(200, 170, 60, 0.18);
+}
+.programa-cuentos .slot-name { color: #e8d06a; }
+
+.programa-velada {
+  background: rgba(200, 140, 180, 0.18);
+}
+.programa-velada .slot-name { color: #e8b0d8; }
+
+@media (max-width: 1100px) {
+  .schedule-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 @media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .main-title h1 {
     font-size: 2.2rem;
   }
@@ -421,6 +403,10 @@
 }
 
 @media (max-width: 480px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
   .main-title h1 {
     font-size: 1.8rem;
   }

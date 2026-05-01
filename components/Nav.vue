@@ -77,14 +77,14 @@
                 <nuxt-link to="/service-detail">Encuentros</nuxt-link>
               </li>
               <li class="dropdown" :class="{ current: $route.path === '/projects' || $route.path.startsWith('/projects_detail') || $route.path === '/radio' }">
-                <nuxt-link to="#">Eventos Mágicos</nuxt-link>
+                <nuxt-link to="#">Eventos Mágicos <i class="fa fa-angle-down dropdown-indicator"></i></nuxt-link>
                 <ul>
                   <li><nuxt-link to="/projects">Presagio</nuxt-link></li>
                   <li><nuxt-link to="/radio">Radio</nuxt-link></li>
                 </ul>
               </li>
               <li class="dropdown" :class="{ current: $route.path === '/about' || $route.path === '/farmers' }">
-                <nuxt-link to="#">Acerca de</nuxt-link>
+                <nuxt-link to="#">Acerca de <i class="fa fa-angle-down dropdown-indicator"></i></nuxt-link>
                 <ul>
                   <li><nuxt-link to="/about">Mas medicinas</nuxt-link></li>
                   <li><nuxt-link to="/farmers">Sobre nosotros</nuxt-link></li>
@@ -127,11 +127,10 @@
             <nuxt-link to="/service-detail">Encuentros</nuxt-link>
           </li>
           <li class="dropdown" :class="{ current: $route.path === '/projects' || $route.path.startsWith('/projects_detail') || $route.path === '/radio' }">
-            <div class="menu-holder">
+            <div class="menu-holder" @click="toggleDropdown('eventos')">
               Eventos Mágicos<button
                 class="dropdown-btn"
                 :class="{ open: dropdownStates.eventos }"
-                @click="toggleDropdown('eventos')"
               >
                 <i class="fa fa-angle-right"></i>
               </button>
@@ -142,11 +141,10 @@
             </ul>
           </li>
           <li class="dropdown" :class="{ current: $route.path === '/about' || $route.path === '/farmers' }">
-            <div class="menu-holder">
+            <div class="menu-holder" @click="toggleDropdown('nosotros')">
               Acerca de<button
                 class="dropdown-btn"
                 :class="{ open: dropdownStates.nosotros }"
-                @click="toggleDropdown('nosotros')"
               >
                 <i class="fa fa-angle-right"></i>
               </button>
@@ -296,6 +294,10 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   min-height: 65px;
+  max-width: 100%;
+  width: 100%;
+  padding-left: clamp(20px, 3vw, 60px);
+  padding-right: clamp(20px, 3vw, 60px);
 }
 
 .main-nav__left.main_nav__left_four {
@@ -403,10 +405,54 @@ onMounted(() => {
     white-space: nowrap;
   }
 
-  /* Limitar el ancho del menú para que no se pegue a los bordes en pantallas anchas */
+  /* Que el menú ocupe todo el ancho disponible y se distribuya parejo */
   .main-nav__main-navigation.four {
-    max-width: 90%;
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
   }
+
+  .main-nav__main-navigation.four .main-nav__navigation-box {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main-nav__main-navigation.four .main-nav__navigation-box > li + li {
+    margin-left: 0;
+  }
+}
+
+/* Mobile nav typography — override global uppercase/size to match desktop */
+.mobile-nav__container li a {
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.mobile-nav__container .menu-holder {
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 700;
+  color: #9ca3a9;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Dropdown indicator chevron */
+.dropdown-indicator {
+  font-size: 11px;
+  margin-left: 4px;
+  opacity: 0.75;
+  transition: transform 0.2s ease;
+}
+
+.dropdown:hover .dropdown-indicator {
+  transform: rotate(180deg);
 }
 
 /* En el rango problemático 1024–1199 reducir tipografía para evitar choques */
