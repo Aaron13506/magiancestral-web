@@ -295,7 +295,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 100px; /* Maintain container height */
+  min-height: 65px;
 }
 
 .main-nav__left.main_nav__left_four {
@@ -382,20 +382,37 @@ onMounted(() => {
   align-items: center;
 }
 
-/* Hide mobile logo on desktop */
+/* Hide mobile logo and burger on desktop */
 @media (min-width: 1024px) {
   .main-nav__mobile-logo {
     display: none;
   }
 
-  /* Expand desktop menu spacing */
+  .main-nav__left.main_nav__left_four,
+  .side-menu__toggler {
+    display: none;
+  }
+
+  /* Responsive desktop menu spacing — escala con el ancho del viewport */
   .main-nav__main-navigation.four .main-nav__navigation-box > li + li {
-    margin-left: 100px; /* Increased spacing between menu items */
+    margin-left: clamp(18px, 3.2vw, 70px);
   }
 
   .main-nav__main-navigation.four .main-nav__navigation-box > li > a {
-    padding: 0px 15px; /* Increased padding for wider menu items */
-    white-space: nowrap; /* Keep menu items in a single line */
+    padding: 0 clamp(4px, 0.6vw, 12px);
+    white-space: nowrap;
+  }
+
+  /* Limitar el ancho del menú para que no se pegue a los bordes en pantallas anchas */
+  .main-nav__main-navigation.four {
+    max-width: 90%;
+  }
+}
+
+/* En el rango problemático 1024–1199 reducir tipografía para evitar choques */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .main-nav__main-navigation.four .main-nav__navigation-box > li > a {
+    font-size: 14px;
   }
 }
 </style>
