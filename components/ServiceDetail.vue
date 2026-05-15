@@ -33,8 +33,8 @@
               <li :class="{active: activeService === 'sesiones'}"><a href="#" @click.prevent="setActiveService('sesiones')">Sesiones</a></li>
               <li :class="{active: activeService === 'magicsadan'}"><a href="#" @click.prevent="setActiveService('magicsadan')">MagicSaDan</a></li>
             </ul>
-            <div class="download_file_box">
-              <a href="#"><i class="icon-pdf"></i>Download PDF File</a>
+            <div class="download_file_box" v-if="services[activeService] && services[activeService].pdfUrl">
+              <a :href="services[activeService].pdfUrl" target="_blank" rel="noopener"><i class="icon-pdf"></i>Descargar más info</a>
             </div>
           </div>
         </div>
@@ -165,7 +165,8 @@ La Microdosis, suelen cambiar la percepción paulatinamente, ya que a través de
                           'Conexión con los animales de poder personales.',
                           'Conexión con la naturaleza, la magia de los colores, el canto curativo, la danza Ancestral y los reinos angelicales.',
                           'Desarrollo de técnicas mágicas de curación.'
-                        ]
+                        ],
+                        pdfUrl: '/assets/pdfs/teramai-seichem.pdf'
                     },
                     sesiones: {
                         title: 'Sesiones - Música de Medicina',
@@ -268,7 +269,6 @@ La Microdosis, suelen cambiar la percepción paulatinamente, ya que a través de
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  position: sticky;
   top: 0;
   z-index: 100;
   position: relative;

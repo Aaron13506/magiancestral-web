@@ -20,7 +20,7 @@
                   <div class="inner">
                     <h1><span>Magia</span><br>Ancestral</h1>
                     <div class="subtitle-box">
-                      <p class="subtitle">Te da la bienvenida a <span class="familia-break">nuestra familia</span></p>
+                      <p class="subtitle">Te da la bienvenida a <span class="familia-break">nuestra comunidad</span></p>
                     </div>
                   </div>
                 </div>
@@ -32,7 +32,7 @@
         <!-- Slide Item -->
         <SwiperSlide>
           <div class="slide-item">
-            <div class="image-layer slider-main2" style="background-image: url(/assets/images/main-slider/sliderMain2-v2.jpg);">
+            <div class="image-layer slider-main2" style="background-image: url(/assets/images/main-slider/sliderMain2.jpg);">
             </div>
             <div class="auto-container">
               <div class="content-box">
@@ -40,7 +40,7 @@
                   <div class="inner">
                     <h1><span>Magia</span><br> Ancestral</h1>
                     <div class="subtitle-box">
-                      <p class="subtitle">Te da la bienvenida a <span class="familia-break">nuestra familia</span></p>
+                      <p class="subtitle">Te da la bienvenida a <span class="familia-break">nuestra comunidad</span></p>
                     </div>
                   </div>
                 </div>
@@ -60,7 +60,7 @@
                   <div class="inner">
                     <h1><span>Magia</span><br> Ancestral</h1>
                     <div class="subtitle-box">
-                      <p class="subtitle">Te da la bienvenida<span class="familia-break"> a nuestra familia</span></p>
+                      <p class="subtitle">Te da la bienvenida<span class="familia-break"> a nuestra comunidad</span></p>
                     </div>
                   </div>
                 </div>
@@ -123,6 +123,12 @@ const SwiperNavigation = Navigation
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
+}
+
+/* Desktop: encuadre por slide. La familia está a la derecha en sliderMain2,
+   así que desplazamos el foco para no recortar las caras. */
+.slider-main2 {
+  background-position: 65% center;
 }
 
 .image-layer::before {
@@ -268,18 +274,31 @@ const SwiperNavigation = Navigation
 
 @media (max-width: 768px) {
   .inner h1 {
-    font-size: 3.2rem !important;
-    line-height: 1 !important;
+    font-size: 2.4rem !important;
+    line-height: 1.05 !important;
     margin: 0 !important;
+    letter-spacing: 0.04em !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+  }
+
+  .inner h1 span {
+    letter-spacing: 0.08em !important;
   }
 
   .subtitle {
-    font-size: 1rem !important;
-    padding: 10px 18px !important;
+    font-size: 0.95rem !important;
+    padding: 10px 22px !important;
+    border-width: 1px !important;
+    border-radius: 999px !important;
+    letter-spacing: 0.02em !important;
+    background: rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(8px) !important;
+    text-align: center !important;
   }
 
   .familia-break {
-    display: block;
+    display: inline;
   }
 
   .slide-item {
@@ -295,14 +314,14 @@ const SwiperNavigation = Navigation
 
 @media (max-width: 480px) {
   .inner h1 {
-    font-size: 2.6rem !important;
-    line-height: 1 !important;
+    font-size: 2rem !important;
+    line-height: 1.05 !important;
     margin: 0 !important;
   }
 
   .subtitle {
-    font-size: 0.95rem !important;
-    padding: 8px 16px !important;
+    font-size: 0.85rem !important;
+    padding: 9px 18px !important;
   }
 }
 
@@ -365,11 +384,90 @@ const SwiperNavigation = Navigation
   }
 
   .slider-main2 {
-    background-position: center 38% !important;
+    background-position: 88% 55% !important;
   }
 
   .slider-main3 {
     background-position: 70% center !important;
+  }
+
+  /* Split layout: título arriba, caja abajo — deja el centro libre para las caras */
+  .slide-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+  }
+
+  .auto-container {
+    flex: 1 1 auto !important;
+    align-self: stretch !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    padding: 170px 20px 36px !important;
+    margin: 0 !important;
+  }
+
+  /* Las capas intermedias se aplanan para no romper el flex chain */
+  .content-box,
+  .content,
+  .content.text-left,
+  .inner {
+    display: contents !important;
+  }
+
+  .banner_four_section h1.h1mobile-fallback {} /* placeholder */
+
+  .inner h1 {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
+    align-self: center !important;
+  }
+
+  .subtitle-box {
+    order: 2 !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: 92% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    align-self: center !important;
+  }
+
+  .subtitle {
+    display: inline-block !important;
+  }
+
+  /* Gradiente más fuerte arriba y abajo para legibilidad sin tapar el centro */
+  .image-layer::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.75) 0%,
+      rgba(0,0,0,0.35) 15%,
+      rgba(0,0,0,0) 35%,
+      rgba(0,0,0,0) 65%,
+      rgba(0,0,0,0.45) 85%,
+      rgba(0,0,0,0.8) 100%
+    ) !important;
+  }
+
+  /* Muestra más cielo arriba en cada slide para que respire el título */
+  .slider-main1 {
+    background-position: center 35% !important;
+  }
+  .slider-main2 {
+    background-position: 75% 30% !important;
+  }
+  .slider-main3 {
+    background-position: 65% 35% !important;
   }
 }
 
@@ -379,7 +477,7 @@ const SwiperNavigation = Navigation
   }
 
   .slider-main2 {
-    background-position: 50% 40% !important;
+    background-position: 90% 55% !important;
   }
 
   .slider-main3 {

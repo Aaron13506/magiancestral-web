@@ -1,5 +1,25 @@
 [
   {
+    "slug": "hongos-psilocibios-historia-conducta-humana",
+    "title": "Hongos Psilocibios - Historia y Efectos sobre la Conducta Humana",
+    "description": "Recorrido por la historia de los hongos psilocibios y un análisis de sus efectos sobre la conducta humana, desde el uso ancestral hasta la investigación contemporánea.",
+    "date": "2026-05-15",
+    "image": "/assets/images/blog/hongos-psilocibios-historia-conducta-humana.jpg",
+    "author": "Admin",
+    "category": "estudios-cientificos",
+    "pdfUrl": "/assets/pdfs/hongos-psilocibios-historia-conducta-humana.pdf"
+  },
+  {
+    "slug": "medicinas-ancestrales-conexion-naturaleza",
+    "title": "Medicinas Ancestrales - Conexión con la Naturaleza",
+    "description": "Estudio sobre las medicinas ancestrales y la profunda conexión con la naturaleza que sustenta sus prácticas, saberes y procesos de sanación.",
+    "date": "2026-05-15",
+    "image": "/assets/images/blog/medicinas-ancestrales-conexion-naturaleza.jpg",
+    "author": "Admin",
+    "category": "reflexiones-del-espiritu",
+    "pdfUrl": "/assets/pdfs/medicinas-ancestrales-conexion-naturaleza.pdf"
+  },
+  {
     "slug": "estudio-ayahuasca-salud-publica",
     "title": "Ayahuasca y Salud Pública - Estudio Científico en Contexto Ritual",
     "description": "Estudio científico sobre el estado de salud, bienestar psicosocial, estilo de vida y estrategias de afrontamiento en usuarios de ayahuasca en contexto ritual",
