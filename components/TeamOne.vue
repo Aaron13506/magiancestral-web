@@ -12,7 +12,7 @@
         <div class="col-xl-3 col-lg-3 col-md-6">
           <div class="team_one_single wow fadeInUp">
             <div class="team_one_image">
-              <img src="/assets/images/team/fred.png" alt="">
+              <img src="/assets/images/team/frednuevo.jpg" alt="">
             </div>
             <div class="team_one_deatils">
               <p>farmer</p>
@@ -44,7 +44,7 @@
         <div class="col-xl-3 col-lg-3 col-md-6">
           <div class="team_one_single wow fadeInUp">
             <div class="team_one_image">
-              <img src="/assets/images/team/ylse.png" alt="">
+              <img src="/assets/images/team/ylsenuevo.jpg" alt="">
             </div>
             <div class="team_one_deatils">
               <p>farmer</p>
