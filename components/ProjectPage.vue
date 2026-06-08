@@ -450,6 +450,26 @@ const events = [
   },
   // JUNIO 2026
   {
+    id: 'jun13-resonancia',
+    date: new Date(2026, 5, 13),
+    title: 'RESONANCIA MÁGICA',
+    subtitle: 'ACERCAMIENTO A LA MEDICINA FUNGI CON MÚSICA',
+    location: 'Caracas',
+    type: 'fungi',
+    logo: '/assets/images/Servicios/Reino_fungi.png',
+    description: 'Círculo de meditación, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, acompañado de sonidos vibratorios orgánicos y música meditativa en vivo, para el despertar sensorial del propio ser, induciendo a la calma y al encuentro consigo mismo. (Duración: 4 horas).'
+  },
+  {
+    id: 'jun20-magicsadan',
+    date: new Date(2026, 5, 20),
+    title: 'MAGICSADAN',
+    subtitle: 'SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL',
+    location: 'Caracas',
+    type: 'magicsadan',
+    logo: '/assets/images/Servicios/MagicSaDan.png',
+    description: 'Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas).'
+  },
+  {
     id: 'jun27-reiki',
     date: new Date(2026, 5, 27),
     title: 'TALLER DE REIKI',
@@ -480,6 +500,26 @@ const events = [
     description: 'Sesiones prcticas de Reiki para profundizar y aplicar conocimientos.'
   },
   // JULIO 2026
+  {
+    id: 'jul04-yage',
+    date: new Date(2026, 6, 4),
+    title: 'RITUAL CEREMONIAL CON MEDICINA DE LA SELVA (YAGÉ)',
+    subtitle: 'ENCUENTRO CEREMONIAL NOCTURNO',
+    location: 'Altos Mirandinos',
+    type: 'ayahuasca',
+    logo: '/assets/images/Servicios/YageAyahuasca.png',
+    description: 'Encuentro chamánico grupal, con la ingesta de esta Planta de Poder, que emplea la energía ancestral y la conexión con las fuerzas elementales, acompañado de rezos, rueda medicinal, armonización energética, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico.'
+  },
+  {
+    id: 'jul11-abracadabra',
+    date: new Date(2026, 6, 11),
+    title: 'ABRA CADABRA',
+    subtitle: 'CÍRCULO DE PALABRA INTEGRADORA',
+    location: 'Caracas',
+    type: 'abracadabra',
+    logo: '/assets/images/Servicios/Abra_Cadabra.png',
+    description: 'Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas).'
+  },
   {
     id: 'jul25-reiki',
     date: new Date(2026, 6, 25),
@@ -512,6 +552,16 @@ const events = [
   },
   // AGOSTO 2026
   {
+    id: 'ago08-fungi',
+    date: new Date(2026, 7, 8),
+    title: 'RITUAL CEREMONIAL CON MEDICINA DEL REINO FUNGI',
+    subtitle: 'ENCUENTRO CEREMONIAL NOCTURNO',
+    location: 'Altos Mirandinos',
+    type: 'fungi',
+    logo: '/assets/images/Servicios/Reino_fungi.png',
+    description: 'Encuentro Ritual de conexión con las energías elementales y las fuerzas naturales, con la ingesta de una dosis ritual de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial, que constituye el altar principal. Finaliza con círculo de palabra y de acompañamiento terapéutico.'
+  },
+  {
     id: 'ago17-reiki-practica',
     date: new Date(2026, 7, 17),
     title: 'SESION DE PRACTICA DE REIKI',
@@ -540,6 +590,16 @@ const events = [
     type: 'teramai',
     logo: '/assets/images/Servicios/Teramai_Senchen.png',
     description: 'Taller de Reiki para el aprendizaje y sanacin a travs de la energa universal.'
+  },
+  {
+    id: 'ago29-velada-cacao',
+    date: new Date(2026, 7, 29),
+    title: 'VELADA CON CACAO',
+    subtitle: 'MÚSICA MEDICINA EN VIVO',
+    location: 'Caracas',
+    type: 'velada',
+    logo: '/assets/images/Servicios/Sec/Cacao.png',
+    description: 'Velada nocturna con la sagrada Medicina del Cacao, acompañada de música de medicina en vivo, para abrir el corazón y conectar con la sanación a través del sonido, la vibración y la presencia consciente. (Duración: 4 horas).'
   }
 ]
 
