@@ -186,7 +186,7 @@ const selectedEvent = ref(null)
 const { data: rawEvents } = await useAsyncData('events', () => $fetch('/api/events'))
 const events = computed(() => (rawEvents.value || []).map(e => ({
   id: e.slug,
-  date: new Date(`${e.eventDate}T00:00:00`),
+  date: new Date(`${e.eventDate.slice(0, 10)}T00:00:00`),
   title: e.title,
   subtitle: e.subtitle,
   location: e.location,
