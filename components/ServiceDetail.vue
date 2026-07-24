@@ -33,9 +33,6 @@
               <li :class="{active: activeService === 'sesiones'}"><a href="#" @click.prevent="setActiveService('sesiones')">Sesiones</a></li>
               <li :class="{active: activeService === 'magicsadan'}"><a href="#" @click.prevent="setActiveService('magicsadan')">MagicSaDan</a></li>
             </ul>
-            <div class="download_file_box" v-if="services[activeService] && services[activeService].pdfUrl">
-              <a :href="services[activeService].pdfUrl" target="_blank" rel="noopener"><i class="icon-pdf"></i>Descargar más info</a>
-            </div>
           </div>
         </div>
         <div class="col-xl-8 col-lg-8">
@@ -65,6 +62,11 @@
             <p class="service_details_last_text" v-else-if="activeService !== 'fungi' && activeService !== 'yage' && activeService !== 'general'">
               Nuestros encuentros están guiados por facilitadores experimentados que acompañan tu proceso de sanación y transformación personal con respeto, sabiduría y amor incondicional.
             </p>
+
+            <!-- Botón de descarga unificado para desktop y móvil -->
+            <div class="download_file_box desktop-and-mobile" v-if="services[activeService] && services[activeService].pdfUrl">
+              <a :href="services[activeService].pdfUrl" target="_blank" rel="noopener"><i class="icon-pdf"></i>Descargar más info</a>
+            </div>
           </div>
         </div>
       </div>
@@ -261,6 +263,45 @@ La Microdosis, suelen cambiar la percepción paulatinamente, ya que a través de
   margin-top: 30px;
 }
 
+.download_file_box.desktop-and-mobile {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 30px;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.download_file_box.desktop-and-mobile a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 12px 28px !important;
+  background: transparent !important;
+  color: var(--thm-base, #b3a85a) !important;
+  border: 2px solid var(--thm-base, #b3a85a) !important;
+  border-radius: 30px !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  transition: all 0.3s ease !important;
+  height: auto !important;
+  line-height: 1.4 !important;
+}
+
+.download_file_box.desktop-and-mobile a:hover {
+  background-color: var(--thm-base, #b3a85a) !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(179, 168, 90, 0.3) !important;
+}
+
+.download_file_box.desktop-and-mobile i {
+  font-size: 1rem !important;
+  display: inline-block !important;
+}
+
 /* Mobile Tabs - Ocultar en desktop */
 .mobile-tabs-container {
   display: none;
@@ -384,6 +425,14 @@ La Microdosis, suelen cambiar la percepción paulatinamente, ya que a través de
     padding-top: 30px !important;
   }
 
+  /* Mostrar botón de descarga móvil y ocultar el de escritorio */
+  .download_file_box.mobile {
+    display: block;
+  }
+  .desktop-sidebar .download_file_box {
+    display: none;
+  }
+
   /* Mostrar tabs en móvil */
   .mobile-tabs-container {
     display: block;
@@ -413,6 +462,14 @@ La Microdosis, suelen cambiar la percepción paulatinamente, ya que a través de
   /* Reducir padding del container principal */
   .service_detail .container {
     padding-top: 0;
+  }
+
+  /* Mostrar botón de descarga móvil y ocultar el de escritorio */
+  .download_file_box.mobile {
+    display: block;
+  }
+  .desktop-sidebar .download_file_box {
+    display: none;
   }
 }
 

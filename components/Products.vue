@@ -115,13 +115,12 @@ const searchQuery = ref('')
 const selectedCategory = ref(null)
 const sortOrder = ref('default')
 
-// Cargar productos desde archivo JSON estático (mismo patrón que bitácora)
+// Cargar productos desde la API (respaldada por la base de datos)
 const productsData = ref(null)
 
 const loadProducts = async () => {
   try {
-    const response = await fetch('/data/products.json')
-    productsData.value = await response.json()
+    productsData.value = await $fetch('/api/products')
   } catch (error) {
     console.error('Error loading products:', error)
     productsData.value = { products: [], categories: [], metadata: {} }

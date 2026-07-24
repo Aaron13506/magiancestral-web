@@ -32,9 +32,6 @@
               <li :class="{active: activeService === 'wachuma'}"><a href="#" @click.prevent="setActiveService('wachuma')">Wachuma</a></li>
               <li :class="{active: activeService === 'temazcal'}"><a href="#" @click.prevent="setActiveService('temazcal')">Temazcal</a></li>
             </ul>
-            <div class="download_file_box">
-              <a href="#"><i class="icon-pdf"></i>Download PDF File</a>
-            </div>
           </div>
         </div>
         <div class="col-xl-8 col-lg-8">
@@ -86,6 +83,12 @@
                         title: 'TEMAZCAL',
                         description: 'Es una práctica ancestral de origen mesoamericano que ha sido utilizada por diversas culturas indígenas, como los nahuas, mayas, toltecas, zapotecos y mixtecos, con fines medicinales y rituales. La palabra temazcal proviene del náhuatl temazcalli, que se traduce, como "la casa donde se suda" o "casa de vapor". Sus orígenes se remontan a tiempos prehispánicos y su uso está documentado en códices y crónicas del siglo XVI. Se han encontrado estructuras de temazcal con más de 1500 años de antigüedad, lo que demuestra su arraigo en la historia.\n\nEs más allá de un simple baño de vapor. Su estructura con forma de cúpula o iglú, representa el vientre de la Madre Tierra y su ceremonia es un ritual de renacimiento. Al entrar en el temazcal, se "muere" para volver a nacer purificado y renovado. Es un ritual que integra los 4 elementos de la naturaleza: La Tierra, en la estructura misma del temazcal; el fuego, representado por el calor de las piedras volcánicas (las abuelas); el agua, en el vapor que se produce al verter agua con hierbas medicinales sobre las piedras calientes; Aire, que es el aire que se respira dentro del espacio, mezclado con el vapor de la hierbas medicinales.\n\nLa Ceremonia, es conducida por un guía, o "temazcacalero", quien dirige con cantos, oraciones y acompaña el proceso de purificaciones. Es una medicina con muchísimos beneficios para el cuerpo físico (desintoxica, mejora la circulación y la salud respiratoria, alivia dolores, recupera a las mujeres post parto, entre otras); beneficia la mente, reduciendo el estrés, libera emociones discordantes hasta encontrar la calma y el bienestar y fomenta la conexión con la naturaleza, las raíces culturales y espirituales.',
                         benefits: []
+                    },
+                    teramai: {
+                        title: 'TERAMAI – SEICHEM',
+                        description: 'Formación grupal y proceso iniciático de canalización energética de los rayos de sanación de la Tierra, el Agua, el Aire y el Fuego. Manejo de la energía angelical, la sanación con colores, la armonía vibracional, la danza chamánica y el canto curativo. Formación en 6 Niveles: 2 de Reiki Teramai-Seichem, 3 de Magia Teramai-Seichem y Maestría.',
+                        pdfUrl: '/assets/pdfs/teramai-seichem.pdf',
+                        pdfText: 'Descargar más info'
                     }
                 }
             }
@@ -273,6 +276,10 @@
     display: none;
   }
 
+  .mobile-download-button {
+    display: block;
+  }
+
   /* Ajustar columna para que ocupe todo el ancho */
   .col-xl-8.col-lg-8 {
     flex: 0 0 100%;
@@ -398,5 +405,271 @@
 
 .contraindications-section {
   margin-top: 30px;
+}
+
+.mobile-download-button {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.mobile-download-button .thm-btn {
+  background-color: transparent !important;
+  border: 2px solid #b3a85a;
+  color: #b3a85a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.mobile-download-button .thm-btn:hover {
+  background-color: #b3a85a !important;
+  color: white;
+}
+
+.mobile-download-button .thm-btn i {
+  margin-right: 8px;
+}
+
+/* Flechas de scroll */
+.scroll-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-arrow.visible {
+  opacity: 1;
+}
+
+.scroll-arrow-left {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.scroll-arrow-right {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.scroll-arrow i {
+  font-size: 1.2rem;
+  color: #b3a85a;
+  opacity: 0.7;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Desktop Sidebar */
+.desktop-sidebar {
+  display: block;
+}
+
+/* Ajuste de títulos */
+.harvest_innovations h2 {
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  /* Eliminar padding superior de la sección */
+  .service_detail {
+    padding-top: 30px !important;
+  }
+
+  /* Mostrar tabs en móvil */
+  .mobile-tabs-container {
+    display: block;
+    margin-top: 0;
+  }
+
+  /* Ocultar sidebar en móvil */
+  .desktop-sidebar {
+    display: none;
+  }
+
+  .mobile-download-button {
+    display: block;
+  }
+
+  /* Ajustar columna para que ocupe todo el ancho */
+  .col-xl-8.col-lg-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* Eliminar espacios en blanco en móvil */
+  .row {
+    margin-top: 0 !important;
+  }
+
+  .service_details_right {
+    padding-top: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Reducir padding del container principal */
+  .service_detail .container {
+    padding-top: 0;
+  }
+
+  /* Ajustar títulos y textos para tablet */
+  .harvest_innovations h2 {
+    font-size: 2.2rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 20px !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+
+  .harvest_innovations p {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 15px !important;
+    text-align: justify !important;
+  }
+
+  .harvest_innovations {
+    margin-bottom: 30px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Títulos más pequeños para móvil */
+  .harvest_innovations h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 18px !important;
+    padding: 0 !important;
+    word-break: break-word;
+  }
+
+  /* Párrafos optimizados para móvil */
+  .harvest_innovations p {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 12px !important;
+    text-align: justify !important;
+    color: #666 !important;
+  }
+
+  /* Tabs más compactos */
+  .mobile-tab {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Reducir espaciado general */
+  .service_details_right {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Títulos aún más pequeños para móviles pequeños */
+  .harvest_innovations h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 15px !important;
+    padding: 0 !important;
+  }
+
+  /* Párrafos para pantallas pequeñas */
+  .harvest_innovations p {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 10px !important;
+    text-align: justify !important;
+  }
+
+  /* Tabs más pequeños */
+  .mobile-tab {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .mobile-tabs-scroll {
+    padding: 8px 5px;
+    gap: 6px;
+  }
+
+  /* Reducir padding adicional */
+  .service_details_right {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .harvest_innovations {
+    margin-bottom: 25px !important;
+  }
+}
+
+.contraindications-content {
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666;
+  margin-top: 15px;
+}
+
+.contraindications-section {
+  margin-top: 30px;
+}
+
+.mobile-download-button {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.mobile-download-button .thm-btn {
+  background-color: transparent !important;
+  border: 2px solid #b3a85a;
+  color: #b3a85a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.mobile-download-button .thm-btn:hover {
+  background-color: #b3a85a !important;
+  color: white;
+}
+
+.mobile-download-button .thm-btn i {
+  margin-right: 8px;
 }
 </style>

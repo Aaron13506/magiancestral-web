@@ -50,7 +50,21 @@ export default defineNuxtConfig({
     '~/plugins/global-scripts.client.js'
   ],
 
+  runtimeConfig: {
+    databaseUrl: process.env.DATABASE_URL,
+    adminUsername: process.env.ADMIN_USERNAME,
+    adminPasswordHash: process.env.ADMIN_PASSWORD_HASH,
+    jwtSecret: process.env.JWT_SECRET,
+    s3BucketName: process.env.S3_BUCKET_NAME,
+    s3AccessKeyId: process.env.S3_ACCESS_KEY_ID,
+    s3SecretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+    s3EndpointUrl: process.env.S3_ENDPOINT_URL,
+    s3Region: process.env.S3_REGION,
+    s3PublicUrlBase: process.env.S3_PUBLIC_URL_BASE
+  },
+
   nitro: {
+    preset: 'vercel',
     prerender: {
       routes: [
         '/',

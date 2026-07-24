@@ -15,14 +15,12 @@ import Footer from "../../components/Footer.vue"
 
 const route = useRoute()
 
-// Cargar producto desde archivo JSON estático (mismo patrón que bitácora)
+// Cargar producto desde la API (respaldada por la base de datos)
 const product = ref(null)
 
 const loadProduct = async () => {
   try {
-    const response = await fetch('/data/products.json')
-    const data = await response.json()
-    product.value = data.products.find(p => p.slug === route.params.slug) || null
+    product.value = await $fetch(`/api/products/${route.params.slug}`)
   } catch (error) {
     console.error('Error loading product:', error)
     product.value = null

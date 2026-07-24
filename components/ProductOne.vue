@@ -18,9 +18,8 @@
             <div class="growing_product_text">
               <p>Caminante en las Medicinas Ancestrales y Plantas de Poder. Terapeuta Holística Espiritual. Maestra Reiki en los siguientes estilos: Japonés Rei-Do, Usui Tibetano, Teramai, Teramai Seichem (estilo Shamánico), Seichim-Sekhen (Sistema Egipcio - All Love) Karuna Reiki (Alta Compasión.</p>
               <p>Es Maestra en la Técnica de Alineación del Campo ElectroMagnérico Humano (HMF), especialista en Regresiones y Lecturas del Alma con Péndulo Universal.</p>
-              <p>Numerólogo Pitagórico y en Numerologia Comparada. Meditadora del Tarot Egipcio y Rider White. Bailarina de danzas rituales y músico instrumentista. Profesora de Biodanza certificada por la IBF y Locutora.</p>
-              <p>Es directora de la Escuela de Reiki y otras artes sanadoras Manos de Luz y directora de la Fundación Universal de Reiki (FUNREIKI).</p>
-              <p>Miembro directivo del equipo de organización de Medicinas indígenas y ancestrales Magia Ancestral. Estudiante eterna del instante y de la magia de vivir.</p>
+              <p>Numerólogo Pitagórico y en Numerología Comparada. Meditadora del Tarot Egipcio y Rider White. Bailarina de danzas rituales y músico instrumentista. Profesora de Biodanza certificada por la IBF y Locutora.</p>
+              <p>Es directora de la Escuela de Reiki y otras artes sanadoras Manos de Luz y directora de la Fundación Universal de Reiki (FUNREIKI) y es Miembro directivo del equipo de organización de Medicinas indígenas y ancestrales Magia Ancestral. Estudiante eterna del instante y de la magia de vivir.</p>
             </div>
           </div>
         </div>

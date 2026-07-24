@@ -1,14 +1,16 @@
-import { readFileSync, existsSync } from 'fs'
-import { resolve } from 'path'
+import { eq } from 'drizzle-orm'
+import { useDb } from '../../db/client'
+import { blogArticles } from '../../db/schema'
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
   const slug = getRouterParam(event, 'slug')
-  const filePath = resolve(`public/data/blog/${slug}.json`)
 
-  if (!existsSync(filePath)) {
+  const db = useDb()
+  const [article] = await db.select().from(blogArticles).where(eq(blogArticles.slug, slug!))
+
+  if (!article) {
     throw createError({ statusCode: 404, message: 'Article not found' })
   }
 
-  const data = JSON.parse(readFileSync(filePath, 'utf-8'))
-  return data
+  return article
 })

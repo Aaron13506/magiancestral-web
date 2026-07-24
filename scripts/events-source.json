@@ -1,0 +1,412 @@
+[
+  {
+    "slug": "feb04-magicsadan",
+    "eventDate": "2026-02-04",
+    "title": "MAGICSADAN",
+    "subtitle": "SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL",
+    "location": "Caracas",
+    "type": "magicsadan",
+    "logo": "/assets/images/Servicios/MagicSaDan.png",
+    "description": "Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. Herramienta de autoconocimiento, para regular el bienestar, disminuir los efectos del cortisol en el cuerpo, producto del estrés y conectar al participante con su biología, su esencia, la consciencia de estar vivo, la Magia que porta y la sacralidad en todo lo existente. (Duración: 3 horas)."
+  },
+  {
+    "slug": "feb11-abracadabra",
+    "eventDate": "2026-02-11",
+    "title": "ABRA CADABRA",
+    "subtitle": "CÍRCULO DE PALABRA INTEGRADORA",
+    "location": "Caracas",
+    "type": "abracadabra",
+    "logo": "/assets/images/Servicios/Abra_Cadabra.png",
+    "description": "Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas)."
+  },
+  {
+    "slug": "feb18-magicsadan",
+    "eventDate": "2026-02-18",
+    "title": "MAGICSADAN",
+    "subtitle": "SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL",
+    "location": "Caracas",
+    "type": "magicsadan",
+    "logo": "/assets/images/Servicios/MagicSaDan.png",
+    "description": "Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. Herramienta de autoconocimiento, para regular el bienestar, disminuir los efectos del cortisol en el cuerpo, producto del estrés y conectar al participante con su biología, su esencia, la consciencia de estar vivo, la Magia que porta y la sacralidad en todo lo existente. (Duración: 3 horas)."
+  },
+  {
+    "slug": "feb21-fungi",
+    "eventDate": "2026-02-21",
+    "title": "MEDICINA FUNGI",
+    "subtitle": "ENCUENTRO CEREMONIAL NOCTURNO",
+    "location": "Altos Mirandinos",
+    "type": "fungi",
+    "logo": "/assets/images/Servicios/Reino_fungi.png",
+    "description": "Encuentro Ritual de conexión con las energías elementales y las fuerzas naturales, con la ingesta de una dosis ritual de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial, que constituye el altar principal. Finaliza con círculo de palabra y de acompañamiento terapéutico."
+  },
+  {
+    "slug": "feb25-abracadabra",
+    "eventDate": "2026-02-25",
+    "title": "ABRA CADABRA",
+    "subtitle": "CÍRCULO DE PALABRA INTEGRADORA",
+    "location": "Caracas",
+    "type": "abracadabra",
+    "logo": "/assets/images/Servicios/Abra_Cadabra.png",
+    "description": "Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas)."
+  },
+  {
+    "slug": "feb28-velada",
+    "eventDate": "2026-02-28",
+    "title": "VELADA MUSICAL",
+    "subtitle": "MÚSICA MEDICINA EN VIVO",
+    "location": "Caracas",
+    "type": "velada",
+    "logo": "/assets/images/Servicios/Velada_Musical.png",
+    "description": "Recital de Música de Medicina, con la participación de varios músicos invitados, a través del cual se genera un espacio de esparcimiento que emplea la música como medio de conciencia. Una velada nocturna para conectar con la sanación a través del sonido y la vibración. (Duración: 4 horas)."
+  },
+  {
+    "slug": "mar04-magicsadan",
+    "eventDate": "2026-03-04",
+    "title": "MAGICSADAN",
+    "subtitle": "SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL",
+    "location": "Caracas",
+    "type": "magicsadan",
+    "logo": "/assets/images/Servicios/MagicSaDan.png",
+    "description": "Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas)."
+  },
+  {
+    "slug": "mar11-abracadabra",
+    "eventDate": "2026-03-11",
+    "title": "ABRA CADABRA",
+    "subtitle": "CÍRCULO DE PALABRA INTEGRADORA",
+    "location": "Caracas",
+    "type": "abracadabra",
+    "logo": "/assets/images/Servicios/Abra_Cadabra.png",
+    "description": "Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas)."
+  },
+  {
+    "slug": "mar14-ayahuasca",
+    "eventDate": "2026-03-14",
+    "title": "AYAHUASCA",
+    "subtitle": "ENCUENTRO CEREMONIAL NOCTURNO",
+    "location": "Altos Mirandinos",
+    "type": "ayahuasca",
+    "logo": "/assets/images/Servicios/YageAyahuasca.png",
+    "description": "Encuentro chamánico grupal, con la ingesta de esta Planta de Poder, que emplea la energía ancestral y la conexión con las fuerzas elementales, acompañado de rezos, rueda medicinal, armonización energética, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico."
+  },
+  {
+    "slug": "mar18-magicsadan",
+    "eventDate": "2026-03-18",
+    "title": "MAGICSADAN",
+    "subtitle": "SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL",
+    "location": "Caracas",
+    "type": "magicsadan",
+    "logo": "/assets/images/Servicios/MagicSaDan.png",
+    "description": "Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder. (Duración: 3 horas)."
+  },
+  {
+    "slug": "mar25-abracadabra",
+    "eventDate": "2026-03-25",
+    "title": "ABRA CADABRA",
+    "subtitle": "CÍRCULO DE PALABRA INTEGRADORA",
+    "location": "Caracas",
+    "type": "abracadabra",
+    "logo": "/assets/images/Servicios/Abra_Cadabra.png",
+    "description": "Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora. (Duración: 2 horas)."
+  },
+  {
+    "slug": "mar28-resonancia",
+    "eventDate": "2026-03-28",
+    "title": "RESONANCIA",
+    "subtitle": "ACERCAMIENTO A LA MEDICINA FUNGI CON MÚSICA",
+    "location": "Caracas",
+    "type": "fungi",
+    "logo": "/assets/images/Servicios/Reino_fungi.png",
+    "description": "Círculo de meditación, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, acompañado de sonidos vibratorios orgánicos y música meditativa en vivo, para el despertar sensorial del propio ser, induciendo a la calma y al encuentro consigo mismo. (Duración: 4 horas)."
+  },
+  {
+    "slug": "abr08-magicsadan",
+    "eventDate": "2026-04-08",
+    "title": "MAGICSADAN",
+    "subtitle": "SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL",
+    "location": "Caracas",
+    "type": "magicsadan",
+    "logo": "/assets/images/Servicios/MagicSaDan.png",
+    "description": "Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas)."
+  },
+  {
+    "slug": "abr11-fungi",
+    "eventDate": "2026-04-11",
+    "title": "RITUAL MACRODOSIS FUNGI",
+    "subtitle": "ENCUENTRO CEREMONIAL NOCTURNO",
+    "location": "Altos Mirandinos",
+    "type": "fungi",
+    "logo": "/assets/images/Servicios/Reino_fungi.png",
+    "description": "Encuentro Ritual de conexión con las energías elementales y las fuerzas naturales, con la ingesta de una dosis ritual de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial, que constituye el altar principal. Finaliza con círculo de palabra y de acompañamiento terapéutico."
+  },
+  {
+    "slug": "abr15-abracadabra",
+    "eventDate": "2026-04-15",
+    "title": "ABRA CADABRA",
+    "subtitle": "CÍRCULO DE PALABRA INTEGRADORA",
+    "location": "Caracas",
+    "type": "abracadabra",
+    "logo": "/assets/images/Servicios/Abra_Cadabra.png",
+    "description": "Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas)."
+  },
+  {
+    "slug": "abr22-magicsadan",
+    "eventDate": "2026-04-22",
+    "title": "MAGICSADAN",
+    "subtitle": "SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL",
+    "location": "Caracas",
+    "type": "magicsadan",
+    "logo": "/assets/images/Servicios/MagicSaDan.png",
+    "description": "Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas)."
+  },
+  {
+    "slug": "abr24-velada",
+    "eventDate": "2026-04-24",
+    "title": "VELADA MUSICAL ÍNTIMA",
+    "subtitle": "MÚSICA MEDICINA EN VIVO",
+    "location": "Caracas",
+    "type": "velada",
+    "logo": "/assets/images/Servicios/Velada_Musical.png",
+    "description": "Recital de Música de Medicina, con la participación de varios músicos invitados, a través del cual se genera un espacio de esparcimiento que emplea la música como medio de conciencia. Una velada nocturna para conectar con la sanación a través del sonido y la vibración. (Duración: 4 horas)."
+  },
+  {
+    "slug": "abr29-abracadabra",
+    "eventDate": "2026-04-29",
+    "title": "ABRA CADABRA",
+    "subtitle": "CÍRCULO DE PALABRA INTEGRADORA",
+    "location": "Caracas",
+    "type": "abracadabra",
+    "logo": "/assets/images/Servicios/Abra_Cadabra.png",
+    "description": "Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas)."
+  },
+  {
+    "slug": "may06-magicsadan",
+    "eventDate": "2026-05-06",
+    "title": "MAGICSADAN",
+    "subtitle": "SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL",
+    "location": "Caracas",
+    "type": "magicsadan",
+    "logo": "/assets/images/Servicios/MagicSaDan.png",
+    "description": "Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas)."
+  },
+  {
+    "slug": "may16-yage",
+    "eventDate": "2026-05-16",
+    "title": "RITUAL CEREMONIAL CON MEDICINA YAGÉ",
+    "subtitle": "ENCUENTRO CEREMONIAL NOCTURNO",
+    "location": "Altos Mirandinos",
+    "type": "ayahuasca",
+    "logo": "/assets/images/Servicios/YageAyahuasca.png",
+    "description": "Encuentro chamánico grupal, con la ingesta de esta Planta de Poder, que emplea la energía ancestral y la conexión con las fuerzas elementales, acompañado de rezos, rueda medicinal, armonización energética, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico."
+  },
+  {
+    "slug": "may13-abracadabra",
+    "eventDate": "2026-05-13",
+    "title": "ABRA CADABRA",
+    "subtitle": "CÍRCULO DE PALABRA INTEGRADORA",
+    "location": "Caracas",
+    "type": "abracadabra",
+    "logo": "/assets/images/Servicios/Abra_Cadabra.png",
+    "description": "Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas)."
+  },
+  {
+    "slug": "may20-magicsadan",
+    "eventDate": "2026-05-20",
+    "title": "MAGICSADAN",
+    "subtitle": "SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL",
+    "location": "Caracas",
+    "type": "magicsadan",
+    "logo": "/assets/images/Servicios/MagicSaDan.png",
+    "description": "Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas)."
+  },
+  {
+    "slug": "may23-resonancia",
+    "eventDate": "2026-05-23",
+    "title": "RESONANCIA",
+    "subtitle": "ACERCAMIENTO A LA MEDICINA FUNGI CON MÚSICA",
+    "location": "Caracas",
+    "type": "fungi",
+    "logo": "/assets/images/Servicios/Reino_fungi.png",
+    "description": "Círculo de meditación, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, acompañado de sonidos vibratorios orgánicos y música meditativa en vivo, para el despertar sensorial del propio ser, induciendo a la calma y al encuentro consigo mismo. (Duración: 4 horas)."
+  },
+  {
+    "slug": "may27-abracadabra",
+    "eventDate": "2026-05-27",
+    "title": "ABRA CADABRA",
+    "subtitle": "CÍRCULO DE PALABRA INTEGRADORA",
+    "location": "Caracas",
+    "type": "abracadabra",
+    "logo": "/assets/images/Servicios/Abra_Cadabra.png",
+    "description": "Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas)."
+  },
+  {
+    "slug": "may30-teramai",
+    "eventDate": "2026-05-30",
+    "title": "FORMACIÓN EN TERAMAI",
+    "subtitle": "FORMACIÓN EN TERAMAI SENCHEN",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Formación en Teramai Senchen, un sistema ancestral de sanación energética."
+  },
+  {
+    "slug": "may31-teramai",
+    "eventDate": "2026-05-31",
+    "title": "FORMACI“N EN TERAMAI",
+    "subtitle": "FORMACI“N EN TERAMAI SENCHEN",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Formación en Teramai Senchen, un sistema ancestral de sanación energética."
+  },
+  {
+    "slug": "jun13-resonancia",
+    "eventDate": "2026-06-13",
+    "title": "RESONANCIA MÁGICA",
+    "subtitle": "ACERCAMIENTO A LA MEDICINA FUNGI CON MÚSICA",
+    "location": "Caracas",
+    "type": "fungi",
+    "logo": "/assets/images/Servicios/Reino_fungi.png",
+    "description": "Círculo de meditación, con la ingesta de una dosis meditativa/sensorial de setas psilocibicas deshidratadas, acompañado de sonidos vibratorios orgánicos y música meditativa en vivo, para el despertar sensorial del propio ser, induciendo a la calma y al encuentro consigo mismo. (Duración: 4 horas)."
+  },
+  {
+    "slug": "jun20-magicsadan",
+    "eventDate": "2026-06-20",
+    "title": "MAGICSADAN",
+    "subtitle": "SESIÓN GRUPAL DE MOVIMIENTO MÁGICO ANCESTRAL",
+    "location": "Caracas",
+    "type": "magicsadan",
+    "logo": "/assets/images/Servicios/MagicSaDan.png",
+    "description": "Sagradas sesiones grupales de movimiento mágico ancestral; movimiento auténtico y consciente de efectos terapéuticos, que combina danza sagrada y rituales de poder, que reconectan con la fuerza vital primordial, y la naturaleza Divina del Ser. (Duración: 3 horas)."
+  },
+  {
+    "slug": "jun27-reiki",
+    "eventDate": "2026-06-27",
+    "title": "TALLER DE REIKI",
+    "subtitle": "TALLER DE REIKI",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Taller de Reiki para el aprendizaje y sanación a través de la energía universal."
+  },
+  {
+    "slug": "jun28-reiki",
+    "eventDate": "2026-06-28",
+    "title": "TALLER DE REIKI",
+    "subtitle": "TALLER DE REIKI",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Taller de Reiki para el aprendizaje y sanación a través de la energía universal."
+  },
+  {
+    "slug": "jun29-reiki-practica",
+    "eventDate": "2026-06-29",
+    "title": "SESIONES DE PRACTICA DE REIKI",
+    "subtitle": "SESIONES DE PRACTICA DE REIKI",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Sesiones prácticas de Reiki para profundizar y aplicar conocimientos."
+  },
+  {
+    "slug": "jul04-yage",
+    "eventDate": "2026-07-04",
+    "title": "RITUAL CEREMONIAL CON MEDICINA DE LA SELVA (YAGÉ)",
+    "subtitle": "ENCUENTRO CEREMONIAL NOCTURNO",
+    "location": "Altos Mirandinos",
+    "type": "ayahuasca",
+    "logo": "/assets/images/Servicios/YageAyahuasca.png",
+    "description": "Encuentro chamánico grupal, con la ingesta de esta Planta de Poder, que emplea la energía ancestral y la conexión con las fuerzas elementales, acompañado de rezos, rueda medicinal, armonización energética, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial. Finaliza con círculo de palabra y de acompañamiento terapéutico."
+  },
+  {
+    "slug": "jul11-abracadabra",
+    "eventDate": "2026-07-11",
+    "title": "ABRA CADABRA",
+    "subtitle": "CÍRCULO DE PALABRA INTEGRADORA",
+    "location": "Caracas",
+    "type": "abracadabra",
+    "logo": "/assets/images/Servicios/Abra_Cadabra.png",
+    "description": "Compartir grupal y de aprendizaje, a través de la palabra, guiado con actividades creativas y dinámicas grupales que permiten desarrollar la conciencia del aquí y ahora en los procesos individuales, así como el incremento de la comunicación amorosa. (Duración: 2 horas)."
+  },
+  {
+    "slug": "jul25-reiki",
+    "eventDate": "2026-07-25",
+    "title": "TALLER DE REIKI",
+    "subtitle": "TALLER DE REIKI",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Taller de Reiki para el aprendizaje y sanación a través de la energía universal."
+  },
+  {
+    "slug": "jul26-reiki",
+    "eventDate": "2026-07-26",
+    "title": "TALLER DE REIKI",
+    "subtitle": "TALLER DE REIKI",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Taller de Reiki para el aprendizaje y sanación a través de la energía universal."
+  },
+  {
+    "slug": "jul27-reiki-practica",
+    "eventDate": "2026-07-27",
+    "title": "SESIONES DE PRACTICA DE REIKI",
+    "subtitle": "SESIONES DE PRACTICA DE REIKI",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Sesiones prácticas de Reiki para profundizar y aplicar conocimientos."
+  },
+  {
+    "slug": "ago08-fungi",
+    "eventDate": "2026-08-08",
+    "title": "RITUAL CEREMONIAL CON MEDICINA DEL REINO FUNGI",
+    "subtitle": "ENCUENTRO CEREMONIAL NOCTURNO",
+    "location": "Altos Mirandinos",
+    "type": "fungi",
+    "logo": "/assets/images/Servicios/Reino_fungi.png",
+    "description": "Encuentro Ritual de conexión con las energías elementales y las fuerzas naturales, con la ingesta de una dosis ritual de setas psilocibicas deshidratadas, rezos de intención, rueda medicinal, oráculos, cantos, icaros y música de medicina en vivo, en un espacio de Naturaleza, en presencia del Fuego Ceremonial, que constituye el altar principal. Finaliza con círculo de palabra y de acompañamiento terapéutico."
+  },
+  {
+    "slug": "ago17-reiki-practica",
+    "eventDate": "2026-08-17",
+    "title": "SESION DE PRACTICA DE REIKI",
+    "subtitle": "SESION DE PRACTICA DE REIKI",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Sesin prctica de Reiki para profundizar y aplicar conocimientos."
+  },
+  {
+    "slug": "ago22-reiki",
+    "eventDate": "2026-08-22",
+    "title": "TALLER DE REIKI",
+    "subtitle": "TALLER DE REIKI",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Taller de Reiki para el aprendizaje y sanación a través de la energía universal."
+  },
+  {
+    "slug": "ago23-reiki",
+    "eventDate": "2026-08-23",
+    "title": "TALLER DE REIKI",
+    "subtitle": "TALLER DE REIKI",
+    "location": "Caracas",
+    "type": "teramai",
+    "logo": "/assets/images/Servicios/Teramai_Senchen.png",
+    "description": "Taller de Reiki para el aprendizaje y sanación a través de la energía universal."
+  },
+  {
+    "slug": "ago29-velada-cacao",
+    "eventDate": "2026-08-29",
+    "title": "VELADA CON CACAO",
+    "subtitle": "MÚSICA MEDICINA EN VIVO",
+    "location": "Caracas",
+    "type": "velada",
+    "logo": "/assets/images/Servicios/Sec/Cacao.png",
+    "description": "Velada nocturna con la sagrada Medicina del Cacao, acompañada de música de medicina en vivo, para abrir el corazón y conectar con la sanación a través del sonido, la vibración y la presencia consciente. (Duración: 4 horas)."
+  }
+]
