@@ -1,108 +1,201 @@
 <template>
-  <form class="admin-form" @submit.prevent="onSubmit">
-    <div class="form-row">
-      <div class="form-group">
-        <label>Nombre</label>
-        <input v-model="form.name" type="text" class="form-control" required>
+  <form class="a-form" novalidate @submit.prevent="onSubmit">
+    <div v-if="error" class="a-alert a-alert--error">
+      <i class="fas fa-exclamation-triangle" />
+      <span>{{ error }}</span>
+    </div>
+
+    <div class="a-form__grid">
+      <!-- Columna principal -->
+      <div class="a-form__col">
+        <AdminFieldset title="Información básica">
+          <div class="a-field">
+            <label class="a-field__label" for="p-name">Nombre <span class="a-field__req">*</span></label>
+            <input
+              id="p-name"
+              v-model="form.name"
+              type="text"
+              class="a-input"
+              :class="{ 'a-input--invalid': errors.name }"
+              placeholder="Ej. Extracto de Reishi"
+            >
+            <span v-if="errors.name" class="a-field__error">{{ errors.name }}</span>
+          </div>
+
+          <div class="a-field">
+            <label class="a-field__label" for="p-slug">
+              URL del producto <span class="a-field__req">*</span>
+              <button type="button" class="a-btn a-btn--subtle a-btn--sm" @click="slugLocked = !slugLocked">
+                <i :class="slugLocked ? 'fas fa-edit' : 'fas fa-check'" />
+                {{ slugLocked ? 'Editar' : 'Listo' }}
+              </button>
+            </label>
+            <div class="a-input-group">
+              <span class="a-input-group__addon">/producto/</span>
+              <input
+                id="p-slug"
+                v-model="form.slug"
+                type="text"
+                class="a-input a-mono"
+                :class="{ 'a-input--invalid': errors.slug }"
+                :disabled="slugLocked"
+                @blur="form.slug = slugify(form.slug)"
+              >
+            </div>
+            <span v-if="errors.slug" class="a-field__error">{{ errors.slug }}</span>
+            <span v-else class="a-field__hint">
+              {{ isEdit
+                ? 'Cambiar la URL rompe los enlaces que ya se hayan compartido de este producto.'
+                : 'Se genera a partir del nombre. Puedes ajustarla antes de crear el producto.' }}
+            </span>
+          </div>
+
+          <div class="a-row">
+            <div class="a-field">
+              <label class="a-field__label" for="p-short">Nombre corto</label>
+              <input id="p-short" v-model="form.shortName" type="text" class="a-input" placeholder="Para tarjetas y listados">
+            </div>
+            <div class="a-field">
+              <label class="a-field__label" for="p-cat">Categoría <span class="a-field__req">*</span></label>
+              <select
+                id="p-cat"
+                v-model="form.category"
+                class="a-select"
+                :class="{ 'a-select--invalid': errors.category }"
+              >
+                <option value="">Selecciona una categoría</option>
+                <option v-for="cat in PRODUCT_CATEGORIES" :key="cat.id" :value="cat.id">{{ cat.name }}</option>
+              </select>
+              <span v-if="errors.category" class="a-field__error">{{ errors.category }}</span>
+              <span v-else class="a-field__hint">Determina en qué filtro de la botica aparece.</span>
+            </div>
+          </div>
+
+          <div class="a-field">
+            <label class="a-field__label" for="p-desc">Descripción</label>
+            <textarea id="p-desc" v-model="form.description" class="a-textarea" rows="3" placeholder="Resumen que se muestra en la ficha del producto" />
+          </div>
+
+          <div class="a-field">
+            <label class="a-field__label" for="p-content">
+              Presentación
+              <span class="a-field__hint">se muestra tal cual</span>
+            </label>
+            <input id="p-content" v-model="form.content" type="text" class="a-input" placeholder="Ej. 30 ml · 50 cápsulas">
+          </div>
+        </AdminFieldset>
+
+        <AdminFieldset title="Detalles" description="Se muestran como secciones en la ficha del producto.">
+          <div class="a-field">
+            <label class="a-field__label" for="p-usage">Modo de uso</label>
+            <textarea id="p-usage" v-model="form.usage" class="a-textarea" rows="3" />
+          </div>
+          <div class="a-field">
+            <label class="a-field__label" for="p-ing">Ingredientes</label>
+            <textarea id="p-ing" v-model="form.ingredients" class="a-textarea" rows="3" />
+          </div>
+          <div class="a-field">
+            <label class="a-field__label" for="p-prec">Precauciones</label>
+            <textarea id="p-prec" v-model="form.precautions" class="a-textarea" rows="3" />
+          </div>
+          <div class="a-field">
+            <label class="a-field__label">Beneficios</label>
+            <AdminTagsInput v-model="form.benefits" placeholder="Ej. Refuerza el sistema inmune" />
+            <span class="a-field__hint">Se listan con viñetas en la ficha. Enter o coma para añadir.</span>
+          </div>
+        </AdminFieldset>
+
+        <AdminFieldset title="Galería" description="Imágenes adicionales que acompañan a la principal.">
+          <AdminGalleryEditor v-model="form.gallery" />
+        </AdminFieldset>
       </div>
-      <div class="form-group">
-        <label>Slug <span class="admin-form-hint">(automático)</span></label>
-        <input :value="form.slug" type="text" class="form-control" disabled>
+
+      <!-- Columna lateral -->
+      <div class="a-form__col">
+        <AdminFieldset title="Precio">
+          <div class="a-row">
+            <div class="a-field">
+              <label class="a-field__label" for="p-price">Precio <span class="a-field__req">*</span></label>
+              <input
+                id="p-price"
+                v-model="priceText"
+                type="number"
+                step="0.01"
+                min="0"
+                class="a-input"
+                :class="{ 'a-input--invalid': errors.price }"
+              >
+              <span v-if="errors.price" class="a-field__error">{{ errors.price }}</span>
+            </div>
+            <div class="a-field">
+              <label class="a-field__label" for="p-currency">Moneda</label>
+              <select id="p-currency" v-model="form.currency" class="a-select">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="VES">VES</option>
+              </select>
+            </div>
+          </div>
+        </AdminFieldset>
+
+        <AdminFieldset title="Imagen principal">
+          <AdminImageUpload v-model="form.image" />
+        </AdminFieldset>
+
+        <AdminFieldset title="Visibilidad">
+          <label class="a-check" :class="{ 'a-check--on': form.inStock }">
+            <input v-model="form.inStock" type="checkbox">
+            <span class="a-check__text">
+              <strong>En stock</strong>
+              <span>Si se desmarca, aparece como agotado y no se puede añadir al carrito.</span>
+            </span>
+          </label>
+          <label class="a-check" :class="{ 'a-check--on': form.featured }">
+            <input v-model="form.featured" type="checkbox">
+            <span class="a-check__text">
+              <strong>Destacado</strong>
+              <span>Se resalta dentro del listado de la botica.</span>
+            </span>
+          </label>
+          <label class="a-check" :class="{ 'a-check--on': form.topProduct }">
+            <input v-model="form.topProduct" type="checkbox">
+            <span class="a-check__text">
+              <strong>Producto top</strong>
+              <span>Aparece en las secciones destacadas de la portada.</span>
+            </span>
+          </label>
+          <label class="a-check" :class="{ 'a-check--on': form.artisanal }">
+            <input v-model="form.artisanal" type="checkbox">
+            <span class="a-check__text">
+              <strong>Artesanal</strong>
+              <span>Muestra el distintivo de elaboración artesanal.</span>
+            </span>
+          </label>
+        </AdminFieldset>
       </div>
     </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label>Nombre corto</label>
-        <input v-model="form.shortName" type="text" class="form-control">
-      </div>
-      <div class="form-group">
-        <label>Categoría</label>
-        <input v-model="form.category" type="text" class="form-control">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label>Precio</label>
-        <input v-model.number="form.price" type="number" step="0.01" min="0" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label>Moneda</label>
-        <input v-model="form.currency" type="text" class="form-control">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label>Imagen principal</label>
-      <AdminImageUpload v-model="form.image" />
-    </div>
-
-    <div class="form-group">
-      <label>Galería de imágenes adicionales</label>
-      <div v-if="galleryUrls.length" class="admin-gallery-list">
-        <div v-for="(url, idx) in galleryUrls" :key="url + idx" class="admin-gallery-item">
-          <img :src="url" alt="">
-          <button type="button" class="admin-gallery-remove" @click="removeGalleryImage(idx)">×</button>
-        </div>
-      </div>
-      <AdminImageUpload v-model="newGalleryImage" />
-      <button type="button" class="btn btn-sm btn-outline-secondary" :disabled="!newGalleryImage" @click="addGalleryImage">
-        Agregar a la galería
-      </button>
-    </div>
-
-    <div class="form-group">
-      <label>Descripción</label>
-      <textarea v-model="form.description" class="form-control" rows="3" />
-    </div>
-
-    <div class="form-group">
-      <label>Contenido <span class="admin-form-hint">(ej. "30ml", "50 cápsulas" — se muestra tal cual, sin formato)</span></label>
-      <input v-model="form.content" type="text" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>Modo de uso</label>
-      <textarea v-model="form.usage" class="form-control" rows="3" />
-    </div>
-
-    <div class="form-group">
-      <label>Ingredientes</label>
-      <textarea v-model="form.ingredients" class="form-control" rows="3" />
-    </div>
-
-    <div class="form-group">
-      <label>Precauciones</label>
-      <textarea v-model="form.precautions" class="form-control" rows="3" />
-    </div>
-
-    <div class="form-group">
-      <label>Beneficios (separados por coma)</label>
-      <input v-model="form.benefitsText" type="text" class="form-control">
-    </div>
-
-    <div class="form-row admin-form-checks">
-      <label><input v-model="form.inStock" type="checkbox"> En stock</label>
-      <label><input v-model="form.featured" type="checkbox"> Destacado</label>
-      <label><input v-model="form.topProduct" type="checkbox"> Producto top</label>
-      <label><input v-model="form.artisanal" type="checkbox"> Artesanal</label>
-    </div>
-
-    <p v-if="error" class="admin-form-error">{{ error }}</p>
-
-    <div class="admin-form-actions">
-      <button type="submit" class="btn btn-primary" :disabled="loading">
+    <!-- Barra de acciones -->
+    <div class="a-formbar">
+      <button type="submit" class="a-btn a-btn--primary" :disabled="loading">
+        <i v-if="loading" class="a-spinner" />
         {{ loading ? 'Guardando…' : submitLabel }}
       </button>
+      <NuxtLink to="/admin/products" class="a-btn a-btn--ghost">Cancelar</NuxtLink>
+      <span v-if="dirty" class="a-muted" style="font-size: 12px;">Cambios sin guardar</span>
+      <span class="a-formbar__spacer" />
       <slot name="extra-actions" />
     </div>
   </form>
 </template>
 
 <script setup>
-import { reactive, ref, watch } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
+import AdminFieldset from './AdminFieldset.vue'
+import AdminGalleryEditor from './AdminGalleryEditor.vue'
 import AdminImageUpload from './AdminImageUpload.vue'
+import AdminTagsInput from './AdminTagsInput.vue'
+import { PRODUCT_CATEGORIES } from '~/utils/productCategories'
 import { slugify } from '~/utils/slugify'
 
 const props = defineProps({
@@ -112,132 +205,96 @@ const props = defineProps({
   submitLabel: { type: String, default: 'Guardar' }
 })
 
-const emit = defineEmits(['submit'])
+const emit = defineEmits(['submit', 'dirty'])
 
-const form = reactive({
-  name: '', slug: '', shortName: '', price: 0, currency: 'USD', image: '', category: '',
-  description: '', content: '', usage: '', ingredients: '', precautions: '', benefitsText: '',
-  inStock: true, featured: false, topProduct: false, artisanal: false
+const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+
+const blank = () => ({
+  name: '', slug: '', shortName: '', price: 0, currency: 'USD', image: '', gallery: [],
+  category: '', description: '', content: '', usage: '', ingredients: '', precautions: '',
+  benefits: [], inStock: true, featured: false, topProduct: false, artisanal: false
 })
 
-const galleryUrls = ref([])
-const newGalleryImage = ref('')
+const form = reactive(blank())
+const errors = reactive({})
+const slugLocked = ref(true)
+const baseline = ref(JSON.stringify(blank()))
 
-const addGalleryImage = () => {
-  if (newGalleryImage.value && !galleryUrls.value.includes(newGalleryImage.value)) {
-    galleryUrls.value.push(newGalleryImage.value)
-  }
-  newGalleryImage.value = ''
-}
+const isEdit = computed(() => Boolean(props.initial?.id))
 
-const removeGalleryImage = (idx) => {
-  galleryUrls.value.splice(idx, 1)
-}
+// `<input type="number">` devuelve cadena; la normalizamos en un solo sitio.
+const priceText = computed({
+  get: () => form.price,
+  set: (value) => { form.price = value === '' || value == null ? '' : Number(value) }
+})
 
 watch(() => props.initial, (val) => {
-  if (!val) return
-  form.name = val.name || ''
-  form.slug = val.slug || ''
-  form.shortName = val.shortName || ''
-  form.price = val.price ?? 0
-  form.currency = val.currency || 'USD'
-  form.image = val.image || ''
-  galleryUrls.value = Array.isArray(val.gallery) ? [...val.gallery] : []
-  form.category = val.category || ''
-  form.description = val.description || ''
-  form.content = val.content || ''
-  form.usage = val.usage || ''
-  form.ingredients = val.ingredients || ''
-  form.precautions = val.precautions || ''
-  form.benefitsText = Array.isArray(val.benefits) ? val.benefits.join(', ') : ''
-  form.inStock = val.inStock ?? true
-  form.featured = val.featured ?? false
-  form.topProduct = val.topProduct ?? false
-  form.artisanal = val.artisanal ?? false
+  const next = blank()
+  if (val) {
+    Object.assign(next, {
+      name: val.name || '',
+      slug: val.slug || '',
+      shortName: val.shortName || '',
+      price: val.price ?? 0,
+      currency: val.currency || 'USD',
+      image: val.image || '',
+      gallery: Array.isArray(val.gallery) ? [...val.gallery] : [],
+      category: val.category || '',
+      description: val.description || '',
+      content: val.content || '',
+      usage: val.usage || '',
+      ingredients: val.ingredients || '',
+      precautions: val.precautions || '',
+      benefits: Array.isArray(val.benefits) ? [...val.benefits] : [],
+      inStock: val.inStock ?? true,
+      featured: val.featured ?? false,
+      topProduct: val.topProduct ?? false,
+      artisanal: val.artisanal ?? false
+    })
+  }
+  Object.assign(form, next)
+  baseline.value = JSON.stringify(next)
 }, { immediate: true, deep: true })
 
-watch(() => form.name, (val) => {
-  if (props.initial?.id) return
-  form.slug = slugify(val)
+// El slug sigue al nombre solo mientras esté bloqueado y el producto sea nuevo;
+// así una URL ya publicada nunca cambia sola.
+watch(() => form.name, (value) => {
+  if (isEdit.value || !slugLocked.value) return
+  form.slug = slugify(value)
 })
 
+const dirty = computed(() => JSON.stringify({ ...form }) !== baseline.value)
+watch(dirty, (value) => emit('dirty', value), { immediate: true })
+
+function validate() {
+  Object.keys(errors).forEach(key => delete errors[key])
+
+  if (!form.name.trim()) errors.name = 'El nombre es obligatorio'
+  if (!form.slug) errors.slug = 'La URL es obligatoria'
+  else if (!SLUG_RE.test(form.slug)) errors.slug = 'Solo minúsculas, números y guiones (sin acentos ni espacios)'
+  if (!form.category) errors.category = 'Elige una categoría para que el producto aparezca en los filtros'
+  if (form.price === '' || form.price == null || Number.isNaN(Number(form.price))) errors.price = 'Indica un precio'
+  else if (Number(form.price) < 0) errors.price = 'El precio no puede ser negativo'
+
+  return Object.keys(errors).length === 0
+}
+
 const onSubmit = () => {
-  const { benefitsText, ...rest } = form
+  if (!validate()) {
+    document.querySelector('.a-input--invalid, .a-select--invalid')?.focus()
+    return
+  }
   emit('submit', {
-    ...rest,
-    benefits: benefitsText.split(',').map(b => b.trim()).filter(Boolean),
-    gallery: galleryUrls.value
+    ...form,
+    name: form.name.trim(),
+    price: Number(form.price),
+    benefits: [...form.benefits],
+    gallery: [...form.gallery]
   })
 }
-</script>
 
-<style scoped>
-.admin-form {
-  background: #fff;
-  padding: 25px;
-  border-radius: 6px;
-  max-width: 720px;
-}
-.form-row {
-  display: flex;
-  gap: 20px;
-}
-.form-row .form-group {
-  flex: 1;
-}
-.admin-gallery-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.admin-gallery-item {
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.admin-gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-}
-.admin-gallery-remove {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: none;
-  background: #c0392b;
-  color: #fff;
-  line-height: 1;
-  cursor: pointer;
-}
-.admin-form-checks {
-  gap: 25px;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.admin-form-checks label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: normal;
-}
-.admin-form-hint {
-  font-weight: normal;
-  font-size: 0.8em;
-  color: #999;
-}
-.admin-form-error {
-  color: #c0392b;
-}
-.admin-form-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-</style>
+defineExpose({
+  /** Fija el estado actual como "guardado" para que el guardián deje de avisar. */
+  markSaved: () => { baseline.value = JSON.stringify({ ...form }) }
+})
+</script>

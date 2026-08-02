@@ -1,94 +1,125 @@
 <template>
-  <div class="admin-login-page">
-    <form class="admin-login-card" @submit.prevent="onSubmit">
-      <h1>Panel Admin</h1>
-      <p class="admin-login-subtitle">Magiancestral</p>
-
-      <div class="form-group">
-        <label for="username">Usuario</label>
-        <input id="username" v-model="username" type="text" class="form-control" autocomplete="username" required>
+  <div class="admin-auth">
+    <form class="a-authcard" novalidate @submit.prevent="onSubmit">
+      <div class="a-authcard__head">
+        <div class="a-authcard__mark">M</div>
+        <h1>Panel administrativo</h1>
+        <p>Magiancestral</p>
       </div>
 
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input id="password" v-model="password" type="password" class="form-control" autocomplete="current-password" required>
+      <div class="a-authcard__body">
+        <div v-if="expired" class="a-alert a-alert--warn">
+          <i class="fas fa-exclamation-triangle" />
+          <span>Tu sesión expiró. Vuelve a entrar para continuar.</span>
+        </div>
+
+        <div class="a-field">
+          <label class="a-field__label" for="username">Usuario</label>
+          <input
+            id="username"
+            ref="usernameInput"
+            v-model="username"
+            type="text"
+            class="a-input"
+            autocomplete="username"
+            autocapitalize="off"
+            spellcheck="false"
+          >
+        </div>
+
+        <div class="a-field">
+          <label class="a-field__label" for="password">Contraseña</label>
+          <div class="a-passwrap">
+            <input
+              id="password"
+              v-model="password"
+              :type="showPassword ? 'text' : 'password'"
+              class="a-input"
+              autocomplete="current-password"
+            >
+            <button
+              type="button"
+              class="a-passtoggle"
+              :aria-label="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+              @click="showPassword = !showPassword"
+            >
+              <i :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'" />
+            </button>
+          </div>
+        </div>
+
+        <div v-if="error" class="a-alert a-alert--error">
+          <i class="fas fa-exclamation-triangle" />
+          <span>{{ error }}</span>
+        </div>
+
+        <button type="submit" class="a-btn a-btn--primary a-btn--block" :disabled="loading">
+          <i v-if="loading" class="a-spinner" />
+          {{ loading ? 'Entrando…' : 'Entrar' }}
+        </button>
+
+        <NuxtLink to="/" class="a-btn a-btn--subtle a-btn--block a-btn--sm">
+          <i class="fas fa-arrow-left" /> Volver al sitio
+        </NuxtLink>
       </div>
-
-      <p v-if="error" class="admin-login-error">{{ error }}</p>
-
-      <button type="submit" class="btn btn-primary admin-login-btn" :disabled="loading">
-        {{ loading ? 'Ingresando…' : 'Ingresar' }}
-      </button>
     </form>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 definePageMeta({ layout: false })
 
+useHead({ title: 'Entrar · Panel Magiancestral' })
+
+const route = useRoute()
+const api = useAdminApi()
+
 const username = ref('')
 const password = ref('')
+const showPassword = ref(false)
 const loading = ref(false)
 const error = ref('')
+const usernameInput = ref(null)
+
+// `useAdminApi` añade `?redirect=` al expulsar por sesión caducada.
+const expired = computed(() => Boolean(route.query.redirect))
+const redirectTo = computed(() => {
+  const target = String(route.query.redirect || '/admin')
+  // Solo admitimos rutas internas del panel: evita un redirect abierto.
+  return target.startsWith('/admin') ? target : '/admin'
+})
 
 onMounted(async () => {
   try {
-    await $fetch('/api/admin/auth/me')
-    await navigateTo('/admin')
+    await api.raw('/api/admin/auth/me')
+    await navigateTo(redirectTo.value)
   } catch {
-    // not authenticated, stay on login page
+    usernameInput.value?.focus()
   }
 })
 
 const onSubmit = async () => {
+  if (!username.value.trim() || !password.value) {
+    error.value = 'Escribe tu usuario y contraseña'
+    return
+  }
+
   loading.value = true
   error.value = ''
+
   try {
-    await $fetch('/api/admin/auth/login', {
-      method: 'POST',
-      body: { username: username.value, password: password.value }
+    await api.post('/api/admin/auth/login', {
+      username: username.value.trim(),
+      password: password.value
     })
-    await navigateTo('/admin')
+    await navigateTo(redirectTo.value)
   } catch (err) {
-    error.value = err?.data?.message || 'Credenciales inválidas'
+    error.value = adminErrorMessage(err, 'Credenciales inválidas')
+    password.value = ''
   } finally {
     loading.value = false
   }
 }
 </script>
-
-<style scoped>
-.admin-login-page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f5f5f5;
-}
-.admin-login-card {
-  background: #fff;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 360px;
-}
-.admin-login-card h1 {
-  font-size: 22px;
-  margin-bottom: 4px;
-}
-.admin-login-subtitle {
-  color: #888;
-  margin-bottom: 25px;
-}
-.admin-login-error {
-  color: #c0392b;
-  margin: 10px 0 0;
-}
-.admin-login-btn {
-  width: 100%;
-  margin-top: 10px;
-}
-</style>

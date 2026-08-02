@@ -1,33 +1,124 @@
 <template>
-  <div class="rte">
-    <div v-if="editor" class="rte-toolbar">
-      <button type="button" :class="{ active: editor.isActive('bold') }" @click="editor.chain().focus().toggleBold().run()"><b>B</b></button>
-      <button type="button" :class="{ active: editor.isActive('italic') }" @click="editor.chain().focus().toggleItalic().run()"><i>I</i></button>
-      <button type="button" :class="{ active: editor.isActive('strike') }" @click="editor.chain().focus().toggleStrike().run()"><s>S</s></button>
-      <span class="rte-sep" />
-      <button type="button" :class="{ active: editor.isActive('heading', { level: 2 }) }" @click="editor.chain().focus().toggleHeading({ level: 2 }).run()">H2</button>
-      <button type="button" :class="{ active: editor.isActive('heading', { level: 3 }) }" @click="editor.chain().focus().toggleHeading({ level: 3 }).run()">H3</button>
-      <button type="button" :class="{ active: editor.isActive('paragraph') }" @click="editor.chain().focus().setParagraph().run()">P</button>
-      <span class="rte-sep" />
-      <button type="button" :class="{ active: editor.isActive('bulletList') }" @click="editor.chain().focus().toggleBulletList().run()">• Lista</button>
-      <button type="button" :class="{ active: editor.isActive('orderedList') }" @click="editor.chain().focus().toggleOrderedList().run()">1. Lista</button>
-      <button type="button" :class="{ active: editor.isActive('blockquote') }" @click="editor.chain().focus().toggleBlockquote().run()">Cita</button>
-      <span class="rte-sep" />
-      <button type="button" :class="{ active: editor.isActive('link') }" @click="setLink">Enlace</button>
-      <button type="button" :disabled="!editor.isActive('link')" @click="editor.chain().focus().unsetLink().run()">Quitar enlace</button>
-      <span class="rte-sep" />
-      <button type="button" @click="editor.chain().focus().undo().run()">Deshacer</button>
-      <button type="button" @click="editor.chain().focus().redo().run()">Rehacer</button>
+  <div class="a-rte">
+    <div v-if="editor" class="a-rte__toolbar">
+      <button type="button" class="a-rte__btn" :class="on('bold')" title="Negrita (Ctrl+B)" @click="run(c => c.toggleBold())">
+        <i class="fas fa-bold" />
+      </button>
+      <button type="button" class="a-rte__btn" :class="on('italic')" title="Cursiva (Ctrl+I)" @click="run(c => c.toggleItalic())">
+        <i class="fas fa-italic" />
+      </button>
+      <button type="button" class="a-rte__btn" :class="on('strike')" title="Tachado" @click="run(c => c.toggleStrike())">
+        <i class="fas fa-strikethrough" />
+      </button>
+
+      <span class="a-rte__sep" />
+
+      <button type="button" class="a-rte__btn" :class="on('paragraph')" title="Párrafo" @click="run(c => c.setParagraph())">P</button>
+      <button type="button" class="a-rte__btn" :class="on('heading', { level: 2 })" title="Título" @click="run(c => c.toggleHeading({ level: 2 }))">H2</button>
+      <button type="button" class="a-rte__btn" :class="on('heading', { level: 3 })" title="Subtítulo" @click="run(c => c.toggleHeading({ level: 3 }))">H3</button>
+
+      <span class="a-rte__sep" />
+
+      <button type="button" class="a-rte__btn" :class="on('bulletList')" title="Lista con viñetas" @click="run(c => c.toggleBulletList())">
+        <i class="fas fa-list-ul" />
+      </button>
+      <button type="button" class="a-rte__btn" :class="on('orderedList')" title="Lista numerada" @click="run(c => c.toggleOrderedList())">
+        <i class="fas fa-list-ol" />
+      </button>
+      <button type="button" class="a-rte__btn" :class="on('blockquote')" title="Cita" @click="run(c => c.toggleBlockquote())">
+        <i class="fas fa-quote-right" />
+      </button>
+      <button type="button" class="a-rte__btn" title="Separador" @click="run(c => c.setHorizontalRule())">
+        <i class="fas fa-minus" />
+      </button>
+
+      <span class="a-rte__sep" />
+
+      <button type="button" class="a-rte__btn" :class="on('link')" title="Insertar enlace" @click="linkOpen = true">
+        <i class="fas fa-link" />
+      </button>
+      <button
+        type="button"
+        class="a-rte__btn"
+        title="Quitar enlace"
+        :disabled="!editor.isActive('link')"
+        @click="run(c => c.unsetLink())"
+      >
+        <i class="fas fa-unlink" />
+      </button>
+
+      <span class="a-rte__sep" />
+
+      <button type="button" class="a-rte__btn" title="Deshacer (Ctrl+Z)" :disabled="!editor.can().undo()" @click="run(c => c.undo())">
+        <i class="fas fa-undo" />
+      </button>
+      <button type="button" class="a-rte__btn" title="Rehacer (Ctrl+Y)" :disabled="!editor.can().redo()" @click="run(c => c.redo())">
+        <i class="fas fa-redo" />
+      </button>
+
+      <span class="a-grow" />
+
+      <button type="button" class="a-rte__btn" :class="{ 'a-rte__btn--on': htmlMode }" title="Editar el HTML" @click="toggleHtmlMode">
+        &lt;/&gt;
+      </button>
     </div>
-    <EditorContent :editor="editor" class="rte-content" />
+
+    <textarea
+      v-if="htmlMode"
+      v-model="htmlDraft"
+      class="a-textarea a-mono"
+      style="border: none; border-radius: 0; min-height: 300px;"
+      spellcheck="false"
+    />
+    <EditorContent v-else :editor="editor" class="a-rte__area" />
+
+    <div class="a-rte__foot">
+      <span>{{ words }} palabras</span>
+      <span>{{ characters }} caracteres</span>
+      <span class="a-grow" />
+      <span v-if="htmlMode">Los cambios del HTML se aplican al volver al editor visual</span>
+    </div>
+
+    <!-- Diálogo de enlace: sustituye a window.prompt(), que bloquea el hilo -->
+    <Teleport to="body">
+      <div v-if="linkOpen" class="admin-shell a-modal-backdrop" @click.self="linkOpen = false">
+        <div class="a-modal">
+          <div class="a-modal__head">
+            <h3>Insertar enlace</h3>
+            <button type="button" class="a-btn a-btn--subtle a-btn--icon" @click="linkOpen = false">
+              <i class="fas fa-times" />
+            </button>
+          </div>
+          <div class="a-modal__body">
+            <div class="a-field">
+              <label class="a-field__label" for="rte-link">URL</label>
+              <input
+                id="rte-link"
+                v-model="linkDraft"
+                type="text"
+                class="a-input"
+                placeholder="https://ejemplo.com"
+                @keydown.enter.prevent="applyLink"
+              >
+              <span class="a-field__hint">Se aplica al texto seleccionado. Déjalo vacío para quitar el enlace.</span>
+            </div>
+          </div>
+          <div class="a-modal__foot">
+            <button type="button" class="a-btn a-btn--ghost" @click="linkOpen = false">Cancelar</button>
+            <button type="button" class="a-btn a-btn--primary" @click="applyLink">Aplicar</button>
+          </div>
+        </div>
+      </div>
+    </Teleport>
   </div>
 </template>
 
 <script setup>
-import { onBeforeUnmount, watch } from 'vue'
+import { computed, onBeforeUnmount, ref, shallowRef, watch } from 'vue'
 import { Editor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import Link from '@tiptap/extension-link'
+import { stripHtml } from '~/utils/format'
 
 const props = defineProps({
   modelValue: { type: String, default: '' }
@@ -35,109 +126,71 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue'])
 
-const editor = new Editor({
+const linkOpen = ref(false)
+const linkDraft = ref('')
+const htmlMode = ref(false)
+const htmlDraft = ref('')
+
+// `shallowRef` evita que Vue haga reactiva toda la instancia de TipTap.
+const editor = shallowRef(new Editor({
   content: props.modelValue,
   extensions: [
     StarterKit,
-    Link.configure({ openOnClick: false, autolink: true })
+    Link.configure({ openOnClick: false, autolink: true, HTMLAttributes: { rel: 'noopener', target: '_blank' } })
   ],
-  onUpdate: ({ editor: ed }) => {
-    emit('update:modelValue', ed.getHTML())
+  onUpdate: ({ editor: instance }) => {
+    emit('update:modelValue', instance.getHTML())
   }
-})
+}))
 
 watch(() => props.modelValue, (value) => {
-  if (value === editor.getHTML()) return
-  editor.commands.setContent(value || '', false)
+  if (htmlMode.value) return
+  if (!editor.value || value === editor.value.getHTML()) return
+  editor.value.commands.setContent(value || '', false)
 })
 
-const setLink = () => {
-  const previousUrl = editor.getAttributes('link').href
-  const url = window.prompt('URL del enlace', previousUrl || 'https://')
-  if (url === null) return
-  if (url === '') {
-    editor.chain().focus().unsetLink().run()
-    return
+const plainText = computed(() => stripHtml(props.modelValue))
+const words = computed(() => (plainText.value ? plainText.value.split(/\s+/).length : 0))
+const characters = computed(() => plainText.value.length)
+
+const on = (name, attrs) => ({ 'a-rte__btn--on': editor.value?.isActive(name, attrs) })
+
+const run = (command) => {
+  if (!editor.value) return
+  command(editor.value.chain().focus()).run()
+}
+
+const toggleHtmlMode = () => {
+  if (htmlMode.value) {
+    // Volver al editor visual: TipTap normaliza el HTML que se haya escrito.
+    editor.value?.commands.setContent(htmlDraft.value || '', false)
+    emit('update:modelValue', editor.value?.getHTML() || '')
+    htmlMode.value = false
+  } else {
+    htmlDraft.value = props.modelValue || ''
+    htmlMode.value = true
   }
-  editor.chain().focus().setLink({ href: url }).run()
+}
+
+watch(htmlDraft, (value) => {
+  if (htmlMode.value) emit('update:modelValue', value)
+})
+
+watch(linkOpen, (open) => {
+  if (open) linkDraft.value = editor.value?.getAttributes('link').href || 'https://'
+})
+
+const applyLink = () => {
+  const url = linkDraft.value.trim()
+  if (!url || url === 'https://') {
+    run(c => c.unsetLink())
+  } else {
+    run(c => c.extendMarkRange('link').setLink({ href: url }))
+  }
+  linkOpen.value = false
 }
 
 onBeforeUnmount(() => {
-  editor.destroy()
+  editor.value?.destroy()
 })
 </script>
-
-<style scoped>
-.rte {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  overflow: hidden;
-}
-.rte-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  padding: 8px;
-  background: #fafafa;
-  border-bottom: 1px solid #eee;
-}
-.rte-toolbar button {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 4px 9px;
-  font-size: 0.82rem;
-  cursor: pointer;
-  color: #444;
-}
-.rte-toolbar button:hover {
-  border-color: #b3a85a;
-}
-.rte-toolbar button.active {
-  background: #b3a85a;
-  border-color: #b3a85a;
-  color: #fff;
-}
-.rte-toolbar button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-.rte-sep {
-  width: 1px;
-  background: #e2e2e2;
-  margin: 2px 4px;
-}
-.rte-content {
-  padding: 12px 14px;
-  min-height: 220px;
-  max-height: 480px;
-  overflow-y: auto;
-}
-.rte-content :deep(.ProseMirror) {
-  outline: none;
-  min-height: 200px;
-}
-.rte-content :deep(p) {
-  margin: 0 0 0.8em;
-}
-.rte-content :deep(h2) {
-  font-size: 1.4rem;
-  margin: 0.6em 0 0.4em;
-}
-.rte-content :deep(h3) {
-  font-size: 1.15rem;
-  margin: 0.6em 0 0.4em;
-}
-.rte-content :deep(ul),
-.rte-content :deep(ol) {
-  padding-left: 1.4em;
-  margin: 0 0 0.8em;
-}
-.rte-content :deep(blockquote) {
-  border-left: 3px solid #b3a85a;
-  margin: 0 0 0.8em;
-  padding-left: 1em;
-  color: #666;
-  font-style: italic;
-}
-</style>

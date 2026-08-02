@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { PRODUCT_CATEGORY_IDS } from '../../../utils/productCategories'
 
 export const createProductSchema = z.object({
   name: z.string().min(1),
@@ -8,7 +9,11 @@ export const createProductSchema = z.object({
   currency: z.string().min(1).default('USD'),
   image: z.string().optional().nullable(),
   gallery: z.array(z.string()).default([]),
-  category: z.string().optional().nullable(),
+  // La categoría debe pertenecer a la taxonomía del catálogo: si no, el
+  // producto no aparece en ningún filtro de la botica.
+  category: z.enum(PRODUCT_CATEGORY_IDS, {
+    errorMap: () => ({ message: 'Categoría inválida: elige una de las del catálogo' })
+  }),
   description: z.string().optional().nullable(),
   content: z.string().optional().nullable(),
   usage: z.string().optional().nullable(),

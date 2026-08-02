@@ -38,7 +38,10 @@ export default defineNuxtConfig({
     '~/public/assets/css/agrikol_iconl.css',
     '~/public/assets/css/style.css',
     '~/public/assets/css/responsive.css',
-    '~/assets/css/global-overrides.css'
+    '~/assets/css/global-overrides.css',
+    // Sistema de diseño del panel. Va al final para poder neutralizar los
+    // estilos del tema público dentro de `.admin-shell` / `.admin-auth`.
+    '~/assets/css/admin.css'
   ],
 
   modules: [
@@ -66,14 +69,12 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'vercel',
     prerender: {
+      // Solo se prerenderiza contenido estático. Las páginas que leen de la
+      // base de datos usan ISR (ver `routeRules`): si se congelaran en el
+      // build, nada de lo que se edite en el panel llegaría al sitio hasta el
+      // siguiente despliegue.
       routes: [
-        '/',
-        '/blog',
-        '/blog/estudios-cientificos',
-        '/blog/reflexiones-del-espiritu',
-        '/blog/psilocibina-terapia-oncologica',
-        '/blog/australia-nueva-zelanda-psilocibina',
-        '/blog/estudio-ayahuasca-salud-publica'
+        '/blog'
       ]
     }
   },
@@ -87,6 +88,20 @@ export default defineNuxtConfig({
     '/assets/js/**': { headers: { 'Cache-Control': 'max-age=31536000' } },
     '/assets/fonts/**': { headers: { 'Cache-Control': 'max-age=31536000' } },
     '/assets/plugins/**': { headers: { 'Cache-Control': 'max-age=31536000' } },
-    '/data/**': { headers: { 'Cache-Control': 'public, max-age=3600, s-maxage=3600' } }
+    '/data/**': { headers: { 'Cache-Control': 'public, max-age=3600, s-maxage=3600' } },
+
+    // Contenido gestionado desde el panel: se regenera bajo demanda como
+    // máximo cada 5 minutos, así que las ediciones se ven casi al instante
+    // sin renderizar en cada visita.
+    '/': { isr: 300 },
+    '/blog/**': { isr: 300 },
+    '/producto/**': { isr: 300 },
+    '/product': { isr: 300 },
+    '/projects': { isr: 300 },
+
+    // El panel es privado y depende de la sesión: nunca debe cachearse ni
+    // servirse desde el prerender.
+    '/admin/**': { ssr: false, index: false, headers: { 'Cache-Control': 'no-store' } },
+    '/api/admin/**': { headers: { 'Cache-Control': 'no-store' } }
   }
 })

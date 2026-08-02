@@ -1,53 +1,119 @@
 <template>
   <div>
-    <div class="admin-page-header">
-      <h1>Editar producto</h1>
-      <button type="button" class="btn btn-danger" @click="onDelete">Borrar producto</button>
+    <AdminPageHeader
+      :title="product?.name || 'Editar producto'"
+      :subtitle="subtitle"
+      :crumbs="[{ label: 'Productos', to: '/admin/products' }, { label: product?.name || 'Editar' }]"
+    >
+      <template #actions>
+        <a
+          v-if="product?.slug"
+          :href="`/producto/${product.slug}`"
+          target="_blank"
+          rel="noopener"
+          class="a-btn a-btn--ghost"
+        >
+          <i class="fas fa-eye" /> Ver en el sitio
+        </a>
+        <button type="button" class="a-btn a-btn--danger-ghost" :disabled="deleting" @click="onDelete">
+          <i class="fas fa-trash-alt" /> Borrar
+        </button>
+      </template>
+    </AdminPageHeader>
+
+    <div v-if="loadError" class="a-alert a-alert--error">
+      <i class="fas fa-exclamation-triangle" />
+      <span class="a-grow">No se encontró este producto o no se pudo cargar.</span>
+      <NuxtLink to="/admin/products" class="a-btn a-btn--ghost a-btn--sm">Volver al listado</NuxtLink>
     </div>
-    <ProductForm :initial="product || {}" :loading="loading" :error="error" submit-label="Guardar cambios" @submit="onSubmit" />
+
+    <div v-else-if="pending" class="a-card">
+      <div class="a-card__body">
+        <div class="a-skeleton" style="height: 380px;" />
+      </div>
+    </div>
+
+    <ProductForm
+      v-else
+      ref="formRef"
+      :initial="product || {}"
+      :loading="saving"
+      :error="error"
+      submit-label="Guardar cambios"
+      @submit="onSubmit"
+      @dirty="dirty = $event"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import AdminPageHeader from '~/components/Admin/AdminPageHeader.vue'
 import ProductForm from '~/components/Admin/ProductForm.vue'
+import { formatDateTime } from '~/utils/format'
 
 definePageMeta({ middleware: 'admin', layout: 'admin' })
 
 const route = useRoute()
-const loading = ref(false)
-const error = ref('')
+const api = useAdminApi()
+const toast = useAdminToast()
+const { confirm } = useAdminConfirm()
 
-const { data: product } = await useAsyncData(`admin-product-${route.params.id}`, () =>
-  $fetch(`/api/admin/products/${route.params.id}`)
+const formRef = ref(null)
+const saving = ref(false)
+const deleting = ref(false)
+const error = ref('')
+const dirty = ref(false)
+
+const { release } = useUnsavedGuard(dirty)
+
+const { data: product, pending, error: loadError } = await useAsyncData(
+  `admin-product-${route.params.id}`,
+  () => api.get(`/api/admin/products/${route.params.id}`)
 )
 
+useHead(() => ({ title: `${product.value?.name || 'Producto'} · Panel Magiancestral` }))
+
+const subtitle = computed(() => (
+  product.value?.updatedAt ? `Última edición: ${formatDateTime(product.value.updatedAt)}` : ''
+))
+
 const onSubmit = async (payload) => {
-  loading.value = true
+  saving.value = true
   error.value = ''
   try {
-    await $fetch(`/api/admin/products/${route.params.id}`, { method: 'PUT', body: payload })
+    await api.put(`/api/admin/products/${route.params.id}`, payload)
+    formRef.value?.markSaved()
+    release()
+    toast.success('Cambios guardados')
     await navigateTo('/admin/products')
   } catch (err) {
-    error.value = err?.data?.message || 'No se pudo guardar el producto'
+    error.value = adminErrorMessage(err, 'No se pudo guardar el producto')
   } finally {
-    loading.value = false
+    saving.value = false
   }
 }
 
 const onDelete = async () => {
-  if (!confirm('¿Borrar este producto?')) return
-  await $fetch(`/api/admin/products/${route.params.id}`, { method: 'DELETE' })
-  await navigateTo('/admin/products')
+  const ok = await confirm({
+    title: 'Borrar producto',
+    message: `¿Seguro que quieres borrar “${product.value?.name}”?`,
+    detail: 'Desaparecerá de la botica de inmediato. Esta acción no se puede deshacer.',
+    confirmLabel: 'Borrar',
+    danger: true
+  })
+  if (!ok) return
+
+  deleting.value = true
+  try {
+    await api.del(`/api/admin/products/${route.params.id}`)
+    release()
+    toast.success('Producto borrado')
+    await navigateTo('/admin/products')
+  } catch (err) {
+    toast.error(adminErrorMessage(err, 'No se pudo borrar el producto'))
+  } finally {
+    deleting.value = false
+  }
 }
 </script>
-
-<style scoped>
-.admin-page-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 720px;
-  margin-bottom: 20px;
-}
-</style>

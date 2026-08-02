@@ -1,22 +1,7 @@
 import { desc } from 'drizzle-orm'
 import { useDb } from '../../db/client'
 import { products } from '../../db/schema'
-
-// Taxonomía fija de categorías del catálogo (no editable desde el admin en esta versión).
-const CATEGORIES = [
-  {
-    id: 'consumibles',
-    name: 'Consumibles',
-    slug: 'consumibles',
-    description: 'Productos naturales para consumo: extractos, microdosis, hongos medicinales y alimentos ancestrales'
-  },
-  {
-    id: 'objetos-poder',
-    name: 'Objetos de Poder',
-    slug: 'objetos-de-poder',
-    description: 'Objetos ceremoniales y amuletos para rituales y protección energética'
-  }
-]
+import { PRODUCT_CATEGORIES } from '../../../utils/productCategories'
 
 export default defineEventHandler(async () => {
   const db = useDb()
@@ -24,7 +9,7 @@ export default defineEventHandler(async () => {
 
   return {
     products: rows,
-    categories: CATEGORIES,
+    categories: PRODUCT_CATEGORIES,
     metadata: {
       totalProducts: rows.length,
       currency: 'USD',
