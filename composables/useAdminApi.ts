@@ -40,13 +40,22 @@ export function useAdminApi() {
   }
 }
 
-/** Extrae el mensaje legible de un error de `$fetch`/H3. */
+/**
+ * Extrae el mensaje legible de un error de `$fetch`/H3.
+ *
+ * En producción Vercel oculta el detalle de los 500 ("Server Error"), así que
+ * se añade el `x-request-id` que emite `server/plugins/error-handler.ts`: con
+ * ese código se localiza la línea exacta en los logs de Vercel.
+ */
 export function adminErrorMessage(err: any, fallback = 'Ocurrió un error inesperado'): string {
-  return (
+  const message = (
     err?.data?.message ||
     err?.data?.statusMessage ||
     err?.statusMessage ||
     (typeof err?.message === 'string' && !err.message.startsWith('[') ? err.message : '') ||
     fallback
   )
+
+  const requestId = err?.response?.headers?.get?.('x-request-id')
+  return requestId ? `${message} (ref: ${requestId})` : message
 }
