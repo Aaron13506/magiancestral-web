@@ -16,7 +16,11 @@
 
     <div v-if="error" class="a-alert a-alert--error">
       <i class="fas fa-exclamation-triangle" />
-      <span>No se pudieron cargar las estadísticas. Revisa la conexión con la base de datos.</span>
+      <span class="a-grow">
+        No se pudieron cargar las estadísticas.
+        <span class="a-mono">{{ adminErrorMessage(error) }}</span>
+      </span>
+      <button type="button" class="a-btn a-btn--ghost a-btn--sm" @click="refresh()">Reintentar</button>
     </div>
 
     <!-- Métricas -->
@@ -60,8 +64,11 @@
           <span class="a-stat__label">Biblioteca</span>
           <span class="a-stat__icon"><i class="fas fa-images" /></span>
         </div>
-        <p class="a-stat__value">{{ pending ? '—' : stats.media.total }}</p>
-        <p class="a-stat__meta">{{ formatBytes(stats.media.bytes) }} almacenados</p>
+        <p class="a-stat__value">{{ pending || !stats.media ? '—' : stats.media.total }}</p>
+        <p class="a-stat__meta">
+          <template v-if="stats.media">{{ formatBytes(stats.media.bytes) }} almacenados</template>
+          <template v-else-if="!pending">Almacenamiento no disponible</template>
+        </p>
       </NuxtLink>
     </div>
 
@@ -205,14 +212,14 @@ const EMPTY = {
   products: { total: 0, outOfStock: 0, featured: 0, noImage: 0 },
   blog: { total: 0, studies: 0, reflections: 0 },
   events: { total: 0, upcoming: 0 },
-  media: { total: 0, bytes: 0 },
+  media: null,
   recentProducts: [],
   recentArticles: [],
   upcomingEvents: []
 }
 
 // Comparte la clave con el layout: una sola petición alimenta el menú y el panel.
-const { data, pending, error } = await useAsyncData(
+const { data, pending, error, refresh } = await useAsyncData(
   'admin-nav-stats',
   () => api.get('/api/admin/stats'),
   { default: () => null }

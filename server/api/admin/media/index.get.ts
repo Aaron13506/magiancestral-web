@@ -1,5 +1,6 @@
 import { useDb } from '../../../db/client'
 import { blogArticles, events, products } from '../../../db/schema'
+import { listMedia } from '../../../utils/s3'
 
 /**
  * Biblioteca de medios: todo lo subido al bucket, marcando qué archivos están

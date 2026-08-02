@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { deleteMedia } from '../../../utils/s3'
 
 const bodySchema = z.object({
   keys: z.array(z.string().min(1)).min(1, 'Selecciona al menos un archivo')
