@@ -25,7 +25,7 @@
                 <h2>{{ product?.name || 'Producto' }}</h2>
                 <div class="product_detail_review_box">
                   <div class="product_detail_price_box">
-                    <p>${{ product?.price?.toFixed(2) || '0.00' }} {{ product?.currency || 'MXN' }}</p>
+                    <p>${{ formatAmount(product?.price) }} {{ product?.currency || 'USD' }}</p>
                   </div>
                 </div>
                 <div class="product_detail_text">
@@ -146,6 +146,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useCartStore } from '~/store'
+import { formatAmount } from '~/utils/format'
 
 const props = defineProps({
   product: {

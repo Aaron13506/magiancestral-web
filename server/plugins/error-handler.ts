@@ -84,7 +84,12 @@ function describe(error: any, depth = 0): string[] {
   lines.push(`${pad}${error.name || 'Error'}: ${error.message || String(error)}`)
 
   // Postgres (postgres.js): el `code` y el `detail` identifican el fallo real.
-  for (const key of ['code', 'severity', 'detail', 'hint', 'position', 'table', 'column', 'constraint_name', 'routine'] as const) {
+  // Los campos de red (`errno`, `syscall`, `address`) distinguen un error de
+  // SQL de uno de conectividad — p. ej. ENETUNREACH al intentar IPv6.
+  for (const key of [
+    'code', 'errno', 'syscall', 'address', 'port',
+    'severity', 'detail', 'hint', 'position', 'table', 'column', 'constraint_name', 'routine'
+  ] as const) {
     if (error[key] != null) lines.push(`${pad}  ${key}: ${error[key]}`)
   }
 

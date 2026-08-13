@@ -14,6 +14,20 @@ export function formatPrice(price: number | string | null | undefined, currency 
   return `${currency} ${value.toFixed(2)}`
 }
 
+/**
+ * Importe con dos decimales para el sitio público (sin símbolo ni moneda, que
+ * las plantillas ya ponen alrededor).
+ *
+ * Acepta cadenas a propósito: `price.toFixed(2)` sobre un `numeric` de
+ * Postgres —que llega como `'15.00'`— dejó la botica en blanco, y el carrito
+ * guardado en `localStorage` todavía puede conservar precios en ese formato
+ * aunque el esquema ya devuelva números.
+ */
+export function formatAmount(value: number | string | null | undefined): string {
+  const amount = Number(value)
+  return (Number.isFinite(amount) ? amount : 0).toFixed(2)
+}
+
 const MONTHS_ES = [
   'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
   'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'

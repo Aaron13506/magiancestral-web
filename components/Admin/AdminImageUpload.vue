@@ -36,7 +36,7 @@
         <template v-if="uploading">Subiendo imagen…</template>
         <template v-else><strong>Haz clic para subir</strong> o arrastra una imagen aquí</template>
       </p>
-      <p class="a-dropzone__hint">JPG, PNG, WebP, GIF o SVG · máximo 8 MB</p>
+      <p class="a-dropzone__hint">JPG, PNG, WebP, GIF o SVG · máximo 8 MB · las fotos se optimizan solas al subirlas</p>
     </div>
 
     <input
@@ -83,6 +83,8 @@
 <script setup>
 import { computed, ref } from 'vue'
 import AdminMediaPicker from './AdminMediaPicker.vue'
+import { VERCEL_BODY_LIMIT_BYTES, compressImage } from '~/utils/compressImage'
+import { formatBytes } from '~/utils/format'
 
 const props = defineProps({
   modelValue: { type: String, default: '' }
@@ -154,8 +156,18 @@ async function upload(file) {
   error.value = ''
 
   try {
+    const optimized = await compressImage(file)
+
+    // Un SVG o un GIF animado no se pueden recomprimir, así que todavía pueden
+    // superar el tope de la plataforma. Mejor decirlo aquí que dejar que Vercel
+    // devuelva un 413 sin mensaje.
+    if (optimized.size > VERCEL_BODY_LIMIT_BYTES) {
+      error.value = `La imagen pesa ${formatBytes(optimized.size)} y no se puede reducir automáticamente. El máximo por subida es 4,5 MB.`
+      return
+    }
+
     const formData = new FormData()
-    formData.append('file', file)
+    formData.append('file', optimized)
     const result = await api.post('/api/admin/uploads/image', formData)
     emit('update:modelValue', result.url)
   } catch (err) {

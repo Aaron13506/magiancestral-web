@@ -151,6 +151,7 @@
 import { computed, ref } from 'vue'
 import AdminPageHeader from '~/components/Admin/AdminPageHeader.vue'
 import { formatBytes, formatDateTime } from '~/utils/format'
+import { VERCEL_BODY_LIMIT_BYTES, compressImage } from '~/utils/compressImage'
 
 definePageMeta({ middleware: 'admin', layout: 'admin' })
 
@@ -229,12 +230,23 @@ async function onFilesChosen(event) {
   let ok = 0
 
   for (const file of files) {
-    const endpoint = file.type === 'application/pdf'
+    const isPdf = file.type === 'application/pdf'
+    const endpoint = isPdf
       ? '/api/admin/uploads/document'
       : '/api/admin/uploads/image'
     try {
+      const payload = isPdf ? file : await compressImage(file)
+
+      // Vercel rechaza el cuerpo por encima de 4,5 MB antes de que llegue a la
+      // función, con un 413 sin mensaje. Los PDF y los formatos que no se
+      // pueden recomprimir (SVG, GIF animado) todavía pueden pasarse.
+      if (payload.size > VERCEL_BODY_LIMIT_BYTES) {
+        toast.error(`${file.name}: pesa ${formatBytes(payload.size)} y el máximo por subida es 4,5 MB`)
+        continue
+      }
+
       const formData = new FormData()
-      formData.append('file', file)
+      formData.append('file', payload)
       await api.post(endpoint, formData)
       ok++
     } catch (err) {

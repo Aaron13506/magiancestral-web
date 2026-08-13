@@ -12,7 +12,7 @@ export const useCartStore = defineStore('cart', {
       return state.items.reduce((total, item) => total + item.quantity, 0)
     },
     totalPrice: (state) => {
-      return state.items.reduce((total, item) => total + (item.price * item.quantity), 0)
+      return state.items.reduce((total, item) => total + (Number(item.price) || 0) * item.quantity, 0)
     },
     cartIsEmpty: (state) => {
       return state.items.length === 0
@@ -22,11 +22,21 @@ export const useCartStore = defineStore('cart', {
   actions: {
     // Cargar carrito desde localStorage
     loadCart() {
-      if (typeof window !== 'undefined') {
-        const savedCart = localStorage.getItem('magiancestral-cart')
-        if (savedCart) {
-          this.items = JSON.parse(savedCart)
-        }
+      if (typeof window === 'undefined') return
+
+      const savedCart = localStorage.getItem('magiancestral-cart')
+      if (!savedCart) return
+
+      try {
+        const parsed = JSON.parse(savedCart)
+        // Los carritos guardados antes de la corrección del esquema tienen el
+        // precio como cadena ('15.00'), lo que rompía los importes al
+        // recargarlos. Se normaliza al entrar para no arrastrar el formato.
+        this.items = Array.isArray(parsed)
+          ? parsed.map(item => ({ ...item, price: Number(item.price) || 0 }))
+          : []
+      } catch {
+        this.items = []
       }
     },
 
@@ -48,7 +58,7 @@ export const useCartStore = defineStore('cart', {
           id: product.id,
           name: product.name,
           shortName: product.shortName,
-          price: product.price,
+          price: Number(product.price) || 0,
           currency: product.currency,
           image: product.image,
           slug: product.slug,

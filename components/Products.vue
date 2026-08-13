@@ -45,7 +45,7 @@
                       </div>
                       <div class="title-box">
                         <h4><nuxt-link :to="`/producto/${product.slug}`">{{ product.shortName || product.name }}</nuxt-link></h4>
-                        <div class="value">${{ product.price.toFixed(2) }} {{ product.currency }}</div>
+                        <div class="value">${{ formatAmount(product.price) }} {{ product.currency }}</div>
                       </div>
                     </div>
                   </li>
@@ -96,7 +96,7 @@
                       </div>
                     </div>
                     <h4><nuxt-link :to="`/producto/${product.slug}`">{{ product.shortName || product.name }}</nuxt-link></h4>
-                    <p>${{ product.price.toFixed(2) }} {{ product.currency }}</p>
+                    <p>${{ formatAmount(product.price) }} {{ product.currency }}</p>
                   </div>
                 </div>
               </div>
@@ -110,6 +110,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { formatAmount } from '~/utils/format'
 
 const searchQuery = ref('')
 const selectedCategory = ref(null)
@@ -154,12 +155,13 @@ const totalProducts = computed(() => {
 const filteredProducts = computed(() => {
   let products = [...allProducts.value]
 
-  // Filter by search query
+  // Filter by search query. `description` es opcional en la base de datos, así
+  // que se normaliza antes de comparar para no romper la búsqueda.
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
     products = products.filter(p =>
-      p.name.toLowerCase().includes(query) ||
-      p.description.toLowerCase().includes(query)
+      String(p.name ?? '').toLowerCase().includes(query) ||
+      String(p.description ?? '').toLowerCase().includes(query)
     )
   }
 
@@ -177,16 +179,16 @@ const displayProducts = computed(() => {
   // Apply sorting
   switch (sortOrder.value) {
     case 'price-asc':
-      products.sort((a, b) => a.price - b.price)
+      products.sort((a, b) => Number(a.price) - Number(b.price))
       break
     case 'price-desc':
-      products.sort((a, b) => b.price - a.price)
+      products.sort((a, b) => Number(b.price) - Number(a.price))
       break
     case 'name-asc':
-      products.sort((a, b) => a.name.localeCompare(b.name))
+      products.sort((a, b) => String(a.name ?? '').localeCompare(String(b.name ?? '')))
       break
     case 'name-desc':
-      products.sort((a, b) => b.name.localeCompare(a.name))
+      products.sort((a, b) => String(b.name ?? '').localeCompare(String(a.name ?? '')))
       break
     default:
       // Default sorting by ID

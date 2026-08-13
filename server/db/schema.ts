@@ -1,11 +1,37 @@
-import { boolean, date, jsonb, numeric, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core'
+import { boolean, customType, date, jsonb, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core'
+
+/**
+ * `numeric` de Postgres llega al cliente como CADENA (`'15.00'`), porque el
+ * tipo no cabe en un `number` de JS sin perder precisión.
+ *
+ * La opción `numeric(..., { mode: 'number' })` que convertiría el valor no
+ * existe en drizzle-orm 0.33 — su `numeric()` solo lee `precision` y `scale`,
+ * de modo que `mode` se ignoraba EN SILENCIO y el precio viajaba como cadena
+ * hasta las vistas, donde `price.toFixed(2)` reventaba el render de la botica.
+ *
+ * Este tipo hace la conversión de verdad, en el único punto por el que pasan
+ * todas las lecturas y escrituras de la columna.
+ */
+const priceColumn = customType<{
+  data: number
+  driverData: string
+  config: { precision?: number, scale?: number }
+}>({
+  dataType(config) {
+    if (config?.precision != null && config?.scale != null) return `numeric(${config.precision}, ${config.scale})`
+    if (config?.precision != null) return `numeric(${config.precision})`
+    return 'numeric'
+  },
+  fromDriver: value => Number(value),
+  toDriver: value => String(value)
+})
 
 export const products = pgTable('products', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
   slug: text('slug').notNull().unique(),
   shortName: text('short_name'),
-  price: numeric('price', { precision: 10, scale: 2, mode: 'number' }).notNull(),
+  price: priceColumn('price', { precision: 10, scale: 2 }).notNull(),
   currency: text('currency').notNull().default('USD'),
   image: text('image'),
   gallery: jsonb('gallery').notNull().default([]),

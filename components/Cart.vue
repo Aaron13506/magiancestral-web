@@ -39,7 +39,7 @@
                       </div>
                     </div>
                   </td>
-                  <td class="pro_price">${{ item.price.toFixed(2) }}</td>
+                  <td class="pro_price">${{ formatAmount(item.price) }}</td>
                   <td class="pro_qty">
                     <div class="product-quantity-box">
                       <div class="input-box">
@@ -53,7 +53,7 @@
                       </div>
                     </div>
                   </td>
-                  <td class="pro_sub_total">${{ (item.price * item.quantity).toFixed(2) }}</td>
+                  <td class="pro_sub_total">${{ formatAmount(item.price * item.quantity) }}</td>
                   <td>
                     <div class="pro_remove" @click="removeItem(item.id)">
                       <i class="fas fa-times"></i>
@@ -80,9 +80,9 @@
           </div>
           <div class="col-xl-6">
             <ul class="total_box list-unstyled">
-              <li><span>Subtotal</span>${{ cartStore.totalPrice.toFixed(2) }} USD</li>
+              <li><span>Subtotal</span>${{ formatAmount(cartStore.totalPrice) }} USD</li>
               <li><span>Envío</span>Por coordinar</li>
-              <li class="total"><span>Total</span>${{ cartStore.totalPrice.toFixed(2) }} USD</li>
+              <li class="total"><span>Total</span>${{ formatAmount(cartStore.totalPrice) }} USD</li>
             </ul>
           </div>
         </div>
@@ -107,6 +107,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useCartStore } from '~/store'
+import { formatAmount } from '~/utils/format'
 
 const cartStore = useCartStore()
 const customerName = ref('')
