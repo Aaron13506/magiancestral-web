@@ -78,3 +78,14 @@ export const events = pgTable('events', {
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow()
 })
+
+/**
+ * Ajustes del sitio editables desde el panel, guardados como pares
+ * clave → JSON. La primera clave es `hero` (las fotos de la portada); el
+ * formato de cada valor lo define su propio esquema de validación.
+ */
+export const siteSettings = pgTable('site_settings', {
+  key: text('key').primaryKey(),
+  value: jsonb('value').notNull().default({}),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow()
+})

@@ -1,19 +1,38 @@
 <template>
-  <section class="banner_four_section">
-    <div class="banner-carousel-four">
+  <section class="banner_four_section" :class="{ 'has-mobile': hasMobileTrack }">
+    <!--
+      Se imprimen las dos pistas (escritorio y teléfono) y es el CSS quien
+      decide cuál se ve. Así el encuadre correcto ya está en el HTML servido,
+      sin esperar a JavaScript, y el navegador no descarga las fotos de la
+      pista oculta porque no llega a pintar su `background-image`.
+    -->
+    <div
+      v-for="track in tracks"
+      :key="track.mode"
+      class="banner-carousel-four"
+      :class="`hero-track--${track.mode}`"
+    >
       <Swiper
         :modules="[SwiperAutoplay, SwiperNavigation]"
         :slides-per-view="1"
-        :autoplay="{ delay: 5000 }"
-        :loop="true"
+        :autoplay="{ delay: 5000, disableOnInteraction: false }"
+        :loop="track.slides.length > 2"
+        :rewind="track.slides.length === 2"
         :navigation="false"
+        :observer="true"
+        :observe-parents="true"
         class="swiper-container"
+        @swiper="sw => registrarSwiper(track.mode, sw)"
       >
-        <!-- Slide Item -->
-        <SwiperSlide>
+        <SwiperSlide v-for="(slide, index) in track.slides" :key="`${track.mode}-${index}-${slide.image}`">
           <div class="slide-item">
-            <div class="image-layer slider-main1" style="background-image: url(/assets/images/main-slider/sliderMain1.jpg);">
-            </div>
+            <div
+              class="image-layer"
+              :style="{
+                backgroundImage: `url(${slide.image})`,
+                backgroundPosition: heroFocusStyle(slide)
+              }"
+            />
             <div class="auto-container">
               <div class="content-box">
                 <div class="content text-left">
@@ -28,54 +47,16 @@
             </div>
           </div>
         </SwiperSlide>
-
-        <!-- Slide Item -->
-        <SwiperSlide>
-          <div class="slide-item">
-            <div class="image-layer slider-main2" style="background-image: url(/assets/images/main-slider/sliderMain2.jpg);">
-            </div>
-            <div class="auto-container">
-              <div class="content-box">
-                <div class="content text-left">
-                  <div class="inner">
-                    <h1><span>Magia</span><br> Ancestral</h1>
-                    <div class="subtitle-box">
-                      <p class="subtitle">Te da la bienvenida a <span class="familia-break">nuestra comunidad</span></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-
-        <!-- Slide Item -->
-        <SwiperSlide>
-          <div class="slide-item">
-            <div class="image-layer slider-main3" style="background-image: url(/assets/images/main-slider/sliderMain3.jpg);">
-            </div>
-            <div class="auto-container">
-              <div class="content-box">
-                <div class="content text-left">
-                  <div class="inner">
-                    <h1><span>Magia</span><br> Ancestral</h1>
-                    <div class="subtitle-box">
-                      <p class="subtitle">Te da la bienvenida<span class="familia-break"> a nuestra comunidad</span></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
       </Swiper>
     </div>
   </section>
 </template>
 
 <script setup>
+import { computed, onBeforeUnmount, onMounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Navigation } from 'swiper/modules'
+import { DEFAULT_HERO_SETTINGS, HERO_MOBILE_BREAKPOINT, heroFocusStyle, normalizeHeroSettings } from '~/utils/heroSlides'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -85,6 +66,58 @@ import 'swiper/css/autoplay'
 // Swiper modules
 const SwiperAutoplay = Autoplay
 const SwiperNavigation = Navigation
+
+// Las fotos se editan en /admin/portada. El endpoint ya devuelve las de
+// fábrica si algo falla, y el `default` cubre además el caso de que la
+// petición ni siquiera llegue a resolverse.
+const { data: hero } = await useAsyncData(
+  'hero-settings',
+  () => $fetch('/api/settings/hero'),
+  { default: () => DEFAULT_HERO_SETTINGS }
+)
+
+const settings = computed(() => normalizeHeroSettings(hero.value))
+const hasMobileTrack = computed(() => settings.value.mobile.length > 0)
+
+const tracks = computed(() => {
+  const list = [{ mode: 'desktop', slides: settings.value.desktop }]
+  // Sin fotos propias de teléfono, la pista de escritorio sirve para todo.
+  if (hasMobileTrack.value) list.push({ mode: 'mobile', slides: settings.value.mobile })
+  return list
+})
+
+/**
+ * La pista que nace oculta se inicializa sin medidas (Swiper no ve ningún
+ * slide dentro de un `display: none`), así que al cruzar el corte hay que
+ * pedirle que se recalcule. Sin esto, quien estrecha la ventana —o rota la
+ * tableta— se queda con el carrusel del teléfono parado y en blanco.
+ */
+const swipers = new Map()
+let consulta = null
+
+function registrarSwiper(mode, instancia) {
+  swipers.set(mode, instancia)
+}
+
+function refrescarSwipers() {
+  swipers.forEach((sw) => {
+    if (!sw || sw.destroyed) return
+    sw.update()
+    sw.autoplay?.start()
+  })
+}
+
+onMounted(() => {
+  consulta = window.matchMedia(`(max-width: ${HERO_MOBILE_BREAKPOINT}px)`)
+  consulta.addEventListener('change', refrescarSwipers)
+  // Primera pasada: la pista visible puede haberse montado ya con medidas,
+  // pero la otra no, y basta un `update()` para dejarlas coherentes.
+  refrescarSwipers()
+})
+
+onBeforeUnmount(() => {
+  consulta?.removeEventListener('change', refrescarSwipers)
+})
 </script>
 
 <style scoped>
@@ -97,6 +130,11 @@ const SwiperNavigation = Navigation
   position: relative;
   height: 100vh;
   min-height: 600px;
+}
+
+/* La pista de teléfono solo existe si el panel tiene fotos para ella. */
+.hero-track--mobile {
+  display: none;
 }
 
 .swiper-container {
@@ -123,12 +161,6 @@ const SwiperNavigation = Navigation
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
-}
-
-/* Desktop: encuadre por slide. La familia está a la derecha en sliderMain2,
-   así que desplazamos el foco para no recortar las caras. */
-.slider-main2 {
-  background-position: 65% center;
 }
 
 .image-layer::before {
@@ -310,18 +342,14 @@ const SwiperNavigation = Navigation
     height: 85vh;
     min-height: 520px;
   }
-}
 
-@media (max-width: 480px) {
-  .inner h1 {
-    font-size: 2rem !important;
-    line-height: 1.05 !important;
-    margin: 0 !important;
+  /* Debajo del corte manda la pista de teléfono, si la hay. */
+  .has-mobile .hero-track--desktop {
+    display: none;
   }
 
-  .subtitle {
-    font-size: 0.85rem !important;
-    padding: 9px 18px !important;
+  .has-mobile .hero-track--mobile {
+    display: block;
   }
 }
 
@@ -379,18 +407,6 @@ const SwiperNavigation = Navigation
     gap: 24px !important;
   }
 
-  .slider-main1 {
-    background-position: center 65% !important;
-  }
-
-  .slider-main2 {
-    background-position: 88% 55% !important;
-  }
-
-  .slider-main3 {
-    background-position: 70% center !important;
-  }
-
   /* Split layout: título arriba, caja abajo — deja el centro libre para las caras */
   .slide-item {
     display: flex !important;
@@ -420,8 +436,6 @@ const SwiperNavigation = Navigation
   .inner {
     display: contents !important;
   }
-
-  .banner_four_section h1.h1mobile-fallback {} /* placeholder */
 
   .inner h1 {
     order: 1 !important;
@@ -458,30 +472,22 @@ const SwiperNavigation = Navigation
       rgba(0,0,0,0.8) 100%
     ) !important;
   }
-
-  /* Muestra más cielo arriba en cada slide para que respire el título */
-  .slider-main1 {
-    background-position: center 35% !important;
-  }
-  .slider-main2 {
-    background-position: 75% 30% !important;
-  }
-  .slider-main3 {
-    background-position: 65% 35% !important;
-  }
 }
 
 @media (max-width: 480px) {
+  .inner h1 {
+    font-size: 2rem !important;
+    line-height: 1.05 !important;
+    margin: 0 !important;
+  }
+
   .inner {
     gap: 20px !important;
   }
 
-  .slider-main2 {
-    background-position: 90% 55% !important;
-  }
-
-  .slider-main3 {
-    background-position: 75% 60% !important;
+  .subtitle {
+    font-size: 0.85rem !important;
+    padding: 9px 18px !important;
   }
 }
 </style>
