@@ -118,6 +118,7 @@ const navGroups = computed(() => [
   {
     label: 'Contenido',
     items: [
+      { to: '/admin/portada', label: 'Portada', icon: 'fas fa-image' },
       { to: '/admin/products', label: 'Productos', icon: 'fas fa-box-open', count: stats.value?.products?.total },
       { to: '/admin/blog', label: 'Blog', icon: 'fas fa-feather-alt', count: stats.value?.blog?.total },
       { to: '/admin/events', label: 'Eventos', icon: 'fas fa-calendar-alt', count: stats.value?.events?.upcoming }
