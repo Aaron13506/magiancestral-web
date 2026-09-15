@@ -63,7 +63,11 @@ export default defineNuxtConfig({
     s3SecretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
     s3EndpointUrl: process.env.S3_ENDPOINT_URL,
     s3Region: process.env.S3_REGION,
-    s3PublicUrlBase: process.env.S3_PUBLIC_URL_BASE
+    s3PublicUrlBase: process.env.S3_PUBLIC_URL_BASE,
+    // Mismo valor que `nitro.vercel.config.bypassToken` de aquí abajo: sin él
+    // no hay forma de forzar el refresco de una página con ISR más rápido que
+    // esperar a que pase el visitante que dispara la regeneración de fondo.
+    vercelIsrBypassToken: process.env.VERCEL_ISR_BYPASS_TOKEN
   },
 
   nitro: {
@@ -76,6 +80,16 @@ export default defineNuxtConfig({
       routes: [
         '/blog'
       ]
+    },
+    // Habilita la revalidación bajo demanda de Vercel (header
+    // `x-prerender-revalidate`) para las rutas con `isr`. Sin este token, ISR
+    // solo se refresca cuando pasan 5 minutos Y alguien vuelve a pedir la
+    // página; en un sitio con poco tráfico eso puede tardar mucho más de 5
+    // minutos en notarse. Ver `server/utils/revalidate.ts`.
+    vercel: {
+      config: {
+        bypassToken: process.env.VERCEL_ISR_BYPASS_TOKEN
+      }
     }
   },
 

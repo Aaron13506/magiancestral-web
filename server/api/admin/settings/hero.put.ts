@@ -10,5 +10,11 @@ export default defineEventHandler(async (event) => {
   }
 
   const saved = await putSiteSetting(HERO_SETTINGS_KEY, normalizeHeroSettings(parsed.data))
+
+  // Sin esto, la portada usa ISR de 5 minutos y en un sitio con poco tráfico
+  // el cambio puede tardar mucho más en verse: nadie visita para disparar la
+  // regeneración de fondo. Mejor esfuerzo: si falla, el guardado ya sucedió.
+  await revalidatePath(event, '/')
+
   return normalizeHeroSettings(saved)
 })
