@@ -34,9 +34,32 @@
       </div>
 
       <div class="a-portada">
-        <!-- Editor -->
+        <!-- Editor: una pestaña a la vez, para no tener que bajar por una
+             lista mientras se pierde de vista la otra y la vista previa. -->
         <div class="a-portada__col">
+          <div class="a-modetabs">
+            <button
+              type="button"
+              class="a-modetabs__btn"
+              :class="{ 'a-modetabs__btn--on': mode === 'desktop' }"
+              @click="mode = 'desktop'"
+            >
+              <i class="fas fa-desktop" /> Computadora
+              <span class="a-modetabs__count">{{ form.desktop.length }}</span>
+            </button>
+            <button
+              type="button"
+              class="a-modetabs__btn"
+              :class="{ 'a-modetabs__btn--on': mode === 'mobile' }"
+              @click="mode = 'mobile'"
+            >
+              <i class="fas fa-mobile-alt" /> Teléfono
+              <span class="a-modetabs__count">{{ form.mobile.length }}</span>
+            </button>
+          </div>
+
           <AdminFieldset
+            v-if="mode === 'desktop'"
             title="Fotos para computadora"
             description="Se usan en pantallas anchas. Son obligatorias: si no hay fotos de teléfono, el móvil también las usa."
           >
@@ -44,13 +67,14 @@
               v-model="form.desktop"
               :max="max"
               mode="desktop"
-              :active-index="mode === 'desktop' ? index : -1"
+              :active-index="index"
               empty-text="Añade al menos una foto horizontal."
               @preview="focusSlide('desktop', $event)"
             />
           </AdminFieldset>
 
           <AdminFieldset
+            v-else
             title="Fotos para teléfono (opcional)"
             :description="`Se usan en pantallas de ${breakpoint}px de ancho o menos. Aquí van las fotos verticales, para que el recorte no se coma a la gente. Si lo dejas vacío, el teléfono muestra las de computadora.`"
           >
@@ -58,7 +82,7 @@
               v-model="form.mobile"
               :max="max"
               mode="mobile"
-              :active-index="mode === 'mobile' ? index : -1"
+              :active-index="index"
               empty-text="Sin fotos propias de teléfono: se mostrarán las de computadora."
               @preview="focusSlide('mobile', $event)"
             />
@@ -193,6 +217,53 @@ async function save() {
 </script>
 
 <style scoped>
+.a-modetabs {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 3px;
+  border: 1px solid var(--a-border);
+  border-radius: 999px;
+  background: var(--a-surface-alt);
+}
+
+.a-modetabs__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  color: var(--a-text-soft);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+
+.a-modetabs__btn--on {
+  background: #fff;
+  color: var(--a-text);
+  box-shadow: var(--a-shadow);
+}
+
+.a-modetabs__count {
+  min-width: 18px;
+  padding: 1px 5px;
+  border-radius: 999px;
+  background: var(--a-border);
+  color: var(--a-text-mute);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.a-modetabs__btn--on .a-modetabs__count {
+  background: var(--a-accent);
+  color: #fff;
+}
+
 .a-portada {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(340px, 520px);

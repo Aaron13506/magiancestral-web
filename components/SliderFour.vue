@@ -94,6 +94,7 @@ const tracks = computed(() => {
  */
 const swipers = new Map()
 let consulta = null
+let resizeFrame = null
 
 function registrarSwiper(mode, instancia) {
   swipers.set(mode, instancia)
@@ -107,9 +108,34 @@ function refrescarSwipers() {
   })
 }
 
+/**
+ * `matchMedia` solo avisa al cruzar el corte, pero un `resize` normal (sin
+ * cruzarlo, o disparado a mano para pruebas) puede dejar una pista visible
+ * con las medidas viejas. Se revisa cada instancia y solo se llama a
+ * `update()` si la pista está visible y su ancho no coincide con el del
+ * contenedor —o Swiper la inicializó con 0 slides—, para no forzar recálculos
+ * de más en cada frame de un redimensionado normal.
+ */
+function pistaDesactualizada(sw) {
+  if (!sw || sw.destroyed || !sw.el) return false
+  if (sw.el.offsetParent === null) return false
+  return sw.slides.length === 0 || sw.width !== sw.el.offsetWidth
+}
+
+function alRedimensionar() {
+  if (resizeFrame) cancelAnimationFrame(resizeFrame)
+  resizeFrame = requestAnimationFrame(() => {
+    resizeFrame = null
+    swipers.forEach((sw) => {
+      if (pistaDesactualizada(sw)) sw.update()
+    })
+  })
+}
+
 onMounted(() => {
   consulta = window.matchMedia(`(max-width: ${HERO_MOBILE_BREAKPOINT}px)`)
   consulta.addEventListener('change', refrescarSwipers)
+  window.addEventListener('resize', alRedimensionar)
   // Primera pasada: la pista visible puede haberse montado ya con medidas,
   // pero la otra no, y basta un `update()` para dejarlas coherentes.
   refrescarSwipers()
@@ -117,6 +143,8 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   consulta?.removeEventListener('change', refrescarSwipers)
+  window.removeEventListener('resize', alRedimensionar)
+  if (resizeFrame) cancelAnimationFrame(resizeFrame)
 })
 </script>
 
